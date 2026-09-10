@@ -1,0 +1,1 @@
+C:/Users/Edwin Stangherlin/Desktop/SuperShelving/super-shelving-theme/AGENTS.md
