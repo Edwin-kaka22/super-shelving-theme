@@ -199,18 +199,19 @@
     padding: 0.85rem 2.25rem;
     border: 1px solid #1f2120;
     border-radius: 999px;
-    background-color: #1f2120;
+    background-color: transparent;
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     text-decoration: none;
-    color: #ffffff;
-    transition: filter 0.2s ease;
+    color: #1f2120;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 
   .mdf-spotlight__button:hover {
-    filter: brightness(1.3);
+    background-color: #1f2120;
+    color: #ffffff;
   }
 
   .mdf-spotlight__products {
