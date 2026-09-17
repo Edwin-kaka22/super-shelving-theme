@@ -158,8 +158,8 @@
           "settings": {
             "label": "Corner Junctions",
             "details": "Reinforced corner junctions lock the frame square and stable under load.",
-            "hotspot_x": 83,
-            "hotspot_y": 23,
+            "hotspot_x": 80,
+            "hotspot_y": 20,
             "box_side": "right",
             "box_y": 20
           }
@@ -169,8 +169,8 @@
           "settings": {
             "label": "Diagonal Bracing",
             "details": "X-braced uprights resist racking and twisting for a rigid frame.",
-            "hotspot_x": 23,
-            "hotspot_y": 34,
+            "hotspot_x": 24,
+            "hotspot_y": 28,
             "box_side": "left",
             "box_y": 20
           }
@@ -180,8 +180,8 @@
           "settings": {
             "label": "Strong Uprights",
             "details": "Heavy-duty uprights with reinforced punch-outs give the frame lasting strength and stability.",
-            "hotspot_x": 83,
-            "hotspot_y": 52,
+            "hotspot_x": 80,
+            "hotspot_y": 51,
             "box_side": "right",
             "box_y": 58
           }
@@ -191,8 +191,8 @@
           "settings": {
             "label": "Reinforced Shelves",
             "details": "A reinforced shelf profile adds extra rigidity, keeping every level flat under heavy loads.",
-            "hotspot_x": 46,
-            "hotspot_y": 77,
+            "hotspot_x": 40,
+            "hotspot_y": 76,
             "box_side": "left",
             "box_y": 58
           }
