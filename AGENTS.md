@@ -1487,3 +1487,13 @@ Schema locale files, saved with a .schema.json extension, store translation stri
 {% endschema %}
 ```
 
+
+## Git workflow
+
+This repo is actively worked on from two machines (a desktop during the day, a laptop at night). Keep GitHub in sync so either machine can pull the latest at any time:
+
+- After completing a meaningful change (a section/block edit, asset swap, styling tweak, etc.), stage, commit, and push to `origin/main` without waiting to be asked each time.
+- Use a concise commit message describing what changed.
+- Never force-push; if a push is rejected because remote has newer commits, pull/rebase first rather than overwriting.
+- The `reference-images/` folder is gitignored (raw source photos, not needed for the theme to run) - don't fight the ignore rule.
+- Still ask before any destructive git operation (reset --hard, force-push, discarding uncommitted work).
