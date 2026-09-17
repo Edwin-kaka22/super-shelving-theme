@@ -1,0 +1,170 @@
+{% doc %}
+  Renders a centred FAQ accordion: a heading and optional description above
+  a list of collapsible question/answer rows (add, remove, or reorder
+  `faq-item` blocks in the theme editor).
+
+  @example
+  {% section 'faq' %}
+{% enddoc %}
+
+<div class="faq full-width">
+  <div class="faq__inner">
+    {% if section.settings.eyebrow != blank %}
+      <span class="faq__eyebrow">{{ section.settings.eyebrow }}</span>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="faq__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.settings.description != blank %}
+      <p class="faq__description">{{ section.settings.description }}</p>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <ul class="faq__list" data-faq-list>
+        {% content_for 'blocks' %}
+      </ul>
+    {% endif %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .faq {
+    padding: 4.5rem 0;
+    background-color: #ffffff;
+  }
+
+  .faq__inner {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 var(--page-margin);
+    text-align: center;
+  }
+
+  .faq__eyebrow {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6b6b6e;
+  }
+
+  .faq__heading {
+    margin: 0.6rem 0 0;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #1f2120;
+  }
+
+  .faq__description {
+    margin: 0.9rem 0 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4a4a4d;
+  }
+
+  .faq__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2.5rem 0 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  document.querySelectorAll('[data-faq-list]').forEach(function (list) {
+    list.addEventListener('click', function (event) {
+      var toggle = event.target.closest('[data-faq-toggle]');
+      if (!toggle) return;
+
+      var item = toggle.closest('[data-faq-item]');
+      var isOpen = item.hasAttribute('data-open');
+
+      if (isOpen) {
+        item.removeAttribute('data-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      } else {
+        item.setAttribute('data-open', '');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "t:general.faq",
+  "blocks": [
+    { "type": "faq-item" }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:labels.eyebrow",
+      "default": "FAQ"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Got questions?"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "t:labels.description",
+      "default": "Everything you need to know about delivery, assembly, and warranty."
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.faq",
+      "blocks": [
+        {
+          "type": "faq-item",
+          "settings": {
+            "question": "How much does delivery cost?",
+            "answer": "We offer cheap, fast delivery anywhere in Victoria. Exact rates are calculated at checkout based on your postcode and order size."
+          }
+        },
+        {
+          "type": "faq-item",
+          "settings": {
+            "question": "Can I pick up my order instead?",
+            "answer": "Yes - local pickup is available same-day from our Moonee Ponds warehouse in Melbourne."
+          }
+        },
+        {
+          "type": "faq-item",
+          "settings": {
+            "question": "How hard is assembly?",
+            "answer": "Our rivet shelving units use a tool-free boltless design, so most units can be assembled solo in under 30 minutes. Full step-by-step instructions are available on our Assembly Instructions page."
+          }
+        },
+        {
+          "type": "faq-item",
+          "settings": {
+            "question": "What warranty is included?",
+            "answer": "Every unit is covered by a full 12 month warranty against manufacturing defects."
+          }
+        },
+        {
+          "type": "faq-item",
+          "settings": {
+            "question": "How much weight can each shelf hold?",
+            "answer": "Load capacity varies by range - our steel shelving units hold up to 150kg per shelf, with full specifications listed on each product page."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

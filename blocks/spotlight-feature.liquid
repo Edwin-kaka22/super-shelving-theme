@@ -1,0 +1,106 @@
+{% doc %}
+  Renders a single icon + heading + text feature row. Intended for use
+  inside the `mdf-spotlight` section's feature list.
+
+  @example
+  {% content_for 'block', type: 'spotlight-feature', id: 'spotlight-feature-1' %}
+{% enddoc %}
+
+<li class="spotlight-feature" {{ block.shopify_attributes }}>
+  <div class="spotlight-feature__icon">
+    {% case block.settings.icon %}
+      {% when 'tag' %}
+        {{ 'icon-tag.svg' | inline_asset_content }}
+      {% when 'resize' %}
+        {{ 'icon-resize.svg' | inline_asset_content }}
+      {% when 'adjust' %}
+        {{ 'icon-adjust.svg' | inline_asset_content }}
+    {% endcase %}
+  </div>
+
+  <div class="spotlight-feature__content">
+    {% if block.settings.heading != blank %}
+      <p class="spotlight-feature__heading">{{ block.settings.heading }}</p>
+    {% endif %}
+
+    {% if block.settings.text != blank %}
+      <p class="spotlight-feature__text">{{ block.settings.text }}</p>
+    {% endif %}
+  </div>
+</li>
+
+{% stylesheet %}
+  .spotlight-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    --icon-stroke-width: 1.5;
+  }
+
+  .spotlight-feature__icon {
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 999px;
+    background-color: #f5c02e;
+    color: #1f2120;
+  }
+
+  .spotlight-feature__icon svg {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  .spotlight-feature__heading {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1f2120;
+  }
+
+  .spotlight-feature__text {
+    margin: 0.2rem 0 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #6b6b6e;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.spotlight_feature",
+  "settings": [
+    {
+      "type": "select",
+      "id": "icon",
+      "label": "t:labels.icon",
+      "options": [
+        { "value": "tag", "label": "t:options.icon.tag" },
+        { "value": "resize", "label": "t:options.icon.resize" },
+        { "value": "adjust", "label": "t:options.icon.adjust" }
+      ],
+      "default": "tag"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "t:labels.text",
+      "default": "Supporting text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.spotlight_feature"
+    }
+  ]
+}
+{% endschema %}

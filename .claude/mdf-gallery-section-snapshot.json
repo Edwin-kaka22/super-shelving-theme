@@ -1,0 +1,37 @@
+{
+    "mdf-gallery": {
+      "type": "mdf-gallery",
+      "blocks": {
+        "product-image-1": {
+          "type": "product-image",
+          "settings": {
+            "caption": "150 x 70 x 30cm",
+            "link": "/collections/mdf-shelving-racks"
+          }
+        },
+        "product-image-2": {
+          "type": "product-image",
+          "settings": {
+            "caption": "180 x 90 x 40cm",
+            "link": "/collections/mdf-shelving-racks"
+          }
+        },
+        "product-image-3": {
+          "type": "product-image",
+          "settings": {
+            "caption": "180 x 120 x 45cm",
+            "link": "/collections/mdf-shelving-racks"
+          }
+        },
+        "product-image-4": {
+          "type": "product-image",
+          "settings": {
+            "caption": "180 x 150 x 45cm",
+            "link": "/collections/mdf-shelving-racks"
+          }
+        }
+      },
+      "block_order": ["product-image-1", "product-image-2", "product-image-3", "product-image-4"],
+      "settings": {}
+    }
+}

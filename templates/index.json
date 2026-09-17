@@ -9,12 +9,383 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "hello-world",
+    "announcement-bar": {
+      "type": "announcement-bar",
       "settings": {}
+    },
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "trust-badges": {
+      "type": "trust-badges",
+      "blocks": {
+        "warehouse": {
+          "type": "trust-badge",
+          "settings": {
+            "icon": "pin",
+            "heading": "Local Melbourne Warehouse",
+            "text": "Same-day pickup from Moonee Ponds."
+          }
+        },
+        "delivery": {
+          "type": "trust-badge",
+          "settings": {
+            "icon": "package",
+            "heading": "Victoria Wide Delivery",
+            "text": "Cheap & fast delivery to anywhere in the state."
+          }
+        },
+        "pricing": {
+          "type": "trust-badge",
+          "settings": {
+            "icon": "tag",
+            "heading": "Unbeatable Prices",
+            "text": "We sell direct to the public offering the best prices."
+          }
+        },
+        "warranty": {
+          "type": "trust-badge",
+          "settings": {
+            "icon": "medal",
+            "heading": "Full 12 Months Warranty",
+            "text": "Quality shelving you can count on, year after year."
+          }
+        }
+      },
+      "block_order": ["warehouse", "delivery", "pricing", "warranty"],
+      "settings": {}
+    },
+    "category-grid": {
+      "type": "category-grid",
+      "blocks": {
+        "steel-shelving": {
+          "type": "category-card",
+          "settings": {
+            "name": "Steel Shelving",
+            "description": "Heavy-duty steel shelving built to last.",
+            "link": "/collections/steel-shelving"
+          }
+        },
+        "steel-workbenches": {
+          "type": "category-card",
+          "settings": {
+            "name": "Steel Workbenches",
+            "description": "Sturdy workbenches for garage and warehouse.",
+            "link": "/collections/steel-workbenches"
+          }
+        },
+        "mdf-shelving": {
+          "type": "category-card",
+          "settings": {
+            "name": "MDF Shelving",
+            "description": "Affordable, versatile shelving for the home.",
+            "link": "/collections/mdf-shelving"
+          }
+        },
+        "storage-cabinets": {
+          "type": "category-card",
+          "settings": {
+            "name": "Storage Cabinet",
+            "description": "Secure, lockable storage for tools and stock.",
+            "link": "/collections/storage-cabinet",
+            "coming_soon": true
+          }
+        },
+        "accessories": {
+          "type": "category-card",
+          "settings": {
+            "name": "Mesh Shelving",
+            "description": "Ventilated steel mesh shelving for extra visibility.",
+            "link": "/collections/mesh-shelving",
+            "coming_soon": true
+          }
+        }
+      },
+      "block_order": ["steel-shelving", "steel-workbenches", "mdf-shelving", "storage-cabinets", "accessories"],
+      "settings": {
+        "eyebrow": "Shop by category",
+        "heading": "Find the right storage solution",
+        "description": "Steel, Mesh, or MDF - Find the storage that works for your space."
+      }
+    },
+    "customer-setups": {
+      "type": "customer-setups",
+      "blocks": {
+        "home-garage": {
+          "type": "setup-card",
+          "settings": {
+            "badge": "Home Garage",
+            "heading": "Organised Garage Storage",
+            "description": "Create a clean and organised garage with practical storage solutions designed for tools, equipment and everyday household items.",
+            "button_label": "Shop Setup",
+            "link": "/collections/home-garage"
+          }
+        },
+        "workshop": {
+          "type": "setup-card",
+          "settings": {
+            "badge": "Workshop",
+            "heading": "Professional Workshop Setup",
+            "description": "Build a functional workspace with dedicated solutions for tool organisation, work surfaces and secure equipment storage.",
+            "button_label": "Shop Setup",
+            "link": "/collections/workshop"
+          }
+        },
+        "business-warehouse": {
+          "type": "setup-card",
+          "settings": {
+            "badge": "Business & Warehouse",
+            "heading": "Commercial Storage Solutions",
+            "description": "Optimise commercial & warehouse spaces with scalable storage solutions designed for inventory, documents and operational equipment.",
+            "button_label": "Shop Setup",
+            "link": "/collections/business-warehouse"
+          }
+        }
+      },
+      "block_order": ["home-garage", "workshop", "business-warehouse"],
+      "settings": {
+        "eyebrow": "Real setups, Australia",
+        "heading": "One system, every space",
+        "description": "Home garages, workshops and warehouses — see the full kit behind each setup."
+      }
+    },
+    "rack-features": {
+      "type": "rack-features",
+      "blocks": {
+        "junction": {
+          "type": "rack-feature",
+          "settings": {
+            "label": "Corner Junctions",
+            "details": "Reinforced corner junctions lock the frame square and stable under load.",
+            "hotspot_x": 83,
+            "hotspot_y": 23,
+            "box_side": "right",
+            "box_y": 20
+          }
+        },
+        "diagonal-brace": {
+          "type": "rack-feature",
+          "settings": {
+            "label": "Diagonal Bracing",
+            "details": "X-braced uprights resist racking and twisting for a rigid frame.",
+            "hotspot_x": 23,
+            "hotspot_y": 34,
+            "box_side": "left",
+            "box_y": 20
+          }
+        },
+        "beam": {
+          "type": "rack-feature",
+          "settings": {
+            "label": "Strong Uprights",
+            "details": "Heavy-duty uprights with reinforced punch-outs give the frame lasting strength and stability.",
+            "hotspot_x": 83,
+            "hotspot_y": 52,
+            "box_side": "right",
+            "box_y": 58
+          }
+        },
+        "adjustable-feet": {
+          "type": "rack-feature",
+          "settings": {
+            "label": "Reinforced Shelves",
+            "details": "A reinforced shelf profile adds extra rigidity, keeping every level flat under heavy loads.",
+            "hotspot_x": 46,
+            "hotspot_y": 77,
+            "box_side": "left",
+            "box_y": 58
+          }
+        }
+      },
+      "block_order": ["junction", "diagonal-brace", "beam", "adjustable-feet"],
+      "settings": {
+        "eyebrow": "",
+        "heading": "Premium Quality, built to last.",
+        "description": "View each section of our best seller:",
+        "button_label": "Shop Now"
+      }
+    },
+    "mdf-spotlight": {
+      "type": "mdf-spotlight",
+      "blocks": {
+        "budget-friendly": {
+          "type": "spotlight-feature",
+          "settings": {
+            "icon": "tag",
+            "heading": "Budget-friendly",
+            "text": "Quality shelving at a price that works for any budget."
+          }
+        },
+        "multiple-sizes": {
+          "type": "spotlight-feature",
+          "settings": {
+            "icon": "resize",
+            "heading": "Multiple sizes",
+            "text": "Choose from a range of widths and heights to suit your space."
+          }
+        },
+        "adjustable-shelves": {
+          "type": "spotlight-feature",
+          "settings": {
+            "icon": "adjust",
+            "heading": "Adjustable shelves",
+            "text": "Reposition shelf heights any time as your storage needs change."
+          }
+        }
+      },
+      "block_order": ["budget-friendly", "multiple-sizes", "adjustable-shelves"],
+      "settings": {
+        "eyebrow": "MDF Shelving",
+        "heading": "Affordable storage that fits any space",
+        "description": "Our MDF shelving combines budget-friendly pricing with real flexibility - available in a range of sizes, with fully adjustable shelf heights, so you can build the exact setup your space needs.",
+        "caption_1": "150 x 70 x 30cm",
+        "price_1": "$49.99",
+        "link_1": "/products/mdf-rivet-shelving-rack-150x70x30cm",
+        "caption_2": "180 x 90 x 40cm",
+        "price_2": "$59.99",
+        "link_2": "/products/mdf-rivet-shelving-rack-180x90x40cm",
+        "caption_3": "180 x 120 x 45cm",
+        "price_3": "$89.99",
+        "link_3": "/products/mdf-rivet-shelving-rack-180x120x45cm",
+        "caption_4": "180 x 150 x 45cm",
+        "price_4": "$119.99",
+        "link_4": "/products/mdf-rivet-shelving-rack-180x150x45cm",
+        "button_label": "Shop MDF Shelving",
+        "button_link": "/collections/mdf-shelving"
+      }
+    },
+    "google-reviews": {
+      "type": "google-reviews",
+      "blocks": {
+        "review-1": {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "Sarah M.",
+            "review_date": "2 weeks ago",
+            "rating": 5,
+            "review_text": "Amazing quality shelving, exactly what I needed for my garage. Delivery was quick and the team were super helpful."
+          }
+        },
+        "review-2": {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "James T.",
+            "review_date": "1 month ago",
+            "rating": 5,
+            "review_text": "Great value for money and really sturdy once assembled. Would definitely buy from Super Shelving again."
+          }
+        },
+        "review-3": {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "Priya K.",
+            "review_date": "1 month ago",
+            "rating": 4,
+            "review_text": "Good range of sizes to choose from and the adjustable shelves make it easy to fit anything. Very happy with the purchase."
+          }
+        },
+        "review-4": {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "Daniel R.",
+            "review_date": "2 months ago",
+            "rating": 5,
+            "review_text": "Local pickup was easy and fast. The shelving is exactly as described and looks great in the workshop."
+          }
+        },
+        "review-5": {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "Michael B.",
+            "review_date": "3 months ago",
+            "rating": 5,
+            "review_text": "Excellent customer service from start to finish. The racks look fantastic in my workshop and hold way more than I expected."
+          }
+        },
+        "review-6": {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "Emma L.",
+            "review_date": "3 months ago",
+            "rating": 4,
+            "review_text": "Really solid build quality and easy to put together. Just wish there were a couple more colour options available."
+          }
+        },
+        "review-7": {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "Chris H.",
+            "review_date": "4 months ago",
+            "rating": 5,
+            "review_text": "Ordered a second unit after how happy we were with the first. Great communication and fast Melbourne delivery."
+          }
+        }
+      },
+      "block_order": ["review-1", "review-2", "review-3", "review-4", "review-5", "review-6", "review-7"],
+      "settings": {
+        "heading": "What our customers say",
+        "average_rating": "4.9",
+        "review_count": "200",
+        "button_label": "Read all reviews on Google"
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "delivery": {
+          "type": "faq-item",
+          "settings": {
+            "question": "How much does delivery cost?",
+            "answer": "We offer cheap, fast delivery anywhere in Victoria. Exact rates are calculated at checkout based on your postcode and order size."
+          }
+        },
+        "pickup": {
+          "type": "faq-item",
+          "settings": {
+            "question": "Can I pick up my order instead?",
+            "answer": "Yes - local pickup is available same-day from our Moonee Ponds warehouse in Melbourne."
+          }
+        },
+        "assembly": {
+          "type": "faq-item",
+          "settings": {
+            "question": "How hard is assembly?",
+            "answer": "Our rivet shelving units use a tool-free boltless design, so most units can be assembled solo in under 30 minutes. Full step-by-step instructions are available on our Assembly Instructions page."
+          }
+        },
+        "warranty": {
+          "type": "faq-item",
+          "settings": {
+            "question": "What warranty is included?",
+            "answer": "Every unit is covered by a full 12 month warranty against manufacturing defects."
+          }
+        },
+        "load-capacity": {
+          "type": "faq-item",
+          "settings": {
+            "question": "How much weight can each shelf hold?",
+            "answer": "Load capacity varies by range - our steel shelving units hold up to 150kg per shelf, with full specifications listed on each product page."
+          }
+        }
+      },
+      "block_order": ["delivery", "pickup", "assembly", "warranty", "load-capacity"],
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Got questions?",
+        "description": "Everything you need to know about delivery, assembly, and warranty."
+      }
     }
   },
   "order": [
-    "main"
+    "announcement-bar",
+    "hero",
+    "trust-badges",
+    "category-grid",
+    "google-reviews",
+    "mdf-spotlight",
+    "customer-setups",
+    "rack-features",
+    "faq"
   ]
 }

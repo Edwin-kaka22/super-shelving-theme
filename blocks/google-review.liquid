@@ -1,0 +1,221 @@
+{% doc %}
+  Renders a single customer review card: a star rating, the review text,
+  the reviewer's name, and how long ago it was posted. Intended for use
+  inside the `google-reviews` section.
+
+  @example
+  {% content_for 'block', type: 'google-review', id: 'google-review-1' %}
+{% enddoc %}
+
+<div class="google-review" {{ block.shopify_attributes }}>
+  <div class="google-review__header">
+    <div class="google-review__avatar-wrap">
+      <div class="google-review__avatar">
+        {% if block.settings.avatar %}
+          <img
+            src="{{ block.settings.avatar | image_url: width: 80 }}"
+            alt="{{ block.settings.reviewer_name }}"
+            loading="lazy"
+          >
+        {% else %}
+          <span class="google-review__avatar-initial">{{ block.settings.reviewer_name | slice: 0 }}</span>
+        {% endif %}
+      </div>
+
+      <span class="google-review__avatar-badge">
+        {{ 'icon-google.svg' | inline_asset_content }}
+      </span>
+    </div>
+
+    <div class="google-review__author">
+      {% if block.settings.reviewer_name != blank %}
+        <span class="google-review__name">
+          {{ block.settings.reviewer_name }}
+          <svg class="google-review__verified" viewBox="0 0 24 24" aria-label="Verified">
+            <path fill="#1a73e8" d="m12 2-2.72 2.13-3.78-.13-.5 3.78L2 9.5 4 12l-2 2.5 3 1.72.5 3.78 3.78-.13L12 22l2.72-2.13 3.78.13.5-3.78L22 14.5 20 12l2-2.5-3-1.72-.5-3.78-3.78.13z"/>
+            <path d="m8.5 12.2 2.4 2.4 4.6-4.9" stroke="#ffffff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      {% endif %}
+
+      {% if block.settings.review_date != blank %}
+        <span class="google-review__date">{{ block.settings.review_date }}</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="google-review__stars" aria-label="{{ block.settings.rating }} out of 5 stars">
+    {% for i in (1..5) %}
+      <svg class="google-review__star{% if i > block.settings.rating %} google-review__star--empty{% endif %}" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M10 1.5l2.59 5.25 5.79.84-4.19 4.09.99 5.77L10 14.77l-5.18 2.68.99-5.77-4.19-4.09 5.79-.84L10 1.5z"/>
+      </svg>
+    {% endfor %}
+  </div>
+
+  {% if block.settings.review_text != blank %}
+    <p class="google-review__text">{{ block.settings.review_text }}</p>
+  {% endif %}
+</div>
+
+{% stylesheet %}
+  .google-review {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+
+  .google-review__header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .google-review__avatar-wrap {
+    position: relative;
+    flex: none;
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .google-review__avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 999px;
+    overflow: hidden;
+    background-color: #f5c02e;
+    color: #1f2120;
+  }
+
+  .google-review__avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .google-review__avatar-initial {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .google-review__avatar-badge {
+    position: absolute;
+    right: -0.1rem;
+    bottom: -0.1rem;
+    display: flex;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 999px;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 1.5px #ffffff;
+  }
+
+  .google-review__avatar-badge svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .google-review__author {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .google-review__name {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1f2120;
+  }
+
+  .google-review__verified {
+    flex: none;
+    width: 0.85rem;
+    height: 0.85rem;
+  }
+
+  .google-review__date {
+    margin-top: 0.15rem;
+    font-size: 0.78rem;
+    color: #9a9a9d;
+  }
+
+  .google-review__stars {
+    display: flex;
+    gap: 0;
+    margin-top: 1rem;
+  }
+
+  .google-review__star {
+    width: 1.1rem;
+    height: 1.1rem;
+    margin: 0 -0.05rem;
+    color: #f5c02e;
+  }
+
+  .google-review__star--empty {
+    color: #e5e5e7;
+  }
+
+  .google-review__text {
+    margin: 0.75rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #4a4a4d;
+    flex: 1;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.google_review",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "avatar",
+      "label": "t:labels.avatar"
+    },
+    {
+      "type": "text",
+      "id": "reviewer_name",
+      "label": "t:labels.reviewer_name",
+      "default": "Customer name"
+    },
+    {
+      "type": "text",
+      "id": "review_date",
+      "label": "t:labels.review_date",
+      "default": "2 weeks ago"
+    },
+    {
+      "type": "range",
+      "id": "rating",
+      "label": "t:labels.rating",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "textarea",
+      "id": "review_text",
+      "label": "t:labels.review_text",
+      "default": "Great quality shelving and fast delivery. Would definitely recommend to anyone needing extra storage space."
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.google_review"
+    }
+  ]
+}
+{% endschema %}

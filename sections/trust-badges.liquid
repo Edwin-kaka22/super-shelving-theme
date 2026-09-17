@@ -1,0 +1,76 @@
+{% doc %}
+  Renders a row of trust badge cards, typically placed directly below the
+  hero banner. Add, remove, or reorder `trust-badge` blocks in the theme
+  editor to customize the badges shown.
+
+  @example
+  {% section 'trust-badges' %}
+{% enddoc %}
+
+<div class="trust-badges">
+  <div class="trust-badges__grid">
+    {% content_for 'blocks' %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .trust-badges {
+    padding: 2.5rem 0;
+  }
+
+  .trust-badges__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.trust_badges",
+  "blocks": [
+    { "type": "trust-badge" }
+  ],
+  "settings": [],
+  "presets": [
+    {
+      "name": "t:general.trust_badges",
+      "blocks": [
+        {
+          "type": "trust-badge",
+          "settings": {
+            "icon": "pin",
+            "heading": "Local Melbourne Warehouse",
+            "text": "Same-day pickup from Moonee Ponds."
+          }
+        },
+        {
+          "type": "trust-badge",
+          "settings": {
+            "icon": "package",
+            "heading": "Victoria Wide Delivery",
+            "text": "Cheap & fast delivery to anywhere in the state."
+          }
+        },
+        {
+          "type": "trust-badge",
+          "settings": {
+            "icon": "tag",
+            "heading": "Unbeatable Prices",
+            "text": "We sell direct to the public offering the best prices."
+          }
+        },
+        {
+          "type": "trust-badge",
+          "settings": {
+            "icon": "medal",
+            "heading": "Full 12 Months Warranty",
+            "text": "Quality shelving you can count on, year after year."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

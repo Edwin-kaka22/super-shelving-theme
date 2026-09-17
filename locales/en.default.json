@@ -1,4 +1,17 @@
 {
+  "general": {
+    "coming_soon": "Coming soon",
+    "based_on_reviews": "Based on {{ count }} Google reviews",
+    "previous": "Previous",
+    "next": "Next",
+    "shop": "Shop",
+    "support": "Support",
+    "info": "Info",
+    "policies": "Policies"
+  },
+  "labels": {
+    "abn": "ABN"
+  },
   "404": {
     "title": "404",
     "not_found": "Page not found.",

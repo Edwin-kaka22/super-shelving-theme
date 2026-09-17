@@ -1,0 +1,197 @@
+{% doc %}
+  Renders a full-width hero banner with a background image (or an optional
+  looping background video) and a left-aligned text overlay made up of a
+  heading, a subheading, and a button.
+
+  When `video` is set, it takes priority over `background_image`. Until a
+  merchant uploads their own background image, `hero-placeholder.png` is
+  used so the section always renders with content.
+
+  @example
+  {% section 'hero' %}
+{% enddoc %}
+
+<div class="hero full-width">
+  <div class="hero__media">
+    {% if section.settings.video != blank %}
+      {{
+        section.settings.video
+        | video_tag: image_size: '2000x', autoplay: true, loop: true, muted: true, controls: false
+      }}
+    {% elsif section.settings.background_image %}
+      {{
+        section.settings.background_image
+        | image_url: width: 2000
+        | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '100vw'
+      }}
+    {% else %}
+      <img
+        src="{{ 'hero-placeholder.png' | asset_url }}"
+        alt=""
+        loading="eager"
+        fetchpriority="high"
+      >
+    {% endif %}
+  </div>
+
+  <div class="hero__content">
+    {% if section.settings.heading != blank %}
+      <h1 class="hero__heading">{{ section.settings.heading }}</h1>
+    {% endif %}
+
+    {% if section.settings.subheading != blank %}
+      <p class="hero__subheading">{{ section.settings.subheading }}</p>
+    {% endif %}
+
+    {% if section.settings.button_label != blank %}
+      <a href="{{ section.settings.button_link | default: '#' }}" class="hero__button">
+        {{ section.settings.button_label }}
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    color: #ffffff;
+  }
+
+  .hero__media {
+    position: relative;
+    line-height: 0;
+  }
+
+  .hero__media img,
+  .hero__media video {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .hero__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.08) 55%, rgba(0, 0, 0, 0) 80%);
+  }
+
+  .hero__content {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    max-width: 40rem;
+    padding: 0 5vw 9rem;
+  }
+
+  .hero__heading {
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.85rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+
+  .hero__subheading {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+  }
+
+  .hero__button {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    margin-top: 1.25rem;
+    padding: 0.85rem 2rem;
+    background-color: #f5c02e;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .hero__button:hover {
+    transform: translateY(-2px);
+  }
+
+  .hero__button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-20deg);
+  }
+
+  .hero__button:hover::before {
+    animation: hero-button-shine 0.9s ease forwards;
+  }
+
+  @keyframes hero-button-shine {
+    from {
+      left: -75%;
+    }
+    to {
+      left: 125%;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "t:labels.background"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "t:labels.video",
+      "info": "t:labels.video_info"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "MORE ROOM. LESS MESS."
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:labels.subheading",
+      "default": "Quality storage solutions for every space - Homes, Workshops, Businesses & beyond."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:labels.button_label",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:labels.button_link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.hero"
+    }
+  ]
+}
+{% endschema %}

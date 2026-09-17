@@ -1,0 +1,215 @@
+{% doc %}
+  Renders a single category card: an image, a name and a short description,
+  linking through to a collection or page. Intended for use inside the
+  `category-grid` section.
+
+  Until a merchant assigns their own image, one of five reference photos is
+  shown based on the card's `name` (Steel Shelving, Steel Workbenches, MDF
+  Shelving, Storage Cabinet, Mesh Shelving). Any other name shows no image.
+
+  @example
+  {% content_for 'block', type: 'category-card', id: 'category-card-1' %}
+{% enddoc %}
+
+{% liquid
+  if block.settings.coming_soon
+    assign wrapper = 'div'
+  else
+    assign wrapper = 'a'
+  endif
+%}
+<{{ wrapper }}
+  {% unless block.settings.coming_soon %}
+    href="{{ block.settings.link | default: '#' }}"
+  {% endunless %}
+  class="category-card{% if block.settings.coming_soon %} category-card--disabled{% endif %}"
+  {{ block.shopify_attributes }}
+>
+  <div class="category-card__image">
+    {% if block.settings.coming_soon %}
+      <span class="category-card__badge">{{ 'general.coming_soon' | t }}</span>
+    {% endif %}
+
+    {% if block.settings.image %}
+      {{ block.settings.image | image_url: width: 500 | image_tag: loading: 'lazy' }}
+    {% else %}
+      {% case block.settings.name %}
+        {% when 'Steel Shelving' %}
+          <img src="{{ 'category-steel-shelving.webp' | asset_url }}" alt="{{ block.settings.name }}" loading="lazy">
+        {% when 'Steel Workbenches' %}
+          <img src="{{ 'category-steel-workbenches.webp' | asset_url }}" alt="{{ block.settings.name }}" loading="lazy">
+        {% when 'MDF Shelving' %}
+          <img src="{{ 'category-mdf-shelving.webp' | asset_url }}" alt="{{ block.settings.name }}" loading="lazy">
+        {% when 'Storage Cabinet' %}
+          <img src="{{ 'category-storage-cabinet.webp' | asset_url }}" alt="{{ block.settings.name }}" loading="lazy">
+        {% when 'Mesh Shelving' %}
+          <img src="{{ 'category-mesh-shelving.webp' | asset_url }}" alt="{{ block.settings.name }}" loading="lazy">
+      {% endcase %}
+    {% endif %}
+  </div>
+
+  {% if block.settings.name != blank %}
+    <p class="category-card__name">{{ block.settings.name }}</p>
+  {% endif %}
+
+  {% if block.settings.description != blank %}
+    <p class="category-card__description">{{ block.settings.description }}</p>
+  {% endif %}
+
+  {% if block.settings.coming_soon %}
+    <span class="category-card__button category-card__button--disabled">{{ 'general.coming_soon' | t }}</span>
+  {% elsif block.settings.button_label != blank %}
+    <span class="category-card__button">{{ block.settings.button_label }}</span>
+  {% endif %}
+</{{ wrapper }}>
+
+{% stylesheet %}
+  .category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 15.5rem;
+    text-align: center;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .category-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .category-card--disabled {
+    cursor: default;
+  }
+
+  .category-card--disabled:hover {
+    transform: none;
+  }
+
+  .category-card__image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #f4f4f5;
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .category-card__badge {
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+    z-index: 1;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background-color: #f5c02e;
+    color: #1a1a1a;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .category-card__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .category-card:hover .category-card__image img {
+    transform: scale(1.03);
+  }
+
+  .category-card__name {
+    margin: 1.1rem 0 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-style: italic;
+    text-transform: uppercase;
+    color: #1f2120;
+  }
+
+  .category-card__description {
+    margin: 0.35rem 0 0;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: #6b6b6e;
+  }
+
+  .category-card__button {
+    display: inline-block;
+    margin-top: 0.9rem;
+    padding: 0.4rem 1.15rem;
+    border: 1px solid #1f2120;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #1f2120;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .category-card__button--disabled {
+    border-color: #c9c9cb;
+    color: #9a9a9d;
+  }
+
+  .category-card:hover .category-card__button:not(.category-card__button--disabled) {
+    background-color: #1f2120;
+    color: #ffffff;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.category_card",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:labels.image"
+    },
+    {
+      "type": "text",
+      "id": "name",
+      "label": "t:labels.name",
+      "default": "Category"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "t:labels.description",
+      "default": "Short description"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:labels.button_label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "t:labels.link"
+    },
+    {
+      "type": "checkbox",
+      "id": "coming_soon",
+      "label": "t:labels.coming_soon",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.category_card"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,144 @@
+{% doc %}
+  Renders a "browse by category" section: a small eyebrow label, a heading,
+  a line of supporting copy, and a row of category cards. Add, remove, or
+  reorder `category-card` blocks in the theme editor to customize the
+  categories shown.
+
+  @example
+  {% section 'category-grid' %}
+{% enddoc %}
+
+<div class="category-grid">
+  <div class="category-grid__intro">
+    {% if section.settings.eyebrow != blank %}
+      <span class="category-grid__eyebrow">{{ section.settings.eyebrow }}</span>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="category-grid__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.settings.description != blank %}
+      <p class="category-grid__description">{{ section.settings.description }}</p>
+    {% endif %}
+  </div>
+
+  <div class="category-grid__row">
+    {% content_for 'blocks' %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .category-grid {
+    padding: 3.5rem 0;
+    text-align: center;
+  }
+
+  .category-grid__eyebrow {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6b6b6e;
+  }
+
+  .category-grid__heading {
+    margin: 0.6rem 0 0;
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #1f2120;
+  }
+
+  .category-grid__description {
+    margin: 0.6rem 0 0;
+    font-size: 1rem;
+    color: #6b6b6e;
+  }
+
+  .category-grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.75rem;
+    margin-top: 2.75rem;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.category_grid",
+  "blocks": [
+    { "type": "category-card" }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:labels.eyebrow",
+      "default": "Shop by category"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Find the right storage solution"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "t:labels.description",
+      "default": "Steel, Mesh, or MDF - Find the storage that works for your space."
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.category_grid",
+      "blocks": [
+        {
+          "type": "category-card",
+          "settings": {
+            "name": "Steel Shelving",
+            "description": "Heavy-duty steel shelving built to last.",
+            "link": "\/collections\/steel-shelving"
+          }
+        },
+        {
+          "type": "category-card",
+          "settings": {
+            "name": "Steel Workbenches",
+            "description": "Sturdy workbenches for garage and warehouse.",
+            "link": "\/collections\/steel-workbenches"
+          }
+        },
+        {
+          "type": "category-card",
+          "settings": {
+            "name": "MDF Shelving",
+            "description": "Affordable, versatile shelving for the home.",
+            "link": "\/collections\/mdf-shelving"
+          }
+        },
+        {
+          "type": "category-card",
+          "settings": {
+            "name": "Storage Cabinet",
+            "description": "Secure, lockable storage for tools and stock.",
+            "link": "\/collections\/storage-cabinet"
+          }
+        },
+        {
+          "type": "category-card",
+          "settings": {
+            "name": "Mesh Shelving",
+            "description": "Ventilated steel mesh shelving for extra visibility.",
+            "link": "\/collections\/mesh-shelving"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

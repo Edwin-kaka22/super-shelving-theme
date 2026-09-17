@@ -1,0 +1,147 @@
+{% doc %}
+  Renders a "customer setups" section: an eyebrow, heading, description, and
+  a row of setup cards (photo, badge, heading, description, a feature list,
+  and a link through to a shoppable collection). Add, remove, or reorder
+  `setup-card` blocks in the theme editor to customize the setups shown.
+
+  @example
+  {% section 'customer-setups' %}
+{% enddoc %}
+
+<div class="customer-setups full-width">
+  <div class="customer-setups__inner">
+    <div class="customer-setups__intro">
+      {% if section.settings.eyebrow != blank %}
+        <span class="customer-setups__eyebrow">{{ section.settings.eyebrow }}</span>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h2 class="customer-setups__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <p class="customer-setups__description">{{ section.settings.description }}</p>
+      {% endif %}
+    </div>
+
+    <div class="customer-setups__row">
+      {% content_for 'blocks' %}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .customer-setups {
+    background-color: #f4f4f5;
+    padding: 4rem 0;
+  }
+
+  .customer-setups__inner {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 var(--page-margin);
+  }
+
+  .customer-setups__intro {
+    max-width: 40rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .customer-setups__eyebrow {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6b6b6e;
+  }
+
+  .customer-setups__heading {
+    margin: 0.6rem 0 0;
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #1f2120;
+  }
+
+  .customer-setups__description {
+    margin: 0.6rem 0 0;
+    font-size: 1rem;
+    color: #6b6b6e;
+  }
+
+  .customer-setups__row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.75rem;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.customer_setups",
+  "blocks": [
+    { "type": "setup-card" }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:labels.eyebrow",
+      "default": "Real setups, Australia"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "One system, every space"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "t:labels.description",
+      "default": "Home garages, workshops and warehouses — see the full kit behind each setup."
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.customer_setups",
+      "blocks": [
+        {
+          "type": "setup-card",
+          "settings": {
+            "badge": "Home Garage",
+            "heading": "Organised Garage Storage",
+            "description": "Create a clean and organised garage with practical storage solutions designed for tools, equipment and everyday household items.",
+            "button_label": "Shop Setup",
+            "link": "\/collections\/home-garage"
+          }
+        },
+        {
+          "type": "setup-card",
+          "settings": {
+            "badge": "Workshop",
+            "heading": "Professional Workshop Setup",
+            "description": "Build a functional workspace with dedicated solutions for tool organisation, work surfaces and secure equipment storage.",
+            "button_label": "Shop Setup",
+            "link": "\/collections\/workshop"
+          }
+        },
+        {
+          "type": "setup-card",
+          "settings": {
+            "badge": "Business & Warehouse",
+            "heading": "Commercial Storage Solutions",
+            "description": "Optimise commercial & warehouse spaces with scalable storage solutions designed for inventory, documents and operational equipment.",
+            "button_label": "Shop Setup",
+            "link": "\/collections\/business-warehouse"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

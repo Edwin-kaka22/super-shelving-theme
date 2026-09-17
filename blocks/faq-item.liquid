@@ -1,0 +1,115 @@
+{% doc %}
+  Renders a single collapsible question/answer row for the `faq` section's
+  accordion list.
+
+  @example
+  {% content_for 'block', type: 'faq-item', id: 'faq-item-1' %}
+{% enddoc %}
+
+<li class="faq-item" data-faq-item {{ block.shopify_attributes }}>
+  <button
+    class="faq-item__question"
+    type="button"
+    aria-expanded="false"
+    data-faq-toggle
+  >
+    <span>{{ block.settings.question }}</span>
+    <svg class="faq-item__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 7l6 6 6-6"></path>
+    </svg>
+  </button>
+
+  <div class="faq-item__answer-wrap">
+    <div class="faq-item__answer-inner">
+      <p class="faq-item__answer">{{ block.settings.answer }}</p>
+    </div>
+  </div>
+</li>
+
+{% stylesheet %}
+  .faq-item {
+    background-color: #f7f7f8;
+    border: 1px solid #e5e5e7;
+    border-radius: 0.85rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .faq-item[data-open] {
+    background-color: #ffffff;
+  }
+
+  .faq-item__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1f2120;
+    cursor: pointer;
+  }
+
+  .faq-item__icon {
+    flex: none;
+    width: 1.1rem;
+    height: 1.1rem;
+    color: #6b6b6e;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[data-open] .faq-item__icon {
+    transform: rotate(180deg);
+  }
+
+  .faq-item__answer-wrap {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+  }
+
+  .faq-item[data-open] .faq-item__answer-wrap {
+    grid-template-rows: 1fr;
+  }
+
+  .faq-item__answer-inner {
+    overflow: hidden;
+  }
+
+  .faq-item__answer {
+    margin: 0;
+    padding: 0 1.5rem 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #4a4a4d;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.faq_item",
+  "settings": [
+    {
+      "type": "text",
+      "id": "question",
+      "label": "t:labels.question",
+      "default": "Question"
+    },
+    {
+      "type": "textarea",
+      "id": "answer",
+      "label": "t:labels.answer",
+      "default": "Answer"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.faq_item"
+    }
+  ]
+}
+{% endschema %}

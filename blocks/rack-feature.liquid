@@ -1,0 +1,266 @@
+{% doc %}
+  Renders one feature on the `rack-features` diagram: a hotspot dot on the
+  photo, a line running out to a labelled info box at the side, and the
+  box itself. Fully self-contained — it positions everything from its own
+  settings alone, with no data from sibling blocks or the parent section,
+  because Shopify only resolves a block's settings when it renders through
+  `{% content_for 'blocks' %}`, not when a parent section reads
+  `section.blocks` directly.
+
+  Renders as an absolutely-positioned overlay the exact size of the parent
+  `.rack-features__diagram` element, so `hotspot_x`/`hotspot_y` (position
+  on the photo itself) are converted to diagram-relative percentages using
+  the photo's fixed position within that diagram (see the `image_*`
+  constants below, which must match the CSS in `sections/rack-features.liquid`).
+
+  @example
+  {% content_for 'block', type: 'rack-feature', id: 'rack-feature-1' %}
+{% enddoc %}
+
+{% liquid
+  assign image_left = 22
+  assign image_top = 3
+  assign image_width = 56
+  assign image_height = 74.67
+
+  assign hotspot_diagram_x = block.settings.hotspot_x | times: image_width | divided_by: 100.0 | plus: image_left
+  assign hotspot_diagram_y = block.settings.hotspot_y | times: image_height | divided_by: 100.0 | plus: image_top
+
+  if block.settings.box_side == 'right'
+    assign line_x = 84
+  else
+    assign line_x = 16
+  endif
+%}
+
+<div class="rack-feature" {{ block.shopify_attributes }}>
+  <span
+    class="rack-feature__hotspot"
+    style="left: {{ hotspot_diagram_x }}%; top: {{ hotspot_diagram_y }}%;"
+  ></span>
+
+  <svg class="rack-feature__line" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <line
+      x1="{{ hotspot_diagram_x }}"
+      y1="{{ hotspot_diagram_y }}"
+      x2="{{ line_x }}"
+      y2="{{ block.settings.box_y }}"
+      vector-effect="non-scaling-stroke"
+    />
+  </svg>
+
+  <div class="rack-feature__box rack-feature__box--{{ block.settings.box_side }}" style="top: {{ block.settings.box_y }}%;">
+    <div class="rack-feature__box-image">
+      {% if block.settings.image %}
+        <img
+          src="{{ block.settings.image | image_url: width: 300 }}"
+          alt="{{ block.settings.label }}"
+          loading="lazy"
+        >
+      {% else %}
+        {% case block.settings.label %}
+          {% when 'Corner Junctions' %}
+            <img src="{{ 'rack-feature-beam.jpg' | asset_url }}" alt="{{ block.settings.label }}" loading="lazy">
+          {% when 'Diagonal Bracing' %}
+            <img src="{{ 'rack-feature-junction.jpg' | asset_url }}" alt="{{ block.settings.label }}" loading="lazy">
+          {% when 'Strong Uprights' %}
+            <img src="{{ 'rack-feature-diagonal-brace.jpg' | asset_url }}" alt="{{ block.settings.label }}" loading="lazy">
+          {% when 'Reinforced Shelves' %}
+            <img src="{{ 'rack-feature-reinforced-shelf.jpg' | asset_url }}" alt="{{ block.settings.label }}" loading="lazy">
+          {% else %}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+              <circle cx="8.5" cy="9.5" r="1.5"></circle>
+              <path d="M21 15l-5-5L5 21"></path>
+            </svg>
+        {% endcase %}
+      {% endif %}
+    </div>
+
+    <div class="rack-feature__box-content">
+      {% if block.settings.label != blank %}
+        <span class="rack-feature__label">{{ block.settings.label }}</span>
+      {% endif %}
+
+      {% if block.settings.details != blank %}
+        <p class="rack-feature__details">{{ block.settings.details }}</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .rack-feature {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .rack-feature__hotspot {
+    position: absolute;
+    z-index: 2;
+    width: 0.8rem;
+    height: 0.8rem;
+    transform: translate(-50%, -50%);
+    border-radius: 999px;
+    background-color: #f5c02e;
+    border: 2px solid #1f2120;
+  }
+
+  .rack-feature__line {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .rack-feature__line line {
+    stroke: #1f2120;
+    stroke-width: 1.5px;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.6));
+  }
+
+  .rack-feature__box {
+    position: absolute;
+    z-index: 1;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(-50%);
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #1f2120;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+    pointer-events: auto;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .rack-feature__box:hover {
+    transform: translateY(calc(-50% - 4px));
+  }
+
+  .rack-feature__box--left {
+    left: 0;
+  }
+
+  .rack-feature__box--right {
+    right: 0;
+  }
+
+  .rack-feature__box-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: #e5e5e7;
+    color: #9a9a9d;
+  }
+
+  .rack-feature__box-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .rack-feature__box-image svg {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+
+  .rack-feature__box-content {
+    padding: 0.35rem 0.6rem 0.5rem;
+  }
+
+  .rack-feature__label {
+    display: inline-block;
+    margin-bottom: 0.4rem;
+    padding-bottom: 0.2rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #1f2120;
+    border-bottom: 2px solid #f5c02e;
+  }
+
+  .rack-feature__details {
+    margin: 0;
+    font-size: 0.76rem;
+    line-height: 1.4;
+    color: #1f2120;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.rack_feature",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:labels.image"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "t:labels.label",
+      "default": "Feature"
+    },
+    {
+      "type": "textarea",
+      "id": "details",
+      "label": "t:labels.details",
+      "default": "More detail about this feature."
+    },
+    {
+      "type": "range",
+      "id": "hotspot_x",
+      "label": "t:labels.hotspot_x",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "hotspot_y",
+      "label": "t:labels.hotspot_y",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "select",
+      "id": "box_side",
+      "label": "t:labels.box_side",
+      "options": [
+        { "value": "left", "label": "t:options.side.left" },
+        { "value": "right", "label": "t:options.side.right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "box_y",
+      "label": "t:labels.box_y",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 50
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.rack_feature"
+    }
+  ]
+}
+{% endschema %}

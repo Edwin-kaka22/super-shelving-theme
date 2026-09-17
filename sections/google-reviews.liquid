@@ -1,0 +1,350 @@
+{% doc %}
+  Renders a Google reviews section: a centred intro with the Google logo,
+  average rating and review count, then a grid of individual review cards.
+  Add, remove, or reorder `google-review` blocks in the theme editor to
+  manage which reviews are shown.
+
+  @example
+  {% section 'google-reviews' %}
+{% enddoc %}
+
+<div class="google-reviews full-width">
+  <div class="google-reviews__inner">
+    <div class="google-reviews__intro">
+      {{ 'icon-google.svg' | inline_asset_content }}
+
+      {% if section.settings.heading != blank %}
+        <h2 class="google-reviews__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+
+      {% if section.settings.average_rating != blank %}
+        <div class="google-reviews__summary">
+          <span class="google-reviews__rating">{{ section.settings.average_rating }}</span>
+
+          <div class="google-reviews__stars">
+            {% assign full_stars = section.settings.average_rating | round %}
+            {% for i in (1..5) %}
+              <svg class="google-reviews__star{% if i > full_stars %} google-reviews__star--empty{% endif %}" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10 1.5l2.59 5.25 5.79.84-4.19 4.09.99 5.77L10 14.77l-5.18 2.68.99-5.77-4.19-4.09 5.79-.84L10 1.5z"/>
+              </svg>
+            {% endfor %}
+          </div>
+
+          {% if section.settings.review_count != blank %}
+            <span class="google-reviews__count">{{ 'general.based_on_reviews' | t: count: section.settings.review_count }}</span>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if section.settings.button_label != blank %}
+        <a href="{{ section.settings.google_link | default: '#' }}" class="google-reviews__button" target="_blank" rel="noopener">
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+    </div>
+
+    {% if section.blocks.size > 0 %}
+      <div class="google-reviews__slider" data-google-reviews-slider>
+        <button type="button" class="google-reviews__arrow google-reviews__arrow--prev" data-google-reviews-prev aria-label="{{ 'general.previous' | t }}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <div class="google-reviews__grid" data-google-reviews-track>
+          {% content_for 'blocks' %}
+        </div>
+
+        <button type="button" class="google-reviews__arrow google-reviews__arrow--next" data-google-reviews-next aria-label="{{ 'general.next' | t }}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .google-reviews {
+    padding: 4rem 0;
+    background-color: #f4f4f5;
+  }
+
+  .google-reviews__inner {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 var(--page-margin);
+  }
+
+  .google-reviews__intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 32rem;
+    margin: 0 auto 2.75rem;
+    text-align: center;
+  }
+
+  .google-reviews__intro > svg {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .google-reviews__heading {
+    margin: 1rem 0 0;
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #1f2120;
+  }
+
+  .google-reviews__summary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .google-reviews__rating {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1f2120;
+  }
+
+  .google-reviews__stars {
+    display: flex;
+    gap: 0;
+  }
+
+  .google-reviews__star {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0 -0.05rem;
+    color: #f5c02e;
+  }
+
+  .google-reviews__star--empty {
+    color: #e5e5e7;
+  }
+
+  .google-reviews__count {
+    font-size: 0.9rem;
+    color: #6b6b6e;
+  }
+
+  .google-reviews__button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.65rem 1.75rem;
+    border: 1px solid #1f2120;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #1f2120;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .google-reviews__button:hover {
+    background-color: #1f2120;
+    color: #ffffff;
+  }
+
+  .google-reviews__slider {
+    position: relative;
+  }
+
+  .google-reviews__grid {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .google-reviews__grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .google-reviews__grid > * {
+    flex: 0 0 calc(25% - 1.125rem);
+    scroll-snap-align: start;
+  }
+
+  @media screen and (max-width: 989px) {
+    .google-reviews__grid > * {
+      flex-basis: calc(50% - 0.75rem);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .google-reviews__grid > * {
+      flex-basis: 85%;
+    }
+  }
+
+  .google-reviews__arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    transform: translateY(-50%);
+    padding: 0;
+    border: 1px solid #e5e5e7;
+    border-radius: 999px;
+    background-color: #ffffff;
+    color: #1f2120;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .google-reviews__arrow svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .google-reviews__arrow:hover {
+    background-color: #1f2120;
+    color: #ffffff;
+  }
+
+  .google-reviews__arrow--prev {
+    left: -3.5rem;
+  }
+
+  .google-reviews__arrow--next {
+    right: -3.5rem;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .google-reviews__arrow--prev {
+      left: 0.5rem;
+    }
+
+    .google-reviews__arrow--next {
+      right: 0.5rem;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .google-reviews__arrow {
+      display: none;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  document.querySelectorAll('[data-google-reviews-slider]').forEach(function (slider) {
+    var track = slider.querySelector('[data-google-reviews-track]');
+    var prev = slider.querySelector('[data-google-reviews-prev]');
+    var next = slider.querySelector('[data-google-reviews-next]');
+    var firstCard = track.children[0];
+
+    function scrollByCard(direction) {
+      var amount = firstCard ? firstCard.getBoundingClientRect().width + 24 : track.clientWidth * 0.8;
+      track.scrollBy({ left: amount * direction, behavior: 'smooth' });
+    }
+
+    prev.addEventListener('click', function () {
+      scrollByCard(-1);
+    });
+
+    next.addEventListener('click', function () {
+      scrollByCard(1);
+    });
+  });
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "t:general.google_reviews",
+  "blocks": [
+    { "type": "google-review" }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "What our customers say"
+    },
+    {
+      "type": "text",
+      "id": "average_rating",
+      "label": "t:labels.average_rating",
+      "default": "4.9"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "t:labels.review_count",
+      "default": "200"
+    },
+    {
+      "type": "url",
+      "id": "google_link",
+      "label": "t:labels.google_link"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:labels.button_label",
+      "default": "Read all reviews on Google"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.google_reviews",
+      "blocks": [
+        {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "Sarah M.",
+            "review_date": "2 weeks ago",
+            "rating": 5,
+            "review_text": "Amazing quality shelving, exactly what I needed for my garage. Delivery was quick and the team were super helpful."
+          }
+        },
+        {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "James T.",
+            "review_date": "1 month ago",
+            "rating": 5,
+            "review_text": "Great value for money and really sturdy once assembled. Would definitely buy from Super Shelving again."
+          }
+        },
+        {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "Priya K.",
+            "review_date": "1 month ago",
+            "rating": 4,
+            "review_text": "Good range of sizes to choose from and the adjustable shelves make it easy to fit anything. Very happy with the purchase."
+          }
+        },
+        {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "Daniel R.",
+            "review_date": "2 months ago",
+            "rating": 5,
+            "review_text": "Local pickup was easy and fast. The shelving is exactly as described and looks great in the workshop."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

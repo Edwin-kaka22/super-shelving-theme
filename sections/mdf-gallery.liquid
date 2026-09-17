@@ -1,0 +1,70 @@
+{% doc %}
+  Renders a row of product photos for showcasing MDF shelving. Add,
+  remove, or reorder `product-image` blocks in the theme editor. Intended
+  to sit directly beneath the `mdf-spotlight` section, sharing the same
+  background so the two read as one continuous section.
+
+  @example
+  {% section 'mdf-gallery' %}
+{% enddoc %}
+
+<div class="mdf-gallery full-width">
+  <div class="mdf-gallery__inner">
+    {% if section.blocks.size > 0 %}
+      <div class="mdf-gallery__row">
+        {% content_for 'blocks' %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .mdf-gallery {
+    padding: 0 0 4rem;
+    background-color: #ffffff;
+  }
+
+  .mdf-gallery__inner {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 var(--page-margin);
+  }
+
+  .mdf-gallery__row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media screen and (max-width: 989px) {
+    .mdf-gallery__row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .mdf-gallery__row {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.mdf_gallery",
+  "blocks": [
+    { "type": "product-image" }
+  ],
+  "presets": [
+    {
+      "name": "t:general.mdf_gallery",
+      "blocks": [
+        { "type": "product-image", "settings": { "caption": "150 x 70 x 30cm", "link": "/collections/mdf-shelving-racks" } },
+        { "type": "product-image", "settings": { "caption": "180 x 90 x 40cm", "link": "/collections/mdf-shelving-racks" } },
+        { "type": "product-image", "settings": { "caption": "180 x 120 x 45cm", "link": "/collections/mdf-shelving-racks" } },
+        { "type": "product-image", "settings": { "caption": "180 x 150 x 45cm", "link": "/collections/mdf-shelving-racks" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
