@@ -330,6 +330,43 @@
         "button_label": "Read all reviews on Google"
       }
     },
+    "before-after": {
+      "type": "before-after",
+      "blocks": {
+        "reclaim-floor": {
+          "type": "spotlight-feature",
+          "settings": {
+            "icon": "tag",
+            "heading": "Reclaim your floor",
+            "text": "Get boxes, tools and gear up off the ground and onto shelves where they belong."
+          }
+        },
+        "fit-more": {
+          "type": "spotlight-feature",
+          "settings": {
+            "icon": "resize",
+            "heading": "Fit more into less",
+            "text": "Vertical storage means you store more without needing a bigger space."
+          }
+        },
+        "find-fast": {
+          "type": "spotlight-feature",
+          "settings": {
+            "icon": "adjust",
+            "heading": "Find things fast",
+            "text": "Everything has its own spot, so you're not digging through piles to find what you need."
+          }
+        }
+      },
+      "block_order": ["reclaim-floor", "fit-more", "find-fast"],
+      "settings": {
+        "eyebrow": "Before & After",
+        "heading": "Turn clutter into clear space",
+        "description": "A messy garage or storeroom doesn't just look bad - it wastes the space you're paying for. The right shelving gets everything up off the floor and into its own spot, so nothing ends up in a pile and every inch of the room actually works for you.",
+        "button_label": "Shop Shelving",
+        "button_link": "/collections/all"
+      }
+    },
     "faq": {
       "type": "faq",
       "blocks": {
@@ -384,6 +421,7 @@
     "category-grid",
     "google-reviews",
     "mdf-spotlight",
+    "before-after",
     "customer-setups",
     "rack-features",
     "faq"
