@@ -1,0 +1,44 @@
+{
+  "customer-setups": {
+    "type": "customer-setups",
+    "blocks": {
+      "home-garage": {
+        "type": "setup-card",
+        "settings": {
+          "badge": "Home Garage",
+          "heading": "Organised Garage Storage",
+          "description": "Create a clean and organised garage with practical storage solutions designed for tools, equipment and everyday household items.",
+          "button_label": "Shop Setup",
+          "link": "/collections/home-garage"
+        }
+      },
+      "workshop": {
+        "type": "setup-card",
+        "settings": {
+          "badge": "Workshop",
+          "heading": "Professional Workshop Setup",
+          "description": "Build a functional workspace with dedicated solutions for tool organisation, work surfaces and secure equipment storage.",
+          "button_label": "Shop Setup",
+          "link": "/collections/workshop"
+        }
+      },
+      "business-warehouse": {
+        "type": "setup-card",
+        "settings": {
+          "badge": "Business & Warehouse",
+          "heading": "Commercial Storage Solutions",
+          "description": "Optimise commercial & warehouse spaces with scalable storage solutions designed for inventory, documents and operational equipment.",
+          "button_label": "Shop Setup",
+          "link": "/collections/business-warehouse"
+        }
+      }
+    },
+    "block_order": ["home-garage", "workshop", "business-warehouse"],
+    "settings": {
+      "eyebrow": "Real setups, Australia",
+      "heading": "One system, every space",
+      "description": "Home garages, workshops and warehouses — see the full kit behind each setup."
+    }
+  },
+  "order_position_note": "Was positioned between mdf-spotlight/before-after and rack-features in the order array."
+}
