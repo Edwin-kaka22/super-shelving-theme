@@ -12,22 +12,22 @@
   <div class="before-after__inner">
     <div class="before-after__intro">
       <div class="before-after__media" data-before-after>
-        <div class="before-after__layer before-after__layer--before">
-          {% if section.settings.before_image %}
-            <img src="{{ section.settings.before_image | image_url: width: 800 }}" alt="Before" loading="lazy">
-          {% else %}
-            <img src="{{ 'before-after-before.png' | asset_url }}" alt="Before" loading="lazy">
-          {% endif %}
-          <span class="before-after__label before-after__label--before">Before</span>
-        </div>
-
-        <div class="before-after__layer before-after__layer--after" data-before-after-after>
+        <div class="before-after__layer before-after__layer--after">
           {% if section.settings.after_image %}
             <img src="{{ section.settings.after_image | image_url: width: 800 }}" alt="After" loading="lazy">
           {% else %}
             <img src="{{ 'before-after-after.png' | asset_url }}" alt="After" loading="lazy">
           {% endif %}
           <span class="before-after__label before-after__label--after">After</span>
+        </div>
+
+        <div class="before-after__layer before-after__layer--before" data-before-after-before>
+          {% if section.settings.before_image %}
+            <img src="{{ section.settings.before_image | image_url: width: 800 }}" alt="Before" loading="lazy">
+          {% else %}
+            <img src="{{ 'before-after-before.png' | asset_url }}" alt="Before" loading="lazy">
+          {% endif %}
+          <span class="before-after__label before-after__label--before">Before</span>
         </div>
 
         <div class="before-after__handle" data-before-after-handle>
@@ -111,7 +111,7 @@
     inset: 0;
   }
 
-  .before-after__layer--after {
+  .before-after__layer--before {
     clip-path: inset(0 50% 0 0);
   }
 
@@ -125,7 +125,7 @@
 
   .before-after__label {
     position: absolute;
-    top: 0.75rem;
+    bottom: 0.75rem;
     padding: 0.3rem 0.85rem;
     border-radius: 999px;
     background-color: rgba(31, 33, 32, 0.75);
@@ -252,13 +252,13 @@
 
 {% javascript %}
   document.querySelectorAll('[data-before-after]').forEach(function (compare) {
-    var after = compare.querySelector('[data-before-after-after]');
+    var before = compare.querySelector('[data-before-after-before]');
     var handle = compare.querySelector('[data-before-after-handle]');
     var dragging = false;
 
     function setPosition(percent) {
       percent = Math.min(100, Math.max(0, percent));
-      after.style.clipPath = 'inset(0 ' + (100 - percent) + '% 0 0)';
+      before.style.clipPath = 'inset(0 ' + (100 - percent) + '% 0 0)';
       handle.style.left = percent + '%';
     }
 
