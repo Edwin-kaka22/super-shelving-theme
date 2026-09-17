@@ -336,7 +336,7 @@
         "reclaim-floor": {
           "type": "spotlight-feature",
           "settings": {
-            "icon": "tag",
+            "icon": "box",
             "heading": "Reclaim your floor",
             "text": "Get boxes, tools and gear up off the ground and onto shelves where they belong."
           }
@@ -344,7 +344,7 @@
         "fit-more": {
           "type": "spotlight-feature",
           "settings": {
-            "icon": "resize",
+            "icon": "layers",
             "heading": "Fit more into less",
             "text": "Vertical storage means you store more without needing a bigger space."
           }
@@ -352,7 +352,7 @@
         "find-fast": {
           "type": "spotlight-feature",
           "settings": {
-            "icon": "adjust",
+            "icon": "search",
             "heading": "Find things fast",
             "text": "Everything has its own spot, so you're not digging through piles to find what you need."
           }

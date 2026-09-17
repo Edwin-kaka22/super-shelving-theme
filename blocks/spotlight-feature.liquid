@@ -15,6 +15,12 @@
         {{ 'icon-resize.svg' | inline_asset_content }}
       {% when 'adjust' %}
         {{ 'icon-adjust.svg' | inline_asset_content }}
+      {% when 'box' %}
+        {{ 'icon-box.svg' | inline_asset_content }}
+      {% when 'layers' %}
+        {{ 'icon-layers.svg' | inline_asset_content }}
+      {% when 'search' %}
+        {{ 'icon-search.svg' | inline_asset_content }}
     {% endcase %}
   </div>
 
@@ -80,7 +86,10 @@
       "options": [
         { "value": "tag", "label": "t:options.icon.tag" },
         { "value": "resize", "label": "t:options.icon.resize" },
-        { "value": "adjust", "label": "t:options.icon.adjust" }
+        { "value": "adjust", "label": "t:options.icon.adjust" },
+        { "value": "box", "label": "t:options.icon.box" },
+        { "value": "layers", "label": "t:options.icon.layers" },
+        { "value": "search", "label": "t:options.icon.search" }
       ],
       "default": "tag"
     },

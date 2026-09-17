@@ -144,7 +144,10 @@
       "tag": "Price tag",
       "medal": "Shield",
       "resize": "Resize",
-      "adjust": "Adjust"
+      "adjust": "Adjust",
+      "box": "Box",
+      "layers": "Layers",
+      "search": "Search"
     },
     "side": {
       "left": "Left",
