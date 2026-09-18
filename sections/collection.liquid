@@ -126,39 +126,6 @@
                 {{ 'collections.filters.title' | t }}
               </button>
 
-              <div class="collection__view-toggle" role="group" aria-label="{{ 'collections.general.view_label' | t }}">
-                <button
-                  type="button"
-                  class="collection__view-btn is-active"
-                  data-collection-view="grid"
-                  aria-pressed="true"
-                  aria-label="{{ 'collections.general.view_grid' | t }}"
-                >
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="3" width="7" height="7"></rect>
-                    <rect x="14" y="3" width="7" height="7"></rect>
-                    <rect x="3" y="14" width="7" height="7"></rect>
-                    <rect x="14" y="14" width="7" height="7"></rect>
-                  </svg>
-                </button>
-                <button
-                  type="button"
-                  class="collection__view-btn"
-                  data-collection-view="list"
-                  aria-pressed="false"
-                  aria-label="{{ 'collections.general.view_list' | t }}"
-                >
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="8" y1="6" x2="21" y2="6"></line>
-                    <line x1="8" y1="12" x2="21" y2="12"></line>
-                    <line x1="8" y1="18" x2="21" y2="18"></line>
-                    <line x1="3" y1="6" x2="3.01" y2="6"></line>
-                    <line x1="3" y1="12" x2="3.01" y2="12"></line>
-                    <line x1="3" y1="18" x2="3.01" y2="18"></line>
-                  </svg>
-                </button>
-              </div>
-
               <div class="collection__sort">
                 <label for="CollectionSortBy" class="collection__sort-label">{{ 'collections.general.sort_by_label' | t }}</label>
                 <select id="CollectionSortBy" class="collection__sort-select" data-collection-sort>
@@ -168,6 +135,43 @@
                     </option>
                   {% endfor %}
                 </select>
+              </div>
+
+              <div class="collection__view">
+                <span class="collection__view-label">{{ 'collections.general.view_as_label' | t }}</span>
+
+                <div class="collection__view-toggle" role="group" aria-label="{{ 'collections.general.view_label' | t }}">
+                  <button
+                    type="button"
+                    class="collection__view-btn is-active"
+                    data-collection-view="grid"
+                    aria-pressed="true"
+                    aria-label="{{ 'collections.general.view_grid' | t }}"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="7" height="7"></rect>
+                      <rect x="14" y="3" width="7" height="7"></rect>
+                      <rect x="3" y="14" width="7" height="7"></rect>
+                      <rect x="14" y="14" width="7" height="7"></rect>
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    class="collection__view-btn"
+                    data-collection-view="list"
+                    aria-pressed="false"
+                    aria-label="{{ 'collections.general.view_list' | t }}"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="8" y1="6" x2="21" y2="6"></line>
+                      <line x1="8" y1="12" x2="21" y2="12"></line>
+                      <line x1="8" y1="18" x2="21" y2="18"></line>
+                      <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                      <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                      <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -510,6 +514,18 @@
   .collection__filters-toggle svg {
     width: 1rem;
     height: 1rem;
+  }
+
+  .collection__view {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .collection__view-label {
+    font-size: 0.8rem;
+    color: #6b6b6e;
+    white-space: nowrap;
   }
 
   .collection__view-toggle {

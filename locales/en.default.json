@@ -51,6 +51,7 @@
       "no_products": "No products found in this collection.",
       "pagination": "Pagination",
       "view_label": "Product view",
+      "view_as_label": "View as",
       "view_grid": "Grid view",
       "view_list": "List view"
     },
