@@ -35,6 +35,10 @@
             "label": "t:options.page_width.narrow"
           },
           {
+            "value": "100rem",
+            "label": "t:options.page_width.medium"
+          },
+          {
             "value": "110rem",
             "label": "t:options.page_width.wide"
           }

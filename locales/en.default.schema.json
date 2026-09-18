@@ -129,6 +129,7 @@
     },
     "page_width": {
       "narrow": "Narrow",
+      "medium": "Medium",
       "wide": "Wide"
     },
     "size": {
