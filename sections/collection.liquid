@@ -237,6 +237,36 @@
                           {{ product.price | money }}
                         {% endif %}
                       </p>
+
+                      {% if quick_add_variant.inventory_management == 'shopify' %}
+                        {% assign stock_qty = quick_add_variant.inventory_quantity %}
+                        {% assign stock_capped = stock_qty | at_most: 20 | at_least: 0 %}
+                        {% assign stock_percent = stock_capped | times: 100 | divided_by: 20 | at_least: 4 %}
+                        {% if stock_qty <= 0 %}
+                          {% assign stock_level = 'low' %}
+                        {% elsif stock_qty <= 20 %}
+                          {% assign stock_level = 'medium' %}
+                        {% else %}
+                          {% assign stock_level = 'high' %}
+                        {% endif %}
+                        <div class="collection-product__stock">
+                          <div class="collection-product__stock-bar">
+                            <div
+                              class="collection-product__stock-fill collection-product__stock-fill--{{ stock_level }}"
+                              style="width: {{ stock_percent }}%"
+                            ></div>
+                          </div>
+                          <span class="collection-product__stock-label">
+                            {% if stock_qty <= 0 %}
+                              {{ 'collections.general.no_stock' | t }}
+                            {% elsif stock_qty <= 20 %}
+                              {{ 'collections.general.low_stock' | t: count: stock_qty }}
+                            {% else %}
+                              {{ 'collections.general.in_stock' | t: count: stock_qty }}
+                            {% endif %}
+                          </span>
+                        </div>
+                      {% endif %}
                     </div>
                   </a>
 
@@ -692,8 +722,8 @@
     left: 0.6rem;
     padding: 0.25rem 0.6rem;
     border-radius: 999px;
-    background-color: #ff3333;
-    color: #ffffff;
+    background-color: #f5c02e;
+    color: #1a1a1a;
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.03em;
@@ -713,6 +743,7 @@
     margin: 0;
     font-size: 0.9rem;
     font-weight: 600;
+    text-align: center;
     color: #1f2120;
     transition: color 0.2s ease;
   }
@@ -725,11 +756,12 @@
     margin: 0.35rem 0 0;
     font-size: 0.9rem;
     font-weight: 700;
+    text-align: center;
     color: #1f2120;
   }
 
   .collection-product__price--sale {
-    color: #c0392b;
+    color: #1f2120;
   }
 
   .collection-product__price--compare {
@@ -737,6 +769,42 @@
     font-weight: 500;
     color: #9a9a9d;
     text-decoration: line-through;
+  }
+
+  .collection-product__stock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.6rem;
+  }
+
+  .collection-product__stock-bar {
+    width: 100%;
+    max-width: 8rem;
+    height: 0.3rem;
+    border-radius: 999px;
+    background-color: #e5e5e7;
+    overflow: hidden;
+  }
+
+  .collection-product__stock-fill {
+    height: 100%;
+    border-radius: 999px;
+    background-color: #f5c02e;
+  }
+
+  .collection-product__stock-fill--high {
+    background-color: #34a853;
+  }
+
+  .collection-product__stock-fill--low {
+    background-color: #ff3333;
+  }
+
+  .collection-product__stock-label {
+    font-size: 0.75rem;
+    color: #6b6b6e;
   }
 
   .collection-product__form {
@@ -758,30 +826,33 @@
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.02em;
-    text-transform: uppercase;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, color 0.2s ease;
-  }
-
-  .collection-product__add:hover:not(:disabled) {
-    transform: translateY(-2px);
+    transition: border-color 0.2s ease, color 0.2s ease;
   }
 
   .collection-product__add::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: -75%;
-    width: 40%;
-    height: 100%;
-    background: linear-gradient(120deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0) 100%);
-    transform: skewX(-20deg);
-    transition: left 0.4s ease;
+    inset: 0;
+    background-color: #f5c02e;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
   }
 
   .collection-product__add:hover:not(:disabled)::before {
-    left: 30%;
+    transform: scaleX(1);
+  }
+
+  .collection-product__add:hover:not(:disabled) {
+    border-color: #f5c02e;
+    color: #1a1a1a;
+  }
+
+  .collection-product__add [data-collection-add-label] {
+    position: relative;
+    z-index: 1;
   }
 
   .collection-product__add:disabled {
@@ -834,6 +905,7 @@
 
   .collection-grid.is-list .collection-product__title {
     font-size: 1rem;
+    text-align: left;
   }
 
   .collection-grid.is-list .collection-product__price {
