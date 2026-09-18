@@ -28,12 +28,14 @@
       endif
     %}
     <a href="{{ routes.root_url }}" class="header__logo" aria-label="{{ shop.name }}">
-      {% if section.settings.logo %}
-        {{ section.settings.logo | image_url: width: 300 | image_tag: loading: 'eager', alt: shop.name }}
-      {% else %}
-        <img src="{{ logo_url }}" alt="{{ shop.name }}" loading="eager">
-      {% endif %}
-      <span class="header__logo-shine" style="--logo-mask: url('{{ logo_url }}');"></span>
+      <span class="header__logo-media">
+        {% if section.settings.logo %}
+          {{ section.settings.logo | image_url: width: 300 | image_tag: loading: 'eager', alt: shop.name }}
+        {% else %}
+          <img src="{{ logo_url }}" alt="{{ shop.name }}" loading="eager">
+        {% endif %}
+        <span class="header__logo-shine" style="--logo-mask: url('{{ logo_url }}');"></span>
+      </span>
       <span class="header__logo-tm" aria-hidden="true">&trade;</span>
     </a>
 
@@ -91,13 +93,18 @@
   }
 
   .header__logo {
-    position: relative;
     display: flex;
     flex: none;
     align-items: center;
     margin-left: -4.5rem;
     color: inherit;
     text-decoration: none;
+  }
+
+  .header__logo-media {
+    position: relative;
+    display: block;
+    line-height: 0;
   }
 
   .header__logo img {
