@@ -241,7 +241,7 @@
                       {% if quick_add_variant.inventory_management == 'shopify' %}
                         {% assign stock_qty = quick_add_variant.inventory_quantity %}
                         {% assign stock_capped = stock_qty | at_most: 20 | at_least: 0 %}
-                        {% assign stock_percent = stock_capped | times: 100 | divided_by: 20 %}
+                        {% assign stock_percent = stock_capped | times: 100 | divided_by: 20 | at_most: 90 %}
                         {% if stock_qty > 0 %}
                           {% assign stock_percent = stock_percent | at_least: 4 %}
                         {% endif %}
@@ -757,7 +757,7 @@
 
   .collection-product__price {
     margin: 0.35rem 0 0;
-    font-size: 0.9rem;
+    font-size: 1.05rem;
     font-weight: 700;
     text-align: center;
     color: #1f2120;
@@ -820,7 +820,7 @@
     display: inline-block;
     overflow: hidden;
     width: auto;
-    min-width: 11rem;
+    min-width: 14rem;
     padding: 0.6rem 2rem;
     border: 1px solid #1f2120;
     border-radius: 999px;
@@ -838,7 +838,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-color: #f5c02e;
+    background-color: #52564f;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
@@ -849,8 +849,7 @@
   }
 
   .collection-product__add:hover:not(:disabled) {
-    border-color: #f5c02e;
-    color: #1a1a1a;
+    border-color: #52564f;
   }
 
   .collection-product__add [data-collection-add-label] {
