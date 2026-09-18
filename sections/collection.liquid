@@ -241,7 +241,10 @@
                       {% if quick_add_variant.inventory_management == 'shopify' %}
                         {% assign stock_qty = quick_add_variant.inventory_quantity %}
                         {% assign stock_capped = stock_qty | at_most: 20 | at_least: 0 %}
-                        {% assign stock_percent = stock_capped | times: 100 | divided_by: 20 | at_least: 4 %}
+                        {% assign stock_percent = stock_capped | times: 100 | divided_by: 20 %}
+                        {% if stock_qty > 0 %}
+                          {% assign stock_percent = stock_percent | at_least: 4 %}
+                        {% endif %}
                         {% if stock_qty <= 0 %}
                           {% assign stock_level = 'low' %}
                         {% elsif stock_qty <= 20 %}
