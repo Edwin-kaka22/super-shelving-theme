@@ -241,7 +241,7 @@
                       {% if quick_add_variant.inventory_management == 'shopify' %}
                         {% assign stock_qty = quick_add_variant.inventory_quantity %}
                         {% assign stock_capped = stock_qty | at_most: 20 | at_least: 0 %}
-                        {% assign stock_percent = stock_capped | times: 100 | divided_by: 20 | at_most: 90 %}
+                        {% assign stock_percent = stock_capped | times: 100 | divided_by: 20 | at_most: 80 %}
                         {% if stock_qty > 0 %}
                           {% assign stock_percent = stock_percent | at_least: 4 %}
                         {% endif %}
@@ -807,6 +807,7 @@
 
   .collection-product__stock-label {
     font-size: 0.75rem;
+    font-weight: 600;
     color: #6b6b6e;
   }
 
