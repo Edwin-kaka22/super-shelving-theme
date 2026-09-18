@@ -531,22 +531,21 @@
   .collection__view-toggle {
     display: flex;
     align-items: center;
-    border: 1px solid #e5e5e7;
-    border-radius: 999px;
-    overflow: hidden;
+    gap: 0.35rem;
   }
 
   .collection__view-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 2rem;
+    height: 2rem;
     border: none;
+    border-radius: 0.4rem;
     background: none;
-    color: #9a9a9d;
+    color: #c9c9cb;
     cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: color 0.2s ease;
   }
 
   .collection__view-btn svg {
@@ -555,12 +554,11 @@
   }
 
   .collection__view-btn.is-active {
-    background-color: #1f2120;
-    color: #ffffff;
+    color: #1f2120;
   }
 
   .collection__view-btn:not(.is-active):hover {
-    color: #1f2120;
+    color: #6b6b6e;
   }
 
   .collection__sort {
