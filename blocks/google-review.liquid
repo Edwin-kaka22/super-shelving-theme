@@ -3,9 +3,20 @@
   the reviewer's name, and how long ago it was posted. Intended for use
   inside the `google-reviews` section.
 
+  Until a merchant uploads a real avatar, one of 7 placeholder headshots
+  is picked deterministically so each review looks like a distinct person.
+
   @example
   {% content_for 'block', type: 'google-review', id: 'google-review-1' %}
 {% enddoc %}
+
+{% liquid
+  assign avatar_index = block.id | split: '-' | last | times: 1
+  if avatar_index < 1 or avatar_index > 7
+    assign avatar_index = block.settings.reviewer_name | size | modulo: 7 | plus: 1
+  endif
+  assign avatar_fallback = 'review-avatar-' | append: avatar_index | append: '.jpg'
+%}
 
 <div class="google-review" {{ block.shopify_attributes }}>
   <div class="google-review__header">
@@ -18,7 +29,11 @@
             loading="lazy"
           >
         {% else %}
-          <span class="google-review__avatar-initial">{{ block.settings.reviewer_name | slice: 0 }}</span>
+          <img
+            src="{{ avatar_fallback | asset_url }}"
+            alt="{{ block.settings.reviewer_name }}"
+            loading="lazy"
+          >
         {% endif %}
       </div>
 
@@ -98,12 +113,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  .google-review__avatar-initial {
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-transform: uppercase;
   }
 
   .google-review__avatar-badge {
