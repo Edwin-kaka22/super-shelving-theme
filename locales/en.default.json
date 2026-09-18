@@ -43,11 +43,15 @@
   "collections": {
     "title": "Collections",
     "general": {
+      "all_products_title": "All Products",
       "sort_by_label": "Sort by",
       "product_count": "{{ count }} products",
       "price_from": "From {{ price }}",
       "sale": "Sale",
       "sold_out": "Sold out",
+      "add_to_cart": "Add to cart",
+      "adding": "Adding...",
+      "added": "Added",
       "no_products": "No products found in this collection.",
       "pagination": "Pagination",
       "view_label": "Product view",
