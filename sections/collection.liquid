@@ -126,6 +126,39 @@
                 {{ 'collections.filters.title' | t }}
               </button>
 
+              <div class="collection__view-toggle" role="group" aria-label="{{ 'collections.general.view_label' | t }}">
+                <button
+                  type="button"
+                  class="collection__view-btn is-active"
+                  data-collection-view="grid"
+                  aria-pressed="true"
+                  aria-label="{{ 'collections.general.view_grid' | t }}"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="collection__view-btn"
+                  data-collection-view="list"
+                  aria-pressed="false"
+                  aria-label="{{ 'collections.general.view_list' | t }}"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="8" y1="6" x2="21" y2="6"></line>
+                    <line x1="8" y1="12" x2="21" y2="12"></line>
+                    <line x1="8" y1="18" x2="21" y2="18"></line>
+                    <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                    <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                    <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                  </svg>
+                </button>
+              </div>
+
               <div class="collection__sort">
                 <label for="CollectionSortBy" class="collection__sort-label">{{ 'collections.general.sort_by_label' | t }}</label>
                 <select id="CollectionSortBy" class="collection__sort-select" data-collection-sort>
@@ -479,6 +512,41 @@
     height: 1rem;
   }
 
+  .collection__view-toggle {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e5e5e7;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .collection__view-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: none;
+    background: none;
+    color: #9a9a9d;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .collection__view-btn svg {
+    width: 1.05rem;
+    height: 1.05rem;
+  }
+
+  .collection__view-btn.is-active {
+    background-color: #1f2120;
+    color: #ffffff;
+  }
+
+  .collection__view-btn:not(.is-active):hover {
+    color: #1f2120;
+  }
+
   .collection__sort {
     display: flex;
     align-items: center;
@@ -600,6 +668,51 @@
     font-weight: 500;
     color: #9a9a9d;
     text-decoration: line-through;
+  }
+
+  /* List view */
+
+  .collection-grid.is-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .collection-grid.is-list .collection-product {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 0.6rem;
+    border-radius: 0.75rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .collection-grid.is-list .collection-product:hover {
+    background-color: #f4f4f5;
+  }
+
+  .collection-grid.is-list .collection-product__image {
+    width: 5rem;
+    height: 5rem;
+    flex: none;
+  }
+
+  .collection-grid.is-list .collection-product__content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0;
+  }
+
+  .collection-grid.is-list .collection-product__title {
+    font-size: 1rem;
+  }
+
+  .collection-grid.is-list .collection-product__price {
+    margin: 0;
+    white-space: nowrap;
   }
 
   .collection-empty {
@@ -757,6 +870,39 @@
       window.location.href = url.toString();
     });
   });
+
+  var collectionGrid = document.querySelector('.collection-grid');
+  var viewButtons = document.querySelectorAll('[data-collection-view]');
+
+  if (collectionGrid && viewButtons.length) {
+    var applyCollectionView = function (view) {
+      collectionGrid.classList.toggle('is-list', view === 'list');
+      viewButtons.forEach(function (btn) {
+        var active = btn.getAttribute('data-collection-view') === view;
+        btn.classList.toggle('is-active', active);
+        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+    };
+
+    var savedView = null;
+    try {
+      savedView = localStorage.getItem('collectionView');
+    } catch (e) {}
+
+    if (savedView === 'list') {
+      applyCollectionView('list');
+    }
+
+    viewButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var view = btn.getAttribute('data-collection-view');
+        applyCollectionView(view);
+        try {
+          localStorage.setItem('collectionView', view);
+        } catch (e) {}
+      });
+    });
+  }
 
   var filterForm = document.getElementById('CollectionFilterForm');
   if (filterForm) {
