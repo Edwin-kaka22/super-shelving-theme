@@ -7,7 +7,9 @@
     "shop": "Shop",
     "support": "Support",
     "info": "Info",
-    "policies": "Policies"
+    "policies": "Policies",
+    "home": "Home",
+    "close": "Close"
   },
   "labels": {
     "abn": "ABN"
@@ -48,6 +50,7 @@
       "product_count": "{{ count }} products",
       "price_from": "From {{ price }}",
       "sale": "Sale",
+      "discount_percent": "-{{ percent }}%",
       "sold_out": "Sold out",
       "add_to_cart": "Add To Cart",
       "adding": "Adding...",
@@ -60,7 +63,14 @@
       "view_label": "Product view",
       "view_as_label": "View as",
       "view_grid": "Grid view",
-      "view_list": "List view"
+      "view_list": "List view",
+      "breadcrumbs": "Breadcrumb",
+      "quick_view": "Quick view",
+      "loading": "Loading...",
+      "quick_view_error": "Sorry, something went wrong. Please view the full product page.",
+      "variant": "Options",
+      "view_full_details": "View full details",
+      "recently_viewed": "Recently viewed"
     },
     "filters": {
       "title": "Filters",

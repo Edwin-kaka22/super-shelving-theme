@@ -11,7 +11,7 @@
   {% endfor %}
 </div>
 
-<div class="product-info">
+<div class="product-info" data-product-handle="{{ product.handle }}">
   <h1>{{ product.title }}</h1>
   <p>{{ product.price | money }}</p>
   <p>{{ product.description }}</p>
@@ -40,6 +40,19 @@
     {{ form | payment_button }}
   {% endform %}
 </div>
+
+{% javascript %}
+  try {
+    var recentlyViewedKey = 'recentlyViewed';
+    var handleEl = document.querySelector('[data-product-handle]');
+    var currentHandle = handleEl ? handleEl.getAttribute('data-product-handle') : null;
+    if (!currentHandle) throw new Error('no_product_handle');
+    var stored = JSON.parse(localStorage.getItem(recentlyViewedKey) || '[]');
+    stored = stored.filter(function (handle) { return handle !== currentHandle; });
+    stored.unshift(currentHandle);
+    localStorage.setItem(recentlyViewedKey, JSON.stringify(stored.slice(0, 8)));
+  } catch (e) {}
+{% endjavascript %}
 
 {% schema %}
 {
