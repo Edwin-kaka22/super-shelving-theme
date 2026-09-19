@@ -199,15 +199,6 @@
               {% for product in collection.products %}
                 {% assign quick_add_variant = product.selected_or_first_available_variant %}
                 <div class="collection-product">
-                  <button
-                    type="button"
-                    class="collection-product__quick-view"
-                    data-quick-view-trigger
-                    data-product-handle="{{ product.handle }}"
-                  >
-                    {{ 'collections.general.quick_view' | t }}
-                  </button>
-
                   <a href="{{ product.url }}" class="collection-product__link">
                     <div class="collection-product__image">
                       {% if product.featured_image %}
@@ -239,8 +230,7 @@
                       {% endif %}
 
                       {% if product.compare_at_price > product.price %}
-                        {% assign discount_percent = product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price %}
-                        <span class="collection-product__badge">{{ 'collections.general.discount_percent' | t: percent: discount_percent }}</span>
+                        <span class="collection-product__badge">{{ 'collections.general.sale' | t }}</span>
                       {% elsif product.available == false %}
                         <span class="collection-product__badge collection-product__badge--sold-out">{{ 'collections.general.sold_out' | t }}</span>
                       {% endif %}
@@ -366,21 +356,6 @@
   </div>
 </div>
 
-<div class="quick-view-modal" data-quick-view-modal hidden>
-  <div class="quick-view-modal__backdrop" data-quick-view-close></div>
-  <div class="quick-view-modal__panel" role="dialog" aria-modal="true" aria-label="{{ 'collections.general.quick_view' | t }}">
-    <button type="button" class="quick-view-modal__close" data-quick-view-close aria-label="{{ 'general.close' | t }}">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-      </svg>
-    </button>
-    <div class="quick-view-modal__body" data-quick-view-body>
-      <div class="quick-view-modal__loading" data-quick-view-loading>{{ 'collections.general.loading' | t }}</div>
-    </div>
-  </div>
-</div>
-
 <div class="collection-loading" data-collection-loading aria-hidden="true">
   <div class="collection-loading__spinner"></div>
 </div>
@@ -388,13 +363,7 @@
 <script type="application/json" data-collection-i18n>
   {
     "adding": {{ 'collections.general.adding' | t | json }},
-    "added": {{ 'collections.general.added' | t | json }},
-    "addToCart": {{ 'collections.general.add_to_cart' | t | json }},
-    "soldOut": {{ 'collections.general.sold_out' | t | json }},
-    "loading": {{ 'collections.general.loading' | t | json }},
-    "quickViewError": {{ 'collections.general.quick_view_error' | t | json }},
-    "variantLabel": {{ 'collections.general.variant' | t | json }},
-    "viewFullDetails": {{ 'collections.general.view_full_details' | t | json }}
+    "added": {{ 'collections.general.added' | t | json }}
   }
 </script>
 
@@ -764,47 +733,8 @@
   }
 
   .collection-product {
-    position: relative;
     display: flex;
     flex-direction: column;
-  }
-
-  .collection-product__quick-view {
-    position: absolute;
-    z-index: 2;
-    top: 0.6rem;
-    right: 0.6rem;
-    padding: 0.35rem 0.8rem;
-    border: none;
-    border-radius: 999px;
-    background-color: #ffffff;
-    color: #1f2120;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    cursor: pointer;
-    opacity: 0;
-    pointer-events: none;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-  }
-
-  .collection-product:hover .collection-product__quick-view {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .collection-product__quick-view:hover {
-    background-color: #1f2120;
-    color: #ffffff;
-  }
-
-  @media (hover: none) {
-    .collection-product__quick-view {
-      opacity: 1;
-      pointer-events: auto;
-    }
   }
 
   .collection-product__link {
@@ -1021,10 +951,6 @@
     flex: none;
   }
 
-  .collection-grid.is-list .collection-product__quick-view {
-    display: none;
-  }
-
   .collection-grid.is-list .collection-product__content {
     flex: 1;
     display: flex;
@@ -1159,197 +1085,6 @@
     font-size: 0.95rem;
   }
 
-  /* Quick view modal */
-
-  .quick-view-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 200;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-  }
-
-  .quick-view-modal[hidden] {
-    display: none;
-  }
-
-  .quick-view-modal__backdrop {
-    position: absolute;
-    inset: 0;
-    background-color: rgba(31, 33, 32, 0.6);
-  }
-
-  .quick-view-modal__panel {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    max-width: 48rem;
-    max-height: 85vh;
-    overflow-y: auto;
-    border-radius: 1rem;
-    background-color: #ffffff;
-    padding: 2rem;
-  }
-
-  .quick-view-modal__close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.25rem;
-    height: 2.25rem;
-    border: none;
-    border-radius: 999px;
-    background-color: #f4f4f5;
-    color: #1f2120;
-    cursor: pointer;
-  }
-
-  .quick-view-modal__close svg {
-    width: 1.1rem;
-    height: 1.1rem;
-  }
-
-  .quick-view-modal__loading {
-    padding: 3rem 0;
-    text-align: center;
-    color: #6b6b6e;
-  }
-
-  .quick-view-modal__content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-
-  .quick-view-modal__image {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    background-color: #f4f4f5;
-  }
-
-  .quick-view-modal__image img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  .quick-view-modal__title {
-    margin: 0;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #1f2120;
-  }
-
-  .quick-view-modal__price {
-    margin: 0.6rem 0 0;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #1f2120;
-  }
-
-  .quick-view-modal__price--compare {
-    margin-left: 0.5rem;
-    font-weight: 500;
-    color: #9a9a9d;
-    text-decoration: line-through;
-  }
-
-  .quick-view-modal__description {
-    margin: 1rem 0 0;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: #4a4a4d;
-  }
-
-  .quick-view-modal__field {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    margin-top: 1.25rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #1f2120;
-  }
-
-  .quick-view-modal__select {
-    padding: 0.6rem 0.8rem;
-    border: 1px solid #e5e5e7;
-    border-radius: 0.5rem;
-    font-size: 0.875rem;
-    color: #1f2120;
-  }
-
-  .quick-view-modal__add {
-    position: relative;
-    display: block;
-    width: 100%;
-    overflow: hidden;
-    margin-top: 1.5rem;
-    padding: 0.85rem 1.5rem;
-    border: 1px solid #1f2120;
-    border-radius: 999px;
-    background-color: #1f2120;
-    color: #ffffff;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: border-color 0.2s ease;
-  }
-
-  .quick-view-modal__add::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-color: #52564f;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-  }
-
-  .quick-view-modal__add:hover:not(:disabled)::before {
-    transform: scaleX(1);
-  }
-
-  .quick-view-modal__add:hover:not(:disabled) {
-    border-color: #52564f;
-  }
-
-  .quick-view-modal__add span {
-    position: relative;
-    z-index: 1;
-  }
-
-  .quick-view-modal__add:disabled {
-    background-color: #e5e5e7;
-    border-color: #e5e5e7;
-    color: #9a9a9d;
-    cursor: default;
-  }
-
-  .quick-view-modal__link {
-    display: block;
-    margin-top: 0.85rem;
-    text-align: center;
-    font-size: 0.8rem;
-    color: #6b6b6e;
-    text-decoration: underline;
-  }
-
-  .quick-view-modal__link:hover {
-    color: #1f2120;
-  }
-
   /* Loading overlay */
 
   .collection-loading {
@@ -1382,12 +1117,6 @@
   @keyframes collection-loading-spin {
     to {
       transform: rotate(360deg);
-    }
-  }
-
-  @media screen and (max-width: 749px) {
-    .quick-view-modal__content {
-      grid-template-columns: 1fr;
     }
   }
 
@@ -1594,20 +1323,6 @@
     return '$' + (cents / 100).toFixed(2);
   }
 
-  function updateCartBadge(cart) {
-    var cartCountEl = document.querySelector('.header__icons a[href*="/cart"] sup');
-    if (cartCountEl) {
-      cartCountEl.textContent = cart.item_count;
-    } else if (cart.item_count > 0) {
-      var cartLink = document.querySelector('.header__icons a[href*="/cart"]');
-      if (cartLink) {
-        var sup = document.createElement('sup');
-        sup.textContent = cart.item_count;
-        cartLink.insertBefore(sup, cartLink.firstChild);
-      }
-    }
-  }
-
   var loadingOverlay = document.querySelector('[data-collection-loading]');
   function showCollectionLoading() {
     if (loadingOverlay) loadingOverlay.classList.add('is-visible');
@@ -1623,140 +1338,6 @@
 
   document.querySelectorAll('.collection-pagination a').forEach(function (link) {
     link.addEventListener('click', showCollectionLoading);
-  });
-
-  var quickViewModal = document.querySelector('[data-quick-view-modal]');
-  var quickViewBody = document.querySelector('[data-quick-view-body]');
-
-  function closeQuickView() {
-    if (!quickViewModal) return;
-    quickViewModal.setAttribute('hidden', '');
-    document.body.style.overflow = '';
-  }
-
-  function openQuickView(handle) {
-    if (!quickViewModal || !quickViewBody) return;
-    quickViewModal.removeAttribute('hidden');
-    document.body.style.overflow = 'hidden';
-    quickViewBody.innerHTML = '<div class="quick-view-modal__loading">' + collectionI18n.loading + '</div>';
-
-    fetch('/products/' + handle + '.js')
-      .then(function (response) {
-        if (!response.ok) throw new Error('quick_view_fetch_failed');
-        return response.json();
-      })
-      .then(function (product) {
-        var image = product.featured_image || (product.images && product.images[0]);
-        var variant = product.variants.filter(function (v) { return v.available; })[0] || product.variants[0];
-        var hasOptions = product.variants.length > 1;
-
-        var optionsHtml = '';
-        if (hasOptions) {
-          optionsHtml = '<label class="quick-view-modal__field">' + collectionI18n.variantLabel +
-            '<select class="quick-view-modal__select" data-quick-view-variant>' +
-            product.variants.map(function (v) {
-              var label = v.title + ' – ' + formatMoneyCents(v.price) + (v.available ? '' : ' (' + collectionI18n.soldOut + ')');
-              var selected = v.id === variant.id ? ' selected' : '';
-              var disabled = v.available ? '' : ' disabled';
-              return '<option value="' + v.id + '"' + selected + disabled + '>' + label + '</option>';
-            }).join('') +
-            '</select></label>';
-        }
-
-        var priceHtml = '<p class="quick-view-modal__price"><span data-quick-view-price>' + formatMoneyCents(variant.price) + '</span>';
-        if (variant.compare_at_price && variant.compare_at_price > variant.price) {
-          priceHtml += ' <span class="quick-view-modal__price--compare">' + formatMoneyCents(variant.compare_at_price) + '</span>';
-        }
-        priceHtml += '</p>';
-
-        var description = product.description ? product.description.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 220) : '';
-
-        quickViewBody.innerHTML =
-          '<div class="quick-view-modal__content">' +
-            '<div class="quick-view-modal__image">' +
-              (image ? '<img src="' + image + '" alt="' + product.title.replace(/"/g, '&quot;') + '">' : '') +
-            '</div>' +
-            '<div class="quick-view-modal__info">' +
-              '<h2 class="quick-view-modal__title">' + product.title + '</h2>' +
-              priceHtml +
-              (description ? '<p class="quick-view-modal__description">' + description + '…</p>' : '') +
-              optionsHtml +
-              '<button type="button" class="quick-view-modal__add" data-quick-view-add data-variant-id="' + variant.id + '"' + (variant.available ? '' : ' disabled') + '>' +
-                '<span>' + (variant.available ? collectionI18n.addToCart : collectionI18n.soldOut) + '</span>' +
-              '</button>' +
-              '<a href="' + product.url + '" class="quick-view-modal__link">' + collectionI18n.viewFullDetails + '</a>' +
-            '</div>' +
-          '</div>';
-
-        var select = quickViewBody.querySelector('[data-quick-view-variant]');
-        var addBtn = quickViewBody.querySelector('[data-quick-view-add]');
-        var priceEl = quickViewBody.querySelector('[data-quick-view-price]');
-
-        if (select) {
-          select.addEventListener('change', function () {
-            var selectedVariant = product.variants.filter(function (v) { return String(v.id) === select.value; })[0];
-            if (!selectedVariant || !addBtn) return;
-            addBtn.setAttribute('data-variant-id', selectedVariant.id);
-            addBtn.disabled = !selectedVariant.available;
-            addBtn.querySelector('span').textContent = selectedVariant.available
-              ? collectionI18n.addToCart
-              : collectionI18n.soldOut;
-            if (priceEl) priceEl.textContent = formatMoneyCents(selectedVariant.price);
-          });
-        }
-
-        if (addBtn) {
-          addBtn.addEventListener('click', function () {
-            if (addBtn.disabled) return;
-            var span = addBtn.querySelector('span');
-            var originalText = span.textContent;
-            addBtn.disabled = true;
-            span.textContent = collectionI18n.adding;
-
-            fetch('/cart/add.js', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-              body: JSON.stringify({ id: addBtn.getAttribute('data-variant-id'), quantity: 1 })
-            })
-              .then(function (response) {
-                if (!response.ok) throw new Error('add_to_cart_failed');
-                return fetch('/cart.js');
-              })
-              .then(function (response) { return response.json(); })
-              .then(function (cart) {
-                updateCartBadge(cart);
-                span.textContent = collectionI18n.added;
-                setTimeout(function () {
-                  addBtn.disabled = false;
-                  span.textContent = originalText;
-                }, 1500);
-              })
-              .catch(function () {
-                addBtn.disabled = false;
-                span.textContent = originalText;
-              });
-          });
-        }
-      })
-      .catch(function () {
-        quickViewBody.innerHTML = '<div class="quick-view-modal__loading">' + collectionI18n.quickViewError + '</div>';
-      });
-  }
-
-  document.querySelectorAll('[data-quick-view-trigger]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      openQuickView(btn.getAttribute('data-product-handle'));
-    });
-  });
-
-  document.querySelectorAll('[data-quick-view-close]').forEach(function (el) {
-    el.addEventListener('click', closeQuickView);
-  });
-
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape' && quickViewModal && !quickViewModal.hasAttribute('hidden')) {
-      closeQuickView();
-    }
   });
 
   (function () {
