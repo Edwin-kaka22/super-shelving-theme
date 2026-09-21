@@ -302,6 +302,11 @@
 {% stylesheet %}
   .pdp {
     background-color: #ffffff;
+    --page-width: 110rem;
+  }
+
+  body:has(.pdp) #reviews {
+    --page-width: 110rem;
   }
 
   .pdp__inner {
