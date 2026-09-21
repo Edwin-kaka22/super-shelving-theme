@@ -1,0 +1,244 @@
+{% doc %}
+  Renders a product card: an image that swaps to the second photo on hover,
+  a sale or sold-out bubble, the title, the price and an add-to-cart button.
+
+  The add-to-cart form carries its own button text as data attributes; the
+  submit is handled by a delegated listener in the product-recommendations
+  section so cards injected after page load still work.
+
+  @param {product} product - The product to display
+
+  @example
+  {% render 'product-card', product: product %}
+{% enddoc %}
+
+{% assign card_variant = product.selected_or_first_available_variant %}
+
+<div class="product-card">
+  <a href="{{ product.url }}" class="product-card__link">
+    <div class="product-card__image">
+      {% if product.featured_image %}
+        <img
+          class="product-card__image--primary"
+          src="{{ product.featured_image | image_url: width: 600 }}"
+          srcset="{{ product.featured_image | image_url: width: 400 }} 400w, {{ product.featured_image | image_url: width: 600 }} 600w, {{ product.featured_image | image_url: width: 800 }} 800w"
+          sizes="(min-width: 990px) 22vw, 50vw"
+          alt="{{ product.featured_image.alt | default: product.title | escape }}"
+          loading="lazy"
+          width="{{ product.featured_image.width }}"
+          height="{{ product.featured_image.height }}"
+        >
+      {% else %}
+        {{ 'product-1' | placeholder_svg_tag: 'product-card__placeholder' }}
+      {% endif %}
+
+      {% if product.images[1] %}
+        <img
+          class="product-card__image--secondary"
+          src="{{ product.images[1] | image_url: width: 600 }}"
+          alt=""
+          loading="lazy"
+          width="{{ product.images[1].width }}"
+          height="{{ product.images[1].height }}"
+        >
+      {% endif %}
+
+      {% if product.compare_at_price > product.price %}
+        <span class="product-card__badge">{{ 'collections.general.sale' | t }}</span>
+      {% elsif product.available == false %}
+        <span class="product-card__badge product-card__badge--sold-out">{{ 'collections.general.sold_out' | t }}</span>
+      {% endif %}
+    </div>
+
+    <div class="product-card__content">
+      <p class="product-card__title">{{ product.title }}</p>
+      <p class="product-card__price">
+        {% if product.compare_at_price > product.price %}
+          <span>{{ product.price | money }}</span>
+          <span class="product-card__price--compare">{{ product.compare_at_price | money }}</span>
+        {% elsif product.price_varies %}
+          {{ 'collections.general.price_from' | t: price: product.price_min | money }}
+        {% else %}
+          {{ product.price | money }}
+        {% endif %}
+      </p>
+    </div>
+  </a>
+
+  <form
+    method="post"
+    action="/cart/add"
+    class="product-card__form"
+    data-card-add-to-cart
+    data-adding-text="{{ 'collections.general.adding' | t | escape }}"
+    data-added-text="{{ 'collections.general.added' | t | escape }}"
+  >
+    <input type="hidden" name="id" value="{{ card_variant.id }}">
+    <button
+      type="submit"
+      class="product-card__add"
+      {% unless card_variant.available %}
+        disabled
+      {% endunless %}
+    >
+      <span data-card-add-label>
+        {% if card_variant.available %}
+          {{ 'collections.general.add_to_cart' | t }}
+        {% else %}
+          {{ 'collections.general.sold_out' | t }}
+        {% endif %}
+      </span>
+    </button>
+  </form>
+</div>
+
+{% stylesheet %}
+  .product-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-card__link {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .product-card__image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background-color: #f4f4f5;
+  }
+
+  .product-card__image img,
+  .product-card__image svg {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.35s ease;
+  }
+
+  .product-card__image--secondary {
+    opacity: 0;
+  }
+
+  .product-card__link:hover .product-card__image--secondary {
+    opacity: 1;
+  }
+
+  .product-card__badge {
+    position: absolute;
+    top: 0.6rem;
+    left: 0.6rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    background-color: #f5c02e;
+    color: #1a1a1a;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .product-card__badge--sold-out {
+    background-color: #6b6b6e;
+    color: #ffffff;
+  }
+
+  .product-card__content {
+    margin-top: 0.9rem;
+  }
+
+  .product-card__title {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    color: #1f2120;
+    transition: color 0.2s ease;
+  }
+
+  .product-card__link:hover .product-card__title {
+    color: #6b6b6e;
+  }
+
+  .product-card__price {
+    margin: 0.35rem 0 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-align: center;
+    color: #1f2120;
+  }
+
+  .product-card__price--compare {
+    margin-left: 0.4rem;
+    font-weight: 500;
+    color: #9a9a9d;
+    text-decoration: line-through;
+  }
+
+  .product-card__form {
+    margin-top: 0.75rem;
+    text-align: center;
+  }
+
+  .product-card__add {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    min-width: 12rem;
+    padding: 0.6rem 2rem;
+    border: 1px solid #1f2120;
+    border-radius: 999px;
+    background-color: #1f2120;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+  }
+
+  .product-card__add::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: #52564f;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .product-card__add:hover:not(:disabled)::before {
+    transform: scaleX(1);
+  }
+
+  .product-card__add:hover:not(:disabled) {
+    border-color: #52564f;
+  }
+
+  .product-card__add [data-card-add-label] {
+    position: relative;
+    z-index: 1;
+  }
+
+  .product-card__add:disabled {
+    background-color: #e5e5e7;
+    border-color: #e5e5e7;
+    color: #9a9a9d;
+    cursor: default;
+  }
+
+  .product-card__add.is-added {
+    background-color: #4a7c6f;
+    border-color: #4a7c6f;
+  }
+{% endstylesheet %}

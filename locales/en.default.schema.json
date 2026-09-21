@@ -1,5 +1,7 @@
 {
   "general": {
+    "product_recommendations": "Product recommendations",
+    "accordion": "Dropdown section",
     "404": "Not found",
     "article": "Article",
     "block": "Block",
@@ -53,6 +55,13 @@
     "typography": "Typography"
   },
   "labels": {
+    "products_shown": "Products to show",
+    "open_by_default": "Open by default",
+    "store_rating": "Star rating",
+    "store_rating_info": "Shown on every product until a product has its own review rating (metafield reviews.rating). Use your real store rating.",
+    "store_review_count": "Number of reviews",
+    "payment_methods": "Payment icons",
+    "payment_methods_info": "Comma-separated list. Only list methods your store accepts. Valid names: visa, master, american_express, paypal, apple_pay, google_pay, shopify_pay, afterpay, klarna, discover, diners_club, jcb, maestro.",
     "alignment": "Alignment",
     "background": "Background",
     "abn": "ABN",

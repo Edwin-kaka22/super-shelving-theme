@@ -1,0 +1,63 @@
+{% doc %}
+  Renders a row of five stars partially filled to match a rating, so values
+  like 4.9 show a nearly full fifth star.
+
+  @param {number} rating - The average rating out of 5
+  @param {string} [size] - The star size as a CSS length (default 1.1rem)
+
+  @example
+  {% render 'star-rating', rating: 4.9 %}
+{% enddoc %}
+
+{% liquid
+  assign rating_percent = rating | times: 20 | at_most: 100 | at_least: 0
+  assign star_size = size | default: '1.1rem'
+%}
+
+<span class="star-rating" style="--star-size: {{ star_size }}" role="img" aria-label="{{ rating }} / 5">
+  <span class="star-rating__row">
+    {% for i in (1..5) %}
+      <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path d="M10 1.5l2.59 5.25 5.79.84-4.19 4.09.99 5.77L10 14.77l-5.18 2.68.99-5.77-4.19-4.09 5.79-.84L10 1.5z"/>
+      </svg>
+    {% endfor %}
+  </span>
+  <span class="star-rating__fill" style="width: {{ rating_percent }}%">
+    <span class="star-rating__row">
+      {% for i in (1..5) %}
+        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path d="M10 1.5l2.59 5.25 5.79.84-4.19 4.09.99 5.77L10 14.77l-5.18 2.68.99-5.77-4.19-4.09 5.79-.84L10 1.5z"/>
+        </svg>
+      {% endfor %}
+    </span>
+  </span>
+</span>
+
+{% stylesheet %}
+  .star-rating {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+    color: #e5e5e7;
+  }
+
+  .star-rating__row {
+    display: flex;
+    width: calc(var(--star-size) * 5);
+  }
+
+  .star-rating__row svg {
+    flex: none;
+    width: var(--star-size);
+    height: var(--star-size);
+  }
+
+  .star-rating__fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow: hidden;
+    color: #f5c02e;
+  }
+{% endstylesheet %}

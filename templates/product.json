@@ -15,11 +15,122 @@
     },
     "main": {
       "type": "product",
+      "blocks": {
+        "delivery": {
+          "type": "accordion",
+          "settings": {
+            "heading": "Delivery & pickup",
+            "content": "<p>We offer cheap, fast delivery anywhere in Victoria. Exact rates are calculated at checkout based on your postcode and order size.</p><p>Prefer to collect? Local pickup is available same-day from our Moonee Ponds warehouse in Melbourne.</p>",
+            "open": false
+          }
+        },
+        "warranty": {
+          "type": "accordion",
+          "settings": {
+            "heading": "Warranty & returns",
+            "content": "<p>Every unit is covered by a full 12 month warranty against manufacturing defects.</p><p>See our <a href=\"/policies/refund-policy\">return policy</a> for details.</p>",
+            "open": false
+          }
+        },
+        "assembly": {
+          "type": "accordion",
+          "settings": {
+            "heading": "Assembly",
+            "content": "<p>Our shelving uses a tool-free boltless design, so most units can be assembled solo in under 30 minutes.</p><p>Step-by-step guides are on our <a href=\"/pages/assembly-instructions\">Assembly Instructions</a> page.</p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": ["delivery", "warranty", "assembly"],
       "settings": {}
+    },
+    "google-reviews": {
+      "type": "google-reviews",
+      "blocks": {
+        "review-1": {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "Sarah M.",
+            "review_date": "2 weeks ago",
+            "rating": 5,
+            "review_text": "Amazing quality shelving, exactly what I needed for my garage. Delivery was quick and the team were super helpful."
+          }
+        },
+        "review-2": {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "James T.",
+            "review_date": "1 month ago",
+            "rating": 5,
+            "review_text": "Great value for money and really sturdy once assembled. Would definitely buy from Super Shelving again."
+          }
+        },
+        "review-3": {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "Priya K.",
+            "review_date": "1 month ago",
+            "rating": 4,
+            "review_text": "Good range of sizes to choose from and the adjustable shelves make it easy to fit anything. Very happy with the purchase."
+          }
+        },
+        "review-4": {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "Daniel R.",
+            "review_date": "2 months ago",
+            "rating": 5,
+            "review_text": "Local pickup was easy and fast. The shelving is exactly as described and looks great in the workshop."
+          }
+        },
+        "review-5": {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "Michael B.",
+            "review_date": "3 months ago",
+            "rating": 5,
+            "review_text": "Excellent customer service from start to finish. The racks look fantastic in my workshop and hold way more than I expected."
+          }
+        },
+        "review-6": {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "Emma L.",
+            "review_date": "3 months ago",
+            "rating": 4,
+            "review_text": "Really solid build quality and easy to put together. Just wish there were a couple more colour options available."
+          }
+        },
+        "review-7": {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "Chris H.",
+            "review_date": "4 months ago",
+            "rating": 5,
+            "review_text": "Ordered a second unit after how happy we were with the first. Great communication and fast Melbourne delivery."
+          }
+        }
+      },
+      "block_order": ["review-1", "review-2", "review-3", "review-4", "review-5", "review-6", "review-7"],
+      "settings": {
+        "heading": "What our customers say",
+        "average_rating": "4.9",
+        "review_count": "200",
+        "button_label": "Read all reviews on Google"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "products_shown": 4
+      }
     }
   },
   "order": [
     "announcement-bar",
-    "main"
+    "main",
+    "google-reviews",
+    "product-recommendations"
   ]
 }
