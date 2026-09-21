@@ -230,7 +230,7 @@
                       {% endif %}
 
                       {% if product.compare_at_price > product.price %}
-                        <span class="collection-product__badge collection-product__badge--sale">{{ 'collections.general.sale' | t }}</span>
+                        <span class="collection-product__badge collection-product__badge--sale"><span class="collection-product__badge-text">{{ 'collections.general.sale' | t }}</span></span>
                       {% elsif product.available == false %}
                         <span class="collection-product__badge collection-product__badge--sold-out">{{ 'collections.general.sold_out' | t }}</span>
                       {% endif %}
@@ -793,16 +793,33 @@
   }
 
   .collection-product__badge--sale {
-    top: 1.1rem;
-    right: -1.9rem;
+    top: 0;
+    right: 0;
     left: auto;
-    width: 6.5rem;
-    padding: 0.18rem 0;
-    font-size: 0.58rem;
+    width: 4.4rem;
+    height: 2.54rem;
+    padding: 0;
     border-radius: 0;
-    text-align: center;
-    transform: rotate(30deg);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
+    pointer-events: none;
+  }
+
+  .collection-product__badge--sale::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: #f5c02e;
+    clip-path: polygon(0 0, 59.09% 0, 100% 40.91%, 100% 100%);
+  }
+
+  .collection-product__badge-text {
+    position: absolute;
+    left: 2.85rem;
+    top: 0.9rem;
+    font-size: 0.6rem;
+    white-space: nowrap;
+    transform: translate(-50%, -50%) rotate(30deg);
   }
 
   .collection-product__content {
@@ -965,11 +982,14 @@
   }
 
   .collection-grid.is-list .collection-product__badge--sale {
-    top: 0.55rem;
-    right: -1.5rem;
-    width: 4.5rem;
-    padding: 0.15rem 0;
-    font-size: 0.5rem;
+    width: 2.6rem;
+    height: 1.5rem;
+  }
+
+  .collection-grid.is-list .collection-product__badge-text {
+    left: 1.7rem;
+    top: 0.53rem;
+    font-size: 0.4rem;
   }
 
   .collection-grid.is-list .collection-product__content {
