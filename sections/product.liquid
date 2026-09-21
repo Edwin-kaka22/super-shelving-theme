@@ -128,8 +128,8 @@
 
       <div class="pdp__info">
         <div class="pdp__title-row">
-          <h1 class="pdp__title">{{ product.title }}</h1>
           <span class="pdp__sale-badge" data-sale-badge{% unless on_sale %} hidden{% endunless %}>{{ 'collections.general.sale' | t }}</span>
+          <h1 class="pdp__title">{{ product.title }}</h1>
         </div>
 
         {% if rating_value != blank %}
