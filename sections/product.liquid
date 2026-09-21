@@ -1099,13 +1099,22 @@
     if (nextBtn) nextBtn.addEventListener('click', function () { showImage(activeIndex + 1); });
 
     if (stage && window.matchMedia && window.matchMedia('(hover: hover)').matches) {
-      stage.addEventListener('mouseenter', function () { stage.classList.add('is-zoomed'); });
+      var overControl = function (event) {
+        return !!(event.target.closest && event.target.closest('.pdp__arrow, .pdp__counter, .pdp__badge'));
+      };
+
       stage.addEventListener('mouseleave', function () {
         stage.classList.remove('is-zoomed');
         if (mainImage) mainImage.style.transformOrigin = '';
       });
       stage.addEventListener('mousemove', function (event) {
         if (!mainImage) return;
+        if (overControl(event)) {
+          stage.classList.remove('is-zoomed');
+          mainImage.style.transformOrigin = '';
+          return;
+        }
+        stage.classList.add('is-zoomed');
         var rect = stage.getBoundingClientRect();
         var x = ((event.clientX - rect.left) / rect.width) * 100;
         var y = ((event.clientY - rect.top) / rect.height) * 100;
