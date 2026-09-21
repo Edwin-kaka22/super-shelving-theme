@@ -74,6 +74,20 @@
       "max": "Max"
     }
   },
+  "products": {
+    "product": {
+      "breadcrumbs": "Breadcrumb",
+      "view_image": "View image {{ number }}",
+      "options": "Options",
+      "quantity": "Quantity",
+      "decrease_quantity": "Decrease quantity",
+      "increase_quantity": "Increase quantity",
+      "trust_warehouse": "Local Melbourne warehouse - same-day pickup from Moonee Ponds",
+      "trust_delivery": "Fast, affordable delivery across Victoria",
+      "trust_warranty": "Full 12 month warranty",
+      "details": "Product details"
+    }
+  },
   "gift_card": {
     "add_to_apple_wallet": "Add to Apple Wallet",
     "card": "Gift card",

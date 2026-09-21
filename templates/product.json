@@ -9,12 +9,17 @@
  */
 {
   "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {}
+    },
     "main": {
       "type": "product",
       "settings": {}
     }
   },
   "order": [
+    "announcement-bar",
     "main"
   ]
 }
