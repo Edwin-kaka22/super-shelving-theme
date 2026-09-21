@@ -1,9 +1,9 @@
 {% doc %}
   Renders the product page: breadcrumbs, a gallery with a scrollable column
-  of thumbnails down the side, the title, star rating, price, stock level, an
-  "at a glance" spec strip, optional variant selector, quantity stepper,
-  add-to-cart button, secure payment icons, store trust points, and a set of
-  dropdown sections.
+  of thumbnails down the side and secure payment icons underneath, the title
+  with a sale badge, star rating, price, stock level, an "at a glance" spec
+  strip, optional variant selector, quantity stepper, add-to-cart button, and
+  a compact set of dropdown sections.
 
   The product description is split in the browser into dropdowns: an intro
   ("Description"), a dimensions and specifications table built from the
@@ -89,9 +89,7 @@
             {{ 'product-1' | placeholder_svg_tag: 'pdp__placeholder' }}
           {% endif %}
 
-          {% if on_sale %}
-            <span class="pdp__badge">{{ 'collections.general.sale' | t }}</span>
-          {% elsif product.available == false %}
+          {% if product.available == false %}
             <span class="pdp__badge pdp__badge--sold-out">{{ 'collections.general.sold_out' | t }}</span>
           {% endif %}
 
@@ -105,10 +103,34 @@
             <span class="pdp__counter" data-gallery-counter>1 / {{ product.images.size }}</span>
           {% endif %}
         </div>
+
+        {% if payment_methods.size > 0 %}
+          <div class="pdp__secure">
+            <p class="pdp__secure-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4" y="11" width="16" height="10" rx="2"></rect>
+                <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+              </svg>
+              {{ 'products.product.secure_checkout' | t }}
+            </p>
+            <ul class="pdp__payment-icons">
+              {% for method in payment_methods %}
+                {% assign method_name = method | strip %}
+                {% if method_name != blank %}
+                  <li>{{ method_name | payment_type_svg_tag: class: 'pdp__payment-icon' }}</li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+            <p class="pdp__secure-note">{{ 'products.product.secure_note' | t }}</p>
+          </div>
+        {% endif %}
       </div>
 
       <div class="pdp__info">
-        <h1 class="pdp__title">{{ product.title }}</h1>
+        <div class="pdp__title-row">
+          <h1 class="pdp__title">{{ product.title }}</h1>
+          <span class="pdp__sale-badge" data-sale-badge{% unless on_sale %} hidden{% endunless %}>{{ 'collections.general.sale' | t }}</span>
+        </div>
 
         {% if rating_value != blank %}
           <a href="#reviews" class="pdp__rating">
@@ -225,63 +247,23 @@
           </div>
         {% endform %}
 
-        {% if payment_methods.size > 0 %}
-          <div class="pdp__secure">
-            <p class="pdp__secure-title">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="4" y="11" width="16" height="10" rx="2"></rect>
-                <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
-              </svg>
-              {{ 'products.product.secure_checkout' | t }}
-            </p>
-            <ul class="pdp__payment-icons">
-              {% for method in payment_methods %}
-                {% assign method_name = method | strip %}
-                {% if method_name != blank %}
-                  <li>{{ method_name | payment_type_svg_tag: class: 'pdp__payment-icon' }}</li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-            <p class="pdp__secure-note">{{ 'products.product.secure_note' | t }}</p>
+        <div class="pdp__accordions">
+          <div data-generated-accordions>
+            {% if product.description != blank %}
+              <div class="pdp__description" data-description-source>{{ product.description }}</div>
+            {% endif %}
           </div>
-        {% endif %}
 
-        <ul class="pdp__trust">
-          <li class="pdp__trust-item">
-            <span class="pdp__trust-icon">{{ 'icon-pin.svg' | inline_asset_content }}</span>
-            <span>{{ 'products.product.trust_warehouse' | t }}</span>
-          </li>
-          <li class="pdp__trust-item">
-            <span class="pdp__trust-icon">{{ 'icon-package.svg' | inline_asset_content }}</span>
-            <span>{{ 'products.product.trust_delivery' | t }}</span>
-          </li>
-          <li class="pdp__trust-item">
-            <span class="pdp__trust-icon">{{ 'icon-medal.svg' | inline_asset_content }}</span>
-            <span>{{ 'products.product.trust_warranty' | t }}</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="pdp__details">
-      <h2 class="pdp__details-heading">{{ 'products.product.details' | t }}</h2>
-
-      <div class="pdp__accordions">
-        <div data-generated-accordions>
-          {% if product.description != blank %}
-            <div class="pdp__description" data-description-source>{{ product.description }}</div>
-          {% endif %}
+          {% for block in section.blocks %}
+            <details class="pdp__acc" {% if block.settings.open %}open{% endif %} {{ block.shopify_attributes }}>
+              <summary class="pdp__acc-summary">
+                <span>{{ block.settings.heading }}</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </summary>
+              <div class="pdp__acc-body pdp__description">{{ block.settings.content }}</div>
+            </details>
+          {% endfor %}
         </div>
-
-        {% for block in section.blocks %}
-          <details class="pdp__acc" {% if block.settings.open %}open{% endif %} {{ block.shopify_attributes }}>
-            <summary class="pdp__acc-summary">
-              <span>{{ block.settings.heading }}</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </summary>
-            <div class="pdp__acc-body pdp__description">{{ block.settings.content }}</div>
-          </details>
-        {% endfor %}
       </div>
     </div>
   </div>
@@ -521,9 +503,36 @@
 
   /* Info column */
 
+  .pdp__title-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .pdp__title-row .pdp__title {
+    min-width: 0;
+  }
+
+  .pdp__sale-badge {
+    flex: none;
+    margin-top: 0.15rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    background-color: #f5c02e;
+    color: #1a1a1a;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .pdp__sale-badge[hidden] {
+    display: none;
+  }
+
   .pdp__title {
     margin: 0;
-    font-size: 1.9rem;
+    font-size: 1.5rem;
     font-weight: 800;
     line-height: 1.15;
     letter-spacing: -0.01em;
@@ -650,6 +659,7 @@
     margin-top: 0.15rem;
     font-size: 0.9rem;
     font-weight: 700;
+    text-transform: uppercase;
     color: #1f2120;
   }
 
@@ -783,10 +793,15 @@
     margin-top: 0.75rem;
   }
 
+  .pdp__payment .shopify-payment-button__more-options {
+    display: none !important;
+  }
+
   /* Secure payments */
 
   .pdp__secure {
-    margin-top: 1.25rem;
+    grid-column: 1 / -1;
+    margin-top: 0.5rem;
     padding: 1rem 1.1rem;
     border: 1px solid #e5e5e7;
     border-radius: 0.75rem;
@@ -834,54 +849,10 @@
     color: #6b6b6e;
   }
 
-  /* Trust points */
-
-  .pdp__trust {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin: 1.5rem 0 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .pdp__trust-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 0.9rem;
-    color: #4a4a4d;
-  }
-
-  .pdp__trust-icon {
-    flex: none;
-    display: flex;
-    color: #1f2120;
-    --icon-stroke-width: 1.6;
-  }
-
-  .pdp__trust-icon svg {
-    width: 1.35rem;
-    height: 1.35rem;
-  }
-
   /* Dropdown sections */
 
-  .pdp__details {
-    max-width: 62rem;
-    margin: 3.5rem auto 0;
-  }
-
-  .pdp__details-heading {
-    margin: 0 0 1.25rem;
-    font-size: 1.5rem;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    color: #1f2120;
-  }
-
   .pdp__accordions {
+    margin-top: 1.5rem;
     border-top: 1px solid #e5e5e7;
   }
 
@@ -894,10 +865,10 @@
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding: 1.1rem 0;
-    font-size: 0.95rem;
+    padding: 0.7rem 0;
+    font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     color: #1f2120;
     cursor: pointer;
@@ -910,8 +881,8 @@
 
   .pdp__acc-summary svg {
     flex: none;
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1rem;
+    height: 1rem;
     transition: transform 0.25s ease;
   }
 
@@ -920,12 +891,11 @@
   }
 
   .pdp__acc-body {
-    padding: 0 0 1.4rem;
+    padding: 0 0 0.9rem;
   }
-
   .pdp__description {
-    font-size: 0.92rem;
-    line-height: 1.7;
+    font-size: 0.85rem;
+    line-height: 1.6;
     color: #4a4a4d;
   }
 
@@ -967,12 +937,12 @@
   .pdp__specs {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.88rem;
+    font-size: 0.8rem;
   }
 
   .pdp__specs th,
   .pdp__specs td {
-    padding: 0.65rem 0.75rem;
+    padding: 0.4rem 0.6rem;
     text-align: left;
     vertical-align: top;
     border-bottom: 1px solid #f0f0f1;
@@ -1192,6 +1162,8 @@
         compareEl.textContent = variant.compare || '';
         compareEl.hidden = !variant.compare;
       }
+      var saleBadge = root.querySelector('[data-sale-badge]');
+      if (saleBadge) saleBadge.hidden = !variant.compare;
       if (addBtn) addBtn.disabled = !variant.available;
       if (addLabel) addLabel.textContent = variant.available ? i18n.addToCart : i18n.soldOut;
       renderStock(variant);
