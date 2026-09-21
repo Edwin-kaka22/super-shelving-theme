@@ -251,6 +251,7 @@
           <div data-generated-accordions>
             {% if product.description != blank %}
               <div class="pdp__description" data-description-source>{{ product.description }}</div>
+              <noscript><style>[data-description-source] { display: block !important; }</style></noscript>
             {% endif %}
           </div>
 
@@ -803,8 +804,8 @@
     grid-column: 1 / -1;
     margin-top: 0.5rem;
     padding: 1rem 1.1rem;
-    border: 1px solid #e5e5e7;
     border-radius: 0.75rem;
+    background-color: #f4f4f5;
   }
 
   .pdp__secure-title {
@@ -854,6 +855,10 @@
   .pdp__accordions {
     margin-top: 1.5rem;
     border-top: 1px solid #e5e5e7;
+  }
+
+  [data-description-source] {
+    display: none;
   }
 
   .pdp__acc {
@@ -1370,7 +1375,7 @@
         if (!group.nodes.length) return;
 
         if (index === 0 && !group.title) {
-          accordions.push(makeAccordion(i18n.descriptionTitle, group.nodes, true));
+          accordions.push(makeAccordion(i18n.descriptionTitle, group.nodes, false));
           return;
         }
 
@@ -1397,6 +1402,8 @@
         host.innerHTML = '';
         accordions.forEach(function (accordion) { host.appendChild(accordion); });
         buildGlance(specRows);
+      } else {
+        source.style.display = 'block';
       }
     }
   })();
