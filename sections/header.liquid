@@ -61,7 +61,7 @@
         </shopify-account>
       {% endif %}
 
-      <a href="{{ routes.cart_url }}">
+      <a href="{{ routes.cart_url }}" data-cart-drawer-toggle>
         {% if cart.item_count > 0 %}
           <sup>{{ cart.item_count }}</sup>
         {% endif %}
@@ -206,8 +206,8 @@
     justify-content: center;
     padding: 0 0.2rem;
     border-radius: 999px;
-    background-color: #ffffff;
-    color: var(--header-background);
+    background-color: #f5c02e;
+    color: #1a1a1a;
     font-size: 0.65rem;
   }
 {% endstylesheet %}

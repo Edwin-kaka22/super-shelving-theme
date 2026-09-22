@@ -8,7 +8,8 @@
     "support": "Support",
     "info": "Info",
     "policies": "Policies",
-    "home": "Home"
+    "home": "Home",
+    "close": "Close"
   },
   "labels": {
     "abn": "ABN"
@@ -31,7 +32,14 @@
     "checkout": "Checkout",
     "title": "Cart",
     "update": "Update",
-    "remove": "Remove"
+    "remove": "Remove",
+    "general": {
+      "empty": "Your cart is empty.",
+      "continue_shopping": "Continue shopping",
+      "subtotal": "Subtotal",
+      "shipping_note": "Shipping and taxes calculated at checkout.",
+      "view_cart": "View cart"
+    }
   },
   "customers": {
     "login": {

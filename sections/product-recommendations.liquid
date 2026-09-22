@@ -125,29 +125,8 @@
       button.disabled = true;
       label.textContent = form.getAttribute('data-adding-text');
 
-      fetch('/cart/add.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ id: form.elements['id'].value, quantity: 1 })
-      })
-        .then(function (response) {
-          if (!response.ok) throw new Error('add_to_cart_failed');
-          return fetch('/cart.js');
-        })
-        .then(function (response) { return response.json(); })
-        .then(function (cart) {
-          var cartCountEl = document.querySelector('.header__icons a[href*="/cart"] sup');
-          if (cartCountEl) {
-            cartCountEl.textContent = cart.item_count;
-          } else if (cart.item_count > 0) {
-            var cartLink = document.querySelector('.header__icons a[href*="/cart"]');
-            if (cartLink) {
-              var sup = document.createElement('sup');
-              sup.textContent = cart.item_count;
-              cartLink.insertBefore(sup, cartLink.firstChild);
-            }
-          }
-
+      window.SuperShelvingCart.addItem(form.elements['id'].value, 1)
+        .then(function () {
           button.classList.add('is-added');
           label.textContent = form.getAttribute('data-added-text');
 

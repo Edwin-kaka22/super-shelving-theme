@@ -1212,32 +1212,8 @@
         addBtn.disabled = true;
         addLabel.textContent = i18n.adding;
 
-        fetch('/cart/add.js', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify({
-            id: idField.value,
-            quantity: qtyInput ? parseInt(qtyInput.value, 10) || 1 : 1
-          })
-        })
-          .then(function (response) {
-            if (!response.ok) throw new Error('add_to_cart_failed');
-            return fetch('/cart.js');
-          })
-          .then(function (response) { return response.json(); })
-          .then(function (cart) {
-            var cartCountEl = document.querySelector('.header__icons a[href*="/cart"] sup');
-            if (cartCountEl) {
-              cartCountEl.textContent = cart.item_count;
-            } else if (cart.item_count > 0) {
-              var cartLink = document.querySelector('.header__icons a[href*="/cart"]');
-              if (cartLink) {
-                var sup = document.createElement('sup');
-                sup.textContent = cart.item_count;
-                cartLink.insertBefore(sup, cartLink.firstChild);
-              }
-            }
-
+        window.SuperShelvingCart.addItem(idField.value, qtyInput ? parseInt(qtyInput.value, 10) || 1 : 1)
+          .then(function () {
             addBtn.classList.add('is-added');
             addLabel.textContent = i18n.added;
 
