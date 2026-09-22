@@ -1,0 +1,50 @@
+{% doc %}
+  Renders a single line item row on the standalone cart page: image, title,
+  variant, a quantity stepper, a remove button, and a line price (with the
+  compare-at price shown when the variant is on sale). Mirrors
+  cart-drawer-item.liquid's pricing logic so both cart surfaces agree.
+
+  @param {line_item} item - The cart line item to render
+
+  @example
+  {% render 'cart-page-item', item: item %}
+{% enddoc %}
+
+<li class="cart-page__item" data-cart-page-item data-line-key="{{ item.key }}">
+  <a href="{{ item.url }}" class="cart-page__item-image" tabindex="-1">
+    {% if item.image %}
+      <img
+        src="{{ item.image | image_url: width: 300 }}"
+        alt="{{ item.image.alt | default: item.product.title | escape }}"
+        loading="lazy"
+        width="150"
+        height="150"
+      >
+    {% endif %}
+  </a>
+
+  <div class="cart-page__item-info">
+    <a href="{{ item.url }}" class="cart-page__item-title">{{ item.product.title }}</a>
+
+    {% unless item.variant.title == 'Default Title' %}
+      <p class="cart-page__item-variant">{{ item.variant.title }}</p>
+    {% endunless %}
+
+    <button type="button" class="cart-page__item-remove" data-cart-remove>{{ 'cart.remove' | t }}</button>
+  </div>
+
+  <div class="cart-page__qty">
+    <button type="button" class="cart-page__qty-btn" data-cart-qty-minus aria-label="{{ 'products.product.decrease_quantity' | t }}">&minus;</button>
+    <span class="cart-page__qty-value" data-cart-qty-value>{{ item.quantity }}</span>
+    <button type="button" class="cart-page__qty-btn" data-cart-qty-plus aria-label="{{ 'products.product.increase_quantity' | t }}">+</button>
+  </div>
+
+  <p class="cart-page__item-price">
+    {% if item.variant.compare_at_price > item.variant.price %}
+      <span class="cart-page__item-price--sale">{{ item.final_line_price | money }}</span>
+      <span class="cart-page__item-price--compare">{{ item.variant.compare_at_price | times: item.quantity | money }}</span>
+    {% else %}
+      {{ item.final_line_price | money }}
+    {% endif %}
+  </p>
+</li>

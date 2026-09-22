@@ -524,12 +524,13 @@
           return data;
         });
       },
-      changeLineQuantity: function (lineKey, quantity) {
+      changeLineQuantity: function (lineKey, quantity, extraSectionId) {
         setLineBusy(lineKey, true);
+        var sections = extraSectionId ? 'cart-drawer,' + extraSectionId : 'cart-drawer';
         return fetch('/cart/change.js', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify({ id: lineKey, quantity: quantity, sections: 'cart-drawer' })
+          body: JSON.stringify({ id: lineKey, quantity: quantity, sections: sections })
         }).then(function (response) {
           if (!response.ok) throw new Error('change_quantity_failed');
           return response.json();
