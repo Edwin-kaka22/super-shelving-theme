@@ -444,6 +444,7 @@
     }
 
     function open() {
+      if (window.SuperShelvingSearch) window.SuperShelvingSearch.close();
       drawer.removeAttribute('hidden');
       requestAnimationFrame(function () {
         drawer.classList.add('is-open');

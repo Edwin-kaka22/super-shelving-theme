@@ -115,7 +115,9 @@
     "title": "Search",
     "placeholder": "Search articles, pages, or products",
     "submit": "Search",
+    "hint": "Start typing to search our products.",
     "no_results_html": "No results found for {{ terms }}",
-    "results_for_html": "{{ count }} results found for {{ terms }}"
+    "results_for_html": "{{ count }} results found for {{ terms }}",
+    "view_all_html": "View all results for \"{{ terms }}\""
   }
 }
