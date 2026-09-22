@@ -28,6 +28,17 @@
     "comment_form_submit": "Post",
     "comment_form_title": "Add a comment"
   },
+  "contact": {
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone number",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Thanks for reaching out! We'll get back to you as soon as possible.",
+      "error_heading": "Please fix the following:"
+    }
+  },
   "cart": {
     "checkout": "Checkout",
     "title": "Cart",
