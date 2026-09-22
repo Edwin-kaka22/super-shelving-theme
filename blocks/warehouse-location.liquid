@@ -9,14 +9,14 @@
 
 <div class="warehouse-location" {{ block.shopify_attributes }}>
   {% if block.settings.name != blank %}
-    <h3 class="warehouse-location__name">{{ block.settings.name }}</h3>
+    <h3 class="warehouse-location__name">
+      <span class="warehouse-location__pin">{{ 'icon-pin.svg' | inline_asset_content }}</span>
+      <span>{{ block.settings.name }}</span>
+    </h3>
   {% endif %}
 
   {% if block.settings.address != blank %}
-    <p class="warehouse-location__address">
-      <span class="warehouse-location__pin">{{ 'icon-pin.svg' | inline_asset_content }}</span>
-      <span>{{ block.settings.address }}</span>
-    </p>
+    <p class="warehouse-location__address">{{ block.settings.address }}</p>
   {% endif %}
 
   {% if block.settings.hours != blank %}
@@ -36,6 +36,9 @@
   }
 
   .warehouse-location__name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     margin: 0 0 0.75rem;
     font-size: 1.1rem;
     font-weight: 700;
@@ -43,9 +46,6 @@
   }
 
   .warehouse-location__address {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
     margin: 0;
     font-size: 0.95rem;
     color: #1f2120;
@@ -56,7 +56,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 0.15rem;
     color: #1f2120;
     --icon-stroke-width: 1.5;
   }
