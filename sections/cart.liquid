@@ -12,7 +12,12 @@
 {% enddoc %}
 
 <div class="cart-page" data-cart-page data-section-id="{{ section.id }}">
-  <h1 class="cart-page__heading">{{ 'cart.title' | t }}</h1>
+  <h1 class="cart-page__heading">
+    {{ 'cart.title' | t }}
+    {% if cart.item_count > 0 %}
+      <span class="cart-page__count">{{ cart.item_count }}</span>
+    {% endif %}
+  </h1>
 
   {% if cart.item_count > 0 %}
     <div class="cart-page__layout">
@@ -55,12 +60,29 @@
   }
 
   .cart-page__heading {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     margin: 0 0 2rem;
     font-size: 2rem;
     font-weight: 800;
     letter-spacing: -0.01em;
     text-transform: uppercase;
     color: #1f2120;
+  }
+
+  .cart-page__count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.9rem;
+    height: 1.9rem;
+    padding: 0 0.5rem;
+    border-radius: 999px;
+    background-color: #f4f4f5;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #6b6b6e;
   }
 
   .cart-page__layout {
