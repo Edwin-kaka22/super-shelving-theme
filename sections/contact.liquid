@@ -24,39 +24,39 @@
       {% if section.settings.description != blank %}
         <p class="contact__description">{{ section.settings.description }}</p>
       {% endif %}
-
-      {% if section.settings.address != blank or section.settings.phone != blank or section.settings.email != blank or section.settings.hours != blank %}
-        <ul class="contact__details">
-          {% if section.settings.address != blank %}
-            <li>
-              <span class="contact__detail-icon">{{ 'icon-pin.svg' | inline_asset_content }}</span>
-              <span>{{ section.settings.address }}</span>
-            </li>
-          {% endif %}
-
-          {% if section.settings.phone != blank %}
-            <li>
-              <span class="contact__detail-icon">{{ 'icon-phone.svg' | inline_asset_content }}</span>
-              <a href="tel:{{ section.settings.phone }}">{{ section.settings.phone }}</a>
-            </li>
-          {% endif %}
-
-          {% if section.settings.email != blank %}
-            <li>
-              <span class="contact__detail-icon">{{ 'icon-mail.svg' | inline_asset_content }}</span>
-              <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
-            </li>
-          {% endif %}
-
-          {% if section.settings.hours != blank %}
-            <li>
-              <span class="contact__detail-icon">{{ 'icon-medal.svg' | inline_asset_content }}</span>
-              <span>{{ section.settings.hours }}</span>
-            </li>
-          {% endif %}
-        </ul>
-      {% endif %}
     </div>
+
+    {% if section.settings.address != blank or section.settings.phone != blank or section.settings.email != blank or section.settings.hours != blank %}
+      <ul class="contact__details">
+        {% if section.settings.address != blank %}
+          <li>
+            <span class="contact__detail-icon">{{ 'icon-pin.svg' | inline_asset_content }}</span>
+            <span>{{ section.settings.address }}</span>
+          </li>
+        {% endif %}
+
+        {% if section.settings.phone != blank %}
+          <li>
+            <span class="contact__detail-icon">{{ 'icon-phone.svg' | inline_asset_content }}</span>
+            <a href="tel:{{ section.settings.phone }}">{{ section.settings.phone }}</a>
+          </li>
+        {% endif %}
+
+        {% if section.settings.email != blank %}
+          <li>
+            <span class="contact__detail-icon">{{ 'icon-mail.svg' | inline_asset_content }}</span>
+            <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+          </li>
+        {% endif %}
+
+        {% if section.settings.hours != blank %}
+          <li>
+            <span class="contact__detail-icon">{{ 'icon-medal.svg' | inline_asset_content }}</span>
+            <span>{{ section.settings.hours }}</span>
+          </li>
+        {% endif %}
+      </ul>
+    {% endif %}
 
     <div class="contact__form-wrap">
       {% form 'contact', class: 'contact__form' %}
@@ -177,10 +177,12 @@
 
   .contact__details {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin: 2rem 0 0;
-    padding: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 2.5rem;
+    max-width: 56rem;
+    margin: 2rem auto 0;
+    padding: 1.5rem 2rem;
     background-color: #f4f4f5;
     border: 1px solid #e5e5e7;
     border-radius: 0.75rem;
