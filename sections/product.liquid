@@ -107,10 +107,9 @@
         {% if payment_methods.size > 0 %}
           <div class="pdp__secure">
             <p class="pdp__secure-title">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 2 4 5v6c0 5.25 3.5 9.74 8 11 4.5-1.26 8-5.75 8-11V5z"></path>
-                <path d="m9 12 2 2 4-4"></path>
-              </svg>
+              <span class="pdp__secure-badge">
+                <img src="{{ 'secure-checkout-badge.png' | asset_url }}" alt="" loading="lazy" width="80" height="80">
+              </span>
               {{ 'products.product.secure_checkout' | t }}
             </p>
             <ul class="pdp__payment-icons">
@@ -823,10 +822,21 @@
     color: #1f2120;
   }
 
-  .pdp__secure-title svg {
-    width: 1.1rem;
-    height: 1.1rem;
-    color: #34a853;
+  .pdp__secure-badge {
+    flex: none;
+    display: block;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .pdp__secure-badge img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.06);
   }
 
   .pdp__payment-icons {
