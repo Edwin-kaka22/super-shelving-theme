@@ -1,7 +1,8 @@
 {% doc %}
-  Renders a full-width contact page section: a centred heading,
-  description and store contact details (address, phone, email, hours)
-  stacked above Shopify's built-in contact form.
+  Renders a full-width contact page section: a centred heading and
+  description, a quick-contact row (phone, email), a Warehouse Locations
+  list built from `warehouse-location` blocks, and Shopify's built-in
+  contact form.
 
   Submissions are emailed to the store's customer contact email and are
   visible in Shopify admin under Settings > Notifications.
@@ -26,15 +27,8 @@
       {% endif %}
     </div>
 
-    {% if section.settings.address != blank or section.settings.phone != blank or section.settings.email != blank or section.settings.hours != blank %}
+    {% if section.settings.phone != blank or section.settings.email != blank %}
       <ul class="contact__details">
-        {% if section.settings.address != blank %}
-          <li>
-            <span class="contact__detail-icon">{{ 'icon-pin.svg' | inline_asset_content }}</span>
-            <span>{{ section.settings.address }}</span>
-          </li>
-        {% endif %}
-
         {% if section.settings.phone != blank %}
           <li>
             <span class="contact__detail-icon">{{ 'icon-phone.svg' | inline_asset_content }}</span>
@@ -48,14 +42,19 @@
             <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
           </li>
         {% endif %}
-
-        {% if section.settings.hours != blank %}
-          <li>
-            <span class="contact__detail-icon">{{ 'icon-medal.svg' | inline_asset_content }}</span>
-            <span>{{ section.settings.hours }}</span>
-          </li>
-        {% endif %}
       </ul>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="contact__locations">
+        {% if section.settings.locations_heading != blank %}
+          <h2 class="contact__locations-heading">{{ section.settings.locations_heading }}</h2>
+        {% endif %}
+
+        <div class="contact__locations-grid">
+          {% content_for 'blocks' %}
+        </div>
+      </div>
     {% endif %}
 
     <div class="contact__form-wrap">
@@ -220,6 +219,27 @@
     height: 1.35rem;
   }
 
+  .contact__locations {
+    max-width: 56rem;
+    margin: 3rem auto 0;
+  }
+
+  .contact__locations-heading {
+    margin: 0 0 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    text-align: center;
+    color: #1f2120;
+  }
+
+  .contact__locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.5rem;
+  }
+
   .contact__form-wrap {
     max-width: 56rem;
     margin: 3rem auto 0;
@@ -358,12 +378,6 @@
     },
     {
       "type": "text",
-      "id": "address",
-      "label": "t:labels.address",
-      "default": "4 Ardmillan Road, Moonee Ponds, VIC"
-    },
-    {
-      "type": "text",
       "id": "phone",
       "label": "t:labels.phone",
       "default": "+61 431 533 520"
@@ -376,14 +390,35 @@
     },
     {
       "type": "text",
-      "id": "hours",
-      "label": "t:labels.hours",
-      "default": "Mon - Fri, 9am - 5pm"
+      "id": "locations_heading",
+      "label": "t:labels.locations_heading",
+      "default": "Warehouse Locations"
     }
+  ],
+  "blocks": [
+    { "type": "warehouse-location" }
   ],
   "presets": [
     {
-      "name": "t:general.contact"
+      "name": "t:general.contact",
+      "blocks": [
+        {
+          "type": "warehouse-location",
+          "settings": {
+            "name": "Moonee Ponds",
+            "address": "4 Ardmillan Road, Moonee Ponds, 3039",
+            "hours": "Monday to Friday 9am - 6pm\nSaturday & Sunday 10am - 5pm"
+          }
+        },
+        {
+          "type": "warehouse-location",
+          "settings": {
+            "name": "Doveton",
+            "address": "24b Princess Highway, Doveton, 3177",
+            "hours": "Monday to Friday 9am - 3pm"
+          }
+        }
+      ]
     }
   ]
 }

@@ -55,6 +55,7 @@
     "theme": "Theme",
     "trust_badge": "Trust badge",
     "trust_badges": "Trust badges",
+    "warehouse_location": "Warehouse location",
     "typography": "Typography"
   },
   "labels": {
@@ -106,6 +107,7 @@
     "phone": "Phone number",
     "email": "Email address",
     "hours": "Business hours",
+    "locations_heading": "Warehouse locations heading",
     "customer_account_menu": "Customer account menu",
     "name": "Name",
     "padding": "Padding",

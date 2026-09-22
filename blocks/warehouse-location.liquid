@@ -1,0 +1,114 @@
+{% doc %}
+  Renders a single warehouse location card made up of a name, address and
+  opening hours. Intended for use inside the `contact` section's Warehouse
+  Locations list.
+
+  @example
+  {% content_for 'block', type: 'warehouse-location', id: 'warehouse-location-1' %}
+{% enddoc %}
+
+<div class="warehouse-location" {{ block.shopify_attributes }}>
+  {% if block.settings.name != blank %}
+    <h3 class="warehouse-location__name">{{ block.settings.name }}</h3>
+  {% endif %}
+
+  {% if block.settings.address != blank %}
+    <p class="warehouse-location__address">
+      <span class="warehouse-location__pin">{{ 'icon-pin.svg' | inline_asset_content }}</span>
+      <span>{{ block.settings.address }}</span>
+    </p>
+  {% endif %}
+
+  {% if block.settings.hours != blank %}
+    <div class="warehouse-location__hours">
+      <p class="warehouse-location__hours-label">{{ 'contact.opening_hours' | t }}</p>
+      <p class="warehouse-location__hours-text">{{ block.settings.hours | newline_to_br }}</p>
+    </div>
+  {% endif %}
+</div>
+
+{% stylesheet %}
+  .warehouse-location {
+    padding: 1.75rem;
+    background-color: #f4f4f5;
+    border: 1px solid #e5e5e7;
+    border-radius: 0.75rem;
+  }
+
+  .warehouse-location__name {
+    margin: 0 0 0.75rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1f2120;
+  }
+
+  .warehouse-location__address {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin: 0;
+    font-size: 0.95rem;
+    color: #1f2120;
+  }
+
+  .warehouse-location__pin {
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.15rem;
+    color: #1f2120;
+    --icon-stroke-width: 1.5;
+  }
+
+  .warehouse-location__pin svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .warehouse-location__hours {
+    margin-top: 1.1rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid #e5e5e7;
+  }
+
+  .warehouse-location__hours-label {
+    margin: 0 0 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #6b6b6e;
+  }
+
+  .warehouse-location__hours-text {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #4a4a4d;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.warehouse_location",
+  "settings": [
+    {
+      "type": "text",
+      "id": "name",
+      "label": "t:labels.name",
+      "default": "Warehouse"
+    },
+    {
+      "type": "text",
+      "id": "address",
+      "label": "t:labels.address"
+    },
+    {
+      "type": "textarea",
+      "id": "hours",
+      "label": "t:labels.hours"
+    }
+  ]
+}
+{% endschema %}

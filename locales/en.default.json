@@ -29,6 +29,7 @@
     "comment_form_title": "Add a comment"
   },
   "contact": {
+    "opening_hours": "Opening Hours",
     "form": {
       "name": "Name",
       "email": "Email",
