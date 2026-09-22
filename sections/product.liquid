@@ -653,7 +653,7 @@
 
   .pdp__glance-label {
     display: block;
-    font-size: 0.58rem;
+    font-size: 0.62rem;
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -663,7 +663,7 @@
   .pdp__glance-value {
     display: block;
     margin-top: 0.15rem;
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
     color: #1f2120;
@@ -1349,7 +1349,12 @@
         label.textContent = pick.row[0];
         var value = document.createElement('span');
         value.className = 'pdp__glance-value';
-        value.textContent = pick.row[1];
+        var displayValue = pick.row[1];
+        if (/^levels$/i.test(pick.row[0])) {
+          var levelsMatch = displayValue.match(/\d+/);
+          if (levelsMatch) displayValue = levelsMatch[0] + ' Adjustable levels';
+        }
+        value.textContent = displayValue;
         tile.appendChild(label);
         tile.appendChild(value);
         glance.appendChild(tile);
