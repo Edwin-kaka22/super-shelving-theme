@@ -1,8 +1,7 @@
 {% doc %}
-  Renders a full-width contact page section: a centred heading and
-  description above a two-column row made up of the store's contact
-  details (address, phone, email, hours) and Shopify's built-in contact
-  form.
+  Renders a full-width contact page section: a centred heading,
+  description and store contact details (address, phone, email, hours)
+  stacked above Shopify's built-in contact form.
 
   Submissions are emailed to the store's customer contact email and are
   visible in Shopify admin under Settings > Notifications.
@@ -25,9 +24,7 @@
       {% if section.settings.description != blank %}
         <p class="contact__description">{{ section.settings.description }}</p>
       {% endif %}
-    </div>
 
-    <div class="contact__columns">
       {% if section.settings.address != blank or section.settings.phone != blank or section.settings.email != blank or section.settings.hours != blank %}
         <ul class="contact__details">
           {% if section.settings.address != blank %}
@@ -59,8 +56,9 @@
           {% endif %}
         </ul>
       {% endif %}
+    </div>
 
-      <div class="contact__form-wrap">
+    <div class="contact__form-wrap">
       {% form 'contact', class: 'contact__form' %}
         {% if form.posted_successfully? %}
           <p class="contact__success" role="status">{{ 'contact.form.success' | t }}</p>
@@ -130,7 +128,6 @@
           <span data-submit-label>{{ 'contact.form.submit' | t }}</span>
         </button>
       {% endform %}
-      </div>
     </div>
   </div>
 </div>
@@ -178,18 +175,11 @@
     color: #4a4a4d;
   }
 
-  .contact__columns {
-    display: grid;
-    grid-template-columns: minmax(0, 22rem) 1fr;
-    gap: 4rem;
-    margin-top: 3rem;
-  }
-
   .contact__details {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin: 0;
+    margin: 2rem 0 0;
     padding: 1.5rem;
     background-color: #f4f4f5;
     border: 1px solid #e5e5e7;
@@ -226,6 +216,11 @@
   .contact__detail-icon svg {
     width: 1.35rem;
     height: 1.35rem;
+  }
+
+  .contact__form-wrap {
+    max-width: 40rem;
+    margin: 3rem auto 0;
   }
 
   .contact__form {
@@ -334,13 +329,6 @@
   .contact__errors ul {
     margin: 0;
     padding-left: 1.1rem;
-  }
-
-  @media screen and (max-width: 749px) {
-    .contact__columns {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
   }
 {% endstylesheet %}
 
