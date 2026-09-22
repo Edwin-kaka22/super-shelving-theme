@@ -44,6 +44,59 @@
       "block_order": ["delivery", "warranty", "assembly"],
       "settings": {}
     },
+    "product-category-grid": {
+      "type": "category-grid",
+      "blocks": {
+        "steel-shelving": {
+          "type": "category-card",
+          "settings": {
+            "name": "Steel Shelving",
+            "description": "Heavy-duty steel shelving built to last.",
+            "link": "/collections/steel-shelving"
+          }
+        },
+        "steel-workbenches": {
+          "type": "category-card",
+          "settings": {
+            "name": "Steel Workbenches",
+            "description": "Sturdy workbenches for garage and warehouse.",
+            "link": "/collections/steel-workbenches"
+          }
+        },
+        "mdf-shelving": {
+          "type": "category-card",
+          "settings": {
+            "name": "MDF Shelving",
+            "description": "Affordable, versatile shelving for the home.",
+            "link": "/collections/mdf-shelving"
+          }
+        },
+        "storage-cabinets": {
+          "type": "category-card",
+          "settings": {
+            "name": "Storage Cabinet",
+            "description": "Secure, lockable storage for tools and stock.",
+            "link": "/collections/storage-cabinet",
+            "coming_soon": true
+          }
+        },
+        "accessories": {
+          "type": "category-card",
+          "settings": {
+            "name": "Mesh Shelving",
+            "description": "Ventilated steel mesh shelving for extra visibility.",
+            "link": "/collections/mesh-shelving",
+            "coming_soon": true
+          }
+        }
+      },
+      "block_order": ["steel-shelving", "steel-workbenches", "mdf-shelving", "storage-cabinets", "accessories"],
+      "settings": {
+        "eyebrow": "Shop by category",
+        "heading": "Find the right storage solution",
+        "description": "Steel, Mesh, or MDF - Find the storage that works for your space."
+      }
+    },
     "google-reviews": {
       "type": "google-reviews",
       "blocks": {
@@ -130,6 +183,7 @@
   "order": [
     "announcement-bar",
     "main",
+    "product-category-grid",
     "google-reviews",
     "product-recommendations"
   ]
