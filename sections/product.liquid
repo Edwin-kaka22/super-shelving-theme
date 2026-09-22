@@ -1402,11 +1402,14 @@
         }
 
         var isSpecs = /specification/i.test(group.title || '');
+        var isAvailability = /^availability$/i.test(group.title || '');
         var rows = isSpecs ? parseSpecRows(group.nodes) : [];
 
         if (isSpecs && rows.length) {
           specRows = rows;
-          accordions.push(makeAccordion(i18n.specsTitle, [buildSpecTable(rows)], false));
+          // Feeds the at-a-glance tiles only; no separate dropdown for this group.
+        } else if (isAvailability) {
+          // Skipped entirely - not shown as a dropdown.
         } else if (/feature/i.test(group.title || '')) {
           group.nodes.forEach(function (node) {
             if (node.matches && node.matches('ul')) node.className = 'pdp__features';
