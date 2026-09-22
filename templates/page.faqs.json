@@ -1,0 +1,53 @@
+{
+  "sections": {
+    "main": {
+      "type": "faq",
+      "blocks": {
+        "delivery": {
+          "type": "faq-item",
+          "settings": {
+            "question": "How much does delivery cost?",
+            "answer": "We offer cheap, fast delivery anywhere in Victoria. Exact rates are calculated at checkout based on your postcode and order size."
+          }
+        },
+        "pickup": {
+          "type": "faq-item",
+          "settings": {
+            "question": "Can I pick up my order instead?",
+            "answer": "Yes - local pickup is available same-day from our Moonee Ponds warehouse in Melbourne."
+          }
+        },
+        "assembly": {
+          "type": "faq-item",
+          "settings": {
+            "question": "How hard is assembly?",
+            "answer": "Our rivet shelving units use a tool-free boltless design, so most units can be assembled solo in under 30 minutes. Full step-by-step instructions are available on our Assembly Instructions page."
+          }
+        },
+        "warranty": {
+          "type": "faq-item",
+          "settings": {
+            "question": "What warranty is included?",
+            "answer": "Every unit is covered by a full 12 month warranty against manufacturing defects."
+          }
+        },
+        "load-capacity": {
+          "type": "faq-item",
+          "settings": {
+            "question": "How much weight can each shelf hold?",
+            "answer": "Load capacity varies by range - our steel shelving units hold up to 150kg per shelf, with full specifications listed on each product page."
+          }
+        }
+      },
+      "block_order": ["delivery", "pickup", "assembly", "warranty", "load-capacity"],
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Frequently Asked Questions",
+        "description": "Everything you need to know about delivery, assembly, and warranty."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
