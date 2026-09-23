@@ -1,5 +1,13 @@
 {
   "sections": {
+    "intro": {
+      "type": "faq",
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Frequently Asked Questions",
+        "description": "Everything you need to know about shipping, returns, and our stores."
+      }
+    },
     "shipping": {
       "type": "faq",
       "blocks": {
@@ -48,7 +56,7 @@
       },
       "block_order": ["click-and-collect", "pickup-locations", "delivery-time", "ships-where", "delivery-method", "shipping-cost"],
       "settings": {
-        "eyebrow": "FAQ",
+        "eyebrow": "",
         "heading": "Shipping",
         "description": ""
       }
@@ -80,7 +88,7 @@
       },
       "block_order": ["returns-policy", "initiate-return", "faulty-damaged"],
       "settings": {
-        "eyebrow": "FAQ",
+        "eyebrow": "",
         "heading": "Returns & Refunds",
         "description": ""
       }
@@ -98,13 +106,14 @@
       },
       "block_order": ["opening-hours"],
       "settings": {
-        "eyebrow": "FAQ",
+        "eyebrow": "",
         "heading": "General",
         "description": ""
       }
     }
   },
   "order": [
+    "intro",
     "shipping",
     "returns",
     "general"
