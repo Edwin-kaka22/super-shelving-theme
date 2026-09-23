@@ -7,7 +7,7 @@
   {% section 'faq' %}
 {% enddoc %}
 
-<div class="faq full-width">
+<div class="faq full-width{% if section.blocks.size == 0 %} faq--title-only{% endif %}">
   <div class="faq__inner">
     {% if section.settings.eyebrow != blank %}
       <span class="faq__eyebrow">{{ section.settings.eyebrow }}</span>
@@ -33,6 +33,10 @@
   .faq {
     padding: 4.5rem 0;
     background-color: #ffffff;
+  }
+
+  .faq--title-only {
+    padding-bottom: 0;
   }
 
   .faq__inner {
