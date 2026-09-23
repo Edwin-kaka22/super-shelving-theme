@@ -1,53 +1,112 @@
 {
   "sections": {
-    "main": {
+    "shipping": {
       "type": "faq",
       "blocks": {
-        "delivery": {
+        "click-and-collect": {
           "type": "faq-item",
           "settings": {
-            "question": "How much does delivery cost?",
-            "answer": "We offer cheap, fast delivery anywhere in Victoria. Exact rates are calculated at checkout based on your postcode and order size."
+            "question": "Do you offer click and collect?",
+            "answer": "Yes we do! Just select the \"Pickup\" option at checkout when paying, and have your order number ready once you arrive at the warehouse to collect."
           }
         },
-        "pickup": {
+        "pickup-locations": {
           "type": "faq-item",
           "settings": {
-            "question": "Can I pick up my order instead?",
-            "answer": "Yes - local pickup is available same-day from our Moonee Ponds warehouse in Melbourne."
+            "question": "What pick up locations do you have?",
+            "answer": "Pickup is available from our Melbourne based warehouse located at 4 Ardmillan Road, Moonee Ponds."
           }
         },
-        "assembly": {
+        "delivery-time": {
           "type": "faq-item",
           "settings": {
-            "question": "How hard is assembly?",
-            "answer": "Our rivet shelving units use a tool-free boltless design, so most units can be assembled solo in under 30 minutes. Full step-by-step instructions are available on our Assembly Instructions page."
+            "question": "How long will it take to receive my order?",
+            "answer": "We aim to dispatch all orders from our warehouse ASAP. Usually once an order is placed on our website, it is sent out for delivery the following day. Delivery time varies based on location, but you can expect to receive your order between 1-2 business days after its been dispatched."
           }
         },
-        "warranty": {
+        "ships-where": {
           "type": "faq-item",
           "settings": {
-            "question": "What warranty is included?",
-            "answer": "Every unit is covered by a full 12 month warranty against manufacturing defects."
+            "question": "Do you ship Australia Wide?",
+            "answer": "Currently we only ship within the state of Victoria, but we are however, more than happy for you to arrange your own transport to pick up and deliver your order if you live outside of VIC. Please contact us prior to purchasing so that we can facilitate this."
           }
         },
-        "load-capacity": {
+        "delivery-method": {
           "type": "faq-item",
           "settings": {
-            "question": "How much weight can each shelf hold?",
-            "answer": "Load capacity varies by range - our steel shelving units hold up to 150kg per shelf, with full specifications listed on each product page."
+            "question": "How will my order get delivered?",
+            "answer": "Your order will be delivered by one of two ways (whichever is cheaper).\n\n1. Aramex Couriers - Your items will be picked up from our warehouse and delivered to your address by renowned Australian courier service Aramex.\n\n2. In-house Delivery - Your items will be delivered straight from the warehouse in our company vans/trucks to your address."
+          }
+        },
+        "shipping-cost": {
+          "type": "faq-item",
+          "settings": {
+            "question": "How much is shipping?",
+            "answer": "Shipping rates will vary depending on location and items/quantity ordered. We ship some items out for as low as $9.99 although most orders will fall between the $50-$100 range on average."
           }
         }
       },
-      "block_order": ["delivery", "pickup", "assembly", "warranty", "load-capacity"],
+      "block_order": ["click-and-collect", "pickup-locations", "delivery-time", "ships-where", "delivery-method", "shipping-cost"],
       "settings": {
         "eyebrow": "FAQ",
-        "heading": "Frequently Asked Questions",
-        "description": "Everything you need to know about delivery, assembly, and warranty."
+        "heading": "Shipping",
+        "description": ""
+      }
+    },
+    "returns": {
+      "type": "faq",
+      "blocks": {
+        "returns-policy": {
+          "type": "faq-item",
+          "settings": {
+            "question": "What is your returns policy?",
+            "answer": "Super Shelving will accept the return of a product if you change your mind or you are not satisfied within 14 days of purchase.\n\nPlease make contact with us within 14 calendar days from your purchase date if you would like to organise a return or exchange.\n\nYour order must be in its original condition. Any wear or damage to your order will not qualify for a return. For a change of mind (return) you will need to send your order back to us. We will refund your money in full and we will only deduct the initial postage and handling cost we incurred when we sent your order to you. For an exchange of size or style you will need to pay for postage both ways and any price difference (if any)."
+          }
+        },
+        "initiate-return": {
+          "type": "faq-item",
+          "settings": {
+            "question": "How do I initiate a return?",
+            "answer": "You can initiate a return by heading to our Contact Us page and sending us a message. Alternatively you can email us directly at Edwin_10@live.com.au"
+          }
+        },
+        "faulty-damaged": {
+          "type": "faq-item",
+          "settings": {
+            "question": "What if my order arrives faulty/damaged?",
+            "answer": "Whilst we hope this never happens, if you do receive a damaged item or there is a manufacturing fault, please send us a message via our Contact Us page or email us directly at Edwin_10@live.com.au along with any descriptions and photos of the item/s damaged."
+          }
+        }
+      },
+      "block_order": ["returns-policy", "initiate-return", "faulty-damaged"],
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Returns & Refunds",
+        "description": ""
+      }
+    },
+    "general": {
+      "type": "faq",
+      "blocks": {
+        "opening-hours": {
+          "type": "faq-item",
+          "settings": {
+            "question": "What are your opening hours?",
+            "answer": "Moonee Ponds\n4 Ardmillan Road, Moonee Ponds, 3039\nMonday to Friday 9am - 6pm\nSaturday & Sunday 10am - 5pm\n\nDoveton\n24b Princess Highway, Doveton, 3177\nMonday to Friday 8am - 2pm\nSaturday & Sunday Closed"
+          }
+        }
+      },
+      "block_order": ["opening-hours"],
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "General",
+        "description": ""
       }
     }
   },
   "order": [
-    "main"
+    "shipping",
+    "returns",
+    "general"
   ]
 }
