@@ -101,9 +101,44 @@
                 "question": "What are your opening hours?",
                 "answer": "Moonee Ponds\n4 Ardmillan Road, Moonee Ponds, 3039\nMonday to Friday 9am - 6pm\nSaturday & Sunday 10am - 5pm\n\nDoveton\n24b Princess Highway, Doveton, 3177\nMonday to Friday 8am - 2pm\nSaturday & Sunday Closed"
               }
+            },
+            "how-to-contact": {
+              "type": "faq-item",
+              "settings": {
+                "question": "How can I contact you?",
+                "answer": "You can message us through our Contact Us page.\n\nAlternatively you can reach us directly by phone or email:\nPhone: +61 431 533 520\nEmail: Edwin_10@live.com.au"
+              }
+            },
+            "payment-methods": {
+              "type": "faq-item",
+              "settings": {
+                "question": "What payment methods do you accept?",
+                "answer": "We accept various payment methods. You can pay using a Credit card, PayPal, Apple Pay, Union Pay, Google Pay and Shop Pay.\n\nIf you would like to pay with a Bank Transfer, PayID or Cash please contact us via email to arrange this."
+              }
+            },
+            "assembly-installation": {
+              "type": "faq-item",
+              "settings": {
+                "question": "Do you offer assembly/installation?",
+                "answer": "We do not currently offer installation, but it is very simple and easy to do yourself. All items will come with a clear instructions manual, and you can also view our assembly videos on our Assembly Instructions page."
+              }
+            },
+            "warranty": {
+              "type": "faq-item",
+              "settings": {
+                "question": "Is there warranty on your products?",
+                "answer": "All Super Shelving products come with a 12-month standard warranty from the date of purchase. This warranty covers defects in materials and workmanship under normal usage conditions.\n\nWhat the warranty covers:\n- Manufacturing defects: faults in materials or workmanship.\n- Structural integrity: issues affecting the performance of shelves, beams, and uprights under recommended loading conditions.\n- Parts replacement: repair or replacement of defective components at no additional cost.\n\nThe warranty does not cover:\n- Damage caused by misuse, improper assembly, or overloading.\n- General wear and tear, scratches, or cosmetic damages.\n- Modifications or repairs performed by unauthorized personnel.\n- Environmental factors such as moisture, rust, or corrosion resulting from improper storage or use.\n\nTo make a warranty claim:\n1. Contact us via email at Edwin_10@live.com.au or call our customer service team at +61 431 533 520.\n2. Provide proof of purchase (invoice or receipt) and details of the issue, including photos or videos if possible.\n3. Our team will assess your claim and determine whether the issue is covered under warranty.\n\nIf approved, Super Shelving will repair or replace the defective product or component at no cost."
+              }
+            },
+            "showroom": {
+              "type": "faq-item",
+              "settings": {
+                "question": "Do you have a showroom?",
+                "answer": "Yes, you can view all of our products on display at our Moonee Ponds warehouse."
+              }
             }
           },
-          "block_order": ["opening-hours"],
+          "block_order": ["opening-hours", "how-to-contact", "payment-methods", "assembly-installation", "warranty", "showroom"],
           "settings": {
             "heading": "General"
           }
