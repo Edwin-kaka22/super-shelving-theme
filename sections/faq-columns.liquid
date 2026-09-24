@@ -1,0 +1,135 @@
+{% doc %}
+  Renders an optional centred heading above several `faq-category` blocks
+  laid out side by side in a responsive grid (each holding its own
+  collapsible `faq-item` list), stacking to one column on smaller screens.
+
+  @example
+  {% section 'faq-columns' %}
+{% enddoc %}
+
+<div class="faq-columns full-width">
+  <div class="faq-columns__inner">
+    {% if section.settings.eyebrow != blank %}
+      <span class="faq-columns__eyebrow">{{ section.settings.eyebrow }}</span>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="faq-columns__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.settings.description != blank %}
+      <p class="faq-columns__description">{{ section.settings.description }}</p>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="faq-columns__grid">
+        {% content_for 'blocks' %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .faq-columns {
+    padding: 4.5rem 0;
+    background-color: #ffffff;
+  }
+
+  .faq-columns__inner {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 var(--page-margin);
+    text-align: center;
+  }
+
+  .faq-columns__eyebrow {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6b6b6e;
+  }
+
+  .faq-columns__heading {
+    margin: 0.6rem 0 0;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #1f2120;
+  }
+
+  .faq-columns__description {
+    margin: 0.9rem 0 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4a4a4d;
+  }
+
+  .faq-columns__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+    text-align: left;
+  }
+
+  @media screen and (max-width: 900px) {
+    .faq-columns__grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  document.querySelectorAll('[data-faq-columns-list]').forEach(function (list) {
+    list.addEventListener('click', function (event) {
+      var toggle = event.target.closest('[data-faq-toggle]');
+      if (!toggle) return;
+
+      var item = toggle.closest('[data-faq-item]');
+      var isOpen = item.hasAttribute('data-open');
+
+      if (isOpen) {
+        item.removeAttribute('data-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      } else {
+        item.setAttribute('data-open', '');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "t:general.faq_columns",
+  "blocks": [
+    { "type": "faq-category" }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:labels.eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "t:labels.description"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.faq_columns"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,57 @@
+{% doc %}
+  Renders one column inside the `faq-columns` section: a heading above a
+  list of collapsible `faq-item` question/answer rows.
+
+  @example
+  {% content_for 'block', type: 'faq-category', id: 'faq-category-1' %}
+{% enddoc %}
+
+<div class="faq-category" {{ block.shopify_attributes }}>
+  {% if block.settings.heading != blank %}
+    <h3 class="faq-category__heading">{{ block.settings.heading }}</h3>
+  {% endif %}
+
+  {% if block.blocks.size > 0 %}
+    <ul class="faq-category__list" data-faq-columns-list>
+      {% content_for 'blocks' %}
+    </ul>
+  {% endif %}
+</div>
+
+{% stylesheet %}
+  .faq-category__heading {
+    margin: 0 0 1rem;
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    text-align: center;
+    color: #1f2120;
+  }
+
+  .faq-category__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.faq_category",
+  "blocks": [
+    { "type": "faq-item" }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Category"
+    }
+  ]
+}
+{% endschema %}
