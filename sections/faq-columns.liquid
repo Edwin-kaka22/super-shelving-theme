@@ -75,20 +75,18 @@
     text-align: left;
   }
 
-  /* A 4th category wraps to a new row; place it under the 2nd column
-     (below "Returns & Refunds") instead of the 1st. */
-  .faq-columns__grid > :nth-child(4) {
-    grid-column: 2;
+  /* A 4th category is folded into the 2nd column's div by the script
+     below, so it stacks directly under "Returns & Refunds" instead of
+     wrapping to a new row (which would only start below the tallest
+     column). Give it a bit of separation from the category above it. */
+  .faq-category .faq-category {
+    margin-top: 2rem;
   }
 
   @media screen and (max-width: 900px) {
     .faq-columns__grid {
       grid-template-columns: 1fr;
       gap: 2.5rem;
-    }
-
-    .faq-columns__grid > :nth-child(4) {
-      grid-column: auto;
     }
   }
 {% endstylesheet %}
@@ -110,6 +108,18 @@
         toggle.setAttribute('aria-expanded', 'true');
       }
     });
+  });
+
+  // A 4th faq-category (e.g. "Other") stacks under the 2nd column
+  // ("Returns & Refunds") instead of sitting in its own grid row. Each
+  // block is wrapped in its own .shopify-block div by Shopify, so move
+  // that whole wrapper into the 2nd column's .faq-category element.
+  document.querySelectorAll('.faq-columns__grid').forEach(function (grid) {
+    var blocks = grid.querySelectorAll(':scope > .shopify-block');
+    if (blocks.length === 4) {
+      var secondColumn = blocks[1].querySelector('.faq-category');
+      if (secondColumn) secondColumn.appendChild(blocks[3]);
+    }
   });
 {% endjavascript %}
 
