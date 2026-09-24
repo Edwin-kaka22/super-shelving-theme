@@ -142,9 +142,32 @@
           "settings": {
             "heading": "General"
           }
+        },
+        "other": {
+          "type": "faq-category",
+          "blocks": {
+            "stockists": {
+              "type": "faq-item",
+              "settings": {
+                "question": "We own a store and would like to stock your products. Is this possible?",
+                "answer": "If you are interested in stocking our products, please get in touch via our Contact Us page or email us at Edwin_10@live.com.au"
+              }
+            },
+            "wholesale": {
+              "type": "faq-item",
+              "settings": {
+                "question": "Do you offer wholesale for large bulk orders?",
+                "answer": "Yes, for large orders we can offer even more competitive pricing. Please get in touch via our Contact Us page or email us directly at Edwin_10@live.com.au"
+              }
+            }
+          },
+          "block_order": ["stockists", "wholesale"],
+          "settings": {
+            "heading": "Other"
+          }
         }
       },
-      "block_order": ["shipping", "returns", "general"],
+      "block_order": ["shipping", "returns", "general", "other"],
       "settings": {}
     }
   },
