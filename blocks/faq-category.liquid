@@ -8,7 +8,7 @@
 
 <div class="faq-category" {{ block.shopify_attributes }}>
   {% if block.settings.heading != blank %}
-    <h3 class="faq-category__heading">{{ block.settings.heading }}</h3>
+    <h3 class="faq-category__heading"><span>{{ block.settings.heading }}</span></h3>
   {% endif %}
 
   {% if block.blocks.size > 0 %}
@@ -21,14 +21,18 @@
 {% stylesheet %}
   .faq-category__heading {
     margin: 0 0 1rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid #e5e5e7;
     font-size: 1.15rem;
     font-weight: 800;
     letter-spacing: -0.01em;
     text-transform: uppercase;
     text-align: center;
     color: #1f2120;
+  }
+
+  .faq-category__heading span {
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e5e5e7;
   }
 
   .faq-category__list {
