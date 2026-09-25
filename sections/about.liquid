@@ -1,0 +1,131 @@
+{% doc %}
+  Renders a centred About page intro: an eyebrow, heading, body copy, and
+  an optional call-to-action button.
+
+  @example
+  {% section 'about' %}
+{% enddoc %}
+
+<div class="about full-width">
+  <div class="about__inner">
+    {% if section.settings.eyebrow != blank %}
+      <span class="about__eyebrow">{{ section.settings.eyebrow }}</span>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h1 class="about__heading">{{ section.settings.heading }}</h1>
+    {% endif %}
+
+    {% if section.settings.body != blank %}
+      <p class="about__body">{{ section.settings.body | newline_to_br }}</p>
+    {% endif %}
+
+    {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+      <a href="{{ section.settings.button_link }}" class="about__button">
+        {{ section.settings.button_label }}
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .about {
+    padding: 4.5rem 0;
+    background-color: #ffffff;
+  }
+
+  .about__inner {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 0 var(--page-margin);
+    text-align: center;
+  }
+
+  .about__eyebrow {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6b6b6e;
+  }
+
+  .about__heading {
+    margin: 0.6rem 0 0;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #1f2120;
+  }
+
+  .about__body {
+    margin: 0.9rem 0 0;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #4a4a4d;
+  }
+
+  .about__button {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    margin-top: 1.75rem;
+    padding: 0.9rem 2.25rem;
+    border: 1px solid #1f2120;
+    border-radius: 999px;
+    background-color: #1f2120;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    transition: border-color 0.2s ease;
+  }
+
+  .about__button:hover {
+    border-color: #52564f;
+    background-color: #52564f;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.about",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:labels.eyebrow",
+      "default": "About Us"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "About Super Shelving"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "t:labels.body"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:labels.button_label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:labels.button_link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.about"
+    }
+  ]
+}
+{% endschema %}

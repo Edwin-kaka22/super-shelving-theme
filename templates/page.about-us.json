@@ -1,0 +1,57 @@
+{
+  "sections": {
+    "intro": {
+      "type": "about",
+      "settings": {
+        "eyebrow": "About Us",
+        "heading": "About Super Shelving",
+        "body": "Super Shelving is a Melbourne-based supplier of steel shelving, steel workbenches and MDF shelving, built for garages, workshops and businesses that need more usable space.\n\nWe sell direct to the public, cutting out the middleman so you get quality storage at a genuinely competitive price. Every order ships from our own warehouses in Moonee Ponds and Doveton, with same-day local pickup available and delivery Victoria wide.\n\nOur steel shelving uses a tool-free, boltless rivet design, so most units go together solo in under 30 minutes - and every unit is backed by a full 12 month warranty against manufacturing defects.",
+        "button_label": "Shop All Products",
+        "button_link": "/collections/all"
+      }
+    },
+    "why-choose-us": {
+      "type": "trust-badges",
+      "blocks": {
+        "warehouse": {
+          "type": "trust-badge",
+          "settings": {
+            "icon": "pin",
+            "heading": "Local Melbourne Warehouse",
+            "text": "Same-day pickup from Moonee Ponds."
+          }
+        },
+        "delivery": {
+          "type": "trust-badge",
+          "settings": {
+            "icon": "package",
+            "heading": "Victoria Wide Delivery",
+            "text": "Cheap & fast delivery to anywhere in the state."
+          }
+        },
+        "pricing": {
+          "type": "trust-badge",
+          "settings": {
+            "icon": "tag",
+            "heading": "Unbeatable Prices",
+            "text": "We sell direct to the public offering the best prices."
+          }
+        },
+        "warranty": {
+          "type": "trust-badge",
+          "settings": {
+            "icon": "medal",
+            "heading": "Full 12 Months Warranty",
+            "text": "Quality shelving you can count on, year after year."
+          }
+        }
+      },
+      "block_order": ["warehouse", "delivery", "pricing", "warranty"],
+      "settings": {}
+    }
+  },
+  "order": [
+    "intro",
+    "why-choose-us"
+  ]
+}
