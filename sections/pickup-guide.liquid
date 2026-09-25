@@ -1,0 +1,109 @@
+{% doc %}
+  Renders a full-width guide page: a centred heading and description above
+  a readable stack of `pickup-guide-item` sections (and an optional
+  `pickup-guide-dimensions` table), each separated by a thin divider.
+
+  @example
+  {% section 'pickup-guide' %}
+{% enddoc %}
+
+<div class="pickup-guide full-width">
+  <div class="pickup-guide__inner">
+    {% if section.settings.eyebrow != blank %}
+      <span class="pickup-guide__eyebrow">{{ section.settings.eyebrow }}</span>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h1 class="pickup-guide__heading">{{ section.settings.heading }}</h1>
+    {% endif %}
+
+    {% if section.settings.description != blank %}
+      <p class="pickup-guide__description">{{ section.settings.description }}</p>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="pickup-guide__list">
+        {% content_for 'blocks' %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .pickup-guide {
+    padding: 4.5rem 0;
+    background-color: #ffffff;
+  }
+
+  .pickup-guide__inner {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 0 var(--page-margin);
+    text-align: center;
+  }
+
+  .pickup-guide__eyebrow {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6b6b6e;
+  }
+
+  .pickup-guide__heading {
+    margin: 0.6rem 0 0;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #1f2120;
+  }
+
+  .pickup-guide__description {
+    margin: 0.9rem 0 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4a4a4d;
+  }
+
+  .pickup-guide__list {
+    margin-top: 2.5rem;
+    text-align: left;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.pickup_guide",
+  "blocks": [
+    { "type": "pickup-guide-item" },
+    { "type": "pickup-guide-dimensions" }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:labels.eyebrow",
+      "default": "Pickup Guide"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "How To Collect In Your Vehicle"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "t:labels.description",
+      "default": "Collecting your order yourself? Here's what to expect and how to work out whether your car, ute or truck can fit it."
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.pickup_guide"
+    }
+  ]
+}
+{% endschema %}

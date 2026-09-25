@@ -1,0 +1,57 @@
+{
+  "sections": {
+    "main": {
+      "type": "pickup-guide",
+      "blocks": {
+        "small-cars": {
+          "type": "pickup-guide-item",
+          "settings": {
+            "heading": "Small Cars",
+            "body": "If you're driving a sedan or hatchback without roof racks, measure your boot space before you commit to pickup. Check whether the rear seats fold down and how much room that opens up. Your shelving comes flat-packed in cardboard boxes, so it's worth allowing a little extra length if a box needs to sit at an angle.\n\nIf a box needs to hang slightly out of the boot, check Victoria's road rules on overhanging loads before you drive off.",
+            "link_label": "VicRoads overhang load limits",
+            "link_url": "https://transport.vic.gov.au/road-rules-and-safety/overhang-limits-on-trucks-cars-and-trailers"
+          }
+        },
+        "larger-cars": {
+          "type": "pickup-guide-item",
+          "settings": {
+            "heading": "Larger Cars, SUVs & Station Wagons",
+            "body": "Most larger vehicles have no trouble fitting the length and width of a standard order - the main thing to plan around is how many boxes you're picking up in one trip, since bigger orders take up more room than you'd expect flat-packed."
+          }
+        },
+        "roof-racks": {
+          "type": "pickup-guide-item",
+          "settings": {
+            "heading": "Cars With Roof Racks",
+            "body": "A car with roof racks fitted can usually take the full length and width of our shelving - the real limit is how much weight your roof and racks are rated for.\n\nThere are two numbers to check: your vehicle's roof loading capacity (sometimes listed as Gross Combined Mass, or GCM), and the weight rating of your roof rack system itself. You'll usually find the roof loading capacity in your owner's manual or on the manufacturer's website - if you can't find it, it's safest to assume it's under 100kg. If you can't find a rating for your roof racks either, assume 80kg and spread the load evenly, tied down securely with straps.\n\nIt helps to fit as much as you can inside the car first, and only strap what's left onto the roof."
+          }
+        },
+        "utes-trucks": {
+          "type": "pickup-guide-item",
+          "settings": {
+            "heading": "Utes & Trucks",
+            "body": "A standard 1-tonne flat bed ute has plenty of room for several shelving bays at once. If you're collecting a larger order or using a truck, get in touch before you come in so we can help you plan the best way to load it."
+          }
+        },
+        "dimensions": {
+          "type": "pickup-guide-dimensions",
+          "blocks": {},
+          "block_order": [],
+          "settings": {
+            "heading": "Boxed Dimensions",
+            "description": "Approximate boxed dimensions and weights for our most popular items:"
+          }
+        }
+      },
+      "block_order": ["small-cars", "larger-cars", "roof-racks", "utes-trucks", "dimensions"],
+      "settings": {
+        "eyebrow": "Pickup Guide",
+        "heading": "How To Collect In Your Vehicle",
+        "description": "Collecting your order yourself? Here's what to expect and how to work out whether your car, ute or truck can fit it."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,92 @@
+{% doc %}
+  Renders one readable section inside the `pickup-guide` page: a heading,
+  a paragraph of body text, and an optional reference link.
+
+  @example
+  {% content_for 'block', type: 'pickup-guide-item', id: 'pickup-guide-item-1' %}
+{% enddoc %}
+
+<div class="pickup-guide-item" {{ block.shopify_attributes }}>
+  {% if block.settings.heading != blank %}
+    <h2 class="pickup-guide-item__heading">{{ block.settings.heading }}</h2>
+  {% endif %}
+
+  {% if block.settings.body != blank %}
+    <p class="pickup-guide-item__body">{{ block.settings.body | newline_to_br }}</p>
+  {% endif %}
+
+  {% if block.settings.link_label != blank and block.settings.link_url != blank %}
+    <a href="{{ block.settings.link_url }}" class="pickup-guide-item__link" target="_blank" rel="noopener">
+      {{ block.settings.link_label }}
+    </a>
+  {% endif %}
+</div>
+
+{% stylesheet %}
+  .pickup-guide-item {
+    padding: 2.25rem 0;
+    border-bottom: 1px solid #e5e5e7;
+  }
+
+  .pickup-guide-item:last-child {
+    border-bottom: none;
+  }
+
+  .pickup-guide-item__heading {
+    margin: 0 0 0.85rem;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #1f2120;
+  }
+
+  .pickup-guide-item__body {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: #4a4a4d;
+  }
+
+  .pickup-guide-item__link {
+    display: inline-block;
+    margin-top: 0.85rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1f2120;
+    text-decoration: underline;
+  }
+
+  .pickup-guide-item__link:hover {
+    color: #52564f;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.pickup_guide_item",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Vehicle type"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "t:labels.body"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "t:labels.label"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "t:labels.link"
+    }
+  ]
+}
+{% endschema %}

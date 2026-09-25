@@ -28,6 +28,13 @@
     "comment_form_submit": "Post",
     "comment_form_title": "Add a comment"
   },
+  "pickup_guide": {
+    "dimensions_table": {
+      "item": "Item",
+      "dimensions": "Boxed dimensions",
+      "weight": "Weight"
+    }
+  },
   "contact": {
     "opening_hours": "Opening Hours",
     "form": {

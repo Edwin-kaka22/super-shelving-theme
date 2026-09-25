@@ -58,6 +58,10 @@
     "trust_badge": "Trust badge",
     "trust_badges": "Trust badges",
     "warehouse_location": "Warehouse location",
+    "pickup_guide": "Pickup guide",
+    "pickup_guide_item": "Pickup guide item",
+    "pickup_guide_dimensions": "Boxed dimensions table",
+    "pickup_guide_dimension_row": "Boxed dimensions row",
     "typography": "Typography"
   },
   "labels": {
@@ -132,7 +136,10 @@
     "text": "Text",
     "text_color": "Text color",
     "video": "Background video",
-    "video_info": "Optional. When set, the video replaces the background image and loops automatically."
+    "video_info": "Optional. When set, the video replaces the background image and loops automatically.",
+    "body": "Body text",
+    "dimensions": "Boxed dimensions",
+    "weight": "Weight"
   },
   "options": {
     "alignment": {

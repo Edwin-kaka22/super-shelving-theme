@@ -1,0 +1,84 @@
+{% doc %}
+  Renders an optional boxed-dimensions table inside the `pickup-guide`
+  page, built from `pickup-guide-dimension-row` blocks. Renders nothing
+  until at least one row is added.
+
+  @example
+  {% content_for 'block', type: 'pickup-guide-dimensions', id: 'pickup-guide-dimensions-1' %}
+{% enddoc %}
+
+{% if block.blocks.size > 0 %}
+  <div class="pickup-guide-item" {{ block.shopify_attributes }}>
+    {% if block.settings.heading != blank %}
+      <h2 class="pickup-guide-item__heading">{{ block.settings.heading }}</h2>
+    {% endif %}
+
+    {% if block.settings.description != blank %}
+      <p class="pickup-guide-item__body">{{ block.settings.description }}</p>
+    {% endif %}
+
+    <div class="pickup-guide-dimensions__table">
+      <div class="pickup-guide-dimensions__row pickup-guide-dimensions__row--head">
+        <span>{{ 'pickup_guide.dimensions_table.item' | t }}</span>
+        <span>{{ 'pickup_guide.dimensions_table.dimensions' | t }}</span>
+        <span>{{ 'pickup_guide.dimensions_table.weight' | t }}</span>
+      </div>
+
+      {% content_for 'blocks' %}
+    </div>
+  </div>
+{% endif %}
+
+{% stylesheet %}
+  .pickup-guide-dimensions__table {
+    margin-top: 1.25rem;
+    border: 1px solid #e5e5e7;
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  .pickup-guide-dimensions__row {
+    display: grid;
+    grid-template-columns: 2fr 1.4fr 1fr;
+    gap: 1rem;
+    padding: 0.85rem 1.1rem;
+    font-size: 0.9rem;
+    color: #1f2120;
+  }
+
+  .pickup-guide-dimensions__row:not(:last-child) {
+    border-bottom: 1px solid #e5e5e7;
+  }
+
+  .pickup-guide-dimensions__row--head {
+    background-color: #f4f4f5;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #6b6b6e;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.pickup_guide_dimensions",
+  "blocks": [
+    { "type": "pickup-guide-dimension-row" }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Boxed Dimensions"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "t:labels.description",
+      "default": "Approximate boxed dimensions and weights for our most popular items:"
+    }
+  ]
+}
+{% endschema %}

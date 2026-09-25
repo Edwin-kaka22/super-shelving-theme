@@ -1,0 +1,39 @@
+{% doc %}
+  Renders a single row inside the `pickup-guide-dimensions` block: an item
+  name with its boxed dimensions and weight.
+
+  @example
+  {% content_for 'block', type: 'pickup-guide-dimension-row', id: 'pickup-guide-dimension-row-1' %}
+{% enddoc %}
+
+<div class="pickup-guide-dimensions__row" {{ block.shopify_attributes }}>
+  <span>{{ block.settings.name }}</span>
+  <span>{{ block.settings.dimensions }}</span>
+  <span>{{ block.settings.weight }}</span>
+</div>
+
+{% schema %}
+{
+  "name": "t:general.pickup_guide_dimension_row",
+  "settings": [
+    {
+      "type": "text",
+      "id": "name",
+      "label": "t:labels.name",
+      "default": "Item"
+    },
+    {
+      "type": "text",
+      "id": "dimensions",
+      "label": "t:labels.dimensions",
+      "default": "0 x 0 x 0 mm"
+    },
+    {
+      "type": "text",
+      "id": "weight",
+      "label": "t:labels.weight",
+      "default": "0kg"
+    }
+  ]
+}
+{% endschema %}
