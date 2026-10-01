@@ -31,7 +31,7 @@
   "pickup_guide": {
     "dimensions_table": {
       "item": "Item",
-      "dimensions": "Boxed dimensions",
+      "dimensions": "Boxed dimensions (H x W x D)",
       "weight": "Weight"
     }
   },

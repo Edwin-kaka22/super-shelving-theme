@@ -36,28 +36,52 @@
         "dimensions": {
           "type": "pickup-guide-dimensions",
           "blocks": {
-            "steel-shelving-small": {
+            "steel-shelving-small-box1": {
               "type": "pickup-guide-dimension-row",
               "settings": {
-                "name": "Steel Shelving Rack (1.8M x 2M x 0.6M)",
+                "name": "Steel Shelving Rack (1.8M x 2M x 0.6M) - Box 1 of 2",
+                "dimensions": "100 x 60 x 8 cm",
+                "weight": "18kg"
+              }
+            },
+            "steel-shelving-small-box2": {
+              "type": "pickup-guide-dimension-row",
+              "settings": {
+                "name": "Steel Shelving Rack (1.8M x 2M x 0.6M) - Box 2 of 2",
                 "dimensions": "190 x 65 x 10 cm",
-                "weight": "32kg"
+                "weight": "14kg"
               }
             },
-            "steel-shelving-large": {
+            "steel-shelving-large-box1": {
               "type": "pickup-guide-dimension-row",
               "settings": {
-                "name": "Steel Shelving Rack (2M x 2M x 0.6M)",
+                "name": "Steel Shelving Rack (2M x 2M x 0.6M) - Box 1 of 2",
+                "dimensions": "100 x 60 x 8 cm",
+                "weight": "20kg"
+              }
+            },
+            "steel-shelving-large-box2": {
+              "type": "pickup-guide-dimension-row",
+              "settings": {
+                "name": "Steel Shelving Rack (2M x 2M x 0.6M) - Box 2 of 2",
                 "dimensions": "210 x 65 x 10 cm",
-                "weight": "38kg"
+                "weight": "18kg"
               }
             },
-            "steel-workbench": {
+            "steel-workbench-box1": {
               "type": "pickup-guide-dimension-row",
               "settings": {
-                "name": "Steel Workbench",
+                "name": "Steel Workbench - Box 1 of 2",
+                "dimensions": "90 x 60 x 10 cm",
+                "weight": "16kg"
+              }
+            },
+            "steel-workbench-box2": {
+              "type": "pickup-guide-dimension-row",
+              "settings": {
+                "name": "Steel Workbench - Box 2 of 2",
                 "dimensions": "150 x 60 x 12 cm",
-                "weight": "28kg"
+                "weight": "12kg"
               }
             },
             "mdf-shelving-small": {
@@ -77,7 +101,7 @@
               }
             }
           },
-          "block_order": ["steel-shelving-small", "steel-shelving-large", "steel-workbench", "mdf-shelving-small", "mdf-shelving-large"],
+          "block_order": ["steel-shelving-small-box1", "steel-shelving-small-box2", "steel-shelving-large-box1", "steel-shelving-large-box2", "steel-workbench-box1", "steel-workbench-box2", "mdf-shelving-small", "mdf-shelving-large"],
           "settings": {
             "heading": "Boxed Dimensions",
             "description": "Approximate boxed dimensions and weights for our most popular items:"

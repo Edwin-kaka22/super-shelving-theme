@@ -8,9 +8,23 @@
 
 <div class="pickup-guide-item" {{ block.shopify_attributes }}>
   <span class="pickup-guide-item__image">
+    {% liquid
+      assign pickup_image_alt = block.settings.heading | escape
+      assign pickup_default_asset = null
+      if block.id contains 'small-cars'
+        assign pickup_default_asset = 'pickup-guide-small-cars.webp'
+      elsif block.id contains 'larger-cars'
+        assign pickup_default_asset = 'pickup-guide-larger-cars.webp'
+      elsif block.id contains 'roof-racks'
+        assign pickup_default_asset = 'pickup-guide-roof-racks.webp'
+      elsif block.id contains 'utes-trucks'
+        assign pickup_default_asset = 'pickup-guide-utes-trucks.webp'
+      endif
+    %}
     {% if block.settings.image %}
-      {% assign pickup_image_alt = block.settings.heading | escape %}
       {{ block.settings.image | image_url: width: 320 | image_tag: loading: 'lazy', alt: pickup_image_alt, width: 160, height: 160 }}
+    {% elsif pickup_default_asset %}
+      <img src="{{ pickup_default_asset | asset_url }}" alt="{{ pickup_image_alt }}" loading="lazy" width="160" height="160">
     {% else %}
       {{ 'lifestyle-1' | placeholder_svg_tag: 'pickup-guide-item__placeholder' }}
     {% endif %}
