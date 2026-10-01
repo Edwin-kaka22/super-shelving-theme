@@ -33,13 +33,13 @@
             "body": "A standard 1-tonne flat bed ute has plenty of room for several shelving bays at once. If you're collecting a larger order or using a truck, get in touch before you come in so we can help you plan the best way to load it."
           }
         },
-        "dimensions": {
+        "dimensions-steel-shelving": {
           "type": "pickup-guide-dimensions",
           "blocks": {
             "steel-shelving-small-box1": {
               "type": "pickup-guide-dimension-row",
               "settings": {
-                "name": "Steel Shelving Rack (1.8M x 2M x 0.6M) - Box 1 of 2",
+                "name": "1.8M x 2M x 0.6M - Box 1 of 2",
                 "dimensions": "100 x 60 x 8 cm",
                 "weight": "18kg"
               }
@@ -47,7 +47,7 @@
             "steel-shelving-small-box2": {
               "type": "pickup-guide-dimension-row",
               "settings": {
-                "name": "Steel Shelving Rack (1.8M x 2M x 0.6M) - Box 2 of 2",
+                "name": "1.8M x 2M x 0.6M - Box 2 of 2",
                 "dimensions": "190 x 65 x 10 cm",
                 "weight": "14kg"
               }
@@ -55,7 +55,7 @@
             "steel-shelving-large-box1": {
               "type": "pickup-guide-dimension-row",
               "settings": {
-                "name": "Steel Shelving Rack (2M x 2M x 0.6M) - Box 1 of 2",
+                "name": "2M x 2M x 0.6M - Box 1 of 2",
                 "dimensions": "100 x 60 x 8 cm",
                 "weight": "20kg"
               }
@@ -63,15 +63,25 @@
             "steel-shelving-large-box2": {
               "type": "pickup-guide-dimension-row",
               "settings": {
-                "name": "Steel Shelving Rack (2M x 2M x 0.6M) - Box 2 of 2",
+                "name": "2M x 2M x 0.6M - Box 2 of 2",
                 "dimensions": "210 x 65 x 10 cm",
                 "weight": "18kg"
               }
-            },
+            }
+          },
+          "block_order": ["steel-shelving-small-box1", "steel-shelving-small-box2", "steel-shelving-large-box1", "steel-shelving-large-box2"],
+          "settings": {
+            "heading": "Steel Shelving Racks",
+            "description": "Approximate boxed dimensions and weight:"
+          }
+        },
+        "dimensions-steel-workbenches": {
+          "type": "pickup-guide-dimensions",
+          "blocks": {
             "steel-workbench-box1": {
               "type": "pickup-guide-dimension-row",
               "settings": {
-                "name": "Steel Workbench - Box 1 of 2",
+                "name": "Box 1 of 2",
                 "dimensions": "90 x 60 x 10 cm",
                 "weight": "16kg"
               }
@@ -79,15 +89,25 @@
             "steel-workbench-box2": {
               "type": "pickup-guide-dimension-row",
               "settings": {
-                "name": "Steel Workbench - Box 2 of 2",
+                "name": "Box 2 of 2",
                 "dimensions": "150 x 60 x 12 cm",
                 "weight": "12kg"
               }
-            },
+            }
+          },
+          "block_order": ["steel-workbench-box1", "steel-workbench-box2"],
+          "settings": {
+            "heading": "Steel Workbenches",
+            "description": "Approximate boxed dimensions and weight:"
+          }
+        },
+        "dimensions-mdf-shelving": {
+          "type": "pickup-guide-dimensions",
+          "blocks": {
             "mdf-shelving-small": {
               "type": "pickup-guide-dimension-row",
               "settings": {
-                "name": "MDF Rivet Shelving Rack (150x70x30cm)",
+                "name": "150 x 70 x 30cm",
                 "dimensions": "150 x 75 x 8 cm",
                 "weight": "18kg"
               }
@@ -95,20 +115,20 @@
             "mdf-shelving-large": {
               "type": "pickup-guide-dimension-row",
               "settings": {
-                "name": "MDF Rivet Shelving Rack (180x150x45cm)",
+                "name": "180 x 150 x 45cm",
                 "dimensions": "180 x 95 x 10 cm",
                 "weight": "27kg"
               }
             }
           },
-          "block_order": ["steel-shelving-small-box1", "steel-shelving-small-box2", "steel-shelving-large-box1", "steel-shelving-large-box2", "steel-workbench-box1", "steel-workbench-box2", "mdf-shelving-small", "mdf-shelving-large"],
+          "block_order": ["mdf-shelving-small", "mdf-shelving-large"],
           "settings": {
-            "heading": "Boxed Dimensions",
-            "description": "Approximate boxed dimensions and weights for our most popular items:"
+            "heading": "MDF Shelving Racks",
+            "description": "Approximate boxed dimensions and weight:"
           }
         }
       },
-      "block_order": ["small-cars", "larger-cars", "roof-racks", "utes-trucks", "dimensions"],
+      "block_order": ["small-cars", "larger-cars", "roof-racks", "utes-trucks", "dimensions-steel-shelving", "dimensions-steel-workbenches", "dimensions-mdf-shelving"],
       "settings": {
         "eyebrow": "Pickup Guide",
         "heading": "How To Collect In Your Vehicle",
