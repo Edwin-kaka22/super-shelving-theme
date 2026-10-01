@@ -9,22 +9,24 @@
 
 {% if block.blocks.size > 0 %}
   <div class="pickup-guide-item" {{ block.shopify_attributes }}>
-    {% if block.settings.heading != blank %}
-      <h2 class="pickup-guide-item__heading">{{ block.settings.heading }}</h2>
-    {% endif %}
+    <div class="pickup-guide-item__content">
+      {% if block.settings.heading != blank %}
+        <h2 class="pickup-guide-item__heading">{{ block.settings.heading }}</h2>
+      {% endif %}
 
-    {% if block.settings.description != blank %}
-      <p class="pickup-guide-item__body">{{ block.settings.description }}</p>
-    {% endif %}
+      {% if block.settings.description != blank %}
+        <p class="pickup-guide-item__body">{{ block.settings.description }}</p>
+      {% endif %}
 
-    <div class="pickup-guide-dimensions__table">
-      <div class="pickup-guide-dimensions__row pickup-guide-dimensions__row--head">
-        <span>{{ 'pickup_guide.dimensions_table.item' | t }}</span>
-        <span>{{ 'pickup_guide.dimensions_table.dimensions' | t }}</span>
-        <span>{{ 'pickup_guide.dimensions_table.weight' | t }}</span>
+      <div class="pickup-guide-dimensions__table">
+        <div class="pickup-guide-dimensions__row pickup-guide-dimensions__row--head">
+          <span>{{ 'pickup_guide.dimensions_table.item' | t }}</span>
+          <span>{{ 'pickup_guide.dimensions_table.dimensions' | t }}</span>
+          <span>{{ 'pickup_guide.dimensions_table.weight' | t }}</span>
+        </div>
+
+        {% content_for 'blocks' %}
       </div>
-
-      {% content_for 'blocks' %}
     </div>
   </div>
 {% endif %}
