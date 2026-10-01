@@ -23,7 +23,7 @@
           "type": "pickup-guide-item",
           "settings": {
             "heading": "Cars With Roof Racks",
-            "body": "A car with roof racks fitted can usually take the full length and width of our shelving - the real limit is how much weight your roof and racks are rated for.\n\nThere are two numbers to check: your vehicle's roof loading capacity (sometimes listed as Gross Combined Mass, or GCM), and the weight rating of your roof rack system itself. You'll usually find the roof loading capacity in your owner's manual or on the manufacturer's website - if you can't find it, it's safest to assume it's under 100kg. If you can't find a rating for your roof racks either, assume 80kg and spread the load evenly, tied down securely with straps.\n\nIt helps to fit as much as you can inside the car first, and only strap what's left onto the roof."
+            "body": "A car with roof racks fitted can usually take the full length and width of our shelving - the real limit is how much weight your roof and racks are rated for.\n\nCheck two numbers: your roof loading capacity (sometimes listed as GCM) and your roof rack's weight rating, both usually found in your owner's manual or on the manufacturer's website. Not listed? Assume 100kg for the roof and 80kg for the racks, spread evenly and strapped down securely.\n\nFit as much as you can inside the car first, then strap on whatever's left."
           }
         },
         "utes-trucks": {
