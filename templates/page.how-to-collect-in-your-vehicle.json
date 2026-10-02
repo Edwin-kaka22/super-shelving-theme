@@ -78,24 +78,40 @@
         "dimensions-steel-workbenches": {
           "type": "pickup-guide-dimensions",
           "blocks": {
-            "steel-workbench-box1": {
+            "steel-workbench-150-box1": {
               "type": "pickup-guide-dimension-row",
               "settings": {
-                "name": "Box 1 of 2",
+                "name": "150cm Wide - Box 1 of 2",
                 "dimensions": "90 x 60 x 10 cm",
                 "weight": "16kg"
               }
             },
-            "steel-workbench-box2": {
+            "steel-workbench-150-box2": {
               "type": "pickup-guide-dimension-row",
               "settings": {
-                "name": "Box 2 of 2",
+                "name": "150cm Wide - Box 2 of 2",
                 "dimensions": "150 x 60 x 12 cm",
                 "weight": "12kg"
               }
+            },
+            "steel-workbench-200-box1": {
+              "type": "pickup-guide-dimension-row",
+              "settings": {
+                "name": "200cm Wide - Box 1 of 2",
+                "dimensions": "90 x 60 x 10 cm",
+                "weight": "16kg"
+              }
+            },
+            "steel-workbench-200-box2": {
+              "type": "pickup-guide-dimension-row",
+              "settings": {
+                "name": "200cm Wide - Box 2 of 2",
+                "dimensions": "200 x 60 x 12 cm",
+                "weight": "16kg"
+              }
             }
           },
-          "block_order": ["steel-workbench-box1", "steel-workbench-box2"],
+          "block_order": ["steel-workbench-150-box1", "steel-workbench-150-box2", "steel-workbench-200-box1", "steel-workbench-200-box2"],
           "settings": {
             "heading": "Steel Workbenches",
             "description": "Approximate boxed dimensions and weight:"
