@@ -6,11 +6,17 @@
   {% content_for 'block', type: 'pickup-guide-dimension-row', id: 'pickup-guide-dimension-row-1' %}
 {% enddoc %}
 
-<div class="pickup-guide-dimensions__row" {{ block.shopify_attributes }}>
+<div class="pickup-guide-dimensions__row{% if block.settings.name contains 'Box 2 of 2' %} pickup-guide-dimensions__row--paired{% endif %}" {{ block.shopify_attributes }}>
   <span>{{ block.settings.name }}</span>
   <span>{{ block.settings.dimensions }}</span>
   <span>{{ block.settings.weight }}</span>
 </div>
+
+{% stylesheet %}
+  .pickup-guide-dimensions__row--paired {
+    padding-top: 0.35rem;
+  }
+{% endstylesheet %}
 
 {% schema %}
 {
