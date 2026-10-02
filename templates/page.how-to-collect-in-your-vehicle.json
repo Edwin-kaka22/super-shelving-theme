@@ -47,7 +47,7 @@
             "steel-shelving-small-box2": {
               "type": "pickup-guide-dimension-row",
               "settings": {
-                "name": "1.8M x 2M x 0.6M - Box 2 of 2",
+                "name": "- Box 2 of 2",
                 "dimensions": "190 x 65 x 10 cm",
                 "weight": "14kg"
               }
@@ -63,7 +63,7 @@
             "steel-shelving-large-box2": {
               "type": "pickup-guide-dimension-row",
               "settings": {
-                "name": "2M x 2M x 0.6M - Box 2 of 2",
+                "name": "- Box 2 of 2",
                 "dimensions": "210 x 65 x 10 cm",
                 "weight": "18kg"
               }
@@ -81,7 +81,7 @@
             "steel-workbench-150-box1": {
               "type": "pickup-guide-dimension-row",
               "settings": {
-                "name": "150cm Wide - Box 1 of 2",
+                "name": "150 x 90 x 60cm - Box 1 of 2",
                 "dimensions": "90 x 60 x 10 cm",
                 "weight": "16kg"
               }
@@ -89,7 +89,7 @@
             "steel-workbench-150-box2": {
               "type": "pickup-guide-dimension-row",
               "settings": {
-                "name": "150cm Wide - Box 2 of 2",
+                "name": "- Box 2 of 2",
                 "dimensions": "150 x 60 x 12 cm",
                 "weight": "12kg"
               }
@@ -97,7 +97,7 @@
             "steel-workbench-200-box1": {
               "type": "pickup-guide-dimension-row",
               "settings": {
-                "name": "200cm Wide - Box 1 of 2",
+                "name": "200 x 90 x 60cm - Box 1 of 2",
                 "dimensions": "90 x 60 x 10 cm",
                 "weight": "16kg"
               }
@@ -105,7 +105,7 @@
             "steel-workbench-200-box2": {
               "type": "pickup-guide-dimension-row",
               "settings": {
-                "name": "200cm Wide - Box 2 of 2",
+                "name": "- Box 2 of 2",
                 "dimensions": "200 x 60 x 12 cm",
                 "weight": "16kg"
               }
