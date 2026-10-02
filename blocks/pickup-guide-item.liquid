@@ -6,7 +6,10 @@
   {% content_for 'block', type: 'pickup-guide-item', id: 'pickup-guide-item-1' %}
 {% enddoc %}
 
-<div class="pickup-guide-item" {{ block.shopify_attributes }}>
+{% if block.id contains 'utes-trucks' %}
+  {% assign pickup_item_extra_class = ' pickup-guide-item--gap-after' %}
+{% endif %}
+<div class="pickup-guide-item{{ pickup_item_extra_class }}" {{ block.shopify_attributes }}>
   <span class="pickup-guide-item__image">
     {% liquid
       assign pickup_image_alt = block.settings.heading | escape
@@ -58,6 +61,10 @@
 
   .pickup-guide-item:last-child {
     border-bottom: none;
+  }
+
+  .pickup-guide-item--gap-after {
+    margin-bottom: 1.5rem;
   }
 
   .pickup-guide-item__image {

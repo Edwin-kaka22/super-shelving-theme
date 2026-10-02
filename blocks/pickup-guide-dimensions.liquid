@@ -27,18 +27,19 @@
               <img src="{{ dims_icon | asset_url }}" alt="{{ block.settings.heading | escape }}" loading="lazy" width="48" height="48">
             </span>
           {% endif %}
-          <h2 class="pickup-guide-item__heading">{{ block.settings.heading }}</h2>
+          <div class="pickup-guide-dimensions__heading-text">
+            <h2 class="pickup-guide-item__heading">{{ block.settings.heading }}</h2>
+            {% if block.settings.description != blank %}
+              <p class="pickup-guide-item__body">{{ block.settings.description }}</p>
+            {% endif %}
+          </div>
         </div>
-      {% endif %}
-
-      {% if block.settings.description != blank %}
-        <p class="pickup-guide-item__body">{{ block.settings.description }}</p>
       {% endif %}
 
       <div class="pickup-guide-dimensions__table">
         <div class="pickup-guide-dimensions__row pickup-guide-dimensions__row--head">
           <span>{{ 'pickup_guide.dimensions_table.item' | t }}</span>
-          <span>{{ 'pickup_guide.dimensions_table.dimensions' | t }}</span>
+          <span>{{ 'pickup_guide.dimensions_table.dimensions_html' | t }}</span>
           <span>{{ 'pickup_guide.dimensions_table.weight' | t }}</span>
         </div>
 
@@ -56,8 +57,16 @@
     margin: 0 0 0.85rem;
   }
 
+  .pickup-guide-dimensions__heading-text {
+    min-width: 0;
+  }
+
   .pickup-guide-dimensions__heading-row .pickup-guide-item__heading {
     margin: 0;
+  }
+
+  .pickup-guide-dimensions__heading-text .pickup-guide-item__body {
+    margin-top: 0.15rem;
   }
 
   .pickup-guide-dimensions__icon {
@@ -106,6 +115,15 @@
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: #6b6b6e;
+  }
+
+  .pickup-guide-dimensions__spec {
+    letter-spacing: 0;
+  }
+
+  .pickup-guide-dimensions__x {
+    font-size: 0.95em;
+    text-transform: lowercase;
   }
 {% endstylesheet %}
 

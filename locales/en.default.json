@@ -30,8 +30,8 @@
   },
   "pickup_guide": {
     "dimensions_table": {
-      "item": "Item",
-      "dimensions": "Boxed dimensions (H x W x D)",
+      "item": "Item Size",
+      "dimensions_html": "Boxed dimensions <span class=\"pickup-guide-dimensions__spec\">(H <span class=\"pickup-guide-dimensions__x\">x</span> W <span class=\"pickup-guide-dimensions__x\">x</span> D)</span>",
       "weight": "Weight"
     }
   },
