@@ -7,17 +7,10 @@
 {% enddoc %}
 
 <div class="pickup-guide-dimensions__row" {{ block.shopify_attributes }}>
-  <span{% if block.settings.name contains '- Box' %} class="pickup-guide-dimensions__name--continuation"{% endif %}>{{ block.settings.name }}</span>
+  <span>{{ block.settings.name }}</span>
   <span>{{ block.settings.dimensions }}</span>
   <span>{{ block.settings.weight }}</span>
 </div>
-
-{% stylesheet %}
-  .pickup-guide-dimensions__name--continuation {
-    display: inline-block;
-    padding-left: 1.25rem;
-  }
-{% endstylesheet %}
 
 {% schema %}
 {
