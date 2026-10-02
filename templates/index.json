@@ -64,7 +64,7 @@
           "settings": {
             "name": "Steel Shelving",
             "description": "Heavy-duty steel shelving built to last.",
-            "link": "/collections/steel-shelving"
+            "link": "/collections/steel-shelving-racks"
           }
         },
         "steel-workbenches": {
@@ -80,7 +80,7 @@
           "settings": {
             "name": "MDF Shelving",
             "description": "Affordable, versatile shelving for the home.",
-            "link": "/collections/mdf-shelving"
+            "link": "/collections/mdf-shelving-racks"
           }
         },
         "storage-cabinets": {
@@ -211,7 +211,7 @@
         "price_4": "$119.99",
         "link_4": "/products/mdf-rivet-shelving-rack-180x150x45cm",
         "button_label": "Shop MDF Shelving",
-        "button_link": "/collections/mdf-shelving"
+        "button_link": "/collections/mdf-shelving-racks"
       }
     },
     "google-reviews": {

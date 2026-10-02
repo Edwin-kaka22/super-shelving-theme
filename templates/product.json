@@ -52,7 +52,7 @@
           "settings": {
             "name": "Steel Shelving",
             "description": "Heavy-duty steel shelving built to last.",
-            "link": "/collections/steel-shelving"
+            "link": "/collections/steel-shelving-racks"
           }
         },
         "steel-workbenches": {
@@ -68,7 +68,7 @@
           "settings": {
             "name": "MDF Shelving",
             "description": "Affordable, versatile shelving for the home.",
-            "link": "/collections/mdf-shelving"
+            "link": "/collections/mdf-shelving-racks"
           }
         },
         "storage-cabinets": {
