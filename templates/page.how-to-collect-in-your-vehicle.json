@@ -104,7 +104,7 @@
         "dimensions-mdf-shelving": {
           "type": "pickup-guide-dimensions",
           "blocks": {
-            "mdf-shelving-small": {
+            "mdf-shelving-150x70x30": {
               "type": "pickup-guide-dimension-row",
               "settings": {
                 "name": "150 x 70 x 30cm",
@@ -112,7 +112,23 @@
                 "weight": "18kg"
               }
             },
-            "mdf-shelving-large": {
+            "mdf-shelving-180x90x40": {
+              "type": "pickup-guide-dimension-row",
+              "settings": {
+                "name": "180 x 90 x 40cm",
+                "dimensions": "180 x 95 x 8 cm",
+                "weight": "20kg"
+              }
+            },
+            "mdf-shelving-180x120x45": {
+              "type": "pickup-guide-dimension-row",
+              "settings": {
+                "name": "180 x 120 x 45cm",
+                "dimensions": "180 x 95 x 9 cm",
+                "weight": "24kg"
+              }
+            },
+            "mdf-shelving-180x150x45": {
               "type": "pickup-guide-dimension-row",
               "settings": {
                 "name": "180 x 150 x 45cm",
@@ -121,7 +137,7 @@
               }
             }
           },
-          "block_order": ["mdf-shelving-small", "mdf-shelving-large"],
+          "block_order": ["mdf-shelving-150x70x30", "mdf-shelving-180x90x40", "mdf-shelving-180x120x45", "mdf-shelving-180x150x45"],
           "settings": {
             "heading": "MDF Shelving Racks",
             "description": "Approximate boxed dimensions and weight:"
