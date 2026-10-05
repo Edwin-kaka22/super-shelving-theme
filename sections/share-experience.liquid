@@ -1,17 +1,19 @@
 {% doc %}
-  Renders the Share Your Experience page: an intro, a prompt to leave a
-  Google review, and a review-submission form (name, email, optional order
-  number, star rating, and review text) built on Shopify's native contact
-  form.
+  Renders the Share Your Experience page: an intro, a trust stats row, a
+  two-step "Leave a Google Review / Submit Your Photos" panel, and (as a
+  secondary option) a review-submission form built on Shopify's native
+  contact form.
 
-  Submissions are emailed to the store's customer contact email and are
-  visible in Shopify admin under Settings > Notifications, the same as the
-  Contact Us page's form.
+  Form submissions are emailed to the store's customer contact email and
+  are visible in Shopify admin under Settings > Notifications, the same
+  as the Contact Us page's form.
 
   Shopify's built-in contact form can't reliably deliver file attachments
-  without a third-party app, so photo submissions are handled with a
-  direct "email us a photo" prompt instead of a file upload field that
-  would silently fail to send.
+  without a third-party app, so photo submissions are routed to an
+  external photo-upload link (e.g. a free Google Form, which does support
+  file uploads) instead of a file input field that would silently fail to
+  send. Until a merchant sets that link, a "email us a photo" note shows
+  instead.
 
   @example
   {% section 'share-experience' %}
@@ -33,24 +35,66 @@
       {% endif %}
     </div>
 
-    <div class="share-experience__google">
-      <span class="share-experience__google-icon">{{ 'icon-google.svg' | inline_asset_content }}</span>
+    <div class="share-experience__stats">
+      <div class="share-experience__stat">
+        <span class="share-experience__stat-value">{{ section.settings.rating_value }}</span>
+        <span class="share-experience__stat-label">{{ 'share_experience.stats.rating' | t }}</span>
+      </div>
+      <div class="share-experience__stat">
+        <span class="share-experience__stat-value">{{ 'share_experience.stats.warehouse_value' | t }}</span>
+        <span class="share-experience__stat-label">{{ 'share_experience.stats.warehouse_label' | t }}</span>
+      </div>
+      <div class="share-experience__stat">
+        <span class="share-experience__stat-value">{{ 'share_experience.stats.delivery_value' | t }}</span>
+        <span class="share-experience__stat-label">{{ 'share_experience.stats.delivery_label' | t }}</span>
+      </div>
+      <div class="share-experience__stat">
+        <span class="share-experience__stat-value">{{ 'share_experience.stats.warranty_value' | t }}</span>
+        <span class="share-experience__stat-label">{{ 'share_experience.stats.warranty_label' | t }}</span>
+      </div>
+    </div>
 
-      <div class="share-experience__google-text">
-        {% if section.settings.google_heading != blank %}
-          <p class="share-experience__google-heading">{{ section.settings.google_heading }}</p>
-        {% endif %}
+    <div class="share-experience__panel">
+      {% if section.settings.share_heading != blank %}
+        <h2 class="share-experience__panel-heading">{{ section.settings.share_heading }}</h2>
+      {% endif %}
 
-        {% if section.settings.google_text != blank %}
-          <p class="share-experience__google-copy">{{ section.settings.google_text }}</p>
-        {% endif %}
+      {% if section.settings.share_description != blank %}
+        <p class="share-experience__panel-description">{{ section.settings.share_description }}</p>
+      {% endif %}
+
+      <div class="share-experience__steps">
+        <div class="share-experience__step">
+          <span class="share-experience__step-number">{{ 'share_experience.steps.step_1_label' | t }}</span>
+          <h3 class="share-experience__step-heading">{{ section.settings.step_1_heading }}</h3>
+          <p class="share-experience__step-text">{{ section.settings.step_1_text }}</p>
+          <a href="{{ section.settings.google_link | default: '#' }}" class="share-experience__step-button" target="_blank" rel="noopener">
+            {{ section.settings.step_1_button_label }}
+          </a>
+        </div>
+
+        <div class="share-experience__step">
+          <span class="share-experience__step-number">{{ 'share_experience.steps.step_2_label' | t }}</span>
+          <h3 class="share-experience__step-heading">{{ section.settings.step_2_heading }}</h3>
+          <p class="share-experience__step-text">{{ section.settings.step_2_text }}</p>
+
+          {% if section.settings.photo_form_link != blank %}
+            <a href="{{ section.settings.photo_form_link }}" class="share-experience__step-button" target="_blank" rel="noopener">
+              {{ section.settings.step_2_button_label }}
+            </a>
+          {% elsif section.settings.photo_email != blank %}
+            <p class="share-experience__step-fallback">
+              {{ 'share_experience.form.photo_note_html' | t: email: section.settings.photo_email }}
+            </p>
+          {% endif %}
+        </div>
       </div>
 
-      {% if section.settings.google_button_label != blank %}
-        <a href="{{ section.settings.google_link | default: '#' }}" class="share-experience__google-button" target="_blank" rel="noopener">
-          {{ section.settings.google_button_label }}
-        </a>
-      {% endif %}
+      <ul class="share-experience__tags">
+        <li>{{ 'share_experience.tags.home_garage' | t }}</li>
+        <li>{{ 'share_experience.tags.workshop' | t }}</li>
+        <li>{{ 'share_experience.tags.business_warehouse' | t }}</li>
+      </ul>
     </div>
 
     <div class="share-experience__form-wrap">
@@ -137,10 +181,6 @@
           <textarea id="ShareExperienceReview" name="contact[body]" rows="6" required>{{ form.body }}</textarea>
         </div>
 
-        {% if section.settings.photo_email != blank %}
-          <p class="share-experience__photo-note">{{ 'share_experience.form.photo_note_html' | t: email: section.settings.photo_email }}</p>
-        {% endif %}
-
         <button type="submit" class="share-experience__submit">
           <span data-submit-label>{{ 'share_experience.form.submit' | t }}</span>
         </button>
@@ -192,66 +232,157 @@
     color: #4a4a4d;
   }
 
-  .share-experience__google {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 1.25rem;
+  .share-experience__stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
     margin: 2.75rem 0 0;
-    padding: 1.75rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid #e5e5e7;
+    border-bottom: 1px solid #e5e5e7;
+  }
+
+  .share-experience__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    text-align: center;
+  }
+
+  .share-experience__stat-value {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1f2120;
+  }
+
+  .share-experience__stat-label {
+    font-size: 0.75rem;
+    color: #6b6b6e;
+  }
+
+  .share-experience__panel {
+    margin: 2.75rem 0 0;
+    padding: 2rem;
     border-radius: 0.75rem;
     background-color: #f4f4f5;
     text-align: center;
   }
 
-  .share-experience__google-icon {
-    flex: none;
-    display: flex;
-  }
-
-  .share-experience__google-icon svg {
-    width: 2rem;
-    height: 2rem;
-  }
-
-  .share-experience__google-text {
-    flex: 1;
-    min-width: 14rem;
-  }
-
-  .share-experience__google-heading {
+  .share-experience__panel-heading {
     margin: 0;
-    font-size: 1.05rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #1f2120;
+  }
+
+  .share-experience__panel-description {
+    margin: 0.6rem auto 0;
+    max-width: 32rem;
+    font-size: 0.95rem;
+    color: #6b6b6e;
+  }
+
+  .share-experience__steps {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+    text-align: left;
+  }
+
+  .share-experience__step {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    border-radius: 0.6rem;
+    background-color: #ffffff;
+  }
+
+  .share-experience__step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.75rem;
+    height: 1.75rem;
+    padding: 0 0.5rem;
+    border-radius: 999px;
+    background-color: #f5c02e;
+    color: #1a1a1a;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .share-experience__step-heading {
+    margin: 0;
+    font-size: 1.1rem;
     font-weight: 700;
     color: #1f2120;
   }
 
-  .share-experience__google-copy {
-    margin: 0.25rem 0 0;
+  .share-experience__step-text {
+    margin: 0;
     font-size: 0.9rem;
+    line-height: 1.5;
     color: #6b6b6e;
   }
 
-  .share-experience__google-button {
-    flex: none;
+  .share-experience__step-button {
     display: inline-block;
-    padding: 0.65rem 1.75rem;
+    margin-top: 0.25rem;
+    padding: 0.65rem 1.5rem;
     border: 1px solid #1f2120;
     border-radius: 999px;
+    background-color: #1f2120;
+    color: #ffffff;
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     text-decoration: none;
-    color: #1f2120;
-    background-color: #ffffff;
     transition: background-color 0.2s ease, color 0.2s ease;
   }
 
-  .share-experience__google-button:hover {
-    background-color: #1f2120;
-    color: #ffffff;
+  .share-experience__step-button:hover {
+    background-color: #52564f;
+  }
+
+  .share-experience__step-fallback {
+    margin: 0.25rem 0 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #6b6b6e;
+  }
+
+  .share-experience__step-fallback a {
+    color: #1f2120;
+    text-decoration: underline;
+  }
+
+  .share-experience__tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin: 1.75rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .share-experience__tags li {
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    background-color: #ffffff;
+    border: 1px solid #e5e5e7;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1f2120;
   }
 
   .share-experience__form-wrap {
@@ -307,18 +438,6 @@
   .share-experience__field textarea:focus-visible {
     outline: 2px solid #1f2120;
     outline-offset: 2px;
-  }
-
-  .share-experience__photo-note {
-    margin: 0;
-    font-size: 0.85rem;
-    line-height: 1.5;
-    color: #6b6b6e;
-  }
-
-  .share-experience__photo-note a {
-    color: #1f2120;
-    text-decoration: underline;
   }
 
   .share-experience__submit {
@@ -389,6 +508,17 @@
     margin: 0;
     padding-left: 1.1rem;
   }
+
+  @media screen and (max-width: 749px) {
+    .share-experience__stats {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 1.5rem;
+    }
+
+    .share-experience__steps {
+      grid-template-columns: 1fr;
+    }
+  }
 {% endstylesheet %}
 
 {% schema %}
@@ -415,15 +545,39 @@
     },
     {
       "type": "text",
-      "id": "google_heading",
-      "label": "t:labels.google_heading",
-      "default": "Enjoyed Your Experience?"
+      "id": "rating_value",
+      "label": "t:labels.rating_value",
+      "default": "4.9"
+    },
+    {
+      "type": "text",
+      "id": "share_heading",
+      "label": "t:labels.share_heading",
+      "default": "Share Your Setup"
     },
     {
       "type": "textarea",
-      "id": "google_text",
-      "label": "t:labels.google_text",
-      "default": "A quick Google review helps other customers find us and lets us know we're doing it right."
+      "id": "share_description",
+      "label": "t:labels.share_description",
+      "default": "Leave a Google review and share photos of your Super Shelving setup - we love seeing how you've put your space together."
+    },
+    {
+      "type": "text",
+      "id": "step_1_heading",
+      "label": "t:labels.step_1_heading",
+      "default": "Leave A Google Review"
+    },
+    {
+      "type": "textarea",
+      "id": "step_1_text",
+      "label": "t:labels.step_1_text",
+      "default": "Tell us about your shelving, workbench, or storage setup experience."
+    },
+    {
+      "type": "text",
+      "id": "step_1_button_label",
+      "label": "t:labels.button_label",
+      "default": "Leave A Review"
     },
     {
       "type": "url",
@@ -432,21 +586,39 @@
     },
     {
       "type": "text",
-      "id": "google_button_label",
-      "label": "t:labels.button_label",
-      "default": "Leave A Google Review"
+      "id": "step_2_heading",
+      "label": "t:labels.step_2_heading",
+      "default": "Submit Your Photos"
+    },
+    {
+      "type": "textarea",
+      "id": "step_2_text",
+      "label": "t:labels.step_2_text",
+      "default": "Share photos of your finished setup, garage, workshop or warehouse."
     },
     {
       "type": "text",
-      "id": "form_heading",
-      "label": "t:labels.form_heading",
-      "default": "Write A Review"
+      "id": "step_2_button_label",
+      "label": "t:labels.button_label",
+      "default": "Upload Photos"
+    },
+    {
+      "type": "url",
+      "id": "photo_form_link",
+      "label": "t:labels.photo_form_link",
+      "info": "t:labels.photo_form_link_info"
     },
     {
       "type": "text",
       "id": "photo_email",
       "label": "t:labels.photo_email",
       "default": "Edwin_10@live.com.au"
+    },
+    {
+      "type": "text",
+      "id": "form_heading",
+      "label": "t:labels.form_heading",
+      "default": "Prefer To Write To Us Directly?"
     }
   ],
   "presets": [

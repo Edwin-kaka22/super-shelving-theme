@@ -48,6 +48,24 @@
     }
   },
   "share_experience": {
+    "stats": {
+      "rating": "Average Rating",
+      "warehouse_value": "Melbourne",
+      "warehouse_label": "Local Warehouse",
+      "delivery_value": "Victoria Wide",
+      "delivery_label": "Delivery Available",
+      "warranty_value": "12 Months",
+      "warranty_label": "Warranty Support"
+    },
+    "steps": {
+      "step_1_label": "Step 1",
+      "step_2_label": "Step 2"
+    },
+    "tags": {
+      "home_garage": "Home Garage",
+      "workshop": "Workshop",
+      "business_warehouse": "Business & Warehouse"
+    },
     "form": {
       "order_number": "Order number (optional)",
       "rating": "Your rating",
