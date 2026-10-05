@@ -1,0 +1,458 @@
+{% doc %}
+  Renders the Share Your Experience page: an intro, a prompt to leave a
+  Google review, and a review-submission form (name, email, optional order
+  number, star rating, and review text) built on Shopify's native contact
+  form.
+
+  Submissions are emailed to the store's customer contact email and are
+  visible in Shopify admin under Settings > Notifications, the same as the
+  Contact Us page's form.
+
+  Shopify's built-in contact form can't reliably deliver file attachments
+  without a third-party app, so photo submissions are handled with a
+  direct "email us a photo" prompt instead of a file upload field that
+  would silently fail to send.
+
+  @example
+  {% section 'share-experience' %}
+{% enddoc %}
+
+<div class="share-experience full-width">
+  <div class="share-experience__inner">
+    <div class="share-experience__header">
+      {% if section.settings.eyebrow != blank %}
+        <span class="share-experience__eyebrow">{{ section.settings.eyebrow }}</span>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h1 class="share-experience__heading">{{ section.settings.heading }}</h1>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <p class="share-experience__description">{{ section.settings.description }}</p>
+      {% endif %}
+    </div>
+
+    <div class="share-experience__google">
+      <span class="share-experience__google-icon">{{ 'icon-google.svg' | inline_asset_content }}</span>
+
+      <div class="share-experience__google-text">
+        {% if section.settings.google_heading != blank %}
+          <p class="share-experience__google-heading">{{ section.settings.google_heading }}</p>
+        {% endif %}
+
+        {% if section.settings.google_text != blank %}
+          <p class="share-experience__google-copy">{{ section.settings.google_text }}</p>
+        {% endif %}
+      </div>
+
+      {% if section.settings.google_button_label != blank %}
+        <a href="{{ section.settings.google_link | default: '#' }}" class="share-experience__google-button" target="_blank" rel="noopener">
+          {{ section.settings.google_button_label }}
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="share-experience__form-wrap">
+      {% if section.settings.form_heading != blank %}
+        <h2 class="share-experience__form-heading">{{ section.settings.form_heading }}</h2>
+      {% endif %}
+
+      {% form 'contact', class: 'share-experience__form' %}
+        {% if form.posted_successfully? %}
+          <p class="share-experience__success" role="status">{{ 'share_experience.form.success' | t }}</p>
+        {% endif %}
+
+        {% if form.errors %}
+          <div class="share-experience__errors" role="alert">
+            <p class="share-experience__errors-heading">{{ 'share_experience.form.error_heading' | t }}</p>
+            <ul>
+              {% for field in form.errors %}
+                <li>
+                  {% if field == 'form' %}
+                    {{ form.errors.messages[field] }}
+                  {% else %}
+                    {{ form.errors.translated_fields[field] | capitalize }} {{ form.errors.messages[field] }}
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        <input type="hidden" name="contact[tags]" value="review-submission">
+
+        <div class="share-experience__field">
+          <label for="ShareExperienceName">{{ 'contact.form.name' | t }}</label>
+          <input
+            type="text"
+            id="ShareExperienceName"
+            name="contact[name]"
+            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+            autocomplete="name"
+            required
+          >
+        </div>
+
+        <div class="share-experience__field">
+          <label for="ShareExperienceEmail">{{ 'contact.form.email' | t }}</label>
+          <input
+            type="email"
+            id="ShareExperienceEmail"
+            name="contact[email]"
+            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+            autocomplete="email"
+            autocapitalize="off"
+            required
+            {% if form.errors contains 'email' %}
+              aria-invalid="true"
+            {% endif %}
+          >
+        </div>
+
+        <div class="share-experience__field">
+          <label for="ShareExperienceOrder">{{ 'share_experience.form.order_number' | t }}</label>
+          <input
+            type="text"
+            id="ShareExperienceOrder"
+            name="contact[order_number]"
+            value="{{ form.order_number }}"
+          >
+        </div>
+
+        <div class="share-experience__field">
+          <label for="ShareExperienceRating">{{ 'share_experience.form.rating' | t }}</label>
+          <select id="ShareExperienceRating" name="contact[rating]" required>
+            <option value="" selected disabled>{{ 'share_experience.form.rating' | t }}</option>
+            <option value="5">{{ 'share_experience.form.rating_5' | t }}</option>
+            <option value="4">{{ 'share_experience.form.rating_4' | t }}</option>
+            <option value="3">{{ 'share_experience.form.rating_3' | t }}</option>
+            <option value="2">{{ 'share_experience.form.rating_2' | t }}</option>
+            <option value="1">{{ 'share_experience.form.rating_1' | t }}</option>
+          </select>
+        </div>
+
+        <div class="share-experience__field">
+          <label for="ShareExperienceReview">{{ 'share_experience.form.review' | t }}</label>
+          <textarea id="ShareExperienceReview" name="contact[body]" rows="6" required>{{ form.body }}</textarea>
+        </div>
+
+        {% if section.settings.photo_email != blank %}
+          <p class="share-experience__photo-note">{{ 'share_experience.form.photo_note_html' | t: email: section.settings.photo_email }}</p>
+        {% endif %}
+
+        <button type="submit" class="share-experience__submit">
+          <span data-submit-label>{{ 'share_experience.form.submit' | t }}</span>
+        </button>
+      {% endform %}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .share-experience {
+    padding: 4.5rem 0;
+    background-color: #ffffff;
+  }
+
+  .share-experience__inner {
+    max-width: 56rem;
+    margin: 0 auto;
+    padding: 0 var(--page-margin);
+  }
+
+  .share-experience__header {
+    max-width: 40rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .share-experience__eyebrow {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6b6b6e;
+  }
+
+  .share-experience__heading {
+    margin: 0.6rem 0 0;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #1f2120;
+  }
+
+  .share-experience__description {
+    margin: 0.9rem 0 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4a4a4d;
+  }
+
+  .share-experience__google {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    margin: 2.75rem 0 0;
+    padding: 1.75rem;
+    border-radius: 0.75rem;
+    background-color: #f4f4f5;
+    text-align: center;
+  }
+
+  .share-experience__google-icon {
+    flex: none;
+    display: flex;
+  }
+
+  .share-experience__google-icon svg {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .share-experience__google-text {
+    flex: 1;
+    min-width: 14rem;
+  }
+
+  .share-experience__google-heading {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1f2120;
+  }
+
+  .share-experience__google-copy {
+    margin: 0.25rem 0 0;
+    font-size: 0.9rem;
+    color: #6b6b6e;
+  }
+
+  .share-experience__google-button {
+    flex: none;
+    display: inline-block;
+    padding: 0.65rem 1.75rem;
+    border: 1px solid #1f2120;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #1f2120;
+    background-color: #ffffff;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .share-experience__google-button:hover {
+    background-color: #1f2120;
+    color: #ffffff;
+  }
+
+  .share-experience__form-wrap {
+    margin: 3rem auto 0;
+  }
+
+  .share-experience__form-heading {
+    margin: 0 0 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    text-align: center;
+    color: #1f2120;
+  }
+
+  .share-experience__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .share-experience__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .share-experience__field label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1f2120;
+  }
+
+  .share-experience__field input,
+  .share-experience__field select,
+  .share-experience__field textarea {
+    padding: 0.8rem 1rem;
+    border: 1px solid #e5e5e7;
+    background-color: #ffffff;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: #1f2120;
+  }
+
+  .share-experience__field textarea {
+    resize: vertical;
+    min-height: 8rem;
+  }
+
+  .share-experience__field input:focus-visible,
+  .share-experience__field select:focus-visible,
+  .share-experience__field textarea:focus-visible {
+    outline: 2px solid #1f2120;
+    outline-offset: 2px;
+  }
+
+  .share-experience__photo-note {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #6b6b6e;
+  }
+
+  .share-experience__photo-note a {
+    color: #1f2120;
+    text-decoration: underline;
+  }
+
+  .share-experience__submit {
+    position: relative;
+    align-self: flex-start;
+    overflow: hidden;
+    margin-top: 0.5rem;
+    padding: 0.9rem 2.25rem;
+    border: 1px solid #1f2120;
+    border-radius: 999px;
+    background-color: #1f2120;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+  }
+
+  .share-experience__submit::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: #52564f;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .share-experience__submit:hover::before {
+    transform: scaleX(1);
+  }
+
+  .share-experience__submit:hover {
+    border-color: #52564f;
+  }
+
+  .share-experience__submit [data-submit-label] {
+    position: relative;
+    z-index: 1;
+  }
+
+  .share-experience__success {
+    padding: 0.9rem 1.1rem;
+    background-color: #eef7ee;
+    border: 1px solid #bfe3bf;
+    border-radius: 0.6rem;
+    color: #1f5c1f;
+    font-size: 0.9rem;
+  }
+
+  .share-experience__errors {
+    padding: 0.9rem 1.1rem;
+    background-color: #fdecec;
+    border: 1px solid #f3b8b8;
+    border-radius: 0.6rem;
+    color: #8a1f1f;
+    font-size: 0.9rem;
+  }
+
+  .share-experience__errors-heading {
+    margin: 0 0 0.4rem;
+    font-weight: 700;
+  }
+
+  .share-experience__errors ul {
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.share_experience",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:labels.eyebrow",
+      "default": "Share Your Experience"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "We'd Love To Hear From You"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "t:labels.description",
+      "default": "Tell us how your Super Shelving order went, or leave us a review on Google - we read every single one."
+    },
+    {
+      "type": "text",
+      "id": "google_heading",
+      "label": "t:labels.google_heading",
+      "default": "Enjoyed Your Experience?"
+    },
+    {
+      "type": "textarea",
+      "id": "google_text",
+      "label": "t:labels.google_text",
+      "default": "A quick Google review helps other customers find us and lets us know we're doing it right."
+    },
+    {
+      "type": "url",
+      "id": "google_link",
+      "label": "t:labels.google_link"
+    },
+    {
+      "type": "text",
+      "id": "google_button_label",
+      "label": "t:labels.button_label",
+      "default": "Leave A Google Review"
+    },
+    {
+      "type": "text",
+      "id": "form_heading",
+      "label": "t:labels.form_heading",
+      "default": "Write A Review"
+    },
+    {
+      "type": "text",
+      "id": "photo_email",
+      "label": "t:labels.photo_email",
+      "default": "Edwin_10@live.com.au"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.share_experience"
+    }
+  ]
+}
+{% endschema %}
