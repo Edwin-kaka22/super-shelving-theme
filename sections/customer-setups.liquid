@@ -78,6 +78,18 @@
     gap: 1.5rem;
     margin-top: 2.75rem;
   }
+
+  @media screen and (max-width: 989px) {
+    .customer-setups__row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 589px) {
+    .customer-setups__row {
+      grid-template-columns: 1fr;
+    }
+  }
 {% endstylesheet %}
 
 {% schema %}

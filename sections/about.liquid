@@ -1,6 +1,7 @@
 {% doc %}
-  Renders a centred About page intro: an eyebrow, heading, body copy, and
-  an optional call-to-action button.
+  Renders the About page intro: an eyebrow, heading and body copy beside a
+  photo, with an optional call-to-action button. Falls back to a real
+  warehouse photo until a merchant assigns their own image.
 
   @example
   {% section 'about' %}
@@ -8,23 +9,33 @@
 
 <div class="about full-width">
   <div class="about__inner">
-    {% if section.settings.eyebrow != blank %}
-      <span class="about__eyebrow">{{ section.settings.eyebrow }}</span>
-    {% endif %}
+    <div class="about__content">
+      {% if section.settings.eyebrow != blank %}
+        <span class="about__eyebrow">{{ section.settings.eyebrow }}</span>
+      {% endif %}
 
-    {% if section.settings.heading != blank %}
-      <h1 class="about__heading">{{ section.settings.heading }}</h1>
-    {% endif %}
+      {% if section.settings.heading != blank %}
+        <h1 class="about__heading">{{ section.settings.heading }}</h1>
+      {% endif %}
 
-    {% if section.settings.body != blank %}
-      <p class="about__body">{{ section.settings.body | newline_to_br }}</p>
-    {% endif %}
+      {% if section.settings.body != blank %}
+        <p class="about__body">{{ section.settings.body | newline_to_br }}</p>
+      {% endif %}
 
-    {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-      <a href="{{ section.settings.button_link }}" class="about__button">
-        {{ section.settings.button_label }}
-      </a>
-    {% endif %}
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="about__button">
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="about__media">
+      {% if section.settings.image %}
+        {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'eager', sizes: '(min-width: 750px) 50vw, 100vw' }}
+      {% else %}
+        <img src="{{ 'setup-business-warehouse.webp' | asset_url }}" alt="{{ section.settings.heading | escape }}" loading="eager">
+      {% endif %}
+    </div>
   </div>
 </div>
 
@@ -35,10 +46,13 @@
   }
 
   .about__inner {
-    max-width: 46rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3rem;
+    max-width: 72rem;
     margin: 0 auto;
     padding: 0 var(--page-margin);
-    text-align: center;
   }
 
   .about__eyebrow {
@@ -52,7 +66,7 @@
 
   .about__heading {
     margin: 0.6rem 0 0;
-    font-size: 2rem;
+    font-size: 2.25rem;
     font-weight: 800;
     letter-spacing: -0.01em;
     text-transform: uppercase;
@@ -88,12 +102,43 @@
     border-color: #52564f;
     background-color: #52564f;
   }
+
+  .about__media {
+    aspect-ratio: 4 / 3;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: #f4f4f5;
+  }
+
+  .about__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: 749px) {
+    .about__inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .about__media {
+      order: -1;
+    }
+  }
 {% endstylesheet %}
 
 {% schema %}
 {
   "name": "t:general.about",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:labels.image"
+    },
     {
       "type": "text",
       "id": "eyebrow",
