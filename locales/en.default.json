@@ -50,8 +50,8 @@
   "share_experience": {
     "stats": {
       "rating": "Average Rating",
-      "warehouse_value": "Melbourne",
-      "warehouse_label": "Local Warehouse",
+      "customers_value": "10,000+",
+      "customers_label": "Customers Served",
       "delivery_value": "Victoria Wide",
       "delivery_label": "Delivery Available",
       "warranty_value": "12 Months",
