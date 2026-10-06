@@ -37,7 +37,10 @@
 
     <div class="share-experience__stats">
       <div class="share-experience__stat">
-        <span class="share-experience__stat-value">{{ section.settings.rating_value }}</span>
+        <span class="share-experience__stat-value share-experience__stat-value--rating">
+          {{ section.settings.rating_value }}
+          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.59 5.25 5.79.84-4.19 4.09.99 5.77L10 14.77l-5.18 2.68.99-5.77-4.19-4.09 5.79-.84L10 1.5z"/></svg>
+        </span>
         <span class="share-experience__stat-label">{{ 'share_experience.stats.rating' | t }}</span>
       </div>
       <div class="share-experience__stat">
@@ -292,6 +295,18 @@
   .share-experience__stat-value {
     font-size: 1.4rem;
     font-weight: 800;
+    color: #1f2120;
+  }
+
+  .share-experience__stat-value--rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .share-experience__stat-value--rating svg {
+    width: 1.2rem;
+    height: 1.2rem;
     color: #1f2120;
   }
 
@@ -681,7 +696,7 @@
       "type": "text",
       "id": "rating_value",
       "label": "t:labels.rating_value",
-      "default": "4.9/5"
+      "default": "4.9"
     },
     {
       "type": "text",
