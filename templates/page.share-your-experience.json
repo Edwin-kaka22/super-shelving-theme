@@ -21,6 +21,15 @@
             "review_text": "Great value for money and really sturdy once assembled. Would definitely buy from Super Shelving again."
           }
         },
+        "review-5": {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "Michael B.",
+            "review_date": "3 months ago",
+            "rating": 5,
+            "review_text": "Excellent customer service from start to finish. The racks look fantastic in my workshop and hold way more than I expected."
+          }
+        },
         "review-4": {
           "type": "google-review",
           "settings": {
@@ -31,7 +40,7 @@
           }
         }
       },
-      "block_order": ["review-1", "review-2", "review-4"],
+      "block_order": ["review-1", "review-2", "review-4", "review-5"],
       "settings": {}
     }
   },

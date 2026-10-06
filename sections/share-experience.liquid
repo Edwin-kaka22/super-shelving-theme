@@ -129,6 +129,30 @@
       </div>
     </div>
 
+    <div class="share-experience__gallery">
+      {% if section.settings.gallery_heading != blank %}
+        <h2 class="share-experience__gallery-heading">{{ section.settings.gallery_heading }}</h2>
+      {% endif %}
+
+      {% if section.settings.gallery_text != blank %}
+        <p class="share-experience__gallery-text">{{ section.settings.gallery_text }}</p>
+      {% endif %}
+
+      <div class="share-experience__gallery-grid">
+        {% for i in (1..6) %}
+          {% assign setup_key = 'setup_image_' | append: i %}
+          {% assign setup_image = section.settings[setup_key] %}
+          <div class="share-experience__gallery-item">
+            {% if setup_image %}
+              {{ setup_image | image_url: width: 600 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 18rem, 50vw', alt: section.settings.gallery_heading }}
+            {% else %}
+              {{ 'image' | placeholder_svg_tag }}
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
     <div class="share-experience__form-wrap">
       {% if section.settings.form_heading != blank %}
         <h2 class="share-experience__form-heading">{{ section.settings.form_heading }}</h2>
@@ -358,10 +382,94 @@
 
   .share-experience__reviews {
     display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    text-align: left;
+  }
+
+  .share-experience__reviews .google-review {
+    padding: 0.9rem;
+  }
+
+  .share-experience__reviews .google-review__avatar-wrap {
+    width: 2.1rem;
+    height: 2.1rem;
+  }
+
+  .share-experience__reviews .google-review__name {
+    font-size: 0.78rem;
+  }
+
+  .share-experience__reviews .google-review__date {
+    font-size: 0.68rem;
+  }
+
+  .share-experience__reviews .google-review__stars {
+    margin-top: 0.65rem;
+  }
+
+  .share-experience__reviews .google-review__star {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+
+  .share-experience__reviews .google-review__text {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .share-experience__gallery {
+    margin: 3rem 0 0;
+    text-align: center;
+  }
+
+  .share-experience__gallery-heading {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #1f2120;
+  }
+
+  .share-experience__gallery-text {
+    margin: 0.5rem auto 0;
+    max-width: 36rem;
+    font-size: 0.95rem;
+    color: #6b6b6e;
+    text-wrap: balance;
+  }
+
+  .share-experience__gallery-grid {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     margin-top: 1.5rem;
-    text-align: left;
+  }
+
+  .share-experience__gallery-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 4 / 3;
+    border-radius: 0.6rem;
+    overflow: hidden;
+    background-color: #e5e5e7;
+    color: #9a9a9d;
+  }
+
+  .share-experience__gallery-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .share-experience__gallery-item svg {
+    width: 35%;
+    height: 35%;
   }
 
   .share-experience__panel {
@@ -619,7 +727,18 @@
 
   @media screen and (max-width: 989px) {
     .share-experience__reviews {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 589px) {
+    .share-experience__reviews {
       grid-template-columns: 1fr;
+    }
+
+    .share-experience__gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
     }
   }
 
@@ -747,6 +866,52 @@
       "id": "photo_email",
       "label": "t:labels.photo_email",
       "default": "Edwin_10@live.com.au"
+    },
+    {
+      "type": "header",
+      "content": "t:labels.gallery_group"
+    },
+    {
+      "type": "text",
+      "id": "gallery_heading",
+      "label": "t:labels.gallery_heading",
+      "default": "Customer Setups"
+    },
+    {
+      "type": "textarea",
+      "id": "gallery_text",
+      "label": "t:labels.gallery_text",
+      "default": "Real setups from Super Shelving customers - yours could be next."
+    },
+    {
+      "type": "image_picker",
+      "id": "setup_image_1",
+      "label": "t:labels.setup_image_1"
+    },
+    {
+      "type": "image_picker",
+      "id": "setup_image_2",
+      "label": "t:labels.setup_image_2"
+    },
+    {
+      "type": "image_picker",
+      "id": "setup_image_3",
+      "label": "t:labels.setup_image_3"
+    },
+    {
+      "type": "image_picker",
+      "id": "setup_image_4",
+      "label": "t:labels.setup_image_4"
+    },
+    {
+      "type": "image_picker",
+      "id": "setup_image_5",
+      "label": "t:labels.setup_image_5"
+    },
+    {
+      "type": "image_picker",
+      "id": "setup_image_6",
+      "label": "t:labels.setup_image_6"
     },
     {
       "type": "text",
