@@ -104,6 +104,10 @@
         <li>{{ 'share_experience.tags.business' | t }}</li>
         <li>{{ 'share_experience.tags.warehouse' | t }}</li>
       </ul>
+
+      {% if section.settings.disclaimer != blank %}
+        <p class="share-experience__disclaimer">{{ section.settings.disclaimer }}</p>
+      {% endif %}
       </div>
 
       <div class="share-experience__stats">
@@ -600,6 +604,15 @@
     color: #1f2120;
   }
 
+  .share-experience__disclaimer {
+    max-width: 40rem;
+    margin: 1.25rem auto 0;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: #6b6b6e;
+    text-wrap: balance;
+  }
+
   .share-experience__form-wrap {
     margin: 3rem auto 0;
   }
@@ -871,6 +884,12 @@
       "id": "photo_email",
       "label": "t:labels.photo_email",
       "default": "Edwin_10@live.com.au"
+    },
+    {
+      "type": "textarea",
+      "id": "disclaimer",
+      "label": "t:labels.disclaimer",
+      "default": "Photo submissions may be used for marketing purposes. Selected entries may be contacted regarding Gift Card rewards."
     },
     {
       "type": "header",
