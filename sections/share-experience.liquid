@@ -514,19 +514,19 @@
   .share-experience__tags {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.6rem;
+    justify-content: space-between;
+    gap: 0.75rem 1rem;
     margin: 1.75rem 0 0;
     padding: 0;
     list-style: none;
   }
 
   .share-experience__tags li {
-    padding: 0.4rem 1rem;
+    padding: 0.75rem 1.75rem;
     border-radius: 999px;
     background-color: #ffffff;
     border: 1px solid #e5e5e7;
-    font-size: 0.8rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: #1f2120;
   }
@@ -668,6 +668,10 @@
   }
 
   @media screen and (max-width: 749px) {
+    .share-experience__tags {
+      justify-content: center;
+    }
+
     .share-experience__stats {
       grid-template-columns: repeat(2, 1fr);
       row-gap: 1.5rem;
