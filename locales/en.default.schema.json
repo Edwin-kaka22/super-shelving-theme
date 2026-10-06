@@ -150,7 +150,7 @@
     "step_2_heading": "Step 2 heading",
     "step_2_text": "Step 2 text",
     "photo_form_link": "Photo upload form link",
-    "photo_form_link_info": "Paste a link to an external form that accepts file uploads (e.g. a free Google Form) - Shopify's built-in contact form can't reliably deliver photo attachments.",
+    "photo_form_link_info": "Paste a link to a form that accepts file uploads (e.g. a free Google Form) and the Upload Photos button opens it. Shopify's built-in forms can't reliably deliver photo attachments. Left blank, the button opens an email to the photo submissions address instead.",
     "text_style": "Text style",
     "text": "Text",
     "text_color": "Text color",

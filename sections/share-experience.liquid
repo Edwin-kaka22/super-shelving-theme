@@ -126,9 +126,10 @@
               {{ section.settings.step_2_button_label }}
             </a>
           {% elsif section.settings.photo_email != blank %}
-            <p class="share-experience__step-fallback">
-              {{ 'share_experience.form.photo_note_html' | t: email: section.settings.photo_email }}
-            </p>
+            {% assign photo_subject = 'share_experience.form.photo_email_subject' | t | replace: ' ', '%20' %}
+            <a href="mailto:{{ section.settings.photo_email }}?subject={{ photo_subject }}" class="share-experience__step-button">
+              {{ section.settings.step_2_button_label }}
+            </a>
           {% endif %}
         </div>
       </div>
@@ -512,18 +513,6 @@
 
   .share-experience__step-button:hover {
     background-color: #52564f;
-  }
-
-  .share-experience__step-fallback {
-    margin: 0.25rem 0 0;
-    font-size: 0.85rem;
-    line-height: 1.5;
-    color: #6b6b6e;
-  }
-
-  .share-experience__step-fallback a {
-    color: #1f2120;
-    text-decoration: underline;
   }
 
   .share-experience__tags {

@@ -77,7 +77,7 @@
       "rating_2": "2 stars - Poor",
       "rating_1": "1 star - Very poor",
       "review": "Your review",
-      "photo_note_html": "Got a photo of your setup? Attach it to an email to <a href=\"mailto:{{ email }}\">{{ email }}</a> along with your review - we'd love to see it.",
+      "photo_email_subject": "Photos of my Super Shelving setup",
       "submit": "Submit Review",
       "success": "Thanks for sharing your experience! We'll review your submission shortly.",
       "error_heading": "Please fix the following:"
