@@ -2,6 +2,36 @@
   "sections": {
     "main": {
       "type": "share-experience",
+      "blocks": {
+        "review-1": {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "Sarah M.",
+            "review_date": "2 weeks ago",
+            "rating": 5,
+            "review_text": "Amazing quality shelving, exactly what I needed for my garage. Delivery was quick and the team were super helpful."
+          }
+        },
+        "review-2": {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "James T.",
+            "review_date": "1 month ago",
+            "rating": 5,
+            "review_text": "Great value for money and really sturdy once assembled. Would definitely buy from Super Shelving again."
+          }
+        },
+        "review-4": {
+          "type": "google-review",
+          "settings": {
+            "reviewer_name": "Daniel R.",
+            "review_date": "2 months ago",
+            "rating": 5,
+            "review_text": "Local pickup was easy and fast. The shelving is exactly as described and looks great in the workshop."
+          }
+        }
+      },
+      "block_order": ["review-1", "review-2", "review-4"],
       "settings": {}
     }
   },

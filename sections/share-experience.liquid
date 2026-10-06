@@ -73,25 +73,10 @@
           <p class="share-experience__trusted-text">{{ section.settings.trusted_text }}</p>
         {% endif %}
 
-        {% capture newline %}
-{% endcapture %}
-        {% assign trusted_points = section.settings.trusted_points | split: newline %}
-        <ul class="share-experience__trusted-points">
-          {% for point in trusted_points %}
-            {% assign point_text = point | strip %}
-            {% if point_text != blank %}
-              <li>{{ point_text }}</li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-
-        {% if section.settings.trusted_quote != blank %}
-          <figure class="share-experience__trusted-quote">
-            <blockquote>&ldquo;{{ section.settings.trusted_quote }}&rdquo;</blockquote>
-            {% if section.settings.trusted_quote_author != blank %}
-              <figcaption>{{ section.settings.trusted_quote_author }}</figcaption>
-            {% endif %}
-          </figure>
+        {% if section.blocks.size > 0 %}
+          <div class="share-experience__reviews">
+            {% content_for 'blocks' %}
+          </div>
         {% endif %}
       </div>
 
@@ -337,9 +322,8 @@
 
   .share-experience__trusted-card {
     padding: 1.75rem;
-    border: 1px solid #e5e5e7;
     border-radius: 0.75rem;
-    background-color: #ffffff;
+    background-color: #f4f4f5;
     text-align: center;
   }
 
@@ -372,44 +356,12 @@
     color: #6b6b6e;
   }
 
-  .share-experience__trusted-points {
+  .share-experience__reviews {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.6rem;
-    margin: 1.25rem 0 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .share-experience__trusted-points li {
-    padding: 0.65rem 0.9rem;
-    border-radius: 0.6rem;
-    background-color: #f4f4f5;
-    text-align: center;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #1f2120;
-  }
-
-  .share-experience__trusted-quote {
-    margin: 1.25rem 0 0;
-    padding-top: 1.1rem;
-    border-top: 1px solid #e5e5e7;
-  }
-
-  .share-experience__trusted-quote blockquote {
-    margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.55;
-    font-style: italic;
-    color: #4a4a4d;
-  }
-
-  .share-experience__trusted-quote figcaption {
-    margin-top: 0.5rem;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: #1f2120;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+    text-align: left;
   }
 
   .share-experience__panel {
@@ -666,8 +618,8 @@
   }
 
   @media screen and (max-width: 989px) {
-    .share-experience__trusted-points {
-      grid-template-columns: repeat(2, 1fr);
+    .share-experience__reviews {
+      grid-template-columns: 1fr;
     }
   }
 
@@ -691,6 +643,9 @@
 {% schema %}
 {
   "name": "t:general.share_experience",
+  "blocks": [
+    { "type": "google-review" }
+  ],
   "settings": [
     {
       "type": "text",
@@ -727,25 +682,6 @@
       "id": "trusted_text",
       "label": "t:labels.trusted_text",
       "default": "Built for garages, workshops, warehouses and commercial storage spaces."
-    },
-    {
-      "type": "textarea",
-      "id": "trusted_points",
-      "label": "t:labels.trusted_points",
-      "info": "t:labels.trusted_points_info",
-      "default": "Victoria Wide Delivery\nHeavy Duty Storage Systems\nGarage & Warehouse Solutions\nFull 12 Months Warranty"
-    },
-    {
-      "type": "textarea",
-      "id": "trusted_quote",
-      "label": "t:labels.trusted_quote",
-      "default": "Great value for money and really sturdy once assembled. Would definitely buy from Super Shelving again."
-    },
-    {
-      "type": "text",
-      "id": "trusted_quote_author",
-      "label": "t:labels.trusted_quote_author",
-      "default": "James T."
     },
     {
       "type": "text",
