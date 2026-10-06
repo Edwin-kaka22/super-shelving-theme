@@ -35,28 +35,6 @@
       {% endif %}
     </div>
 
-    <div class="share-experience__stats">
-      <div class="share-experience__stat">
-        <span class="share-experience__stat-value share-experience__stat-value--rating">
-          {{ section.settings.rating_value }}
-          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.59 5.25 5.79.84-4.19 4.09.99 5.77L10 14.77l-5.18 2.68.99-5.77-4.19-4.09 5.79-.84L10 1.5z"/></svg>
-        </span>
-        <span class="share-experience__stat-label">{{ 'share_experience.stats.rating' | t }}</span>
-      </div>
-      <div class="share-experience__stat">
-        <span class="share-experience__stat-value">{{ 'share_experience.stats.customers_value' | t }}</span>
-        <span class="share-experience__stat-label">{{ 'share_experience.stats.customers_label' | t }}</span>
-      </div>
-      <div class="share-experience__stat">
-        <span class="share-experience__stat-value">{{ 'share_experience.stats.delivery_value' | t }}</span>
-        <span class="share-experience__stat-label">{{ 'share_experience.stats.delivery_label' | t }}</span>
-      </div>
-      <div class="share-experience__stat">
-        <span class="share-experience__stat-value">{{ 'share_experience.stats.warranty_value' | t }}</span>
-        <span class="share-experience__stat-label">{{ 'share_experience.stats.warranty_label' | t }}</span>
-      </div>
-    </div>
-
     <div class="share-experience__layout">
       <div class="share-experience__trusted-card">
         <div class="share-experience__trusted-stars" aria-hidden="true">
@@ -126,6 +104,28 @@
         <li>{{ 'share_experience.tags.business' | t }}</li>
         <li>{{ 'share_experience.tags.warehouse' | t }}</li>
       </ul>
+      </div>
+    </div>
+
+    <div class="share-experience__stats">
+      <div class="share-experience__stat">
+        <span class="share-experience__stat-value share-experience__stat-value--rating">
+          {{ section.settings.rating_value }}
+          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.59 5.25 5.79.84-4.19 4.09.99 5.77L10 14.77l-5.18 2.68.99-5.77-4.19-4.09 5.79-.84L10 1.5z"/></svg>
+        </span>
+        <span class="share-experience__stat-label">{{ 'share_experience.stats.rating' | t }}</span>
+      </div>
+      <div class="share-experience__stat">
+        <span class="share-experience__stat-value">{{ 'share_experience.stats.customers_value' | t }}</span>
+        <span class="share-experience__stat-label">{{ 'share_experience.stats.customers_label' | t }}</span>
+      </div>
+      <div class="share-experience__stat">
+        <span class="share-experience__stat-value">{{ 'share_experience.stats.delivery_value' | t }}</span>
+        <span class="share-experience__stat-label">{{ 'share_experience.stats.delivery_label' | t }}</span>
+      </div>
+      <div class="share-experience__stat">
+        <span class="share-experience__stat-value">{{ 'share_experience.stats.warranty_value' | t }}</span>
+        <span class="share-experience__stat-label">{{ 'share_experience.stats.warranty_label' | t }}</span>
       </div>
     </div>
 
