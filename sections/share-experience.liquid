@@ -316,11 +316,18 @@
   }
 
   .share-experience__layout {
-    display: grid;
-    grid-template-columns: 20rem 1fr;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
     margin: 2.75rem 0 0;
+  }
+
+  .share-experience__layout > .share-experience__panel {
+    order: 1;
+  }
+
+  .share-experience__layout > .share-experience__trusted-card {
+    order: 2;
   }
 
   .share-experience__trusted-card {
@@ -359,9 +366,9 @@
   }
 
   .share-experience__trusted-points {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.6rem;
     margin: 1.25rem 0 0;
     padding: 0;
     list-style: none;
@@ -371,6 +378,7 @@
     padding: 0.65rem 0.9rem;
     border-radius: 0.6rem;
     background-color: #f4f4f5;
+    text-align: center;
     font-size: 0.85rem;
     font-weight: 600;
     color: #1f2120;
@@ -652,8 +660,8 @@
   }
 
   @media screen and (max-width: 989px) {
-    .share-experience__layout {
-      grid-template-columns: 1fr;
+    .share-experience__trusted-points {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
