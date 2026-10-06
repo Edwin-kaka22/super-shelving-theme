@@ -62,9 +62,11 @@
       "step_2_label": "Step 2"
     },
     "tags": {
-      "home_garage": "Home Garage",
+      "home": "Home",
+      "garage": "Garage",
       "workshop": "Workshop",
-      "business_warehouse": "Business & Warehouse"
+      "business": "Business",
+      "warehouse": "Warehouse"
     },
     "form": {
       "order_number": "Order number (optional)",
