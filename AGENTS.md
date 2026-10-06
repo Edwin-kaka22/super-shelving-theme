@@ -1497,3 +1497,13 @@ This repo is actively worked on from two machines (a desktop during the day, a l
 - Never force-push; if a push is rejected because remote has newer commits, pull/rebase first rather than overwriting.
 - The `reference-images/` folder is gitignored (raw source photos, not needed for the theme to run) - don't fight the ignore rule.
 - Still ask before any destructive git operation (reset --hard, force-push, discarding uncommitted work).
+
+## Shopify theme deployment workflow
+
+The local dev server (`shopify theme dev`, serving `localhost:9292`) runs against a separate **Development**-role theme, not the live one. As of 2026-10-05, the live theme is "Super Shelving - Build" (a regular theme published via `shopify theme publish`, created as a snapshot push of the working directory). The previous Dawn theme is kept unpublished as a rollback option.
+
+- Test and verify changes on the dev theme via localhost first, same as always.
+- Once a change is verified, push it to the live theme too, without waiting to be asked each time (standing pre-authorization, same spirit as the git auto-push rule above). The user has confirmed no one else knows the store URL yet, so pushing live carries no real-world visibility risk currently - revisit this once the store has real traffic.
+- Target the live theme explicitly by ID when pushing (e.g. `shopify theme push --theme <live-theme-id> --only <files> --allow-live --force`), since the default non-interactive target differs from the live theme.
+- If a live-theme push gets blocked by the auto-mode safety classifier (seen with combined `--allow-live --force` flagged as "Blind Apply"), don't route around it - tell the user and let them run it themselves or explicitly confirm that specific push.
+- Still ask before any destructive theme operation (deleting a theme, overwriting the live theme with `--force` in a way that discards unreviewed changes).
