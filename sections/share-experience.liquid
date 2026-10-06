@@ -54,13 +54,7 @@
       </div>
     </div>
 
-    <div class="share-experience__trusted">
-      {% if section.settings.trusted_image %}
-        {{ section.settings.trusted_image | image_url: width: 1600 | image_tag: loading: 'lazy', class: 'share-experience__trusted-bg', sizes: '(min-width: 990px) 56rem, 100vw' }}
-      {% else %}
-        <img src="{{ 'setup-business-warehouse.webp' | asset_url }}" alt="" class="share-experience__trusted-bg" loading="lazy">
-      {% endif %}
-
+    <div class="share-experience__layout">
       <div class="share-experience__trusted-card">
         <div class="share-experience__trusted-stars" aria-hidden="true">
           {% for i in (1..5) %}
@@ -97,9 +91,8 @@
           </figure>
         {% endif %}
       </div>
-    </div>
 
-    <div class="share-experience__panel">
+      <div class="share-experience__panel">
       {% if section.settings.share_heading != blank %}
         <h2 class="share-experience__panel-heading">{{ section.settings.share_heading }}</h2>
       {% endif %}
@@ -140,6 +133,7 @@
         <li>{{ 'share_experience.tags.workshop' | t }}</li>
         <li>{{ 'share_experience.tags.business_warehouse' | t }}</li>
       </ul>
+      </div>
     </div>
 
     <div class="share-experience__form-wrap">
@@ -241,7 +235,7 @@
   }
 
   .share-experience__inner {
-    max-width: 56rem;
+    max-width: 64rem;
     margin: 0 auto;
     padding: 0 var(--page-margin);
   }
@@ -306,35 +300,19 @@
     color: #6b6b6e;
   }
 
-  .share-experience__trusted {
-    position: relative;
-    display: flex;
-    align-items: center;
+  .share-experience__layout {
+    display: grid;
+    grid-template-columns: 20rem 1fr;
+    align-items: start;
+    gap: 1.5rem;
     margin: 2.75rem 0 0;
-    padding: 2.5rem;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    background-color: #1f2120;
-  }
-
-  .share-experience__trusted-bg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 
   .share-experience__trusted-card {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    max-width: 24rem;
-    padding: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 1rem;
-    background-color: rgba(15, 15, 16, 0.88);
-    color: #ffffff;
+    padding: 1.75rem;
+    border: 1px solid #e5e5e7;
+    border-radius: 0.75rem;
+    background-color: #ffffff;
   }
 
   .share-experience__trusted-stars {
@@ -344,68 +322,68 @@
   }
 
   .share-experience__trusted-stars svg {
-    width: 1.4rem;
-    height: 1.4rem;
+    width: 1.3rem;
+    height: 1.3rem;
   }
 
   .share-experience__trusted-heading {
-    margin: 1.25rem 0 0;
-    font-size: 1.6rem;
+    margin: 1rem 0 0;
+    font-size: 1.25rem;
     font-weight: 800;
-    line-height: 1.15;
+    line-height: 1.2;
     letter-spacing: -0.01em;
     text-transform: uppercase;
-    color: #ffffff;
+    color: #1f2120;
   }
 
   .share-experience__trusted-text {
-    margin: 0.9rem 0 0;
+    margin: 0.7rem 0 0;
     font-size: 0.9rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.55;
+    color: #6b6b6e;
   }
 
   .share-experience__trusted-points {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
-    margin: 1.4rem 0 0;
+    gap: 0.5rem;
+    margin: 1.25rem 0 0;
     padding: 0;
     list-style: none;
   }
 
   .share-experience__trusted-points li {
-    padding: 0.75rem 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 0.65rem 0.9rem;
     border-radius: 0.6rem;
-    background-color: rgba(255, 255, 255, 0.07);
+    background-color: #f4f4f5;
     font-size: 0.85rem;
-    font-weight: 700;
-    color: #ffffff;
+    font-weight: 600;
+    color: #1f2120;
   }
 
   .share-experience__trusted-quote {
-    margin: 1.4rem 0 0;
-    padding-top: 1.25rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin: 1.25rem 0 0;
+    padding-top: 1.1rem;
+    border-top: 1px solid #e5e5e7;
   }
 
   .share-experience__trusted-quote blockquote {
     margin: 0;
     font-size: 0.9rem;
     line-height: 1.55;
-    color: rgba(255, 255, 255, 0.9);
+    font-style: italic;
+    color: #4a4a4d;
   }
 
   .share-experience__trusted-quote figcaption {
-    margin-top: 0.6rem;
+    margin-top: 0.5rem;
     font-size: 0.8rem;
     font-weight: 700;
-    color: #ffffff;
+    color: #1f2120;
   }
 
   .share-experience__panel {
-    margin: 2.75rem 0 0;
+    margin: 0;
     padding: 2rem;
     border-radius: 0.75rem;
     background-color: #f4f4f5;
@@ -652,6 +630,12 @@
     padding-left: 1.1rem;
   }
 
+  @media screen and (max-width: 989px) {
+    .share-experience__layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
   @media screen and (max-width: 749px) {
     .share-experience__stats {
       grid-template-columns: repeat(2, 1fr);
@@ -662,14 +646,6 @@
       grid-template-columns: 1fr;
     }
 
-    .share-experience__trusted {
-      padding: 1.25rem;
-    }
-
-    .share-experience__trusted-card {
-      max-width: none;
-      padding: 1.5rem;
-    }
   }
 {% endstylesheet %}
 
@@ -700,11 +676,6 @@
       "id": "rating_value",
       "label": "t:labels.rating_value",
       "default": "4.9"
-    },
-    {
-      "type": "image_picker",
-      "id": "trusted_image",
-      "label": "t:labels.trusted_image"
     },
     {
       "type": "text",
