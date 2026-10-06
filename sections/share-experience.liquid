@@ -96,13 +96,15 @@
       </div>
 
       <div class="share-experience__panel">
-      {% if section.settings.share_heading != blank %}
-        <h2 class="share-experience__panel-heading">{{ section.settings.share_heading }}</h2>
-      {% endif %}
+      <div class="share-experience__panel-intro">
+        {% if section.settings.share_heading != blank %}
+          <h2 class="share-experience__panel-heading">{{ section.settings.share_heading }}</h2>
+        {% endif %}
 
-      {% if section.settings.share_description != blank %}
-        <p class="share-experience__panel-description">{{ section.settings.share_description }}</p>
-      {% endif %}
+        {% if section.settings.share_description != blank %}
+          <p class="share-experience__panel-description">{{ section.settings.share_description }}</p>
+        {% endif %}
+      </div>
 
       <div class="share-experience__steps">
         <div class="share-experience__step">
@@ -415,6 +417,12 @@
     text-align: center;
   }
 
+  .share-experience__panel-intro {
+    padding: 1.5rem;
+    border-radius: 0.6rem;
+    background-color: #ffffff;
+  }
+
   .share-experience__panel-heading {
     margin: 0;
     font-size: 1.5rem;
@@ -435,7 +443,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     text-align: left;
   }
 
