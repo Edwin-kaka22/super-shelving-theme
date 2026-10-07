@@ -47,6 +47,12 @@
       "error_heading": "Please fix the following:"
     }
   },
+  "assembly_guide": {
+    "tips_heading": "Before you start",
+    "video_coming_soon": "Video coming soon",
+    "steps_coming_soon": "Step-by-step guide coming soon.",
+    "download_manual": "Download PDF manual"
+  },
   "share_experience": {
     "stats": {
       "rating": "Average Rating",

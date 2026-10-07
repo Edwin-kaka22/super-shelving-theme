@@ -1,0 +1,274 @@
+{% doc %}
+  Renders the Assembly Instructions page: a centred heading and description,
+  a "before you start" tips card, a stack of `assembly-guide-product` cards
+  (one per product type), and a "need a hand?" contact bubble at the end.
+
+  @example
+  {% section 'assembly-guide' %}
+{% enddoc %}
+
+{% assign assembly_tips = section.settings.tips | newline_to_br | split: '<br />' %}
+<div class="assembly-guide full-width">
+  <div class="assembly-guide__inner">
+    <div class="assembly-guide__header">
+      {% if section.settings.eyebrow != blank %}
+        <span class="assembly-guide__eyebrow">{{ section.settings.eyebrow }}</span>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h1 class="assembly-guide__heading">{{ section.settings.heading }}</h1>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <p class="assembly-guide__description">{{ section.settings.description }}</p>
+      {% endif %}
+    </div>
+
+    {% if section.settings.tips != blank %}
+      <div class="assembly-guide__tips">
+        <h2 class="assembly-guide__tips-heading">{{ 'assembly_guide.tips_heading' | t }}</h2>
+        <ul class="assembly-guide__tips-list">
+          {% for tip in assembly_tips %}
+            {% assign tip_text = tip | strip %}
+            {% if tip_text != blank %}
+              <li>{{ tip_text }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="assembly-guide__products">
+        {% content_for 'blocks' %}
+      </div>
+    {% endif %}
+
+    {% if section.settings.help_heading != blank %}
+      <div class="assembly-guide__help">
+        <h2 class="assembly-guide__help-heading">{{ section.settings.help_heading }}</h2>
+        {% if section.settings.help_text != blank %}
+          <p class="assembly-guide__help-text">{{ section.settings.help_text }}</p>
+        {% endif %}
+        {% if section.settings.help_button_label != blank and section.settings.help_button_link != blank %}
+          <a href="{{ section.settings.help_button_link }}" class="assembly-guide__help-button">
+            {{ section.settings.help_button_label }}
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .assembly-guide {
+    padding: 4.5rem 0;
+    background-color: #ffffff;
+  }
+
+  .assembly-guide__inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 var(--page-margin);
+  }
+
+  .assembly-guide__header {
+    text-align: center;
+  }
+
+  .assembly-guide__eyebrow {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6b6b6e;
+  }
+
+  .assembly-guide__heading {
+    margin: 0.6rem 0 0;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #1f2120;
+  }
+
+  .assembly-guide__description {
+    max-width: 44rem;
+    margin: 0.9rem auto 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4a4a4d;
+  }
+
+  .assembly-guide__tips {
+    margin-top: 2.5rem;
+    padding: 1.75rem 2rem;
+    border-radius: 1rem;
+    background-color: #f4f4f5;
+  }
+
+  .assembly-guide__tips-heading {
+    margin: 0 0 0.9rem;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    text-align: center;
+    color: #1f2120;
+  }
+
+  .assembly-guide__tips-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .assembly-guide__tips-list li {
+    position: relative;
+    padding-left: 1.4rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4a4a4d;
+  }
+
+  .assembly-guide__tips-list li::before {
+    content: '';
+    position: absolute;
+    top: 0.6rem;
+    left: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: #1f2120;
+  }
+
+  .assembly-guide__products {
+    margin-top: 2rem;
+  }
+
+  .assembly-guide__help {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: #f4f4f5;
+    text-align: center;
+  }
+
+  .assembly-guide__help-heading {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #1f2120;
+  }
+
+  .assembly-guide__help-text {
+    max-width: 40rem;
+    margin: 0.7rem auto 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #4a4a4d;
+  }
+
+  .assembly-guide__help-button {
+    position: relative;
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.9rem 2.25rem;
+    border: 1px solid #1f2120;
+    border-radius: 999px;
+    background-color: #1f2120;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .assembly-guide__help-button:hover {
+    border-color: #52564f;
+    background-color: #52564f;
+  }
+
+  @media screen and (max-width: 749px) {
+    .assembly-guide__tips {
+      padding: 1.25rem;
+    }
+
+    .assembly-guide__tips-list {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.assembly_guide",
+  "blocks": [
+    { "type": "assembly-guide-product" }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:labels.eyebrow",
+      "default": "Assembly Guide"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Assembly Instructions"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "t:labels.description",
+      "default": "Every order comes with a clear instruction manual. Find the guide for your product below, with video walkthroughs and downloadable manuals."
+    },
+    {
+      "type": "textarea",
+      "id": "tips",
+      "label": "t:labels.assembly_tips",
+      "info": "t:labels.assembly_tips_info",
+      "default": "Clear a flat, level area before you open the boxes.\nCheck every part against the manual before you start.\nGet a second person to help with larger units.\nWear gloves and eye protection while assembling.\nPlace the heaviest items on the lower shelves."
+    },
+    {
+      "type": "text",
+      "id": "help_heading",
+      "label": "t:labels.help_heading",
+      "default": "Need A Hand?"
+    },
+    {
+      "type": "textarea",
+      "id": "help_text",
+      "label": "t:labels.help_text",
+      "default": "Stuck on a step or missing a part? Get in touch and we'll help you get it sorted."
+    },
+    {
+      "type": "text",
+      "id": "help_button_label",
+      "label": "t:labels.button_label",
+      "default": "Contact Us"
+    },
+    {
+      "type": "url",
+      "id": "help_button_link",
+      "label": "t:labels.button_link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.assembly_guide"
+    }
+  ]
+}
+{% endschema %}

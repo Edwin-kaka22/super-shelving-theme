@@ -1,0 +1,35 @@
+{
+  "sections": {
+    "main": {
+      "type": "assembly-guide",
+      "settings": {
+        "help_button_link": "/pages/contact"
+      },
+      "blocks": {
+        "steel-shelving": {
+          "type": "assembly-guide-product",
+          "settings": {
+            "heading": "Steel Shelving",
+            "description": "Assembly guide for our steel shelving units."
+          }
+        },
+        "mdf-shelving": {
+          "type": "assembly-guide-product",
+          "settings": {
+            "heading": "MDF Shelving",
+            "description": "Assembly guide for our MDF shelving units."
+          }
+        },
+        "workbenches": {
+          "type": "assembly-guide-product",
+          "settings": {
+            "heading": "Workbenches",
+            "description": "Assembly guide for our steel workbenches."
+          }
+        }
+      },
+      "block_order": ["steel-shelving", "mdf-shelving", "workbenches"]
+    }
+  },
+  "order": ["main"]
+}
