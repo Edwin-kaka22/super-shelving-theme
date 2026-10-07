@@ -80,7 +80,7 @@
       "photo_email_subject": "Photos of my Super Shelving setup",
       "photos_label": "Photos (optional)",
       "photos_button": "Attach photos",
-      "photos_hint": "Photos are sent separately, so submit your review as well.",
+      "photos_hint": "Opens an email so you can attach photos to send us.",
       "submit": "Submit Review",
       "success": "Thanks for sharing your experience! We'll review your submission shortly.",
       "error_heading": "Please fix the following:"

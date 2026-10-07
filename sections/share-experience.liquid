@@ -241,19 +241,16 @@
           <textarea id="ShareExperienceReview" name="contact[body]" rows="6" required>{{ form.body }}</textarea>
         </div>
 
-        {% if section.settings.photo_form_link != blank or section.settings.photo_email != blank %}
+        {% if section.settings.photo_email != blank %}
           <div class="share-experience__field">
             <span class="share-experience__field-label">{{ 'share_experience.form.photos_label' | t }}</span>
-            {% if section.settings.photo_form_link != blank %}
-              <a href="{{ section.settings.photo_form_link }}" class="share-experience__attach" target="_blank" rel="noopener">{{ 'share_experience.form.photos_button' | t }}</a>
-            {% else %}
-              {% assign photo_subject = 'share_experience.form.photo_email_subject' | t | replace: ' ', '%20' %}
-              <a href="mailto:{{ section.settings.photo_email }}?subject={{ photo_subject }}" class="share-experience__attach">{{ 'share_experience.form.photos_button' | t }}</a>
-            {% endif %}
+            {% assign photo_subject = 'share_experience.form.photo_email_subject' | t | replace: ' ', '%20' %}
+            <a href="mailto:{{ section.settings.photo_email }}?subject={{ photo_subject }}" class="share-experience__attach">{{ 'share_experience.form.photos_button' | t }}</a>
             <p class="share-experience__field-hint">{{ 'share_experience.form.photos_hint' | t }}</p>
           </div>
 
         {% endif %}
+
         <button type="submit" class="share-experience__submit">
           <span data-submit-label>{{ 'share_experience.form.submit' | t }}</span>
         </button>
