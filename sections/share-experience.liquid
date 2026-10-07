@@ -241,6 +241,19 @@
           <textarea id="ShareExperienceReview" name="contact[body]" rows="6" required>{{ form.body }}</textarea>
         </div>
 
+        {% if section.settings.photo_form_link != blank or section.settings.photo_email != blank %}
+          <div class="share-experience__field">
+            <span class="share-experience__field-label">{{ 'share_experience.form.photos_label' | t }}</span>
+            {% if section.settings.photo_form_link != blank %}
+              <a href="{{ section.settings.photo_form_link }}" class="share-experience__attach" target="_blank" rel="noopener">{{ 'share_experience.form.photos_button' | t }}</a>
+            {% else %}
+              {% assign photo_subject = 'share_experience.form.photo_email_subject' | t | replace: ' ', '%20' %}
+              <a href="mailto:{{ section.settings.photo_email }}?subject={{ photo_subject }}" class="share-experience__attach">{{ 'share_experience.form.photos_button' | t }}</a>
+            {% endif %}
+            <p class="share-experience__field-hint">{{ 'share_experience.form.photos_hint' | t }}</p>
+          </div>
+
+        {% endif %}
         <button type="submit" class="share-experience__submit">
           <span data-submit-label>{{ 'share_experience.form.submit' | t }}</span>
         </button>
@@ -654,6 +667,38 @@
     font-size: 0.95rem;
     font-family: inherit;
     color: #1f2120;
+  }
+
+  .share-experience__field-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1f2120;
+  }
+
+  .share-experience__attach {
+    align-self: flex-start;
+    padding: 0.7rem 1.5rem;
+    border: 1px solid #1f2120;
+    border-radius: 999px;
+    background-color: #ffffff;
+    color: #1f2120;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .share-experience__attach:hover {
+    background-color: #1f2120;
+    color: #ffffff;
+  }
+
+  .share-experience__field-hint {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #85858b;
   }
 
   .share-experience__field textarea {
