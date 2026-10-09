@@ -1,41 +1,69 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "assembly-guide",
-      "settings": {
-        "help_button_link": "/pages/contact"
-      },
       "blocks": {
         "steel-shelving": {
           "type": "assembly-guide-product",
           "settings": {
             "heading": "Steel Shelving",
             "description": "Assembly guide for our steel shelving units.",
-            "manual_title": "Shelving Assembly Instructions PDF"
-          }
+            "video": "",
+            "steps": "",
+            "manual_title": "Shelving Assembly Instructions PDF",
+            "manual_url": "https://cdn.shopify.com/s/files/1/0746/7230/8470/files/Single_Bay_Assembly_Instructions.pdf?v=1791525497"
+          },
+          "blocks": {}
         },
         "mdf-shelving": {
           "type": "assembly-guide-product",
           "settings": {
             "heading": "MDF Shelving",
             "description": "Assembly guide for our MDF shelving units.",
-            "manual_title": "Shelving Assembly Instructions PDF"
-          }
+            "video": "",
+            "steps": "",
+            "manual_title": "Shelving Assembly Instructions PDF",
+            "manual_url": ""
+          },
+          "blocks": {}
         },
         "workbenches": {
           "type": "assembly-guide-product",
           "settings": {
             "heading": "Workbenches",
             "description": "Assembly guide for our steel workbenches.",
-            "manual_title": "Workbench Assembly Instructions PDF"
-          }
+            "video": "",
+            "steps": "",
+            "manual_title": "Workbench Assembly Instructions PDF",
+            "manual_url": ""
+          },
+          "blocks": {}
         }
       },
       "block_order": [
         "steel-shelving",
         "mdf-shelving",
         "workbenches"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Assembly Guide",
+        "heading": "Assembly Instructions",
+        "description": "Every order comes with a clear instruction manual. Find the guide for your product below, with video walkthroughs and downloadable manuals.",
+        "tips": "Clear a flat, level area before you open the boxes.\nKeep children and pets away from the work area.\nCheck every part against the manual before you begin.\nWear gloves and eye protection while assembling.\nGet a second person to help with larger units.\nPlace small parts like bolts and rivets in a tray.",
+        "help_heading": "Need A Hand?",
+        "help_text": "Stuck on a step or missing a part? Get in touch and we'll help you get it sorted.",
+        "help_button_label": "Contact Us",
+        "help_button_link": "/pages/contact"
+      }
     }
   },
   "order": [
