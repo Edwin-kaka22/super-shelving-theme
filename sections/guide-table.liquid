@@ -1,0 +1,202 @@
+{% doc %}
+  Renders a titled comparison table for the Purchasing Guide page: a
+  heading and description above a table whose rows are `guide-table-row`
+  blocks and whose column headings come from the section settings. Used
+  for both the side-by-side product comparison and the "what are you
+  storing?" table.
+
+  @example
+  {% section 'guide-table' %}
+{% enddoc %}
+
+<div class="guide-table full-width{% if section.settings.shaded %} guide-table--shaded{% endif %}">
+  <div class="guide-table__inner">
+    <div class="guide-table__header">
+      {% if section.settings.heading != blank %}
+        <h2 class="guide-table__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <p class="guide-table__description">{{ section.settings.description }}</p>
+      {% endif %}
+    </div>
+
+    {% if section.blocks.size > 0 %}
+      {% assign value_columns = 0 %}
+      {% if section.settings.col_2 != blank %}{% assign value_columns = value_columns | plus: 1 %}{% endif %}
+      {% if section.settings.col_3 != blank %}{% assign value_columns = value_columns | plus: 1 %}{% endif %}
+      {% if section.settings.col_4 != blank %}{% assign value_columns = value_columns | plus: 1 %}{% endif %}
+      <div class="guide-table__scroll">
+        <div class="guide-table__table" role="table" style="--guide-table-columns: 1.1fr repeat({{ value_columns }}, 1.5fr)">
+          <div class="guide-table__head" role="row">
+            <div role="columnheader">{{ section.settings.col_1 }}</div>
+            {% if section.settings.col_2 != blank %}<div role="columnheader">{{ section.settings.col_2 }}</div>{% endif %}
+            {% if section.settings.col_3 != blank %}<div role="columnheader">{{ section.settings.col_3 }}</div>{% endif %}
+            {% if section.settings.col_4 != blank %}<div role="columnheader">{{ section.settings.col_4 }}</div>{% endif %}
+          </div>
+          <div class="guide-table__body" role="rowgroup">
+            {% content_for 'blocks' %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if section.settings.note != blank %}
+      <p class="guide-table__note">{{ section.settings.note }}</p>
+    {% endif %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .guide-table {
+    padding: 3rem 0;
+    background-color: #ffffff;
+  }
+
+  .guide-table--shaded {
+    background-color: #f4f4f5;
+  }
+
+  .guide-table__inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 var(--page-margin);
+  }
+
+  .guide-table__header {
+    text-align: center;
+  }
+
+  .guide-table__heading {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #1f2120;
+  }
+
+  .guide-table__description {
+    max-width: 46rem;
+    margin: 0.8rem auto 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #4a4a4d;
+  }
+
+  .guide-table__scroll {
+    margin-top: 2rem;
+    overflow: hidden;
+    border: 1px solid #e5e5e7;
+    border-radius: 1rem;
+    background-color: #ffffff;
+  }
+
+  .guide-table__head {
+    display: grid;
+    grid-template-columns: var(--guide-table-columns);
+    background-color: #1f2120;
+    color: #ffffff;
+  }
+
+  .guide-table__head > div {
+    padding: 1rem 1.25rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .guide-table__body .guide-table-row {
+    grid-template-columns: var(--guide-table-columns);
+  }
+
+  .guide-table__body > :first-child .guide-table-row {
+    border-top: none;
+  }
+
+  .guide-table__body > :nth-child(even) .guide-table-row {
+    background-color: #fafafa;
+  }
+
+  .guide-table__note {
+    max-width: 46rem;
+    margin: 1rem auto 0;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    text-align: center;
+    color: #85858b;
+  }
+
+  @media screen and (max-width: 749px) {
+    .guide-table {
+      padding: 2.25rem 0;
+    }
+
+    .guide-table__head {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.guide_table",
+  "blocks": [
+    { "type": "guide-table-row" }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Compare at a glance"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "t:labels.description"
+    },
+    {
+      "type": "text",
+      "id": "col_1",
+      "label": "t:labels.table_col_1",
+      "default": "Feature"
+    },
+    {
+      "type": "text",
+      "id": "col_2",
+      "label": "t:labels.table_col_2"
+    },
+    {
+      "type": "text",
+      "id": "col_3",
+      "label": "t:labels.table_col_3"
+    },
+    {
+      "type": "text",
+      "id": "col_4",
+      "label": "t:labels.table_col_4"
+    },
+    {
+      "type": "textarea",
+      "id": "note",
+      "label": "t:labels.table_note"
+    },
+    {
+      "type": "checkbox",
+      "id": "shaded",
+      "label": "t:labels.shaded_background",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.guide_table"
+    }
+  ]
+}
+{% endschema %}

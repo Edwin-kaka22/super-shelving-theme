@@ -1,0 +1,103 @@
+{% doc %}
+  Renders one row of a `guide-table` section. The first cell is the row
+  label; the remaining cells line up with the column headings set on the
+  section. On phones the row turns into a stacked card and each cell shows
+  its column heading above the value.
+
+  @example
+  {% content_for 'block', type: 'guide-table-row', id: 'guide-table-row-1' %}
+{% enddoc %}
+
+<div class="guide-table-row" role="row" {{ block.shopify_attributes }}>
+  <div class="guide-table-row__label" role="rowheader">{{ block.settings.cell_1 }}</div>
+  {% if block.settings.cell_2 != blank %}
+    <div class="guide-table-row__cell" role="cell" data-label="{{ section.settings.col_2 | escape }}">{{ block.settings.cell_2 | newline_to_br }}</div>
+  {% endif %}
+  {% if block.settings.cell_3 != blank %}
+    <div class="guide-table-row__cell" role="cell" data-label="{{ section.settings.col_3 | escape }}">{{ block.settings.cell_3 | newline_to_br }}</div>
+  {% endif %}
+  {% if block.settings.cell_4 != blank %}
+    <div class="guide-table-row__cell" role="cell" data-label="{{ section.settings.col_4 | escape }}">{{ block.settings.cell_4 | newline_to_br }}</div>
+  {% endif %}
+</div>
+
+{% stylesheet %}
+  .guide-table-row {
+    display: grid;
+    grid-template-columns: var(--guide-table-columns, 1.1fr repeat(3, 1.5fr));
+    border-top: 1px solid #e5e5e7;
+  }
+
+  .guide-table-row__label,
+  .guide-table-row__cell {
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #4a4a4d;
+  }
+
+  .guide-table-row__label {
+    font-weight: 700;
+    color: #1f2120;
+  }
+
+  @media screen and (max-width: 749px) {
+    .guide-table-row {
+      display: block;
+      padding: 0.5rem 0;
+    }
+
+    .guide-table-row__label {
+      padding: 0.75rem 1.25rem 0.25rem;
+      font-size: 1rem;
+    }
+
+    .guide-table-row__cell {
+      padding: 0.35rem 1.25rem;
+    }
+
+    .guide-table-row__cell::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #6b6b6e;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.guide_table_row",
+  "settings": [
+    {
+      "type": "text",
+      "id": "cell_1",
+      "label": "t:labels.table_cell_1",
+      "default": "Row label"
+    },
+    {
+      "type": "textarea",
+      "id": "cell_2",
+      "label": "t:labels.table_cell_2"
+    },
+    {
+      "type": "textarea",
+      "id": "cell_3",
+      "label": "t:labels.table_cell_3"
+    },
+    {
+      "type": "textarea",
+      "id": "cell_4",
+      "label": "t:labels.table_cell_4"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.guide_table_row"
+    }
+  ]
+}
+{% endschema %}

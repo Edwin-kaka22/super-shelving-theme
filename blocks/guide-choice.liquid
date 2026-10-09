@@ -1,0 +1,209 @@
+{% doc %}
+  Renders one "choose this if..." card inside the `purchasing-guide` section:
+  a product image, a name, a one-line tagline, a tick list of reasons to
+  choose it, and a button to the matching collection. Falls back to the
+  matching category image when no image is set.
+
+  @example
+  {% content_for 'block', type: 'guide-choice', id: 'guide-choice-1' %}
+{% enddoc %}
+
+{% assign choice_points = block.settings.points | newline_to_br | split: '<br />' %}
+{% liquid
+  assign choice_default_asset = null
+  if block.id contains 'steel-shelving'
+    assign choice_default_asset = 'category-steel-shelving.png'
+  elsif block.id contains 'mdf'
+    assign choice_default_asset = 'category-mdf-shelving.png'
+  elsif block.id contains 'workbench'
+    assign choice_default_asset = 'category-steel-workbenches.png'
+  endif
+%}
+<div class="guide-choice" {{ block.shopify_attributes }}>
+  <div class="guide-choice__image">
+    {% if block.settings.image %}
+      {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', alt: block.settings.heading }}
+    {% elsif choice_default_asset %}
+      <img src="{{ choice_default_asset | asset_url }}" alt="{{ block.settings.heading | escape }}" loading="lazy">
+    {% else %}
+      {{ 'product-1' | placeholder_svg_tag: 'guide-choice__placeholder' }}
+    {% endif %}
+  </div>
+
+  <div class="guide-choice__body">
+    {% if block.settings.heading != blank %}
+      <h3 class="guide-choice__heading">{{ block.settings.heading }}</h3>
+    {% endif %}
+
+    {% if block.settings.tagline != blank %}
+      <p class="guide-choice__tagline">{{ block.settings.tagline }}</p>
+    {% endif %}
+
+    <p class="guide-choice__lead">{{ 'purchasing_guide.choose_if' | t }}</p>
+    <ul class="guide-choice__list">
+      {% for point in choice_points %}
+        {% assign point_text = point | strip %}
+        {% if point_text != blank %}
+          <li>{{ point_text }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+      <a href="{{ block.settings.button_link }}" class="guide-choice__button">{{ block.settings.button_label }}</a>
+    {% endif %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .guide-choice {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #e5e5e7;
+    border-radius: 1rem;
+    background-color: #ffffff;
+  }
+
+  .guide-choice__image {
+    aspect-ratio: 4 / 3;
+    background-color: #f4f4f5;
+    color: #9a9a9d;
+  }
+
+  .guide-choice__image img,
+  .guide-choice__placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .guide-choice__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .guide-choice__heading {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #1f2120;
+  }
+
+  .guide-choice__tagline {
+    margin: 0.5rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4a4a4d;
+  }
+
+  .guide-choice__lead {
+    margin: 1.25rem 0 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6b6b6e;
+  }
+
+  .guide-choice__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .guide-choice__list li {
+    position: relative;
+    padding: 0.3rem 0 0.3rem 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: #4a4a4d;
+  }
+
+  .guide-choice__list li::before {
+    content: '';
+    position: absolute;
+    top: 0.62rem;
+    left: 0.15rem;
+    width: 0.3rem;
+    height: 0.6rem;
+    border: solid #1f2120;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
+  .guide-choice__button {
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 0.8rem 1.75rem;
+    border: 1px solid #1f2120;
+    border-radius: 999px;
+    background-color: #1f2120;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .guide-choice__list + .guide-choice__button {
+    margin-top: 1.5rem;
+  }
+
+  .guide-choice__button:hover {
+    border-color: #52564f;
+    background-color: #52564f;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.guide_choice",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:labels.image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Product type"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "t:labels.tagline"
+    },
+    {
+      "type": "textarea",
+      "id": "points",
+      "label": "t:labels.guide_points",
+      "info": "t:labels.one_per_line"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:labels.button_label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:labels.button_link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.guide_choice"
+    }
+  ]
+}
+{% endschema %}

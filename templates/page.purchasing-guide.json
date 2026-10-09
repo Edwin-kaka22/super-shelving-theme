@@ -1,0 +1,420 @@
+{
+  "sections": {
+    "main": {
+      "type": "purchasing-guide",
+      "blocks": {
+        "steel-shelving": {
+          "type": "guide-choice",
+          "settings": {
+            "heading": "Steel Shelving",
+            "tagline": "Maximum strength for heavy-duty storage.",
+            "points": "You are storing heavy items - tools, paint, car parts or machinery\nIt is going into a garage, workshop, shed or warehouse\nYou want the highest load rating: 200kg per shelf\nYou may want to add more units later",
+            "button_label": "Shop Steel Shelving",
+            "button_link": "/collections/steel-shelving-racks"
+          }
+        },
+        "mdf-shelving": {
+          "type": "guide-choice",
+          "settings": {
+            "heading": "MDF Shelving",
+            "tagline": "Affordable, flexible everyday storage.",
+            "points": "You are storing light to medium items - boxes, tubs, pantry goods or files\nYou are working to a budget\nSpace is tight and you need a shallower depth (300-450mm)\nYou want a smaller unit, from 1500mm high",
+            "button_label": "Shop MDF Shelving",
+            "button_link": "/collections/mdf-shelving-racks"
+          }
+        },
+        "steel-workbench": {
+          "type": "guide-choice",
+          "settings": {
+            "heading": "Steel Workbenches",
+            "tagline": "A sturdy surface for getting things done.",
+            "points": "You need a solid surface for projects, repairs or hobbies\nYou do mechanical work, woodwork or DIY\nYou want a bench rated to 400kg in total\nYou want to pair it with shelving for a complete workshop",
+            "button_label": "Shop Workbenches",
+            "button_link": "/collections/steel-workbenches"
+          }
+        }
+      },
+      "block_order": [
+        "steel-shelving",
+        "mdf-shelving",
+        "steel-workbench"
+      ],
+      "settings": {
+        "eyebrow": "Buying Guide",
+        "heading": "Purchasing Guide",
+        "description": "Not sure whether steel shelving, MDF shelving or a workbench is right for you? This guide compares the ranges side by side - what each is best at, how much weight it holds and what to store on it - so you can buy with confidence.",
+        "tip_heading": "Quick rule of thumb",
+        "tip_text": "For everyday household, office and pantry storage, MDF shelving gives you great capacity at the lowest price. If you are storing heavy items, or the shelving is heading into a workshop or warehouse, choose steel. Need somewhere to work? Add a steel workbench."
+      }
+    },
+    "compare": {
+      "type": "guide-table",
+      "blocks": {
+        "best-for": {
+          "type": "guide-table-row",
+          "settings": {
+            "cell_1": "Best for",
+            "cell_2": "Heavy items and tough environments - garages, workshops, sheds and warehouses",
+            "cell_3": "Light to medium everyday storage - household, office, pantry and garage",
+            "cell_4": "A sturdy surface for projects, repairs and hobbies"
+          }
+        },
+        "frame": {
+          "type": "guide-table-row",
+          "settings": {
+            "cell_1": "Frame and finish",
+            "cell_2": "Steel frame with a powder-coated finish",
+            "cell_3": "Steel frame with MDF board shelves (real MDF, not chipboard)",
+            "cell_4": "Heavy-duty steel frame"
+          }
+        },
+        "per-shelf": {
+          "type": "guide-table-row",
+          "settings": {
+            "cell_1": "Load per shelf",
+            "cell_2": "200kg per shelf",
+            "cell_3": "150kg per layer",
+            "cell_4": "200kg per layer"
+          }
+        },
+        "total-load": {
+          "type": "guide-table-row",
+          "settings": {
+            "cell_1": "Total load",
+            "cell_2": "800kg per unit",
+            "cell_3": "750kg per unit",
+            "cell_4": "400kg per unit"
+          }
+        },
+        "levels": {
+          "type": "guide-table-row",
+          "settings": {
+            "cell_1": "Shelf levels",
+            "cell_2": "4 levels with adjustable heights",
+            "cell_3": "5 layers with adjustable heights",
+            "cell_4": "See the product page for the layout"
+          }
+        },
+        "sizes": {
+          "type": "guide-table-row",
+          "settings": {
+            "cell_1": "Sizes (H x W x D)",
+            "cell_2": "1800 x 2000 x 600mm\n2000 x 1500 x 600mm\n2000 x 2000 x 600mm",
+            "cell_3": "1500 x 700 x 300mm\n1800 x 900 x 400mm\n1800 x 1200 x 450mm\n1800 x 1500 x 450mm",
+            "cell_4": "900mm high x 600mm deep, in 1200mm, 1500mm and 2000mm widths"
+          }
+        },
+        "colours": {
+          "type": "guide-table-row",
+          "settings": {
+            "cell_1": "Colours",
+            "cell_2": "Black, grey or orange/blue/grey",
+            "cell_3": "Black",
+            "cell_4": "Black, or orange/blue"
+          }
+        },
+        "assembly": {
+          "type": "guide-table-row",
+          "settings": {
+            "cell_1": "Assembly",
+            "cell_2": "Click-in system - no screws needed",
+            "cell_3": "No screws - simply plug and assemble",
+            "cell_4": "Simple bolt-together design"
+          }
+        },
+        "price": {
+          "type": "guide-table-row",
+          "settings": {
+            "cell_1": "Price",
+            "cell_2": "From $149.99",
+            "cell_3": "From $49.99",
+            "cell_4": "From $139.99"
+          }
+        }
+      },
+      "block_order": [
+        "best-for",
+        "frame",
+        "per-shelf",
+        "total-load",
+        "levels",
+        "sizes",
+        "colours",
+        "assembly",
+        "price"
+      ],
+      "settings": {
+        "heading": "Compare at a glance",
+        "description": "The key differences between our three ranges, side by side.",
+        "col_1": "Feature",
+        "col_2": "Steel Shelving",
+        "col_3": "MDF Shelving",
+        "col_4": "Steel Workbench",
+        "note": "Specifications are taken from our product listings. Always check the individual product page for the exact size, load rating and price before you buy. For best results, spread weight evenly across each shelf and keep heavier items on the lower shelves.",
+        "shaded": true
+      }
+    },
+    "products": {
+      "type": "guide-products",
+      "blocks": {
+        "product-steel-shelving": {
+          "type": "guide-product",
+          "settings": {
+            "heading": "Steel Shelving Racks",
+            "intro": "Our heavy-duty steel racks are built for serious storage. A powder-coated steel frame carries up to 200kg on every shelf (800kg per unit) across four height-adjustable levels, making them the go-to choice for garages, workshops, sheds and warehouses.",
+            "benefits": "The highest load rating: 200kg per shelf, 800kg per unit\nPowder-coated finish for durability and corrosion resistance\nFour levels with adjustable shelf heights\nClick-in system - no screws needed to assemble\nFree-standing, or securely fixed to the ground\nExpandable - add more units side by side",
+            "best_for": "Tools, machinery parts and workshop equipment\nPaint, chemicals and automotive supplies\nTyres, batteries and heavy garage items\nBulk stock, cartons and warehouse inventory",
+            "specs": "Sizes: 1800 x 2000 x 600mm, 2000 x 1500 x 600mm or 2000 x 2000 x 600mm (H x W x D)\nLoad: 200kg per shelf, 800kg per unit\nColours: Black, grey or orange/blue/grey\nPrice: From $149.99",
+            "button_label": "Shop Steel Shelving",
+            "button_link": "/collections/steel-shelving-racks"
+          }
+        },
+        "product-mdf-shelving": {
+          "type": "guide-product",
+          "settings": {
+            "heading": "MDF Rivet Shelving Racks",
+            "intro": "A budget-friendly, flexible option for everyday storage. A steel frame carries five adjustable MDF board shelves (real MDF, not chipboard), each rated to 150kg, in four sizes - from a compact 1500mm unit to a wide 1800 x 1500mm wall of storage.",
+            "benefits": "Our most affordable range\nFive adjustable layers, 150kg each (750kg per unit)\nStrong MDF board shelves - not chipboard\nShallower depths (300-450mm) suit tight spaces\nNo screws - simply plug and assemble\nCan be converted into a workbench",
+            "best_for": "Pantry, laundry and household storage\nBoxes, tubs and seasonal items in the garage or shed\nOffice files, archive boxes and stock room items\nLight to medium hand tools and hobby gear",
+            "specs": "Sizes: 1500 x 700 x 300mm, 1800 x 900 x 400mm, 1800 x 1200 x 450mm or 1800 x 1500 x 450mm (H x W x D)\nLoad: 150kg per layer, 750kg per unit\nColour: Black\nPrice: From $49.99",
+            "button_label": "Shop MDF Shelving",
+            "button_link": "/collections/mdf-shelving-racks"
+          }
+        },
+        "product-steel-workbench": {
+          "type": "guide-product",
+          "settings": {
+            "heading": "Steel Workbenches",
+            "intro": "A solid steel-framed bench for projects, repairs and hobbies. Each workbench is rated to 200kg per layer (400kg in total) and goes together with a simple bolt-together design, giving you a stable surface that is ready for real work.",
+            "benefits": "Heavy-duty steel frame for strength and stability\n200kg per layer, 400kg in total\nSpacious work surface for projects, repairs and tools\nSimple bolt-together assembly\nThree widths to suit your space",
+            "best_for": "Mechanical and automotive repairs\nWoodwork, DIY and hobby projects\nA sturdy table in the garage, workshop or shed\nPairing with steel shelving for a complete workshop",
+            "specs": "Sizes: 900mm high x 600mm deep, in 1200mm, 1500mm or 2000mm widths\nLoad: 200kg per layer, 400kg in total\nColours: Black, or orange/blue\nPrice: From $139.99",
+            "button_label": "Shop Workbenches",
+            "button_link": "/collections/steel-workbenches"
+          }
+        }
+      },
+      "block_order": [
+        "product-steel-shelving",
+        "product-mdf-shelving",
+        "product-steel-workbench"
+      ],
+      "settings": {
+        "heading": "A closer look at each range",
+        "description": "What each range is built for, and what to expect from it."
+      }
+    },
+    "storage": {
+      "type": "guide-table",
+      "blocks": {
+        "household": {
+          "type": "guide-table-row",
+          "settings": {
+            "cell_1": "Clothes, linen, pantry goods and camping gear",
+            "cell_2": "Light - usually under 10kg per box",
+            "cell_3": "MDF Shelving",
+            "cell_4": "Plenty of capacity at the lowest cost."
+          }
+        },
+        "archive": {
+          "type": "guide-table-row",
+          "settings": {
+            "cell_1": "Archive boxes, files and paperwork",
+            "cell_2": "Around 10-20kg per full box",
+            "cell_3": "MDF Shelving",
+            "cell_4": "Five adjustable layers at 150kg each hold plenty of boxes."
+          }
+        },
+        "tubs": {
+          "type": "guide-table-row",
+          "settings": {
+            "cell_1": "Plastic tubs, toys and seasonal decorations",
+            "cell_2": "Around 5-15kg per tub",
+            "cell_3": "MDF Shelving",
+            "cell_4": "Adjustable shelves fit tubs of different heights."
+          }
+        },
+        "tools": {
+          "type": "guide-table-row",
+          "settings": {
+            "cell_1": "Hand tools, toolboxes and power tools",
+            "cell_2": "Around 5-25kg per toolbox",
+            "cell_3": "MDF or Steel Shelving",
+            "cell_4": "MDF suits light to medium tool storage. Choose steel for heavy tool chests and equipment."
+          }
+        },
+        "paint": {
+          "type": "guide-table-row",
+          "settings": {
+            "cell_1": "Paint, chemicals and automotive fluids",
+            "cell_2": "A 20L tin of paint is roughly 25-30kg",
+            "cell_3": "Steel Shelving",
+            "cell_4": "Heavy tins add up quickly - 200kg per shelf gives you more headroom."
+          }
+        },
+        "car-parts": {
+          "type": "guide-table-row",
+          "settings": {
+            "cell_1": "Car parts, batteries and tyres",
+            "cell_2": "A car tyre is roughly 8-12kg, a car battery 15-20kg",
+            "cell_3": "Steel Shelving",
+            "cell_4": "Heavy, awkward items suit our strongest shelves."
+          }
+        },
+        "bulk": {
+          "type": "guide-table-row",
+          "settings": {
+            "cell_1": "Machinery parts, bulk stock and warehouse cartons",
+            "cell_2": "25kg or more per item or carton",
+            "cell_3": "Steel Shelving",
+            "cell_4": "The highest load rating, built for tough workshop and warehouse use."
+          }
+        },
+        "projects": {
+          "type": "guide-table-row",
+          "settings": {
+            "cell_1": "Working on projects, repairs and hobbies",
+            "cell_2": "Tools and materials on the bench",
+            "cell_3": "Steel Workbench",
+            "cell_4": "A solid surface rated to 200kg per layer, 400kg in total."
+          }
+        }
+      },
+      "block_order": [
+        "household",
+        "archive",
+        "tubs",
+        "tools",
+        "paint",
+        "car-parts",
+        "bulk",
+        "projects"
+      ],
+      "settings": {
+        "heading": "What are you storing?",
+        "description": "Find the kind of thing you plan to store and see which range suits it best.",
+        "col_1": "What you are storing",
+        "col_2": "Typical weight",
+        "col_3": "Best choice",
+        "col_4": "Why",
+        "note": "Weights are approximate guides only. Add up what you plan to place on each shelf and keep it comfortably under the rated load for that shelf.",
+        "shaded": false
+      }
+    },
+    "steps": {
+      "type": "guide-steps",
+      "blocks": {
+        "weigh": {
+          "type": "guide-step",
+          "settings": {
+            "heading": "Weigh what you are storing",
+            "text": "List your heaviest items and estimate the total weight on each shelf. Under 150kg per shelf, MDF will do the job. Above that - or if the load will be tough on the shelf - choose steel, which is rated to 200kg per shelf."
+          }
+        },
+        "measure": {
+          "type": "guide-step",
+          "settings": {
+            "heading": "Measure your space",
+            "text": "Measure the height, width and depth of the spot. Our steel racks are 600mm deep, while MDF racks range from 300-450mm deep, which suits tighter spaces. Leave room to reach every shelf."
+          }
+        },
+        "collect": {
+          "type": "guide-step",
+          "settings": {
+            "heading": "Plan how it gets home",
+            "text": "Every unit arrives flat-packed in boxes. Check our How To Collect In Your Vehicle guide to see if it will fit in your car, or have it delivered."
+          }
+        },
+        "order": {
+          "type": "guide-step",
+          "settings": {
+            "heading": "Pick your size and quantity",
+            "text": "Match the unit to your space and load, then add more units side by side if you need more storage - our steel racks are designed to be expandable."
+          }
+        }
+      },
+      "block_order": [
+        "weigh",
+        "measure",
+        "collect",
+        "order"
+      ],
+      "settings": {
+        "heading": "How to choose in four steps",
+        "description": "A simple way to match the right unit to your space and your load.",
+        "help_heading": "Still Not Sure?",
+        "help_text": "Tell us what you are storing and where it is going, and we will recommend the right unit for you.",
+        "help_button_label": "Contact Us",
+        "help_button_link": "/pages/contact"
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "heavy-mdf": {
+          "type": "faq-item",
+          "settings": {
+            "question": "Can I store heavy items on MDF shelving?",
+            "answer": "Each MDF layer is rated to 150kg (750kg per unit). If you will be loading more than that on a single shelf, or storing very heavy items such as machinery parts or full paint tins, choose steel shelving, which is rated to 200kg per shelf."
+          }
+        },
+        "expand": {
+          "type": "faq-item",
+          "settings": {
+            "question": "Can I add more units later?",
+            "answer": "Our steel shelving racks are designed to be expandable, so you can add more units side by side as your storage needs grow. If you are planning a long run of shelving, contact us and we will help you work out what you need."
+          }
+        },
+        "fixing": {
+          "type": "faq-item",
+          "settings": {
+            "question": "Can I fix the shelving to the floor?",
+            "answer": "Our steel shelving can be used free-standing or securely fixed to the ground. For tall units holding heavy loads, fixing them down adds extra stability."
+          }
+        },
+        "mdf-bench": {
+          "type": "faq-item",
+          "settings": {
+            "question": "Can MDF shelving be used as a workbench?",
+            "answer": "Our MDF shelving listings note that it can be converted into a workbench, which suits lighter projects. For heavier work, a steel workbench (rated to 200kg per layer, 400kg in total) is the better choice."
+          }
+        },
+        "tools": {
+          "type": "faq-item",
+          "settings": {
+            "question": "Do I need tools to assemble?",
+            "answer": "Our steel and MDF shelving racks use a no-screw design - steel racks click in and MDF racks plug together. Workbenches use a simple bolt-together design. Our Assembly Instructions page has guides for each range."
+          }
+        },
+        "fit-car": {
+          "type": "faq-item",
+          "settings": {
+            "question": "Will it fit in my car?",
+            "answer": "Everything is flat-packed in boxes. Our How To Collect In Your Vehicle page lists boxed dimensions for each size so you can check before you collect, and delivery is also available."
+          }
+        }
+      },
+      "block_order": [
+        "heavy-mdf",
+        "expand",
+        "fixing",
+        "mdf-bench",
+        "tools",
+        "fit-car"
+      ],
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Buying questions",
+        "description": "Quick answers to the questions we hear most before an order."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "compare",
+    "products",
+    "storage",
+    "steps",
+    "faq"
+  ]
+}

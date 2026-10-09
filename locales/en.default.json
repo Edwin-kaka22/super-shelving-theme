@@ -47,6 +47,11 @@
       "error_heading": "Please fix the following:"
     }
   },
+  "purchasing_guide": {
+    "choose_if": "Choose this if...",
+    "key_benefits": "Key benefits",
+    "best_for": "Best for"
+  },
   "assembly_guide": {
     "tips_heading": "Before you start",
     "video_coming_soon": "Video coming soon",

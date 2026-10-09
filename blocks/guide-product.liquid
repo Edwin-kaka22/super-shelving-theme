@@ -1,0 +1,314 @@
+{% doc %}
+  Renders one product-type deep dive inside the `guide-products` section:
+  a product image beside the name, an introduction, two tick lists (key
+  benefits and best uses), a quick spec list and a shop button. Cards
+  alternate which side the image sits on. Falls back to the matching
+  category image when no image is set.
+
+  @example
+  {% content_for 'block', type: 'guide-product', id: 'guide-product-1' %}
+{% enddoc %}
+
+{% assign product_benefits = block.settings.benefits | newline_to_br | split: '<br />' %}
+{% assign product_uses = block.settings.best_for | newline_to_br | split: '<br />' %}
+{% assign product_specs = block.settings.specs | newline_to_br | split: '<br />' %}
+{% liquid
+  assign product_default_asset = null
+  if block.id contains 'steel-shelving'
+    assign product_default_asset = 'category-steel-shelving.png'
+  elsif block.id contains 'mdf'
+    assign product_default_asset = 'category-mdf-shelving.png'
+  elsif block.id contains 'workbench'
+    assign product_default_asset = 'category-steel-workbenches.png'
+  endif
+%}
+<div class="guide-product" {{ block.shopify_attributes }}>
+  <div class="guide-product__image">
+    {% if block.settings.image %}
+      {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', alt: block.settings.heading }}
+    {% elsif product_default_asset %}
+      <img src="{{ product_default_asset | asset_url }}" alt="{{ block.settings.heading | escape }}" loading="lazy">
+    {% else %}
+      {{ 'product-1' | placeholder_svg_tag: 'guide-product__placeholder' }}
+    {% endif %}
+  </div>
+
+  <div class="guide-product__content">
+    {% if block.settings.heading != blank %}
+      <h3 class="guide-product__heading">{{ block.settings.heading }}</h3>
+    {% endif %}
+
+    {% if block.settings.intro != blank %}
+      <p class="guide-product__intro">{{ block.settings.intro }}</p>
+    {% endif %}
+
+    <div class="guide-product__lists">
+      <div>
+        <h4 class="guide-product__list-heading">{{ 'purchasing_guide.key_benefits' | t }}</h4>
+        <ul class="guide-product__list">
+          {% for item in product_benefits %}
+            {% assign item_text = item | strip %}
+            {% if item_text != blank %}
+              <li>{{ item_text }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="guide-product__list-heading">{{ 'purchasing_guide.best_for' | t }}</h4>
+        <ul class="guide-product__list">
+          {% for item in product_uses %}
+            {% assign item_text = item | strip %}
+            {% if item_text != blank %}
+              <li>{{ item_text }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    {% if block.settings.specs != blank %}
+      <dl class="guide-product__specs">
+        {% for spec in product_specs %}
+          {% assign spec_line = spec | strip %}
+          {% if spec_line contains ':' %}
+            {% assign spec_parts = spec_line | split: ':' %}
+            {% assign spec_label = spec_parts | first %}
+            {% assign spec_value = spec_line | remove_first: spec_label | remove_first: ':' | strip %}
+            <div class="guide-product__spec">
+              <dt>{{ spec_label | strip }}</dt>
+              <dd>{{ spec_value }}</dd>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </dl>
+    {% endif %}
+
+    {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+      <a href="{{ block.settings.button_link }}" class="guide-product__button">{{ block.settings.button_label }}</a>
+    {% endif %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .guide-product {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 2.5rem;
+    align-items: center;
+    padding: 2rem;
+    border: 1px solid #e5e5e7;
+    border-radius: 1rem;
+    background-color: #ffffff;
+  }
+
+  .guide-products__list > :nth-child(even) > .guide-product {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  }
+
+  .guide-products__list > :nth-child(even) > .guide-product .guide-product__image {
+    order: 2;
+  }
+
+  .guide-product__image {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    background-color: #f4f4f5;
+    color: #9a9a9d;
+  }
+
+  .guide-product__image img,
+  .guide-product__placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .guide-product__heading {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #1f2120;
+  }
+
+  .guide-product__intro {
+    margin: 0.75rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: #4a4a4d;
+  }
+
+  .guide-product__lists {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .guide-product__list-heading {
+    margin: 0 0 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6b6b6e;
+  }
+
+  .guide-product__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .guide-product__list li {
+    position: relative;
+    padding: 0.25rem 0 0.25rem 1.4rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: #4a4a4d;
+  }
+
+  .guide-product__list li::before {
+    content: '';
+    position: absolute;
+    top: 0.55rem;
+    left: 0.15rem;
+    width: 0.3rem;
+    height: 0.6rem;
+    border: solid #1f2120;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
+  .guide-product__specs {
+    margin: 1.5rem 0 0;
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem;
+    background-color: #f4f4f5;
+  }
+
+  .guide-product__spec {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    gap: 0.25rem 1rem;
+    padding: 0.3rem 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .guide-product__spec dt {
+    font-weight: 700;
+    color: #1f2120;
+  }
+
+  .guide-product__spec dd {
+    margin: 0;
+    color: #4a4a4d;
+  }
+
+  .guide-product__button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.75rem;
+    border: 1px solid #1f2120;
+    border-radius: 999px;
+    background-color: #1f2120;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .guide-product__button:hover {
+    border-color: #52564f;
+    background-color: #52564f;
+  }
+
+  @media screen and (max-width: 989px) {
+    .guide-product,
+    .guide-products__list > :nth-child(even) > .guide-product {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 1.25rem;
+    }
+
+    .guide-products__list > :nth-child(even) > .guide-product .guide-product__image {
+      order: 0;
+    }
+  }
+
+  @media screen and (max-width: 589px) {
+    .guide-product__lists {
+      grid-template-columns: 1fr;
+    }
+
+    .guide-product__spec {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.guide_product",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:labels.image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Product type"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "t:labels.description"
+    },
+    {
+      "type": "textarea",
+      "id": "benefits",
+      "label": "t:labels.guide_benefits",
+      "info": "t:labels.one_per_line"
+    },
+    {
+      "type": "textarea",
+      "id": "best_for",
+      "label": "t:labels.guide_best_for",
+      "info": "t:labels.one_per_line"
+    },
+    {
+      "type": "textarea",
+      "id": "specs",
+      "label": "t:labels.guide_specs",
+      "info": "t:labels.guide_specs_info"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:labels.button_label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:labels.button_link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.guide_product"
+    }
+  ]
+}
+{% endschema %}
