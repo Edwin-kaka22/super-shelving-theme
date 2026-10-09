@@ -298,7 +298,7 @@
         "col_3": "Best choice",
         "col_4": "Why",
         "note": "Weights are approximate guides only. Add up what you plan to place on each shelf and keep it comfortably under the rated load for that shelf.",
-        "shaded": false
+        "shaded": true
       }
     },
     "steps": {
