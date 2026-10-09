@@ -101,7 +101,7 @@
             "cell_1": "Sizes (H x W x D)",
             "cell_2": "1800 x 2000 x 600mm\n2000 x 1500 x 600mm\n2000 x 2000 x 600mm",
             "cell_3": "1500 x 700 x 300mm\n1800 x 900 x 400mm\n1800 x 1200 x 450mm\n1800 x 1500 x 450mm",
-            "cell_4": "900mm high x 600mm deep, in 1200mm, 1500mm and 2000mm widths"
+            "cell_4": "900 x 2000 x 600mm\n900 x 1500 x 600mm"
           }
         },
         "colours": {
@@ -186,9 +186,9 @@
           "settings": {
             "heading": "Steel Workbenches",
             "intro": "A solid steel-framed bench for projects, repairs and hobbies. Each workbench is rated to 200kg per layer (400kg in total) and goes together with a simple bolt-together design, giving you a stable surface that is ready for real work.",
-            "benefits": "Heavy-duty steel frame for strength and stability\n200kg per layer, 400kg in total\nSpacious work surface for projects, repairs and tools\nSimple bolt-together assembly\nThree widths to suit your space",
+            "benefits": "Heavy-duty steel frame for strength and stability\n200kg per layer, 400kg in total\nSpacious work surface for projects, repairs and tools\nSimple bolt-together assembly\nTwo widths to suit your space",
             "best_for": "Mechanical and automotive repairs\nWoodwork, DIY and hobby projects\nA sturdy table in the garage, workshop or shed\nPairing with steel shelving for a complete workshop",
-            "specs": "Sizes: 900mm high x 600mm deep, in 1200mm, 1500mm or 2000mm widths\nLoad: 200kg per layer, 400kg in total\nColours: Black, or orange/blue\nPrice: From $139.99",
+            "specs": "Sizes: 900 x 2000 x 600mm or 900 x 1500 x 600mm (H x W x D)\nLoad: 200kg per layer, 400kg in total\nColours: Black, or orange/blue\nPrice: From $139.99",
             "button_label": "Shop Workbenches",
             "button_link": "/collections/steel-workbenches"
           }
