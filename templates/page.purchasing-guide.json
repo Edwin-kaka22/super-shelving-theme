@@ -73,7 +73,7 @@
           "settings": {
             "cell_1": "Load per shelf",
             "cell_2": "200kg per shelf",
-            "cell_3": "150kg per layer",
+            "cell_3": "125kg per layer",
             "cell_4": "200kg per layer"
           }
         },
@@ -82,7 +82,7 @@
           "settings": {
             "cell_1": "Total load",
             "cell_2": "800kg per unit",
-            "cell_3": "750kg per unit",
+            "cell_3": "625kg per unit",
             "cell_4": "400kg per unit"
           }
         },
@@ -92,7 +92,7 @@
             "cell_1": "Shelf levels",
             "cell_2": "4 levels with adjustable heights",
             "cell_3": "5 layers with adjustable heights",
-            "cell_4": "See the product page for the layout"
+            "cell_4": "2 levels with adjustable heights"
           }
         },
         "sizes": {
@@ -173,10 +173,10 @@
           "type": "guide-product",
           "settings": {
             "heading": "MDF Rivet Shelving Racks",
-            "intro": "A budget-friendly, flexible option for everyday storage. A steel frame carries five adjustable MDF board shelves, each rated to 150kg, in four sizes - from a compact 1500mm unit to a wide 1800 x 1500mm wall of storage.",
-            "benefits": "Our most affordable range\nFive adjustable layers, 150kg each (750kg per unit)\nStrong MDF board shelves - not chipboard\nShallower depths (300-450mm) suit tight spaces\nNo screws - simply plug and assemble\nCan be converted into a workbench",
+            "intro": "A budget-friendly, flexible option for everyday storage. A steel frame carries five adjustable MDF board shelves, each rated to 125kg, in four sizes - from a compact 1500mm unit to a wide 1800 x 1500mm wall of storage.",
+            "benefits": "Our most affordable range\nFive adjustable layers, 125kg each (625kg per unit)\nStrong MDF board shelves - not chipboard\nShallower depths (300-450mm) suit tight spaces\nNo screws - simply plug and assemble\nCan be converted into a workbench",
             "best_for": "Pantry, laundry and household storage\nBoxes, tubs and seasonal items in the garage or shed\nOffice files, archive boxes and stock room items\nLight to medium hand tools and hobby gear",
-            "specs": "Sizes: 1500 x 700 x 300mm, 1800 x 900 x 400mm, 1800 x 1200 x 450mm or 1800 x 1500 x 450mm (H x W x D)\nLoad: 150kg per layer, 750kg per unit\nColour: Black\nPrice: From $49.99",
+            "specs": "Sizes: 1500 x 700 x 300mm, 1800 x 900 x 400mm, 1800 x 1200 x 450mm or 1800 x 1500 x 450mm (H x W x D)\nLoad: 125kg per layer, 625kg per unit\nColour: Black\nPrice: From $49.99",
             "button_label": "Shop MDF Shelving",
             "button_link": "/collections/mdf-shelving-racks"
           }
@@ -222,7 +222,7 @@
             "cell_1": "Archive boxes, files and paperwork",
             "cell_2": "Around 10-20kg per full box",
             "cell_3": "MDF Shelving",
-            "cell_4": "Five adjustable layers at 150kg each hold plenty of boxes."
+            "cell_4": "Five adjustable layers at 125kg each hold plenty of boxes."
           }
         },
         "tubs": {
@@ -308,7 +308,7 @@
           "type": "guide-step",
           "settings": {
             "heading": "Weigh what you are storing",
-            "text": "List your heaviest items and estimate the total weight on each shelf. Under 150kg per shelf, MDF will do the job. Above that - or if the load will be tough on the shelf - choose steel, which is rated to 200kg per shelf."
+            "text": "List your heaviest items and estimate the total weight on each shelf. Under 125kg per shelf, MDF will do the job. Above that - or if the load will be tough on the shelf - choose steel, which is rated to 200kg per shelf."
           }
         },
         "measure": {
@@ -355,7 +355,7 @@
           "type": "faq-item",
           "settings": {
             "question": "Can I store heavy items on MDF shelving?",
-            "answer": "Each MDF layer is rated to 150kg (750kg per unit). If you will be loading more than that on a single shelf, or storing very heavy items such as machinery parts or full paint tins, choose steel shelving, which is rated to 200kg per shelf."
+            "answer": "Each MDF layer is rated to 125kg (625kg per unit). If you will be loading more than that on a single shelf, or storing very heavy items such as machinery parts or full paint tins, choose steel shelving, which is rated to 200kg per shelf."
           }
         },
         "expand": {
