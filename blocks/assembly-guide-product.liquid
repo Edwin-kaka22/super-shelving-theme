@@ -1,8 +1,9 @@
 {% doc %}
   Renders one product type's assembly card inside the `assembly-guide` page:
-  a heading, short intro, an assembly video beside numbered steps, and an
-  optional PDF manual download. Empty video / steps / manual fall back to
-  clear "coming soon" states so nothing looks broken before content exists.
+  a heading, short intro, an assembly video beside a PDF download panel
+  (title plus button), and optional numbered steps underneath. Empty video /
+  PDF fall back to clear "coming soon" states so nothing looks broken before
+  content exists.
 
   @example
   {% content_for 'block', type: 'assembly-guide-product', id: 'assembly-guide-product-1' %}
@@ -38,27 +39,37 @@
       {% endif %}
     </div>
 
-    <div class="assembly-product__steps">
-      {% if block.settings.steps != blank %}
-        <ol class="assembly-product__list">
-          {% for step in assembly_steps %}
-            {% assign step_text = step | strip %}
-            {% if step_text != blank %}
-              <li>{{ step_text }}</li>
-            {% endif %}
-          {% endfor %}
-        </ol>
-      {% else %}
-        <p class="assembly-product__empty">{{ 'assembly_guide.steps_coming_soon' | t }}</p>
+    <div class="assembly-product__pdf">
+      <svg class="assembly-product__pdf-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path>
+        <path d="M14 3v5h5"></path>
+        <path d="M9 13h6M9 17h4"></path>
+      </svg>
+      {% if block.settings.manual_title != blank %}
+        <h3 class="assembly-product__pdf-title">{{ block.settings.manual_title }}</h3>
       {% endif %}
-
       {% if block.settings.manual_url != blank %}
         <a href="{{ block.settings.manual_url }}" class="assembly-product__manual" target="_blank" rel="noopener">
           {{ 'assembly_guide.download_manual' | t }}
         </a>
+      {% else %}
+        <span class="assembly-product__manual assembly-product__manual--disabled" aria-disabled="true">
+          {{ 'assembly_guide.pdf_coming_soon' | t }}
+        </span>
       {% endif %}
     </div>
   </div>
+
+  {% if block.settings.steps != blank %}
+    <ol class="assembly-product__list">
+      {% for step in assembly_steps %}
+        {% assign step_text = step | strip %}
+        {% if step_text != blank %}
+          <li>{{ step_text }}</li>
+        {% endif %}
+      {% endfor %}
+    </ol>
+  {% endif %}
 </div>
 
 {% stylesheet %}
@@ -93,7 +104,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    align-items: start;
+    align-items: stretch;
     margin-top: 1.5rem;
   }
 
@@ -125,8 +136,30 @@
     color: #9a9a9d;
   }
 
-  .assembly-product__list {
+  .assembly-product__pdf {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    background-color: #f4f4f5;
+    text-align: center;
+    color: #1f2120;
+  }
+
+  .assembly-product__pdf-title {
     margin: 0;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #1f2120;
+  }
+
+  .assembly-product__list {
+    margin: 1.5rem 0 0;
     padding: 0;
     list-style: none;
     counter-reset: assembly-step;
@@ -158,32 +191,32 @@
     font-weight: 700;
   }
 
-  .assembly-product__empty {
-    margin: 0;
-    padding: 0.7rem 0;
-    font-size: 0.95rem;
-    color: #85858b;
-  }
-
   .assembly-product__manual {
     display: inline-block;
-    margin-top: 1rem;
-    padding: 0.7rem 1.5rem;
+    padding: 0.8rem 2rem;
     border: 1px solid #1f2120;
     border-radius: 999px;
-    background-color: #ffffff;
-    color: #1f2120;
+    background-color: #1f2120;
+    color: #ffffff;
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.02em;
     text-decoration: none;
     text-transform: uppercase;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
   }
 
   .assembly-product__manual:hover {
-    background-color: #1f2120;
-    color: #ffffff;
+    border-color: #52564f;
+    background-color: #52564f;
+  }
+
+  .assembly-product__manual--disabled,
+  .assembly-product__manual--disabled:hover {
+    border-color: #d4d4d8;
+    background-color: #d4d4d8;
+    color: #85858b;
+    cursor: not-allowed;
   }
 
   @media screen and (max-width: 749px) {
@@ -224,6 +257,12 @@
       "id": "steps",
       "label": "t:labels.assembly_steps",
       "info": "t:labels.assembly_steps_info"
+    },
+    {
+      "type": "text",
+      "id": "manual_title",
+      "label": "t:labels.manual_title",
+      "default": "Shelving Assembly Instructions PDF"
     },
     {
       "type": "url",

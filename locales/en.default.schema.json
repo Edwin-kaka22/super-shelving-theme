@@ -162,6 +162,7 @@
     "assembly_video": "Assembly video",
     "assembly_steps": "Assembly steps",
     "assembly_steps_info": "One step per line. Numbers are added automatically.",
+    "manual_title": "PDF title",
     "manual_url": "PDF manual link",
     "manual_url_info": "Upload the PDF under Content > Files in Shopify admin and paste its link. The download button is hidden until this is set.",
     "assembly_tips": "Before-you-start tips",
