@@ -70,34 +70,36 @@
       </div>
     </div>
 
-    {% if block.settings.specs != blank %}
-      <dl class="guide-product__specs">
-        {% for spec in product_specs %}
-          {% assign spec_line = spec | strip %}
-          {% if spec_line contains ':' %}
-            {% assign spec_parts = spec_line | split: ':' %}
-            {% assign spec_label = spec_parts | first %}
-            {% assign spec_value = spec_line | remove_first: spec_label | remove_first: ':' | strip %}
-            {% assign spec_value_lines = spec_value | split: ';' %}
-            <div class="guide-product__spec">
-              <dt>{{ spec_label | strip }}</dt>
-              <dd>
-                {%- for value_line in spec_value_lines -%}
-                  {{ value_line | strip }}{% unless forloop.last %}<br>{% endunless %}
-                {%- endfor -%}
-              </dd>
-            </div>
-          {% endif %}
-        {% endfor %}
-      </dl>
+    {% if block.settings.specs != blank or block.settings.button_label != blank %}
+      <div class="guide-product__specs">
+        {% if block.settings.specs != blank %}
+          <dl class="guide-product__spec-list">
+            {% for spec in product_specs %}
+              {% assign spec_line = spec | strip %}
+              {% if spec_line contains ':' %}
+                {% assign spec_parts = spec_line | split: ':' %}
+                {% assign spec_label = spec_parts | first %}
+                {% assign spec_value = spec_line | remove_first: spec_label | remove_first: ':' | strip %}
+                {% assign spec_value_lines = spec_value | split: ';' %}
+                <div class="guide-product__spec">
+                  <dt>{{ spec_label | strip }}</dt>
+                  <dd>
+                    {%- for value_line in spec_value_lines -%}
+                      {{ value_line | strip }}{% unless forloop.last %}<br>{% endunless %}
+                    {%- endfor -%}
+                  </dd>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </dl>
+        {% endif %}
+
+        {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+          <a href="{{ block.settings.button_link }}" class="guide-product__button">{{ block.settings.button_label }}</a>
+        {% endif %}
+      </div>
     {% endif %}
   </div>
-
-  {% if block.settings.button_label != blank and block.settings.button_link != blank %}
-    <div class="guide-product__cta">
-      <a href="{{ block.settings.button_link }}" class="guide-product__button">{{ block.settings.button_label }}</a>
-    </div>
-  {% endif %}
 </div>
 
 {% stylesheet %}
@@ -113,6 +115,9 @@
   }
 
   .guide-product__media {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
     grid-column: 1;
     grid-row: 1;
   }
@@ -126,18 +131,11 @@
     padding-top: 1.5rem;
   }
 
-  .guide-product__cta {
-    grid-column: 1;
-    grid-row: 2;
-    margin-top: 1.25rem;
-  }
-
   .guide-products__list > :nth-child(even) > .guide-product {
     grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
   }
 
-  .guide-products__list > :nth-child(even) > .guide-product .guide-product__media,
-  .guide-products__list > :nth-child(even) > .guide-product .guide-product__cta {
+  .guide-products__list > :nth-child(even) > .guide-product .guide-product__media {
     grid-column: 2;
   }
 
@@ -146,6 +144,7 @@
   }
 
   .guide-product__image {
+    flex: 1 1 auto;
     margin-top: 1.25rem;
     aspect-ratio: 1 / 1;
     overflow: hidden;
@@ -230,6 +229,11 @@
     background-color: #f4f4f5;
   }
 
+  .guide-product__spec-list {
+    margin: 0;
+    padding: 0;
+  }
+
   .guide-product__spec {
     display: grid;
     grid-template-columns: 10rem 1fr;
@@ -247,6 +251,10 @@
   .guide-product__spec dd {
     margin: 0;
     color: #4a4a4d;
+  }
+
+  .guide-product__spec-list + .guide-product__button {
+    margin-top: 1rem;
   }
 
   .guide-product__button {
@@ -278,10 +286,9 @@
 
     .guide-product .guide-product__media,
     .guide-product .guide-product__content,
-    .guide-product .guide-product__cta,
     .guide-products__list > :nth-child(even) > .guide-product .guide-product__media,
     .guide-products__list > :nth-child(even) > .guide-product .guide-product__content,
-    .guide-products__list > :nth-child(even) > .guide-product .guide-product__cta {
+    .guide-products__list > :nth-child(even) > .guide-product .guide-product__content {
       grid-column: 1;
     }
 
@@ -289,12 +296,8 @@
       grid-row: 1;
     }
 
-    .guide-product .guide-product__cta {
-      grid-row: 2;
-    }
-
     .guide-product .guide-product__content {
-      grid-row: 3;
+      grid-row: 2;
       padding-top: 1.5rem;
     }
   }
