@@ -78,9 +78,14 @@
             {% assign spec_parts = spec_line | split: ':' %}
             {% assign spec_label = spec_parts | first %}
             {% assign spec_value = spec_line | remove_first: spec_label | remove_first: ':' | strip %}
+            {% assign spec_value_lines = spec_value | split: ';' %}
             <div class="guide-product__spec">
               <dt>{{ spec_label | strip }}</dt>
-              <dd>{{ spec_value }}</dd>
+              <dd>
+                {%- for value_line in spec_value_lines -%}
+                  {{ value_line | strip }}{% unless forloop.last %}<br>{% endunless %}
+                {%- endfor -%}
+              </dd>
             </div>
           {% endif %}
         {% endfor %}
@@ -227,7 +232,7 @@
 
   .guide-product__spec {
     display: grid;
-    grid-template-columns: 7.5rem 1fr;
+    grid-template-columns: 10rem 1fr;
     gap: 0.25rem 1rem;
     padding: 0.3rem 0;
     font-size: 0.9rem;
