@@ -1,9 +1,9 @@
 {% doc %}
   Renders one product-type deep dive inside the `guide-products` section:
-  a product image beside the name, an introduction, two tick lists (key
-  benefits and best uses), a quick spec list and a shop button. Cards
-  alternate which side the image sits on. Falls back to the matching
-  category image when no image is set.
+  a column with the name, introduction and product image, beside a column
+  of two tick lists (key benefits and best uses), a quick spec list and a
+  shop button. Cards alternate which side the image column sits on. Falls
+  back to the matching category image when no image is set.
 
   @example
   {% content_for 'block', type: 'guide-product', id: 'guide-product-1' %}
@@ -23,17 +23,7 @@
   endif
 %}
 <div class="guide-product" {{ block.shopify_attributes }}>
-  <div class="guide-product__image">
-    {% if block.settings.image %}
-      {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', alt: block.settings.heading }}
-    {% elsif product_default_asset %}
-      <img src="{{ product_default_asset | asset_url }}" alt="{{ block.settings.heading | escape }}" loading="lazy">
-    {% else %}
-      {{ 'product-1' | placeholder_svg_tag: 'guide-product__placeholder' }}
-    {% endif %}
-  </div>
-
-  <div class="guide-product__content">
+  <div class="guide-product__media">
     {% if block.settings.heading != blank %}
       <h3 class="guide-product__heading">{{ block.settings.heading }}</h3>
     {% endif %}
@@ -42,6 +32,18 @@
       <p class="guide-product__intro">{{ block.settings.intro }}</p>
     {% endif %}
 
+    <div class="guide-product__image">
+      {% if block.settings.image %}
+        {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', alt: block.settings.heading }}
+      {% elsif product_default_asset %}
+        <img src="{{ product_default_asset | asset_url }}" alt="{{ block.settings.heading | escape }}" loading="lazy">
+      {% else %}
+        {{ 'product-1' | placeholder_svg_tag: 'guide-product__placeholder' }}
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="guide-product__content">
     <div class="guide-product__lists">
       <div>
         <h4 class="guide-product__list-heading">{{ 'purchasing_guide.key_benefits' | t }}</h4>
@@ -96,7 +98,7 @@
     display: grid;
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
     gap: 2.5rem;
-    align-items: center;
+    align-items: start;
     padding: 2rem;
     border: 1px solid #e5e5e7;
     border-radius: 1rem;
@@ -107,11 +109,12 @@
     grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
   }
 
-  .guide-products__list > :nth-child(even) > .guide-product .guide-product__image {
+  .guide-products__list > :nth-child(even) > .guide-product .guide-product__media {
     order: 2;
   }
 
   .guide-product__image {
+    margin-top: 1.25rem;
     aspect-ratio: 1 / 1;
     overflow: hidden;
     border-radius: 0.75rem;
@@ -147,7 +150,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
-    margin-top: 1.5rem;
   }
 
   .guide-product__list-heading {
@@ -240,7 +242,7 @@
       padding: 1.25rem;
     }
 
-    .guide-products__list > :nth-child(even) > .guide-product .guide-product__image {
+    .guide-products__list > :nth-child(even) > .guide-product .guide-product__media {
       order: 0;
     }
   }
