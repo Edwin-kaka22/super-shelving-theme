@@ -1,6 +1,6 @@
 # Terms of Service (DRAFT)
 
-> **Draft for review (version 3).** Written from the details on the Super Shelving site and updated after comparing six Australian shelving retailers' terms and with your answers on business details, payments, returns and competitions. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have a lawyer check this before you publish it, especially sections 9, 10 and 13.
+> **Draft for review (version 4).** Written from the details on the Super Shelving site and updated after comparing six Australian shelving retailers' terms and with your answers on business details, payments, returns and competitions. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have a lawyer check this before you publish it, especially sections 9, 10 and 13.
 
 **Last updated:** 13 October 2026
 
@@ -56,7 +56,7 @@ Where we give you a tracking number, please keep it. If a delivery goes wrong, c
 
 ## 8. Returns, refunds and warranty
 
-- **Change of mind:** we accept returns for change of mind within **7 days of receiving or collecting your order**, if the product is in its original condition. Contact us within the 7 days to arrange it. For change-of-mind returns, you pay to send the goods back, and we refund the purchase price less the original delivery cost we paid to send the order to you.
+- **Change of mind:** we accept returns for change of mind within **14 days of receiving or collecting your order**, if the product is in its original condition. Contact us within the 14 days to arrange it. For change-of-mind returns, you pay to send the goods back, and we refund the purchase price less the original delivery cost we paid to send the order to you.
 - **Faulty, damaged or not as described:** if a product is faulty or damaged, or is not what we described, contact us with photos as soon as you can. Your rights under the Australian Consumer Law apply, and we will give you the remedy you are entitled to.
 - **Warranty:** all products come with a 12-month warranty. See our **Warranty Policy**.
 
@@ -101,7 +101,7 @@ If you send us a review, photo, video or other material - for example through ou
 - we may choose not to publish it, or remove it later, for any reason, including if it is unlawful, offensive or misleading
 - we are not required to keep it confidential, respond to it or pay for it
 
-**Gift card draw:** anyone who submits feedback or photos through our Share Your Experience page is entered into our gift card draw. Winners are **chosen at random** and **contacted by email**. **[CONFIRM and add: prize value, how many winners, how often draws are held, and any closing date. A random draw is a "game of chance" and the rules can differ between states, so have the entry conditions checked before you run it.]**
+**Gift card draw:** anyone who submits feedback or photos through our Share Your Experience page is entered into our gift card draw. Winners are **chosen at random** and **contacted by email**. Full details of the draw are on our Share Your Experience page.
 
 ## 13. Limit of our liability
 
