@@ -1,9 +1,9 @@
 {% doc %}
   Renders one product-type deep dive inside the `guide-products` section:
   a column with the name, introduction and product image, beside a column
-  of two tick lists (key benefits and best uses), a quick spec list and a
-  shop button. Cards alternate which side the image column sits on. Falls
-  back to the matching category image when no image is set.
+  of two tick lists (key benefits and best uses) and a quick spec list, with
+  a shop button under the best-uses list. Falls back to the matching
+  category image when no image is set.
 
   @example
   {% content_for 'block', type: 'guide-product', id: 'guide-product-1' %}
@@ -127,18 +127,6 @@
     grid-column: 2;
     grid-row: 1;
     padding-top: 1.5rem;
-  }
-
-  .guide-products__list > :nth-child(even) > .guide-product {
-    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-  }
-
-  .guide-products__list > :nth-child(even) > .guide-product .guide-product__media {
-    grid-column: 2;
-  }
-
-  .guide-products__list > :nth-child(even) > .guide-product .guide-product__content {
-    grid-column: 1;
   }
 
   .guide-product__image {
@@ -273,17 +261,13 @@
   }
 
   @media screen and (max-width: 989px) {
-    .guide-product,
-    .guide-products__list > :nth-child(even) > .guide-product {
+    .guide-product {
       grid-template-columns: 1fr;
       padding: 1.25rem;
     }
 
     .guide-product .guide-product__media,
-    .guide-product .guide-product__content,
-    .guide-products__list > :nth-child(even) > .guide-product .guide-product__media,
-    .guide-products__list > :nth-child(even) > .guide-product .guide-product__content,
-    .guide-products__list > :nth-child(even) > .guide-product .guide-product__content {
+    .guide-product .guide-product__content {
       grid-column: 1;
     }
 
