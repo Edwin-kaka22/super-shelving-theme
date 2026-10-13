@@ -347,66 +347,6 @@
         "help_button_label": "Contact Us",
         "help_button_link": "/pages/contact"
       }
-    },
-    "faq": {
-      "type": "faq",
-      "blocks": {
-        "heavy-mdf": {
-          "type": "faq-item",
-          "settings": {
-            "question": "Can I store heavy items on MDF shelving?",
-            "answer": "Each MDF layer is rated to 125kg (625kg per unit). If you will be loading more than that on a single shelf, or storing very heavy items such as machinery parts or full paint tins, choose steel shelving, which is rated to 200kg per shelf."
-          }
-        },
-        "expand": {
-          "type": "faq-item",
-          "settings": {
-            "question": "Can I add more units later?",
-            "answer": "Our steel shelving racks are designed to be expandable, so you can add more units side by side as your storage needs grow. If you are planning a long run of shelving, contact us and we will help you work out what you need."
-          }
-        },
-        "fixing": {
-          "type": "faq-item",
-          "settings": {
-            "question": "Can I fix the shelving to the floor?",
-            "answer": "Our steel shelving can be used free-standing or securely fixed to the ground. For tall units holding heavy loads, fixing them down adds extra stability."
-          }
-        },
-        "mdf-bench": {
-          "type": "faq-item",
-          "settings": {
-            "question": "Can MDF shelving be used as a workbench?",
-            "answer": "Our MDF shelving listings note that it can be converted into a workbench, which suits lighter projects. For heavier work, a steel workbench (rated to 200kg per layer, 400kg in total) is the better choice."
-          }
-        },
-        "tools": {
-          "type": "faq-item",
-          "settings": {
-            "question": "Do I need tools to assemble?",
-            "answer": "Our steel and MDF shelving racks use a no-screw design - steel racks click in and MDF racks plug together. Workbenches use a simple bolt-together design. Our Assembly Instructions page has guides for each range."
-          }
-        },
-        "fit-car": {
-          "type": "faq-item",
-          "settings": {
-            "question": "Will it fit in my car?",
-            "answer": "Everything is flat-packed in boxes. Our How To Collect In Your Vehicle page lists boxed dimensions for each size so you can check before you collect, and delivery is also available."
-          }
-        }
-      },
-      "block_order": [
-        "heavy-mdf",
-        "expand",
-        "fixing",
-        "mdf-bench",
-        "tools",
-        "fit-car"
-      ],
-      "settings": {
-        "eyebrow": "FAQ",
-        "heading": "Buying questions",
-        "description": "Quick answers to the questions we hear most before an order."
-      }
     }
   },
   "order": [
@@ -414,7 +354,6 @@
     "compare",
     "products",
     "storage",
-    "steps",
-    "faq"
+    "steps"
   ]
 }
