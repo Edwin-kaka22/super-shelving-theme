@@ -44,30 +44,6 @@
   </div>
 
   <div class="guide-product__content">
-    {% if block.settings.specs != blank %}
-      <div class="guide-product__specs">
-        <dl class="guide-product__spec-list">
-          {% for spec in product_specs %}
-            {% assign spec_line = spec | strip %}
-            {% if spec_line contains ':' %}
-              {% assign spec_parts = spec_line | split: ':' %}
-              {% assign spec_label = spec_parts | first %}
-              {% assign spec_value = spec_line | remove_first: spec_label | remove_first: ':' | strip %}
-              {% assign spec_value_lines = spec_value | split: ';' %}
-              <div class="guide-product__spec">
-                <dt>{{ spec_label | strip }}</dt>
-                <dd>
-                  {%- for value_line in spec_value_lines -%}
-                    {{ value_line | strip }}{% unless forloop.last %}<br>{% endunless %}
-                  {%- endfor -%}
-                </dd>
-              </div>
-            {% endif %}
-          {% endfor %}
-        </dl>
-      </div>
-    {% endif %}
-
     <div class="guide-product__lists">
       <div>
         <h4 class="guide-product__list-heading">{{ 'purchasing_guide.key_benefits' | t }}</h4>
@@ -97,6 +73,30 @@
         {% endif %}
       </div>
     </div>
+
+    {% if block.settings.specs != blank %}
+      <div class="guide-product__specs">
+        <dl class="guide-product__spec-list">
+          {% for spec in product_specs %}
+            {% assign spec_line = spec | strip %}
+            {% if spec_line contains ':' %}
+              {% assign spec_parts = spec_line | split: ':' %}
+              {% assign spec_label = spec_parts | first %}
+              {% assign spec_value = spec_line | remove_first: spec_label | remove_first: ':' | strip %}
+              {% assign spec_value_lines = spec_value | split: ';' %}
+              <div class="guide-product__spec">
+                <dt>{{ spec_label | strip }}</dt>
+                <dd>
+                  {%- for value_line in spec_value_lines -%}
+                    {{ value_line | strip }}{% unless forloop.last %}<br>{% endunless %}
+                  {%- endfor -%}
+                </dd>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </dl>
+      </div>
+    {% endif %}
   </div>
 </div>
 
@@ -142,6 +142,7 @@
   }
 
   .guide-product__image {
+    flex: 1 1 auto;
     margin-top: 1.25rem;
     aspect-ratio: 1 / 1;
     overflow: hidden;
@@ -178,7 +179,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
-    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .guide-product__list-heading {
@@ -217,7 +218,7 @@
   }
 
   .guide-product__specs {
-    margin: 0;
+    margin: auto 0 0;
     padding: 1rem 1.25rem;
     border-radius: 0.75rem;
     background-color: #f4f4f5;
