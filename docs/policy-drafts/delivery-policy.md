@@ -1,6 +1,6 @@
 # Delivery Policy (DRAFT)
 
-> **Draft for review (version 2).** Written from the details already on the Super Shelving site (FAQs page, Terms and Returns Policy) and updated after comparing five Australian shelving retailers' delivery and shipping pages. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice.
+> **Draft for review (version 3).** Written from the details already on the Super Shelving site (FAQs page, Terms and Returns Policy) and updated after comparing five Australian shelving retailers' delivery and shipping pages. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice.
 
 **Last updated:** 14 October 2026
 
@@ -25,13 +25,13 @@ Saturday and Sunday 10am - 5pm
 To collect:
 
 1. Choose **Pickup** at checkout.
-2. We will email you when your order is **ready to collect**. **[CONFIRM: do you want pickup by appointment, and how long does an order take to be ready - for example 1 business day?]**
-3. Bring a copy of your **order confirmation** or your order number when you arrive.
-4. If someone else is collecting for you, they will need your order number. **[CONFIRM: any ID requirement?]**
+2. Your order is **ready straight away**. Once you have your order confirmation email, you can **walk in and collect it during our opening hours** - no appointment needed.
+3. Bring your **order confirmation email** (or your order number) when you arrive. No photo ID is needed.
+4. If someone else is collecting for you, they need the same order confirmation email.
 
 If you arranged to pay by **bank transfer, PayID or cash** for a pickup order, you pay in person at our pickup location when you collect.
 
-Your shelving is packed flat in boxes. Our How To Collect In Your Vehicle guide shows boxed sizes and weights so you can check your vehicle first. You are also welcome to send your own courier to collect your order. Please contact us in advance so we can arrange it. **[CONFIRM: how long you hold pickup orders before they go back to stock, for example 14 days.]**
+Your shelving is packed flat in boxes. Our How To Collect In Your Vehicle guide shows boxed sizes and weights so you can check your vehicle first. You are also welcome to send your own courier to collect your order. Please contact us in advance so we can arrange it. We hold pickup orders for **7 days**. If you cannot collect within 7 days, please contact us. **[CONFIRM: what happens after 7 days with no contact - for example, we return the order to stock and refund the purchase price, less any fees.]**
 
 ## 3. Dispatch and delivery times
 
@@ -42,7 +42,7 @@ Your shelving is packed flat in boxes. Our How To Collect In Your Vehicle guide 
 
 These times are estimates, not guarantees. Delays can happen because of stock, weather, public holidays, courier issues or other events outside our control. We will contact you if we expect a significant delay.
 
-We will try to meet any delivery time you ask for, but we **cannot guarantee a specific day, time or time slot** unless we have confirmed it in writing. **[CONFIRM: whether you offer a booked time slot for an extra fee.]**
+We **cannot book a specific day, time or time slot** for delivery. Delivery dates and times are set by the courier or our delivery team, so please make sure someone can receive your order or tell us a safe spot to leave it.
 
 ## 4. How your order is delivered
 
@@ -59,20 +59,20 @@ Once your order is dispatched, we will send you **tracking details** by email. P
 
 Delivery is calculated at checkout based on your **postcode** and the **items and quantity** you order. The cost is shown before you pay.
 
-Some larger or heavier orders, or addresses that are hard to reach, may cost more to deliver than the checkout shows. If that happens, we will contact you **within 2 business days** to discuss. You can accept the extra cost or cancel for a full refund. **[CONFIRM: this is borrowed from another retailer's approach - keep it only if you want it.]**
+Some larger or heavier orders, or addresses that are hard to reach, may cost more to deliver than the checkout shows. If that happens, we will contact you **as soon as we can** to discuss. You can accept the extra cost or cancel for a full refund. **[CONFIRM: this is borrowed from another retailer's approach - keep it only if you want it.]**
 
 For **large or bulk orders**, please contact us before you order and we can give you a freight quote.
 
 ## 6. Where we deliver to, and receiving your order
 
 - Please give us a **complete and accurate address**, and a phone number we can reach on delivery day.
-- Deliveries go to the **front door, garage, or ground floor or kerbside** of your address. **We do not carry items upstairs, downstairs or inside** your home or business. **[CONFIRM: or add "unless arranged in advance for an extra fee".]**
+- Deliveries go to the **front door, garage, or ground floor or kerbside** of your address. Standard delivery does **not** include carrying items upstairs, downstairs or inside your home or business. If you need that, you can **arrange it separately with the courier when your order is delivered**. **[CONFIRM: any extra fee for carry-in is agreed with, and paid to, the courier.]**
 - Shelving is heavy and bulky. Please make sure someone is available to receive and help move it.
 - You are responsible for **disposing of the pallets and packaging**.
 - If you tell us to leave your order in a **particular spot**, such as the garage or a locked gate, we will do our best. **Once it has been left there, it is your responsibility.** We cannot be responsible for goods that go missing from a spot you nominated.
 - Please tell us if access is **limited** - for example, a narrow driveway, steep driveway, gated property, or no room for a truck.
 
-**When a delivery cannot be completed:** if the courier cannot deliver because of an **incorrect address**, **nobody being available**, or **restricted access**, we may charge a **redelivery fee**, and the delivery must be paid for before we try again. If you ask us to **redirect** an order to a different address after it has been dispatched, extra charges may apply. **[CONFIRM redelivery charge approach.]**
+**When a delivery cannot be completed:** if the courier cannot deliver because of an **incorrect address**, **nobody being available**, or **restricted access**, we will charge a **redelivery fee**, which is the **same cost as the original delivery**. It must be paid before we try again. If you ask us to **redirect** an order to a different address after it has been dispatched, extra charges may apply.
 
 **If we cannot deliver to your address at all,** we will contact you to talk about options - for example, collecting your order, paying an extra fee, or a refund of the delivery fee so you can organise your own freight. If none of these work, we will give you a full refund.
 
