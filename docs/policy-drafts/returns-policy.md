@@ -50,12 +50,16 @@ If your order arrives damaged, has a manufacturing fault, is missing parts, or i
    - a description of the problem
    - **photos** of the whole product, the damaged or faulty area, the outer packaging and the shipping label
 3. **Keep the packaging** until the matter is sorted out, and do not dispose of the product.
-4. If we need the product back, **we will arrange the return for you** - we will book a courier to collect it from you at our cost, and tell you when to have it ready. Please do not send faulty goods back yourself unless we ask you to. We may also arrange to inspect the product where it is.
+4. **Contact us before sending anything back.** What we do depends on what is wrong:
+   - **A single part:** we may send you a replacement part, and may not need the old part back.
+   - **The whole unit:** we will agree the details of the return with you, and arrange the return at our cost.
+   - We may also arrange to inspect the product where it is.
+   - Please do not send faulty goods back yourself unless we ask you to.
 5. We will arrange a repair, replacement or refund, depending on what you are entitled to under the Australian Consumer Law.
 
 **Unboxing video:** for large or freight-delivered orders, we recommend filming yourself opening the packaging so that the sealed boxes, the shipping label and the contents are clear. It is not required, and not having one does not affect your rights, but it helps us resolve any damage claim faster.
 
-We cover the cost of returning goods that are faulty, damaged or not as described, and we arrange the courier collection.
+We cover the cost of returning goods that are faulty, damaged or not as described. We will agree how the return happens with you first.
 
 **If we inspect a product and it is not faulty:** we will tell you what we found. You can then choose to **pay the freight to have it delivered back to you**. If you would rather not, we will keep the returned product and you will not be charged anything further. **[LAWYER TO CHECK: keeping a customer's goods without a refund when they were sent in under a fault claim. Consider adding a time limit, for example "if we do not hear from you within 30 days".]** If the product is still within the 14-day change-of-mind period and meets the conditions in section 2, you may choose to treat it as a change-of-mind return instead.
 
