@@ -1,6 +1,6 @@
 # Returns and Refund Policy (DRAFT)
 
-> **Draft for review (version 3).** Written from the returns information on the Super Shelving FAQs page and in our Terms of Service, updated after comparing five Australian shelving retailers' returns policies and with your answers on restocking fees, refund times and cancellations. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have it checked before publishing, especially sections 1, 2, 4 and 5.
+> **Draft for review (version 4).** Written from the returns information on the Super Shelving FAQs page and in our Terms of Service, updated after comparing five Australian shelving retailers' returns policies and with your answers on restocking fees, refund times and cancellations. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have it checked before publishing, especially sections 1, 2, 4 and 5.
 
 **Last updated:** 14 October 2026
 
@@ -65,7 +65,7 @@ Our **Warranty Policy** gives you extra cover for the first 12 months.
 
 If you want to change or cancel an order, please contact us as soon as you can.
 
-- **Before we dispatch it,** we can cancel it. We keep **20% of the order total**, and refund the rest. **[LAWYER TO CHECK: a 20% fee for cancelling before dispatch is higher than the 3% charged by one other retailer we looked at, and could be seen as unreasonable if it is more than your actual costs. Consider a lower fee.]**
+- **Before we dispatch it,** we can cancel it. We keep **5% of the order total** to cover payment-processing and handling costs, and refund the rest. **[LAWYER TO CHECK: confirm the 5% fee reasonably reflects your actual costs of processing a cancelled order.]**
 - **After it has been dispatched or collected,** it can no longer be cancelled. You can return it under section 2.
 
 ## 6. Things we cannot accept for return
