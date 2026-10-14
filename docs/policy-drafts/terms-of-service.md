@@ -1,6 +1,6 @@
 # Terms of Service (DRAFT)
 
-> **Draft for review (version 5).** Written from the details on the Super Shelving site and updated after comparing six Australian shelving retailers' terms and with your answers on business details, payments, returns and competitions. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have a lawyer check this before you publish it, especially sections 9, 10 and 13.
+> **Draft for review (version 6).** Written from the details on the Super Shelving site and updated after comparing six Australian shelving retailers' terms and with your answers on business details, payments, returns and competitions. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have a lawyer check this before you publish it, especially sections 9, 10 and 13.
 
 **Last updated:** 13 October 2026
 
@@ -59,7 +59,7 @@ Where we give you a tracking number, please keep it. If a delivery goes wrong, c
 
 - **Change of mind:** we accept returns for change of mind within **14 days of receiving or collecting your order**, if the product is **unassembled, unused and in its original, unopened boxes**. Contact us within the 14 days and wait for our return instructions. For change-of-mind returns, you pay to send the goods back, and we keep a **20% restocking and handling fee**. Original delivery charges are not refunded. See our **Returns Policy** for the full details.
 - **Faulty, damaged or not as described:** if a product is faulty or damaged, or is not what we described, contact us with photos as soon as you can. Your rights under the Australian Consumer Law apply, and we will give you the remedy you are entitled to.
-- **Warranty:** all products come with a 12-month warranty. See our **Warranty Policy**.
+- **Warranty:** all products come with a 2-year warranty. See our **Warranty Policy**.
 
 Our **Returns Policy** forms part of these terms.
 

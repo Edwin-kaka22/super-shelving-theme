@@ -1,6 +1,6 @@
 # Returns and Refund Policy (DRAFT)
 
-> **Draft for review (version 6).** Written from the returns information on the Super Shelving FAQs page and in our Terms of Service, updated after comparing five Australian shelving retailers' returns policies and with your answers on restocking fees, refund times and cancellations. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have it checked before publishing, especially sections 1, 2, 4 and 5.
+> **Draft for review (version 7).** Written from the returns information on the Super Shelving FAQs page and in our Terms of Service, updated after comparing five Australian shelving retailers' returns policies and with your answers on restocking fees, refund times and cancellations. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have it checked before publishing, especially sections 1, 2, 4 and 5.
 
 **Last updated:** 14 October 2026
 
@@ -63,7 +63,7 @@ We cover the cost of returning goods that are faulty, damaged or not as describe
 
 **If we inspect a product and it is not faulty:** we will tell you what we found. You can then choose to **pay the freight to have it delivered back to you**. If you would rather not, we will keep the returned product and you will not be charged anything further. **[LAWYER TO CHECK: keeping a customer's goods without a refund when they were sent in under a fault claim. Consider adding a time limit, for example "if we do not hear from you within 30 days".]** If the product is still within the 14-day change-of-mind period and meets the conditions in section 2, you may choose to treat it as a change-of-mind return instead.
 
-Our **Warranty Policy** gives you extra cover for the first 12 months.
+Our **Warranty Policy** gives you extra cover for the first 2 years.
 
 ## 5. Cancelling an order
 
