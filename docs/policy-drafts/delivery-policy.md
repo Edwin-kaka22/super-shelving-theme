@@ -1,6 +1,6 @@
 # Delivery Policy (DRAFT)
 
-> **Draft for review (version 4).** Written from the details already on the Super Shelving site (FAQs page, Terms and Returns Policy) and updated after comparing five Australian shelving retailers' delivery and shipping pages. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice.
+> **Draft for review (version 5).** Written from the details already on the Super Shelving site (FAQs page, Terms and Returns Policy) and updated after comparing five Australian shelving retailers' delivery and shipping pages. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice.
 
 **Last updated:** 14 October 2026
 
@@ -31,7 +31,9 @@ To collect:
 
 If you arranged to pay by **bank transfer, PayID or cash** for a pickup order, you pay in person at our pickup location when you collect.
 
-Your shelving is packed flat in boxes. Our How To Collect In Your Vehicle guide shows boxed sizes and weights so you can check your vehicle first. You are also welcome to send your own courier to collect your order. Please contact us in advance so we can arrange it. We hold pickup orders for **7 days**. If you cannot collect within 7 days, please contact us. **[CONFIRM: what happens after 7 days with no contact - for example, we return the order to stock and refund the purchase price, less any fees.]**
+Your shelving is packed flat in boxes. Our How To Collect In Your Vehicle guide shows boxed sizes and weights so you can check your vehicle first. You are also welcome to send your own courier to collect your order. Please contact us in advance so we can arrange it.
+
+**Uncollected orders:** we hold pickup orders for **14 days** from your order confirmation. We will email you a **reminder** after your order confirmation and "ready for pickup" email, so you have plenty of notice. If your order has not been collected within the 14 days, we will treat it as cancelled, keep **50% of the purchase price**, and refund the remaining 50%. If you cannot collect in time, please contact us **before the 14 days are up** so we can work something out. **[LAWYER TO CHECK: keeping 50% of the price is much higher than the 20% restocking fee in the Returns Policy. It is easier to defend if the notice and reminder are clear, but a fee well above your real costs can be challenged as unfair, so confirm the percentage.]**
 
 ## 3. Dispatch and delivery times
 
