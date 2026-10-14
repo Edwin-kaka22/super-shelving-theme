@@ -1,6 +1,6 @@
 # Warranty Policy (DRAFT)
 
-> **Draft for review (version 2).** Rewritten in our own words after comparing five Australian shelving retailers' warranty pages. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have it checked before publishing, especially sections 1, 2 and 11.
+> **Draft for review (version 3).** Rewritten in our own words after comparing five Australian shelving retailers' warranty pages. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have it checked before publishing, especially sections 1, 2 and 11.
 
 **Last updated:** 14 October 2026
 
@@ -25,7 +25,7 @@ Email: Edwin_10@live.com.au
 
 ## 3. How long the warranty lasts
 
-Every Super Shelving product is covered for **12 months** from the **date of purchase** **[CONFIRM: or from the date you receive or collect the order]**. This is on top of the consumer guarantees described in section 1, which are not limited to 12 months.
+Every Super Shelving product is covered for **12 months** from the **date of purchase**. This is on top of the consumer guarantees described in section 1, which are not limited to 12 months.
 
 ## 4. What we will do
 
@@ -64,14 +64,14 @@ Nothing in this section limits your rights under the Australian Consumer Law.
 
 ## 7. Where and how to use our products
 
-Our products are made for **[dry, indoor, well-ventilated spaces such as garages, workshops, sheds and warehouses]**. **[CONFIRM wording - you advertise sheds as a use, so decide how to describe the conditions the products suit, and whether outdoor or wet areas are excluded.]** Please keep products on a level, solid surface and away from standing water.
+Our products are made for **dry, indoor use** - for example in garages, workshops, sheds and warehouses. They are not designed for outdoor use or for places exposed to rain, standing water, salt air or constant damp. Please keep products on a level, solid surface and away from standing water.
 
 ## 8. How to make a claim
 
 1. **Contact us** by email at Edwin_10@live.com.au, on +61 431 533 520, or through our Contact Us page. Please **contact us before sending anything back**.
 2. **Give us proof of purchase** - your order confirmation or invoice - and a description of the problem. A bank or card statement on its own does not show what you bought.
 3. **Send photos or a short video** that show the whole product and the problem.
-4. We will **assess your claim** and reply within **[X] business days**. We may ask for more information or arrange to inspect the product.
+4. We will **reply within 2 business days** and aim to **decide your claim within 5 business days** of receiving your proof of purchase and photos **[CONFIRM]**. We may ask for more information or arrange to inspect the product.
 5. If your claim is approved, we will tell you what we will do and how to arrange it:
    - **A single part:** we may simply post you a replacement part.
    - **The whole unit:** we will agree the details of the return with you.
@@ -79,9 +79,9 @@ Our products are made for **[dry, indoor, well-ventilated spaces such as garages
 
 ## 9. Costs of making a claim
 
-We will cover the reasonable freight cost of sending replacement parts or products to you within Victoria, and of arranging the return of a product that we have asked to have back. We may choose the carrier. **[CONFIRM.]**
+We will cover the reasonable freight cost of sending replacement parts or products to you within Victoria, and of arranging the return of a product that we have asked to have back. We may choose the carrier.
 
-Where we inspect a product and find it is not covered by this warranty, we may ask you to cover reasonable inspection and return costs, **to the extent the law allows**. **[CONFIRM.]**
+Where we inspect a product and find it is not covered by this warranty, we may ask you to cover reasonable inspection and return costs, **to the extent the law allows**.
 
 ## 10. Repair times
 
@@ -89,7 +89,7 @@ Where parts are available, we aim to complete approved repairs or send replaceme
 
 ## 11. Who the warranty applies to, and limits
 
-- This warranty is for the **original purchaser**. **[CONFIRM: or "can be passed to a later owner with the original proof of purchase".]**
+- This warranty is for the **original purchaser** only. It does not pass to anyone else if the product is sold on or given away.
 - To the extent the law allows, our liability under this warranty is limited to repairing the product, replacing it, or refunding it, as set out above. We are not liable for indirect or consequential loss, such as lost profits, except where the law entitles you to compensation for reasonably foreseeable loss.
 
 ## 12. Contact us
