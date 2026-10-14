@@ -1,10 +1,12 @@
 # Delivery Policy (DRAFT)
 
-> **Draft for review.** Written from the details already on the Super Shelving site (FAQs page). Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice.
+> **Draft for review (version 2).** Written from the details already on the Super Shelving site (FAQs page, Terms and Returns Policy) and updated after comparing five Australian shelving retailers' delivery and shipping pages. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice.
 
-**Last updated:** [DATE]
+**Last updated:** 14 October 2026
 
 ---
+
+At Super Shelving, we want your shelving to arrive safely and without fuss. This policy explains where we deliver, how long it takes, how pickup works, and what to do when your order arrives.
 
 ## 1. Where we deliver
 
@@ -23,18 +25,24 @@ Saturday and Sunday 10am - 5pm
 To collect:
 
 1. Choose **Pickup** at checkout.
-2. Wait for your order confirmation **[CONFIRM: or "pickup ready" email]**.
-3. Bring your order number when you arrive. **[CONFIRM: photo ID required?]**
+2. We will email you when your order is **ready to collect**. **[CONFIRM: do you want pickup by appointment, and how long does an order take to be ready - for example 1 business day?]**
+3. Bring a copy of your **order confirmation** or your order number when you arrive.
+4. If someone else is collecting for you, they will need your order number. **[CONFIRM: any ID requirement?]**
 
-Your shelving is packed flat in boxes. Our How To Collect In Your Vehicle guide shows boxed sizes and weights so you can check your vehicle first. **[CONFIRM: pickup hold time before orders are returned to stock, e.g. 7 days.]**
+If you arranged to pay by **bank transfer, PayID or cash** for a pickup order, you pay in person at our pickup location when you collect.
+
+Your shelving is packed flat in boxes. Our How To Collect In Your Vehicle guide shows boxed sizes and weights so you can check your vehicle first. You are also welcome to send your own courier to collect your order. Please contact us in advance so we can arrange it. **[CONFIRM: how long you hold pickup orders before they go back to stock, for example 14 days.]**
 
 ## 3. Dispatch and delivery times
 
 - We aim to dispatch orders as soon as possible. Orders placed on our website are usually dispatched the **following business day**.
 - Once dispatched, delivery usually takes **1-2 business days**, depending on your location.
 - Orders placed on weekends or public holidays are processed on the next business day.
+- During busy periods, sales or public holidays, dispatch may take longer.
 
 These times are estimates, not guarantees. Delays can happen because of stock, weather, public holidays, courier issues or other events outside our control. We will contact you if we expect a significant delay.
+
+We will try to meet any delivery time you ask for, but we **cannot guarantee a specific day, time or time slot** unless we have confirmed it in writing. **[CONFIRM: whether you offer a booked time slot for an extra fee.]**
 
 ## 4. How your order is delivered
 
@@ -45,28 +53,39 @@ Your order is delivered in one of two ways, whichever is cheaper:
 
 We choose the delivery method. You will not be able to choose between them.
 
+Once your order is dispatched, we will send you **tracking details** by email. Please keep them. If something goes wrong, contact the courier with your tracking number and let us know straight away so we can help follow it up.
+
 ## 5. Delivery costs
 
-Delivery is calculated at checkout based on your **postcode** and the **items and quantity** you order. Some items ship for as little as $9.99, but most orders fall between **$50 and $100**. **[CONFIRM current range.]**
+Delivery is calculated at checkout based on your **postcode** and the **items and quantity** you order. The cost is shown before you pay.
 
-The delivery cost is shown before you pay. **[CONFIRM: any free-delivery threshold, remote-area surcharge or extra charge for large orders.]**
+Some larger or heavier orders, or addresses that are hard to reach, may cost more to deliver than the checkout shows. If that happens, we will contact you **within 2 business days** to discuss. You can accept the extra cost or cancel for a full refund. **[CONFIRM: this is borrowed from another retailer's approach - keep it only if you want it.]**
 
-## 6. Delivery address and receiving your order
+For **large or bulk orders**, please contact us before you order and we can give you a freight quote.
 
-- Please give us a **complete and accurate address**, with a phone number we can reach on delivery day.
-- We deliver to **[the front door / the kerbside / the first accessible point]** at your address. **[CONFIRM: carry-in or placement inside the property is / is not included.]**
-- Shelving is heavy and bulky. Please make sure someone is available to receive and move it.
-- If nobody is home, the courier may leave the order in a safe place if the carrier's authority-to-leave option applies, or attempt redelivery. **[CONFIRM.]** If a delivery fails because of an incorrect address or no one being available, **[extra redelivery charges may apply]**.
+## 6. Where we deliver to, and receiving your order
+
+- Please give us a **complete and accurate address**, and a phone number we can reach on delivery day.
+- Deliveries go to the **front door, garage, or ground floor or kerbside** of your address. **We do not carry items upstairs, downstairs or inside** your home or business. **[CONFIRM: or add "unless arranged in advance for an extra fee".]**
+- Shelving is heavy and bulky. Please make sure someone is available to receive and help move it.
+- You are responsible for **disposing of the pallets and packaging**.
+- If you tell us to leave your order in a **particular spot**, such as the garage or a locked gate, we will do our best. **Once it has been left there, it is your responsibility.** We cannot be responsible for goods that go missing from a spot you nominated.
+- Please tell us if access is **limited** - for example, a narrow driveway, steep driveway, gated property, or no room for a truck.
+
+**When a delivery cannot be completed:** if the courier cannot deliver because of an **incorrect address**, **nobody being available**, or **restricted access**, we may charge a **redelivery fee**, and the delivery must be paid for before we try again. If you ask us to **redirect** an order to a different address after it has been dispatched, extra charges may apply. **[CONFIRM redelivery charge approach.]**
+
+**If we cannot deliver to your address at all,** we will contact you to talk about options - for example, collecting your order, paying an extra fee, or a refund of the delivery fee so you can organise your own freight. If none of these work, we will give you a full refund.
 
 ## 7. Check your order on arrival
 
 Please check your order when it arrives:
 
-- Look over the outside of the boxes for damage **before** the courier leaves where you can. Take photos.
-- Open the boxes and check you have received everything **[within X days]**.
-- If anything is damaged or missing, contact us as soon as possible, with your order number and photos, at [BUSINESS EMAIL] or +61 431 533 520.
+- Look over the outside of the boxes for damage **before** the courier leaves where you can, and take photos.
+- Open the boxes and check you have received everything.
+- If anything is damaged, missing or wrong, contact us as soon as possible - **ideally within 7 days of delivery** - at Edwin_10@live.com.au or +61 431 533 520. Please include your order number and **photos** of the product, the damage, the packaging and the shipping label.
+- Please **keep the packaging** until the problem is sorted out.
 
-We will arrange a replacement, repair or refund as required by law. See our Warranty Policy and the returns and refunds information on our FAQs page.
+This is a request, not a cut-off: it does not limit your rights under the Australian Consumer Law. We will arrange a repair, replacement or refund as the law requires. See our **Returns Policy** (section 4) for faulty, damaged or incorrect items, and our **Warranty Policy** for cover after delivery.
 
 ## 8. Risk and ownership
 
@@ -77,4 +96,4 @@ Risk in the goods passes to you when they are delivered to you or collected. Own
 Super Shelving
 4 Ardmillan Road, Moonee Ponds VIC 3039
 Phone: +61 431 533 520
-Email: [BUSINESS EMAIL]
+Email: Edwin_10@live.com.au
