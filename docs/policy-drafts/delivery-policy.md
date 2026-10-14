@@ -1,6 +1,6 @@
 # Delivery Policy (DRAFT)
 
-> **Draft for review (version 3).** Written from the details already on the Super Shelving site (FAQs page, Terms and Returns Policy) and updated after comparing five Australian shelving retailers' delivery and shipping pages. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice.
+> **Draft for review (version 4).** Written from the details already on the Super Shelving site (FAQs page, Terms and Returns Policy) and updated after comparing five Australian shelving retailers' delivery and shipping pages. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice.
 
 **Last updated:** 14 October 2026
 
@@ -59,14 +59,14 @@ Once your order is dispatched, we will send you **tracking details** by email. P
 
 Delivery is calculated at checkout based on your **postcode** and the **items and quantity** you order. The cost is shown before you pay.
 
-Some larger or heavier orders, or addresses that are hard to reach, may cost more to deliver than the checkout shows. If that happens, we will contact you **as soon as we can** to discuss. You can accept the extra cost or cancel for a full refund. **[CONFIRM: this is borrowed from another retailer's approach - keep it only if you want it.]**
+Some larger or heavier orders, or addresses that are hard to reach, may cost more to deliver than the checkout shows. If that happens, we will contact you **as soon as we can** to discuss. You can accept the extra cost or cancel for a full refund.
 
 For **large or bulk orders**, please contact us before you order and we can give you a freight quote.
 
 ## 6. Where we deliver to, and receiving your order
 
 - Please give us a **complete and accurate address**, and a phone number we can reach on delivery day.
-- Deliveries go to the **front door, garage, or ground floor or kerbside** of your address. Standard delivery does **not** include carrying items upstairs, downstairs or inside your home or business. If you need that, you can **arrange it separately with the courier when your order is delivered**. **[CONFIRM: any extra fee for carry-in is agreed with, and paid to, the courier.]**
+- Deliveries go to the **front door, garage, or ground floor or kerbside** of your address. Standard delivery does **not** include carrying items upstairs, downstairs or inside your home or business. If you need that, you can **arrange it separately with the courier when your order is delivered**. The courier may charge a fee for this, which you agree with and pay to them directly.
 - Shelving is heavy and bulky. Please make sure someone is available to receive and help move it.
 - You are responsible for **disposing of the pallets and packaging**.
 - If you tell us to leave your order in a **particular spot**, such as the garage or a locked gate, we will do our best. **Once it has been left there, it is your responsibility.** We cannot be responsible for goods that go missing from a spot you nominated.
