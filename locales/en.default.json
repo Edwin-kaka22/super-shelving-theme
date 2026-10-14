@@ -47,6 +47,9 @@
       "error_heading": "Please fix the following:"
     }
   },
+  "policy_page": {
+    "last_updated": "Last updated:"
+  },
   "purchasing_guide": {
     "choose_if": "Choose this if...",
     "key_benefits": "Key benefits",
