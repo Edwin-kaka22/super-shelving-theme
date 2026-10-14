@@ -1,8 +1,8 @@
 # Warranty Policy (DRAFT)
 
-> **Draft for review.** Written from the details already on the Super Shelving site (FAQs page). Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have it checked before publishing, especially the Australian Consumer Law statement in section 1.
+> **Draft for review (version 2).** Rewritten in our own words after comparing five Australian shelving retailers' warranty pages. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have it checked before publishing, especially sections 1, 2 and 11.
 
-**Last updated:** [DATE]
+**Last updated:** 14 October 2026
 
 ---
 
@@ -18,60 +18,83 @@ The benefits given by the warranty below are in addition to your other rights an
 
 This warranty is provided by:
 
-**[LEGAL BUSINESS NAME]** trading as **Super Shelving** (ABN [ABN])
+**Super Shelving** (ABN 35 812 490 397)
 4 Ardmillan Road, Moonee Ponds VIC 3039
 Phone: +61 431 533 520
-Email: [BUSINESS EMAIL]
+Email: Edwin_10@live.com.au
 
 ## 3. How long the warranty lasts
 
-All Super Shelving products come with a **12-month warranty** from the date of purchase. This is in addition to the consumer guarantees described in section 1.
+Every Super Shelving product is covered for **12 months** from the **date of purchase** **[CONFIRM: or from the date you receive or collect the order]**. This is on top of the consumer guarantees described in section 1, which are not limited to 12 months.
 
-## 4. What the warranty covers
+## 4. What we will do
 
-If a product has a defect in materials or workmanship when used normally and as intended, we will repair or replace the product or the defective part at no cost to you. This includes:
+If a product has a covered defect, we will, at no cost to you:
 
-- **Manufacturing defects** - faults in materials or workmanship.
-- **Structural integrity** - problems affecting how shelves, beams, uprights and workbench frames perform when loaded within the recommended limits.
-- **Parts replacement** - repair or replacement of defective components.
+- **repair** it, or
+- **replace** the faulty part or the whole product, or
+- if the same product is no longer available, replace it with one of **equal or better specification**.
 
-## 5. What the warranty does not cover
+Where the law gives you a right to a refund, we will honour it.
+
+If we replace a product or part, the replacement is covered for the rest of the original 12-month period **[CONFIRM: or choose a fresh period]**.
+
+## 5. What is covered
+
+We cover faults that are caused by how the product was made, when it is assembled as instructed and used within its stated load ratings. This includes:
+
+- defects in the **materials or workmanship** of frames, uprights, beams, shelves or workbench tops
+- **structural problems** where the product fails under a load that is within its rating
+- **faulty fittings or components** supplied with the product
+
+## 6. What is not covered
 
 This warranty does not cover:
 
-- damage caused by misuse, incorrect assembly or overloading beyond the stated load ratings
-- general wear and tear, scratches or cosmetic marks
-- modifications, or repairs carried out by anyone not authorised by us
-- moisture, rust or corrosion caused by improper storage or use (for example, use outdoors or in constantly damp conditions) **[CONFIRM: are any products rated for outdoor use?]**
-- damage caused after delivery or collection, such as dents from dropping or moving the product
-- products used for a purpose they were not designed for, such as holding people or being used as scaffolding
+- damage from **overloading**, uneven loading, or using a product beyond its stated load rating
+- problems caused by **incorrect assembly**, or by not using all the supplied fittings
+- **modifications**, or repairs and alterations carried out by anyone we have not authorised
+- **normal wear and tear**, scratches, dents, scuffs or cosmetic marks that do not affect how the product works
+- **surface rust** or marks from damp, humid, salty or otherwise corrosive conditions **[CONFIRM: and whether structural rust that makes the product unsafe is still covered unless caused by neglect]**
+- damage that happens **after delivery or collection**, for example from dropping a unit, dragging it, or moving it while loaded
+- using the product for a purpose it was **not designed for**, such as holding or supporting people
+- products that have been **bought second-hand**
 
 Nothing in this section limits your rights under the Australian Consumer Law.
 
-## 6. How to make a claim
+## 7. Where and how to use our products
 
-1. **Contact us** by email at [BUSINESS EMAIL] or on +61 431 533 520, or send a message through our Contact Us page.
-2. **Provide proof of purchase** (your order confirmation, invoice or receipt) and a description of the problem. Photos or a short video of the issue help us assess it quickly.
-3. **We will assess your claim** and let you know whether it is covered. We aim to respond within **[X] business days**.
-4. **If approved**, we will repair or replace the product or part at no cost to you, or arrange another remedy that you are entitled to by law.
+Our products are made for **[dry, indoor, well-ventilated spaces such as garages, workshops, sheds and warehouses]**. **[CONFIRM wording - you advertise sheds as a use, so decide how to describe the conditions the products suit, and whether outdoor or wet areas are excluded.]** Please keep products on a level, solid surface and away from standing water.
 
-## 7. Costs of making a claim
+## 8. How to make a claim
 
-**[CONFIRM and edit - the law requires the warranty to say who pays for claim expenses.]**
+1. **Contact us** by email at Edwin_10@live.com.au, on +61 431 533 520, or through our Contact Us page. Please **contact us before sending anything back**.
+2. **Give us proof of purchase** - your order confirmation or invoice - and a description of the problem. A bank or card statement on its own does not show what you bought.
+3. **Send photos or a short video** that show the whole product and the problem.
+4. We will **assess your claim** and reply within **[X] business days**. We may ask for more information or arrange to inspect the product.
+5. If your claim is approved, we will tell you what we will do and how to arrange it:
+   - **A single part:** we may simply post you a replacement part.
+   - **The whole unit:** we will agree the details of the return with you.
+   - Please do not send products back yourself unless we ask you to.
 
-We will cover the reasonable cost of sending replacement parts or products to you within Victoria. If we ask you to return the product for inspection, we will **[cover / reimburse]** the reasonable cost of returning it.
+## 9. Costs of making a claim
 
-## 8. Replacement parts and products
+We will cover the reasonable freight cost of sending replacement parts or products to you within Victoria, and of arranging the return of a product that we have asked to have back. We may choose the carrier. **[CONFIRM.]**
 
-Where we replace a product or part under this warranty, the replacement is covered for the remainder of the original 12-month warranty period **[CONFIRM: or choose a fresh period]**. We may replace a product with the same model or one of equivalent specification if the original is no longer available.
+Where we inspect a product and find it is not covered by this warranty, we may ask you to cover reasonable inspection and return costs, **to the extent the law allows**. **[CONFIRM.]**
 
-## 9. Transfer of warranty
+## 10. Repair times
 
-This warranty is for the original purchaser **[CONFIRM: or "is transferable to a later owner with proof of the original purchase"]**.
+Where parts are available, we aim to complete approved repairs or send replacements within **[10] business days** of approving your claim. **[CONFIRM.]** If a part is not available, we will let you know and discuss the options, which may include replacing the product with an equivalent one.
 
-## 10. Contact us
+## 11. Who the warranty applies to, and limits
+
+- This warranty is for the **original purchaser**. **[CONFIRM: or "can be passed to a later owner with the original proof of purchase".]**
+- To the extent the law allows, our liability under this warranty is limited to repairing the product, replacing it, or refunding it, as set out above. We are not liable for indirect or consequential loss, such as lost profits, except where the law entitles you to compensation for reasonably foreseeable loss.
+
+## 12. Contact us
 
 Super Shelving
 4 Ardmillan Road, Moonee Ponds VIC 3039
 Phone: +61 431 533 520
-Email: [BUSINESS EMAIL]
+Email: Edwin_10@live.com.au
