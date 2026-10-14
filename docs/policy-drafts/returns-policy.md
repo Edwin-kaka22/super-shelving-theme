@@ -1,6 +1,6 @@
 # Returns and Refund Policy (DRAFT)
 
-> **Draft for review (version 5).** Written from the returns information on the Super Shelving FAQs page and in our Terms of Service, updated after comparing five Australian shelving retailers' returns policies and with your answers on restocking fees, refund times and cancellations. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have it checked before publishing, especially sections 1, 2, 4 and 5.
+> **Draft for review (version 6).** Written from the returns information on the Super Shelving FAQs page and in our Terms of Service, updated after comparing five Australian shelving retailers' returns policies and with your answers on restocking fees, refund times and cancellations. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have it checked before publishing, especially sections 1, 2, 4 and 5.
 
 **Last updated:** 14 October 2026
 
@@ -50,12 +50,12 @@ If your order arrives damaged, has a manufacturing fault, is missing parts, or i
    - a description of the problem
    - **photos** of the whole product, the damaged or faulty area, the outer packaging and the shipping label
 3. **Keep the packaging** until the matter is sorted out, and do not dispose of the product.
-4. We may ask you to send the product back, or arrange to inspect it, before approving a remedy.
+4. If we need the product back, **we will arrange the return for you** - we will book a courier to collect it from you at our cost, and tell you when to have it ready. Please do not send faulty goods back yourself unless we ask you to. We may also arrange to inspect the product where it is.
 5. We will arrange a repair, replacement or refund, depending on what you are entitled to under the Australian Consumer Law.
 
 **Unboxing video:** for large or freight-delivered orders, we recommend filming yourself opening the packaging so that the sealed boxes, the shipping label and the contents are clear. It is not required, and not having one does not affect your rights, but it helps us resolve any damage claim faster.
 
-We cover the cost of returning goods that are faulty, damaged or not as described.
+We cover the cost of returning goods that are faulty, damaged or not as described, and we arrange the courier collection.
 
 **If we inspect a product and it is not faulty:** we will tell you what we found. You can then choose to **pay the freight to have it delivered back to you**. If you would rather not, we will keep the returned product and you will not be charged anything further. **[LAWYER TO CHECK: keeping a customer's goods without a refund when they were sent in under a fault claim. Consider adding a time limit, for example "if we do not hear from you within 30 days".]** If the product is still within the 14-day change-of-mind period and meets the conditions in section 2, you may choose to treat it as a change-of-mind return instead.
 
@@ -77,7 +77,9 @@ We cannot accept change-of-mind returns for:
 
 This does not affect your rights if a product is faulty (section 4).
 
-## 7. How to start a return
+## 7. How to start a change-of-mind return
+
+(For faulty, damaged or incorrect products, see section 4 - we arrange the return for you.)
 
 1. **Contact us** through the Contact Us page or by email at Edwin_10@live.com.au with your order number and the reason for the return. Please do not send anything back before we reply.
 2. We will reply with the **return instructions**, including the address to send goods to: **Super Shelving, 4 Ardmillan Road, Moonee Ponds VIC 3039**. **[This address will be updated later.]**
