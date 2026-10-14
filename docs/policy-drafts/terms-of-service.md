@@ -1,6 +1,6 @@
 # Terms of Service (DRAFT)
 
-> **Draft for review (version 4).** Written from the details on the Super Shelving site and updated after comparing six Australian shelving retailers' terms and with your answers on business details, payments, returns and competitions. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have a lawyer check this before you publish it, especially sections 9, 10 and 13.
+> **Draft for review (version 5).** Written from the details on the Super Shelving site and updated after comparing six Australian shelving retailers' terms and with your answers on business details, payments, returns and competitions. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have a lawyer check this before you publish it, especially sections 9, 10 and 13.
 
 **Last updated:** 13 October 2026
 
@@ -36,6 +36,7 @@ You must be at least 18 years old, or have a parent or guardian's permission, an
 - When you place an order on our website, you are making an offer to buy. The email we send straight after you order only confirms that we have **received** your order - it does not mean we have accepted it.
 - **We accept your order when we dispatch your goods** (for pickup orders, when we tell you your order is ready to collect). That is the point at which a contract is formed between you and us.
 - Until then we may decline or cancel an order, for example if stock is unavailable, there is a pricing error, we cannot verify your details, or the order looks like it is being placed for resale without our agreement. If we cancel after you have paid, we will refund you in full.
+- If you want to cancel an order before we dispatch it, a cancellation fee applies. See our **Returns Policy**.
 - We may limit the quantity of a product you can buy in one order.
 - Please give us accurate and complete details, and keep your contact details up to date so we can complete your order.
 - Orders are currently deliverable within Victoria only. See our Delivery Policy.
@@ -56,9 +57,11 @@ Where we give you a tracking number, please keep it. If a delivery goes wrong, c
 
 ## 8. Returns, refunds and warranty
 
-- **Change of mind:** we accept returns for change of mind within **14 days of receiving or collecting your order**, if the product is in its original condition. Contact us within the 14 days to arrange it. For change-of-mind returns, you pay to send the goods back, and we refund the purchase price less the original delivery cost we paid to send the order to you.
+- **Change of mind:** we accept returns for change of mind within **14 days of receiving or collecting your order**, if the product is **unassembled, unused and in its original, unopened boxes**. Contact us within the 14 days and wait for our return instructions. For change-of-mind returns, you pay to send the goods back, and we keep a **20% restocking fee**. Original delivery charges are not refunded. See our **Returns Policy** for the full details.
 - **Faulty, damaged or not as described:** if a product is faulty or damaged, or is not what we described, contact us with photos as soon as you can. Your rights under the Australian Consumer Law apply, and we will give you the remedy you are entitled to.
 - **Warranty:** all products come with a 12-month warranty. See our **Warranty Policy**.
+
+Our **Returns Policy** forms part of these terms.
 
 Nothing in these terms limits your rights under the Australian Consumer Law.
 
@@ -132,7 +135,7 @@ We are not liable for delay or failure to perform our obligations caused by even
 ## 18. General
 
 - **If part of these terms cannot be enforced,** the rest still applies.
-- **These terms, together with our Delivery Policy, Warranty Policy and any other policy we link to, are the whole agreement** between you and us about your order, and replace anything said earlier.
+- **These terms, together with our Delivery Policy, Warranty Policy, Returns Policy and any other policy we link to, are the whole agreement** between you and us about your order, and replace anything said earlier.
 - **If we don't enforce a right straight away,** that does not mean we have given it up.
 
 ## 19. Changes to these terms
