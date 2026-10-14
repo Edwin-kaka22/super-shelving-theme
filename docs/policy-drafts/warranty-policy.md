@@ -1,10 +1,12 @@
 # Warranty Policy (DRAFT)
 
-> **Draft for review (version 4).** Rewritten in our own words after comparing five Australian shelving retailers' warranty pages. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have it checked before publishing, especially sections 1, 2 and 11.
+> **Draft for review (version 5).** Rewritten in our own words after comparing five Australian shelving retailers' warranty pages. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have it checked before publishing, especially sections 1, 2 and 11.
 
 **Last updated:** 14 October 2026
 
 ---
+
+At Super Shelving, we want you to get years of reliable use from your shelving and workbenches. This policy explains how our 2-year warranty works - what it covers, what it doesn't, and how to make a claim - so you know exactly where you stand if something goes wrong.
 
 ## 1. Your rights under Australian Consumer Law
 
