@@ -57,7 +57,7 @@ Where we give you a tracking number, please keep it. If a delivery goes wrong, c
 
 ## 8. Returns, refunds and warranty
 
-- **Change of mind:** we accept returns for change of mind within **14 days of receiving or collecting your order**, if the product is **unassembled, unused and in its original, unopened boxes**. Contact us within the 14 days and wait for our return instructions. For change-of-mind returns, you pay to send the goods back, and we keep a **20% restocking fee**. Original delivery charges are not refunded. See our **Returns Policy** for the full details.
+- **Change of mind:** we accept returns for change of mind within **14 days of receiving or collecting your order**, if the product is **unassembled, unused and in its original, unopened boxes**. Contact us within the 14 days and wait for our return instructions. For change-of-mind returns, you pay to send the goods back, and we keep a **20% restocking and handling fee**. Original delivery charges are not refunded. See our **Returns Policy** for the full details.
 - **Faulty, damaged or not as described:** if a product is faulty or damaged, or is not what we described, contact us with photos as soon as you can. Your rights under the Australian Consumer Law apply, and we will give you the remedy you are entitled to.
 - **Warranty:** all products come with a 12-month warranty. See our **Warranty Policy**.
 

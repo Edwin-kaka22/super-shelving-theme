@@ -1,6 +1,6 @@
 # Returns and Refund Policy (DRAFT)
 
-> **Draft for review (version 4).** Written from the returns information on the Super Shelving FAQs page and in our Terms of Service, updated after comparing five Australian shelving retailers' returns policies and with your answers on restocking fees, refund times and cancellations. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have it checked before publishing, especially sections 1, 2, 4 and 5.
+> **Draft for review (version 5).** Written from the returns information on the Super Shelving FAQs page and in our Terms of Service, updated after comparing five Australian shelving retailers' returns policies and with your answers on restocking fees, refund times and cancellations. Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have it checked before publishing, especially sections 1, 2, 4 and 5.
 
 **Last updated:** 14 October 2026
 
@@ -24,7 +24,7 @@ Products that have been opened, assembled, used, damaged or modified do not qual
 
 **How the refund works**
 - You **pay the freight** to send the goods back to us. If you collected from our warehouse, you can bring them back in person instead.
-- We keep a **20% restocking fee**, calculated on the purchase price of the goods you return. For example, if you return a product that cost $100, we refund $80.
+- We keep a **20% restocking and handling fee**, calculated on the purchase price of the goods you return. It covers the cost of receiving, inspecting, handling and re-shelving the goods. For example, if you return a product that cost $100, we refund $80.
 - **Original delivery charges are not refunded.** **[CONFIRM: this keeps the existing rule that the original postage and handling cost is not refunded. Delete this line if the 20% fee should replace it.]**
 - Once your return arrives we **inspect it**. If goods are damaged, parts are missing, or they were poorly packed and damaged on the way back, we may deduct a reasonable amount for the loss.
 - We refund to your **original payment method within 7 days** of receiving and approving the return. Your bank or card provider may take extra time to show it. Afterpay refunds are processed through Afterpay.
@@ -38,7 +38,7 @@ The quickest way to swap a product for a different size or style is to return th
 - contact us within the 14 days
 - you pay the freight to send the original product back and for us to send the new one
 - you pay any difference in price **[CONFIRM: and we refund any difference if the new product costs less]**
-- **[CONFIRM: no 20% restocking fee applies to a straight exchange]**
+- **[CONFIRM: no 20% restocking and handling fee applies to a straight exchange]**
 
 ## 4. Faulty, damaged or incorrect products
 
