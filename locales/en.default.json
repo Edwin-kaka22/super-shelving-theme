@@ -171,6 +171,9 @@
       "next_image": "Next image"
     }
   },
+  "product_reviews": {
+    "editor_hint": "Reviews area: add your reviews app widget as a block in this section. Nothing is shown on the live site until a block is added."
+  },
   "gift_card": {
     "add_to_apple_wallet": "Add to Apple Wallet",
     "card": "Gift card",

@@ -172,6 +172,12 @@
         "button_label": "Read all reviews on Google"
       }
     },
+    "product-reviews": {
+      "type": "product-reviews",
+      "settings": {
+        "heading": "Customer reviews"
+      }
+    },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
@@ -183,6 +189,7 @@
   "order": [
     "announcement-bar",
     "main",
+    "product-reviews",
     "product-category-grid",
     "google-reviews",
     "product-recommendations"

@@ -7,6 +7,20 @@ Last updated: 2026-10-15
 
 ---
 
+## Already done
+
+- [x] ABN (35 812 490 397) - it's shown in the site footer
+- [x] Website theme built, tested and pushed to the live theme "Super Shelving - Build"
+- [x] Logo and favicon (header, footer, browser tab)
+- [x] Shopify pages created and linked in the footer: Returns, Delivery, Warranty, Terms of Service, Privacy, Assembly Instructions, Purchasing Guide, Share Your Experience, FAQs, About Us, Contact, How To Collect In Your Vehicle
+- [x] Footer menus (shop, support, information, policies) and footer details (ABN, address, phone, email)
+- [x] Policies written in the theme style, including the 2-year warranty wording across the site
+- [x] Steel shelving assembly PDF uploaded
+- [x] Share Your Experience gallery photos 1-3
+- [x] Star-rating display on collection cards and product pages (the numbers are still placeholders - see Phase 5)
+
+---
+
 ## Phase 1 - Business foundations (do these first, order matters)
 
 - [ ] **Check the name is available**: search ASIC business names, IP Australia trade marks (classes 20 shelving/furniture and 35 retail) and Google. Do this *before* spending more on branding.
@@ -40,15 +54,13 @@ Last updated: 2026-10-15
 
 ## Phase 3 - Pages and content
 
-- [ ] **Create the Shopify pages** and assign the matching theme templates (handles must match the footer links): Returns Policy, Delivery Policy, Warranty Policy, Terms of Service, Privacy Policy, Assembly Instructions, Purchasing Guide, Share Your Experience, Contact, About Us, FAQs, How To Collect In Your Vehicle.
-- [ ] **Footer settings**: ABN, address, phone and email filled in (**ABN is in; replace the email and confirm the phone**).
-- [ ] **Menus**: header menu and the "More Information" footer menu - open every link and check it lands on the right page.
+- [ ] **Footer contact details**: swap in the business email and confirm the phone number you want public (ABN and address are already in).
 - [ ] **FAQs page**: the returns/warranty/delivery answers still contain wording from the old reference site. Rewrite them to match the final policies. **(Claude)**
 - [ ] **Privacy Policy**: decide whether to restore the Complaints / OAIC section (your edited version doesn't have it). **(Claude)**
 - [ ] **About Us**: all claims true (local warehouse, years trading, number of customers).
-- [ ] **Assembly Instructions**: PDFs/videos for MDF shelving and workbenches (steel shelving PDF is in).
-- [ ] **Share Your Experience**: Google Form link for photo uploads, photos for slots 4-6, and the "customers served" style stats must be real numbers.
-- [ ] **Photos**: every placeholder image replaced (hero, category cards, products, about page); alt text on images.
+- [ ] **Assembly Instructions**: PDFs/videos for MDF shelving and workbenches (the steel shelving PDF is already in).
+- [ ] **Share Your Experience**: Google Form link for photo uploads, photos for gallery slots 4-6, and the "customers served" style stats must be real numbers.
+- [ ] **Photos**: every remaining placeholder image replaced (hero, category cards, products, about page); alt text on images.
 - [ ] **Proofread everything**: spelling, prices, measurements, load ratings, "2 year" warranty wording, phone/email, delivery times.
 
 ## Phase 4 - Products
@@ -71,7 +83,7 @@ Last updated: 2026-10-15
 ## Phase 6 - Marketing, SEO and tracking
 
 - [ ] Page titles and meta descriptions for the home page, collections and products. **(Claude can draft them.)**
-- [ ] Social share image, favicon (done), logo (done).
+- [ ] Social share image (the picture shown when the site is shared on Facebook, iMessage, etc.).
 - [ ] **Google Search Console** + submit the sitemap; **Google Analytics 4**; **Meta/TikTok pixel** if you advertise.
 - [ ] **Google Merchant Center / Google & YouTube app** for free Shopping listings.
 - [ ] Cookie / privacy banner if you use tracking (Shopify has a built-in consent banner).
