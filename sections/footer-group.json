@@ -15,6 +15,10 @@
       "type": "footer",
       "settings": {
         "description": "MORE ROOM, LESS MESS.",
+        "shop_menu": "",
+        "support_menu": "",
+        "info_menu": "",
+        "policies_menu": "more-information",
         "abn": "35 812 490 397",
         "address": "4 Ardmillan Road, Moonee Ponds, VIC",
         "phone": "+61 431 533 520",
