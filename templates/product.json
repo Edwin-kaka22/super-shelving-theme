@@ -175,7 +175,7 @@
     "product-reviews": {
       "type": "product-reviews",
       "settings": {
-        "heading": "Customer reviews"
+        "heading": "Product reviews"
       }
     },
     "product-recommendations": {
