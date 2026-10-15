@@ -307,7 +307,7 @@
                     <input type="hidden" name="id" value="{{ quick_add_variant.id }}">
                     {% if rating_value != blank %}
                       <div class="collection-product__rating collection-product__rating--action">
-                        {% render 'star-rating', rating: rating_value, size: '1.05rem' %}
+                        {% render 'star-rating', rating: rating_value, size: '1.5rem' %}
                         <span class="collection-product__rating-text">{{ 'collections.general.review_count' | t: count: rating_count }}</span>
                       </div>
                     {% endif %}
@@ -1052,7 +1052,7 @@
     flex: none;
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 3.5rem;
     margin-top: 0;
   }
 
@@ -1062,6 +1062,11 @@
 
   .collection-grid.is-list .collection-product__rating--action {
     display: flex;
+    gap: 0.5rem;
+  }
+
+  .collection-grid.is-list .collection-product__rating-text {
+    font-size: 0.9rem;
   }
 
   .collection-product__rating-text {
