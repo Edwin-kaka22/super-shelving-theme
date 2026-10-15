@@ -28,7 +28,7 @@
           "type": "accordion",
           "settings": {
             "heading": "Warranty & returns",
-            "content": "<p>Every unit is covered by a full 12 month warranty against manufacturing defects.</p><p>See our <a href=\"/policies/refund-policy\">return policy</a> for details.</p>",
+            "content": "<p>Every unit is covered by a full 2 year warranty against manufacturing defects.</p><p>See our <a href=\"/pages/warranty-policy\">warranty policy</a> and <a href=\"/pages/returns-policy\">returns policy</a> for details.</p>",
             "open": false
           }
         },

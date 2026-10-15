@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "intro": {
@@ -127,7 +136,7 @@
               "type": "faq-item",
               "settings": {
                 "question": "Is there warranty on your products?",
-                "answer": "All Super Shelving products come with a 12-month standard warranty from the date of purchase. This warranty covers defects in materials and workmanship under normal usage conditions.\n\nWhat the warranty covers:\n- Manufacturing defects: faults in materials or workmanship.\n- Structural integrity: issues affecting the performance of shelves, beams, and uprights under recommended loading conditions.\n- Parts replacement: repair or replacement of defective components at no additional cost.\n\nThe warranty does not cover:\n- Damage caused by misuse, improper assembly, or overloading.\n- General wear and tear, scratches, or cosmetic damages.\n- Modifications or repairs performed by unauthorized personnel.\n- Environmental factors such as moisture, rust, or corrosion resulting from improper storage or use.\n\nTo make a warranty claim:\n1. Contact us via email at Edwin_10@live.com.au or call our customer service team at +61 431 533 520.\n2. Provide proof of purchase (invoice or receipt) and details of the issue, including photos or videos if possible.\n3. Our team will assess your claim and determine whether the issue is covered under warranty.\n\nIf approved, Super Shelving will repair or replace the defective product or component at no cost."
+                "answer": "All Super Shelving products come with a 2-year standard warranty from the date of purchase. This warranty covers defects in materials and workmanship under normal usage conditions.\n\nWhat the warranty covers:\n- Manufacturing defects: faults in materials or workmanship.\n- Structural integrity: issues affecting the performance of shelves, beams, and uprights under recommended loading conditions.\n- Parts replacement: repair or replacement of defective components at no additional cost.\n\nThe warranty does not cover:\n- Damage caused by misuse, improper assembly, or overloading.\n- General wear and tear, scratches, or cosmetic damages.\n- Modifications or repairs performed by unauthorized personnel.\n- Environmental factors such as moisture, rust, or corrosion resulting from improper storage or use.\n\nTo make a warranty claim:\n1. Contact us via email at Edwin_10@live.com.au or call our customer service team at +61 431 533 520.\n2. Provide proof of purchase (invoice or receipt) and details of the issue, including photos or videos if possible.\n3. Our team will assess your claim and determine whether the issue is covered under warranty.\n\nIf approved, Super Shelving will repair or replace the defective product or component at no cost."
               }
             },
             "showroom": {

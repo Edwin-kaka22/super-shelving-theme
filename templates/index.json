@@ -48,7 +48,7 @@
           "type": "trust-badge",
           "settings": {
             "icon": "medal",
-            "heading": "Full 12 Months Warranty",
+            "heading": "Full 2 Year Warranty",
             "text": "Quality shelving you can count on, year after year."
           }
         }
@@ -354,7 +354,7 @@
           "type": "faq-item",
           "settings": {
             "question": "What warranty is included?",
-            "answer": "Every unit is covered by a full 12 month warranty against manufacturing defects."
+            "answer": "Every unit is covered by a full 2 year warranty against manufacturing defects."
           }
         },
         "load-capacity": {
