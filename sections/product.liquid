@@ -414,7 +414,8 @@
     background-color: #f4f4f5;
   }
 
-  .pdp__gallery:not(:has(.pdp__thumbs-wrap)) .pdp__main-image {
+  .pdp__gallery:not(:has(.pdp__thumbs-wrap)) .pdp__main-image,
+  .pdp__gallery:not(:has(.pdp__thumbs-wrap)) .pdp__secure {
     grid-column: 1;
   }
 
@@ -806,7 +807,7 @@
   /* Secure payments */
 
   .pdp__secure {
-    grid-column: 1 / -1;
+    grid-column: 2;
     margin-top: 0.5rem;
     padding: 1rem 1.1rem;
     border-radius: 0.75rem;
@@ -835,6 +836,7 @@
   .pdp__payment-icons {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 0.5rem;
     margin: 0.85rem 0 0;
     padding: 0;
@@ -1012,8 +1014,12 @@
       grid-template-columns: minmax(0, 1fr);
     }
 
-    .pdp__main-image {
+    .pdp__main-image,
+    .pdp__secure {
       grid-column: 1;
+    }
+
+    .pdp__main-image {
       grid-row: 1;
     }
 
