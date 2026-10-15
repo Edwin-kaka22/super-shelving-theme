@@ -135,6 +135,7 @@
       "in_stock": "In stock ({{ count }} units)",
       "low_stock": "Low stock ({{ count }} units)",
       "no_stock": "No stock (0 units)",
+      "review_count": "({{ count }})",
       "no_products": "No products found in this collection.",
       "pagination": "Pagination",
       "view_label": "Product view",

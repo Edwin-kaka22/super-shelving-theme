@@ -236,8 +236,26 @@
                       {% endif %}
                     </div>
 
+                    {% liquid
+                      assign rating_metafield = product.metafields.reviews.rating.value
+                      if rating_metafield != blank
+                        assign rating_value = rating_metafield.rating
+                        assign rating_count = product.metafields.reviews.rating_count.value
+                      else
+                        assign rating_value = section.settings.store_rating
+                        assign rating_count = section.settings.store_review_count
+                      endif
+                    %}
+
                     <div class="collection-product__content">
                       <p class="collection-product__title">{{ product.title }}</p>
+
+                      {% if rating_value != blank %}
+                        <div class="collection-product__rating collection-product__rating--card">
+                          {% render 'star-rating', rating: rating_value, size: '1.05rem' %}
+                          <span class="collection-product__rating-text">{{ 'collections.general.review_count' | t: count: rating_count }}</span>
+                        </div>
+                      {% endif %}
 
                       <p class="collection-product__price">
                         {% if product.compare_at_price > product.price %}
@@ -287,20 +305,10 @@
 
                   <form method="post" action="/cart/add" class="collection-product__form" data-collection-add-to-cart>
                     <input type="hidden" name="id" value="{{ quick_add_variant.id }}">
-                    {% liquid
-                      assign rating_metafield = product.metafields.reviews.rating.value
-                      if rating_metafield != blank
-                        assign rating_value = rating_metafield.rating
-                        assign rating_count = product.metafields.reviews.rating_count.value
-                      else
-                        assign rating_value = section.settings.store_rating
-                        assign rating_count = section.settings.store_review_count
-                      endif
-                    %}
                     {% if rating_value != blank %}
-                      <div class="collection-product__rating">
+                      <div class="collection-product__rating collection-product__rating--action">
                         {% render 'star-rating', rating: rating_value, size: '1.05rem' %}
-                        <span class="collection-product__rating-text">{{ 'products.product.rating_summary' | t: rating: rating_value, count: rating_count }}</span>
+                        <span class="collection-product__rating-text">{{ 'collections.general.review_count' | t: count: rating_count }}</span>
                       </div>
                     {% endif %}
                     <button
@@ -944,10 +952,17 @@
 
   .collection-product__rating {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 0.3rem;
-    margin-bottom: 0.75rem;
+    gap: 0.4rem;
+  }
+
+  .collection-product__rating--card {
+    justify-content: center;
+    margin-top: 0.4rem;
+  }
+
+  .collection-product__rating--action {
+    display: none;
   }
 
   .collection-grid.is-list {
@@ -1041,9 +1056,12 @@
     margin-top: 0;
   }
 
-  .collection-grid.is-list .collection-product__rating {
-    align-items: flex-start;
-    margin-bottom: 0;
+  .collection-grid.is-list .collection-product__rating--card {
+    display: none;
+  }
+
+  .collection-grid.is-list .collection-product__rating--action {
+    display: flex;
   }
 
   .collection-product__rating-text {
@@ -1512,7 +1530,7 @@
       "type": "text",
       "id": "store_review_count",
       "label": "t:labels.store_review_count",
-      "default": "200"
+      "default": "22"
     }
   ]
 }
