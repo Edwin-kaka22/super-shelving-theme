@@ -287,6 +287,22 @@
 
                   <form method="post" action="/cart/add" class="collection-product__form" data-collection-add-to-cart>
                     <input type="hidden" name="id" value="{{ quick_add_variant.id }}">
+                    {% liquid
+                      assign rating_metafield = product.metafields.reviews.rating.value
+                      if rating_metafield != blank
+                        assign rating_value = rating_metafield.rating
+                        assign rating_count = product.metafields.reviews.rating_count.value
+                      else
+                        assign rating_value = section.settings.store_rating
+                        assign rating_count = section.settings.store_review_count
+                      endif
+                    %}
+                    {% if rating_value != blank %}
+                      <div class="collection-product__rating">
+                        {% render 'star-rating', rating: rating_value, size: '1.05rem' %}
+                        <span class="collection-product__rating-text">{{ 'products.product.rating_summary' | t: rating: rating_value, count: rating_count }}</span>
+                      </div>
+                    {% endif %}
                     <button
                       type="submit"
                       class="collection-product__add"
@@ -926,6 +942,10 @@
 
   /* List view */
 
+  .collection-product__rating {
+    display: none;
+  }
+
   .collection-grid.is-list {
     display: flex;
     flex-direction: column;
@@ -972,15 +992,14 @@
   .collection-grid.is-list .collection-product__content {
     flex: 1;
     display: flex;
-    align-items: center;
-    gap: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.45rem;
     min-width: 0;
     margin-top: 0;
   }
 
   .collection-grid.is-list .collection-product__title {
-    flex: 1;
-    min-width: 0;
     font-size: 1.15rem;
     font-weight: 700;
     line-height: 1.35;
@@ -988,25 +1007,16 @@
   }
 
   .collection-grid.is-list .collection-product__price {
-    flex: none;
-    width: 9.5rem;
     margin: 0;
     font-size: 1.25rem;
-    text-align: right;
+    text-align: left;
     white-space: nowrap;
   }
 
-  .collection-grid.is-list .collection-product__price--compare {
-    display: block;
-    margin: 0.1rem 0 0;
-    font-size: 0.95rem;
-  }
-
   .collection-grid.is-list .collection-product__stock {
-    flex: none;
-    width: 9rem;
+    width: 10rem;
     align-items: stretch;
-    margin-top: 0;
+    margin-top: 0.15rem;
   }
 
   .collection-grid.is-list .collection-product__stock-bar {
@@ -1021,13 +1031,29 @@
 
   .collection-grid.is-list .collection-product__form {
     flex: none;
-    width: 12rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
     margin-top: 0;
+  }
+
+  .collection-grid.is-list .collection-product__rating {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .collection-product__rating-text {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #6b6b6e;
+    white-space: nowrap;
   }
 
   .collection-grid.is-list .collection-product__add {
     display: block;
-    width: 100%;
+    width: 12rem;
     min-width: 0;
     padding: 0.85rem 1.25rem;
     font-size: 0.85rem;
@@ -1050,31 +1076,14 @@
       height: 7rem;
     }
 
-    .collection-grid.is-list .collection-product__content {
-      flex-wrap: wrap;
-      gap: 0.5rem 1.5rem;
-    }
-
-    .collection-grid.is-list .collection-product__title {
-      flex: 1 1 100%;
-    }
-
-    .collection-grid.is-list .collection-product__price {
-      width: auto;
-      text-align: left;
-    }
-
-    .collection-grid.is-list .collection-product__price--compare {
-      display: inline;
-      margin-left: 0.4rem;
-    }
-
-    .collection-grid.is-list .collection-product__stock {
-      width: 8rem;
-    }
-
     .collection-grid.is-list .collection-product__form {
-      width: 100%;
+      flex: 1 1 100%;
+      gap: 1rem;
+    }
+
+    .collection-grid.is-list .collection-product__add {
+      flex: 1;
+      width: auto;
     }
   }
 
@@ -1489,6 +1498,19 @@
         { "value": "5", "label": "5" }
       ],
       "default": "4"
+    },
+    {
+      "type": "text",
+      "id": "store_rating",
+      "label": "t:labels.store_rating",
+      "info": "t:labels.store_rating_info",
+      "default": "4.9"
+    },
+    {
+      "type": "text",
+      "id": "store_review_count",
+      "label": "t:labels.store_review_count",
+      "default": "200"
     }
   ]
 }
