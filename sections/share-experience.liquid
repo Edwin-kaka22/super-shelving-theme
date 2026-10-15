@@ -153,6 +153,8 @@
               <img src="{{ 'share-setup-warehouse.jpg' | asset_url }}" width="1200" height="900" loading="lazy" alt="{{ section.settings.gallery_heading | escape }}">
             {% elsif i == 2 %}
               <img src="{{ 'share-setup-garage.jpg' | asset_url }}" width="1200" height="900" loading="lazy" alt="{{ section.settings.gallery_heading | escape }}">
+            {% elsif i == 3 %}
+              <img src="{{ 'share-setup-workshop.jpg' | asset_url }}" width="1200" height="900" loading="lazy" alt="{{ section.settings.gallery_heading | escape }}">
             {% else %}
               {{ 'image' | placeholder_svg_tag }}
             {% endif %}
