@@ -1,39 +1,101 @@
 {% doc %}
-  Renders a product reviews area: a centred heading and optional intro, with
-  a slot for a reviews app widget (Judge.me, Loox, Okendo, etc.). Add the
-  app's review widget block inside this section in the theme editor.
+  Renders the product reviews area: a heading, a rating summary (average
+  stars, review count and a "Write a review" button) and the reviews
+  themselves.
 
-  Nothing is shown on the storefront until at least one block has been added,
-  so an empty heading never appears on its own. In the theme editor, a hint
-  is shown instead.
+  The rating comes from the product's review metafields
+  (reviews.rating / reviews.rating_count, filled in by review apps such as
+  Judge.me), falling back to the store-wide numbers in the section settings.
+
+  The reviews list comes from a reviews app: add the app's widget as a block
+  in the theme editor. Until then, "preview cards" show how the area will
+  look. They are sample text only - turn them off (setting "Show preview
+  cards") before the store goes live.
 
   @example
   {% section 'product-reviews' %}
 {% enddoc %}
 
-{% if section.blocks.size > 0 %}
-  <div class="product-reviews full-width" id="product-reviews">
-    <div class="product-reviews__inner">
-      {% if section.settings.heading != blank %}
-        <h2 class="product-reviews__heading">{{ section.settings.heading }}</h2>
-      {% endif %}
+{% liquid
+  assign rating_metafield = product.metafields.reviews.rating.value
+  if rating_metafield != blank
+    assign rating_value = rating_metafield.rating
+    assign rating_count = product.metafields.reviews.rating_count.value
+  else
+    assign rating_value = section.settings.store_rating
+    assign rating_count = section.settings.store_review_count
+  endif
+  assign has_app = false
+  if section.blocks.size > 0
+    assign has_app = true
+  endif
+%}
 
-      {% if section.settings.subheading != blank %}
-        <p class="product-reviews__subheading">{{ section.settings.subheading }}</p>
-      {% endif %}
+<div class="product-reviews full-width" id="product-reviews">
+  <div class="product-reviews__inner">
+    {% if section.settings.heading != blank %}
+      <h2 class="product-reviews__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
 
-      <div class="product-reviews__widget">
-        {% content_for 'blocks' %}
+    <div class="product-reviews__layout">
+      <div class="product-reviews__summary">
+        {% if rating_value != blank %}
+          <p class="product-reviews__score">{{ rating_value }}</p>
+          {% render 'star-rating', rating: rating_value, size: '1.6rem' %}
+          <p class="product-reviews__count">{{ 'product_reviews.based_on' | t: count: rating_count }}</p>
+        {% endif %}
+        <a href="#product-reviews-list" class="product-reviews__button">{{ 'product_reviews.write_review' | t }}</a>
+      </div>
+
+      <div class="product-reviews__list" id="product-reviews-list">
+        {% if has_app %}
+          {% content_for 'blocks' %}
+        {% elsif section.settings.show_preview %}
+          <div class="product-reviews__card">
+            <div class="product-reviews__card-head">
+              {% render 'star-rating', rating: 5, size: '1.05rem' %}
+              <span class="product-reviews__tag">{{ 'product_reviews.sample' | t }}</span>
+            </div>
+            <p class="product-reviews__card-title">{{ 'product_reviews.sample_1_title' | t }}</p>
+            <p class="product-reviews__card-text">{{ 'product_reviews.sample_1_text' | t }}</p>
+            <p class="product-reviews__card-meta">
+              <strong>{{ 'product_reviews.sample_name' | t }}</strong>
+              <span class="product-reviews__verified">{{ 'product_reviews.verified' | t }}</span>
+            </p>
+          </div>
+
+          <div class="product-reviews__card">
+            <div class="product-reviews__card-head">
+              {% render 'star-rating', rating: 5, size: '1.05rem' %}
+              <span class="product-reviews__tag">{{ 'product_reviews.sample' | t }}</span>
+            </div>
+            <p class="product-reviews__card-title">{{ 'product_reviews.sample_2_title' | t }}</p>
+            <p class="product-reviews__card-text">{{ 'product_reviews.sample_2_text' | t }}</p>
+            <p class="product-reviews__card-meta">
+              <strong>{{ 'product_reviews.sample_name' | t }}</strong>
+              <span class="product-reviews__verified">{{ 'product_reviews.verified' | t }}</span>
+            </p>
+          </div>
+
+          <div class="product-reviews__card">
+            <div class="product-reviews__card-head">
+              {% render 'star-rating', rating: 4, size: '1.05rem' %}
+              <span class="product-reviews__tag">{{ 'product_reviews.sample' | t }}</span>
+            </div>
+            <p class="product-reviews__card-title">{{ 'product_reviews.sample_3_title' | t }}</p>
+            <p class="product-reviews__card-text">{{ 'product_reviews.sample_3_text' | t }}</p>
+            <p class="product-reviews__card-meta">
+              <strong>{{ 'product_reviews.sample_name' | t }}</strong>
+              <span class="product-reviews__verified">{{ 'product_reviews.verified' | t }}</span>
+            </p>
+          </div>
+        {% elsif request.design_mode %}
+          <p class="product-reviews__hint">{{ 'product_reviews.editor_hint' | t }}</p>
+        {% endif %}
       </div>
     </div>
   </div>
-{% elsif request.design_mode %}
-  <div class="product-reviews full-width">
-    <div class="product-reviews__inner">
-      <p class="product-reviews__hint">{{ 'product_reviews.editor_hint' | t }}</p>
-    </div>
-  </div>
-{% endif %}
+</div>
 
 {% stylesheet %}
   .product-reviews {
@@ -58,17 +120,129 @@
     color: #1f2120;
   }
 
-  .product-reviews__subheading {
-    margin: 0.75rem auto 0;
-    max-width: 36rem;
-    text-align: center;
-    font-size: 0.95rem;
-    color: #6b6b6e;
-    text-wrap: balance;
+  .product-reviews__layout {
+    display: grid;
+    grid-template-columns: 17rem minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+    margin-top: 2.5rem;
   }
 
-  .product-reviews__widget {
-    margin-top: 2.5rem;
+  .product-reviews__summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    border-radius: 1rem;
+    background-color: #f4f4f5;
+    text-align: center;
+  }
+
+  .product-reviews__score {
+    margin: 0;
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #1f2120;
+  }
+
+  .product-reviews__summary .star-rating {
+    margin-top: 0.75rem;
+  }
+
+  .product-reviews__count {
+    margin: 0.6rem 0 0;
+    font-size: 0.9rem;
+    color: #6b6b6e;
+  }
+
+  .product-reviews__button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.75rem;
+    border-radius: 999px;
+    background-color: #1f2120;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .product-reviews__button:hover {
+    background-color: #52564f;
+  }
+
+  .product-reviews__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    gap: 1.25rem;
+  }
+
+  .product-reviews__list > .shopify-block,
+  .product-reviews__list > :only-child:not(.product-reviews__card) {
+    grid-column: 1 / -1;
+  }
+
+  .product-reviews__card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border: 1px solid #e5e5e7;
+    border-radius: 1rem;
+    background-color: #ffffff;
+  }
+
+  .product-reviews__card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .product-reviews__tag {
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    background-color: #f4f4f5;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #85858b;
+  }
+
+  .product-reviews__card-title {
+    margin: 0.9rem 0 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1f2120;
+  }
+
+  .product-reviews__card-text {
+    flex: 1;
+    margin: 0.5rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #4a4a4d;
+  }
+
+  .product-reviews__card-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.1rem 0 0;
+    font-size: 0.85rem;
+    color: #1f2120;
+  }
+
+  .product-reviews__verified {
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    background-color: #e8f4ee;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #2f7a55;
   }
 
   .product-reviews__hint {
@@ -79,6 +253,13 @@
     text-align: center;
     font-size: 0.9rem;
     color: #6b6b6e;
+  }
+
+  @media screen and (max-width: 989px) {
+    .product-reviews__layout {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
   }
 
   @media screen and (max-width: 589px) {
@@ -105,8 +286,23 @@
     },
     {
       "type": "text",
-      "id": "subheading",
-      "label": "t:labels.subheading"
+      "id": "store_rating",
+      "label": "t:labels.store_rating",
+      "info": "t:labels.store_rating_info",
+      "default": "4.9"
+    },
+    {
+      "type": "text",
+      "id": "store_review_count",
+      "label": "t:labels.store_review_count",
+      "default": "22"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_preview",
+      "label": "t:labels.show_preview_cards",
+      "info": "t:labels.show_preview_cards_info",
+      "default": true
     }
   ],
   "presets": [

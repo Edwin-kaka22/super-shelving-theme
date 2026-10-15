@@ -172,7 +172,18 @@
     }
   },
   "product_reviews": {
-    "editor_hint": "Reviews area: add your reviews app widget as a block in this section. Nothing is shown on the live site until a block is added."
+    "editor_hint": "Reviews area: add your reviews app widget as a block in this section.",
+    "based_on": "Based on {{ count }} reviews",
+    "write_review": "Write a review",
+    "sample": "Preview",
+    "verified": "Verified buyer",
+    "sample_name": "Customer name",
+    "sample_1_title": "Sturdy and easy to put together",
+    "sample_1_text": "Sample review text. This card shows how a review will look once your reviews app is connected.",
+    "sample_2_title": "Does the job",
+    "sample_2_text": "Sample review text. Real customer reviews will replace these preview cards.",
+    "sample_3_title": "Good value",
+    "sample_3_text": "Sample review text. Turn the preview cards off in the section settings before the store goes live."
   },
   "gift_card": {
     "add_to_apple_wallet": "Add to Apple Wallet",

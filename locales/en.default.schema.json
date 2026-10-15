@@ -81,6 +81,8 @@
   "labels": {
     "products_shown": "Products to show",
     "open_by_default": "Open by default",
+    "show_preview_cards": "Show preview cards",
+    "show_preview_cards_info": "Sample cards that show how reviews will look until your reviews app is connected. Turn off before the store goes live.",
     "store_rating": "Star rating",
     "store_rating_info": "Shown on every product until a product has its own review rating (metafield reviews.rating). Use your real store rating.",
     "store_review_count": "Number of reviews",
