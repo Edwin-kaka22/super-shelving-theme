@@ -307,7 +307,7 @@
                     <input type="hidden" name="id" value="{{ quick_add_variant.id }}">
                     {% if rating_value != blank %}
                       <div class="collection-product__rating collection-product__rating--action">
-                        {% render 'star-rating', rating: rating_value, size: '1.5rem' %}
+                        {% render 'star-rating', rating: rating_value, size: '1.25rem' %}
                         <span class="collection-product__rating-text">{{ 'collections.general.review_count' | t: count: rating_count }}</span>
                       </div>
                     {% endif %}
@@ -1052,7 +1052,7 @@
     flex: none;
     display: flex;
     align-items: center;
-    gap: 3.5rem;
+    gap: 8rem;
     margin-top: 0;
   }
 
