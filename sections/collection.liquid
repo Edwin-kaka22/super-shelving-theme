@@ -943,7 +943,11 @@
   /* List view */
 
   .collection-product__rating {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    margin-bottom: 0.75rem;
   }
 
   .collection-grid.is-list {
@@ -1038,10 +1042,8 @@
   }
 
   .collection-grid.is-list .collection-product__rating {
-    display: flex;
-    flex-direction: column;
     align-items: flex-start;
-    gap: 0.3rem;
+    margin-bottom: 0;
   }
 
   .collection-product__rating-text {
