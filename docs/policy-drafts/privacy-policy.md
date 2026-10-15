@@ -1,6 +1,6 @@
 # Privacy Policy (DRAFT)
 
-> **Draft for review (version 1).** Written for Super Shelving after comparing five Australian shelving retailers' privacy policies, and based on how your store works (Shopify, couriers, online payments, customer photos). Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have a lawyer check this before you publish it, especially sections 1, 8 and 10.
+> **Draft for review (version 2).** Written for Super Shelving after comparing five Australian shelving retailers' privacy policies, and based on how your store works (Shopify, couriers, online payments, customer photos). Anything in **[square brackets]** is a placeholder or an assumption to confirm. Not legal advice - have a lawyer check this before you publish it, especially sections 1, 8 and 10.
 
 **Last updated:** 15 October 2026
 
@@ -20,11 +20,11 @@ The information we collect depends on how you deal with us. It can include:
 
 - **Contact details:** your name, email address, phone number, and billing and delivery addresses
 - **Order details:** what you bought, order and invoice numbers, delivery and pickup details, and payment confirmation. We do not store your full card details.
-- **Account details:** if you create an account, your login details and order history **[CONFIRM: whether customers can create accounts]**
+- **Account details:** if you create an account, your name, email address and order history, which you can see when you sign in
 - **Messages and enquiries:** anything you send us, such as emails, contact form messages, returns and warranty requests, and photos of damaged or faulty products
 - **Reviews and photos:** feedback, photos or videos you send us, for example through our Share Your Experience page
 - **Website use:** information collected automatically when you visit, such as your device and browser type, IP address, approximate location, the pages you view and how you found our site
-- **Marketing preferences:** whether you have signed up to or opted out of our emails **[CONFIRM: whether you run a newsletter]**
+- **Marketing preferences:** whether you have agreed to receive marketing from us, or have opted out
 
 ## 3. How we collect it
 
@@ -49,15 +49,15 @@ We use your information to:
 We do not sell your personal information. We share it only with people and businesses that help us run the store, and only what they need:
 
 - **Shopify**, which provides our online store, checkout and customer records
-- **Payment providers**, to process your payment (for example Shopify Payments, PayPal and Afterpay) **[CONFIRM your providers]**
+- **Payment providers**, to process your payment (Shopify Payments, PayPal and Afterpay)
 - **Couriers and delivery partners**, such as Aramex, to deliver your order, and our own delivery team
-- **Technology and service providers**, such as email, website analytics, advertising and photo-upload tools **[CONFIRM which you use, for example Google Analytics, Google Forms and Meta]**
+- **Technology and service providers**, such as email, website analytics, advertising and photo-upload tools - these may include Google (such as Google Analytics and Google Forms) and Meta (Facebook and Instagram)
 - **Professional advisers, regulators and law enforcement,** where we are required or permitted by law
 - **A buyer of our business,** if we ever sell it, with the same protection for your information
 
 ## 6. Cookies and similar tools
 
-Our website uses cookies and similar technologies. Some are needed for the site to work, such as keeping items in your cart and keeping checkout secure. Others help us understand how the site is used, or show you relevant advertising **[CONFIRM whether you use advertising or analytics tools]**.
+Our website uses cookies and similar technologies. Some are needed for the site to work, such as keeping items in your cart and keeping checkout secure. Others help us understand how the site is used, or show you relevant advertising.
 
 You can block or delete cookies in your browser settings, but parts of the website, including the cart and checkout, may stop working properly. Shopify explains the cookies it uses at shopify.com/legal/cookies.
 
@@ -71,13 +71,13 @@ If you send us a review, photo or video, we may publish it on our website, socia
 
 ## 9. Overseas storage
 
-Some of the services we use, such as Shopify and Google, store and process information outside Australia, including in countries such as Canada and the United States. We choose reputable providers, but we cannot control how overseas providers handle data beyond our agreements with them. **[CONFIRM list of providers and countries.]**
+Some of the services we use, such as Shopify and Google, store and process information outside Australia, including in countries such as Canada and the United States. We choose reputable providers, but we cannot control how overseas providers handle data beyond our agreements with them.
 
 ## 10. Keeping your information safe
 
 We take reasonable steps to protect your information from loss, misuse and unauthorised access, such as using a secure checkout, restricting who can see customer records, and using reputable providers. No system is completely secure, and we cannot guarantee the safety of information sent over the internet. Please do not send us card numbers by email.
 
-We keep your information only as long as we need it, for example to complete your order, provide warranty support and meet tax and accounting requirements. Business records are generally kept for **5 years**. **[CONFIRM.]** When we no longer need it, we delete it or make it anonymous.
+We keep your information only as long as we need it, for example to complete your order, provide warranty support and meet tax and accounting requirements. Business records are generally kept for 5 years. When we no longer need it, we delete it or make it anonymous.
 
 ## 11. Accessing or correcting your information
 
