@@ -85,14 +85,14 @@
               "type": "faq-item",
               "settings": {
                 "question": "How do I initiate a return?",
-                "answer": "You can initiate a return by heading to our Contact Us page and sending us a message. Alternatively you can email us directly at Edwin_10@live.com.au"
+                "answer": "You can initiate a return by heading to our Contact Us page and sending us a message. Alternatively you can email us directly at hello@supershelving.com.au"
               }
             },
             "faulty-damaged": {
               "type": "faq-item",
               "settings": {
                 "question": "What if my order arrives faulty/damaged?",
-                "answer": "Whilst we hope this never happens, if you do receive a damaged item or there is a manufacturing fault, please send us a message via our Contact Us page or email us directly at Edwin_10@live.com.au along with any descriptions and photos of the item/s damaged."
+                "answer": "Whilst we hope this never happens, if you do receive a damaged item or there is a manufacturing fault, please send us a message via our Contact Us page or email us directly at hello@supershelving.com.au along with any descriptions and photos of the item/s damaged."
               }
             }
           },
@@ -115,7 +115,7 @@
               "type": "faq-item",
               "settings": {
                 "question": "How can I contact you?",
-                "answer": "You can message us through our Contact Us page.\n\nAlternatively you can reach us directly by phone or email:\nPhone: +61 431 533 520\nEmail: Edwin_10@live.com.au"
+                "answer": "You can message us through our Contact Us page.\n\nAlternatively you can reach us directly by phone or email:\nPhone: +61 431 533 520\nEmail: hello@supershelving.com.au"
               }
             },
             "payment-methods": {
@@ -136,7 +136,7 @@
               "type": "faq-item",
               "settings": {
                 "question": "Is there warranty on your products?",
-                "answer": "All Super Shelving products come with a 2-year standard warranty from the date of purchase. This warranty covers defects in materials and workmanship under normal usage conditions.\n\nWhat the warranty covers:\n- Manufacturing defects: faults in materials or workmanship.\n- Structural integrity: issues affecting the performance of shelves, beams, and uprights under recommended loading conditions.\n- Parts replacement: repair or replacement of defective components at no additional cost.\n\nThe warranty does not cover:\n- Damage caused by misuse, improper assembly, or overloading.\n- General wear and tear, scratches, or cosmetic damages.\n- Modifications or repairs performed by unauthorized personnel.\n- Environmental factors such as moisture, rust, or corrosion resulting from improper storage or use.\n\nTo make a warranty claim:\n1. Contact us via email at Edwin_10@live.com.au or call our customer service team at +61 431 533 520.\n2. Provide proof of purchase (invoice or receipt) and details of the issue, including photos or videos if possible.\n3. Our team will assess your claim and determine whether the issue is covered under warranty.\n\nIf approved, Super Shelving will repair or replace the defective product or component at no cost."
+                "answer": "All Super Shelving products come with a 2-year standard warranty from the date of purchase. This warranty covers defects in materials and workmanship under normal usage conditions.\n\nWhat the warranty covers:\n- Manufacturing defects: faults in materials or workmanship.\n- Structural integrity: issues affecting the performance of shelves, beams, and uprights under recommended loading conditions.\n- Parts replacement: repair or replacement of defective components at no additional cost.\n\nThe warranty does not cover:\n- Damage caused by misuse, improper assembly, or overloading.\n- General wear and tear, scratches, or cosmetic damages.\n- Modifications or repairs performed by unauthorized personnel.\n- Environmental factors such as moisture, rust, or corrosion resulting from improper storage or use.\n\nTo make a warranty claim:\n1. Contact us via email at hello@supershelving.com.au or call our customer service team at +61 431 533 520.\n2. Provide proof of purchase (invoice or receipt) and details of the issue, including photos or videos if possible.\n3. Our team will assess your claim and determine whether the issue is covered under warranty.\n\nIf approved, Super Shelving will repair or replace the defective product or component at no cost."
               }
             },
             "showroom": {
@@ -159,14 +159,14 @@
               "type": "faq-item",
               "settings": {
                 "question": "We own a store and would like to stock your products. Is this possible?",
-                "answer": "If you are interested in stocking our products, please get in touch via our Contact Us page or email us at Edwin_10@live.com.au"
+                "answer": "If you are interested in stocking our products, please get in touch via our Contact Us page or email us at hello@supershelving.com.au"
               }
             },
             "wholesale": {
               "type": "faq-item",
               "settings": {
                 "question": "Do you offer wholesale for large bulk orders?",
-                "answer": "Yes, for large orders we can offer even more competitive pricing. Please get in touch via our Contact Us page or email us directly at Edwin_10@live.com.au"
+                "answer": "Yes, for large orders we can offer even more competitive pricing. Please get in touch via our Contact Us page or email us directly at hello@supershelving.com.au"
               }
             }
           },
