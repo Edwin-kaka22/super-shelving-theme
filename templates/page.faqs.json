@@ -193,7 +193,7 @@
               "type": "faq-item",
               "settings": {
                 "question": "What payment methods do you accept?",
-                "answer": "Credit and debit cards, PayPal, Apple Pay, Google Pay and Shop Pay. You can also choose Bank Deposit at checkout. If you buy in person at our Melbourne pickup location, you can also pay by cash or PayID on the spot. We can't hold stock for in-person payments, so items are available on a first-come, first-served basis."
+                "answer": "Credit and debit cards, PayPal, Apple Pay, Google Pay and Shop Pay. You can also choose Bank Transfer at checkout. If you buy in person at our Melbourne pickup location, you can also pay by cash or PayID on the spot. We can't hold stock for in-person payments, so items are available on a first-come, first-served basis."
               }
             },
             "cancel-order": {
