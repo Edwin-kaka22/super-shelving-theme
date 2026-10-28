@@ -110,15 +110,24 @@
     });
   });
 
-  // A 4th faq-category (e.g. "Other") stacks under the 2nd column
-  // ("Returns & Refunds") instead of sitting in its own grid row. Each
-  // block is wrapped in its own .shopify-block div by Shopify, so move
-  // that whole wrapper into the 2nd column's .faq-category element.
+  // Extra faq-categories stack under the columns instead of sitting in their
+  // own grid row (which would only start below the tallest column). Each
+  // block is wrapped in its own .shopify-block div by Shopify, so move the
+  // whole wrapper into the target column's .faq-category element.
+  //   4 categories: the 4th stacks under the 2nd column.
+  //   5 categories: the 4th stacks under the 2nd column and the 5th under
+  //   the 3rd column, giving three evenly balanced columns.
   document.querySelectorAll('.faq-columns__grid').forEach(function (grid) {
     var blocks = grid.querySelectorAll(':scope > .shopify-block');
+    var stack = function (target, extra) {
+      var column = target && target.querySelector('.faq-category');
+      if (column && extra) column.appendChild(extra);
+    };
     if (blocks.length === 4) {
-      var secondColumn = blocks[1].querySelector('.faq-category');
-      if (secondColumn) secondColumn.appendChild(blocks[3]);
+      stack(blocks[1], blocks[3]);
+    } else if (blocks.length === 5) {
+      stack(blocks[1], blocks[3]);
+      stack(blocks[2], blocks[4]);
     }
   });
 {% endjavascript %}

@@ -20,37 +20,9 @@
     "categories": {
       "type": "faq-columns",
       "blocks": {
-        "shipping": {
+        "delivery": {
           "type": "faq-category",
           "blocks": {
-            "click-and-collect": {
-              "type": "faq-item",
-              "settings": {
-                "question": "Do you offer click and collect?",
-                "answer": "Yes. Choose Pickup at checkout. Your order is ready to collect once you receive your order confirmation email. We'll text you to confirm a pickup day/time that suits you. Bring the email or your order number when you arrive."
-              }
-            },
-            "pickup-location": {
-              "type": "faq-item",
-              "settings": {
-                "question": "Where do I collect from?",
-                "answer": "Our Melbourne pickup location at 4 Ardmillan Road, Moonee Ponds, VIC 3039. Pickups are by arrangement, and we'll text you to confirm a day/time."
-              }
-            },
-            "fit-in-car": {
-              "type": "faq-item",
-              "settings": {
-                "question": "Will my order fit in my car?",
-                "answer": "Our shelving comes flat-packed in boxes. Check our How To Collect In Your Vehicle guide for box sizes and weights before you come. You're also welcome to send your own courier. Just let us know in advance."
-              }
-            },
-            "pickup-hold": {
-              "type": "faq-item",
-              "settings": {
-                "question": "How long will you hold my pickup order?",
-                "answer": "We hold pickup orders for 14 days from your order confirmation and will send you a reminder. If it isn't collected within 14 days, we'll cancel the order and refund the purchase price less a 20% storage and handling fee. If you can't collect in time, contact us before the 14 days are up and we'll work something out."
-              }
-            },
             "where-deliver": {
               "type": "faq-item",
               "settings": {
@@ -102,10 +74,6 @@
             }
           },
           "block_order": [
-            "click-and-collect",
-            "pickup-location",
-            "fit-in-car",
-            "pickup-hold",
             "where-deliver",
             "delivery-time",
             "delivery-method",
@@ -115,7 +83,57 @@
             "not-home"
           ],
           "settings": {
-            "heading": "Shipping"
+            "heading": "Delivery"
+          }
+        },
+        "pickup": {
+          "type": "faq-category",
+          "blocks": {
+            "click-and-collect": {
+              "type": "faq-item",
+              "settings": {
+                "question": "Do you offer click and collect?",
+                "answer": "Yes. Choose Pickup at checkout. Your order is ready to collect once you receive your order confirmation email. We'll text you to confirm a pickup day/time that suits you. Bring the email or your order number when you arrive."
+              }
+            },
+            "pickup-location": {
+              "type": "faq-item",
+              "settings": {
+                "question": "Where do I collect from?",
+                "answer": "Our Melbourne pickup location at 4 Ardmillan Road, Moonee Ponds, VIC 3039. Pickups are by arrangement, and we'll text you to confirm a day/time."
+              }
+            },
+            "fit-in-car": {
+              "type": "faq-item",
+              "settings": {
+                "question": "Will my order fit in my car?",
+                "answer": "Our shelving comes flat-packed in boxes. Check our How To Collect In Your Vehicle guide for box sizes and weights before you come. You're also welcome to send your own courier. Just let us know in advance."
+              }
+            },
+            "pickup-hold": {
+              "type": "faq-item",
+              "settings": {
+                "question": "How long will you hold my pickup order?",
+                "answer": "We hold pickup orders for 14 days from your order confirmation and will send you a reminder. If it isn't collected within 14 days, we'll cancel the order and refund the purchase price less a 20% storage and handling fee. If you can't collect in time, contact us before the 14 days are up and we'll work something out."
+              }
+            },
+            "showroom": {
+              "type": "faq-item",
+              "settings": {
+                "question": "Do you have a showroom?",
+                "answer": "Yes, you can view our products on display at our Melbourne pickup location in Moonee Ponds. Viewings are by appointment, so please contact us to arrange a day/time."
+              }
+            }
+          },
+          "block_order": [
+            "click-and-collect",
+            "pickup-location",
+            "fit-in-car",
+            "pickup-hold",
+            "showroom"
+          ],
+          "settings": {
+            "heading": "Pickup"
           }
         },
         "returns": {
@@ -149,13 +167,6 @@
                 "answer": "Contact us as soon as possible, ideally within 7 days, at hello@supershelving.com.au or +61 431 533 520 with your order number, a description of the problem, and photos of the product, the damage, the packaging and the shipping label. Keep the packaging, and don't send anything back until we reply. We'll arrange a replacement part, replacement, repair or refund, and we cover the return costs for faulty, damaged or incorrect items."
               }
             },
-            "cancel-order": {
-              "type": "faq-item",
-              "settings": {
-                "question": "Can I cancel my order?",
-                "answer": "Contact us as soon as possible. Before dispatch we can cancel it, keeping 5% to cover payment-processing and handling costs. Once dispatched or collected, it can't be cancelled, but you can return it under our change-of-mind policy."
-              }
-            },
             "start-return": {
               "type": "faq-item",
               "settings": {
@@ -169,23 +180,15 @@
             "refund-amount",
             "exchange",
             "damaged-faulty",
-            "cancel-order",
             "start-return"
           ],
           "settings": {
             "heading": "Returns & Refunds"
           }
         },
-        "general": {
+        "orders": {
           "type": "faq-category",
           "blocks": {
-            "contact": {
-              "type": "faq-item",
-              "settings": {
-                "question": "How can I contact you?",
-                "answer": "Through our Contact Us page, by email at hello@supershelving.com.au, or by phone on +61 431 533 520."
-              }
-            },
             "payment-methods": {
               "type": "faq-item",
               "settings": {
@@ -193,6 +196,33 @@
                 "answer": "Credit and debit cards, PayPal, Apple Pay, Google Pay and Shop Pay. You can also choose Bank Deposit at checkout. If you buy in person at our Melbourne pickup location, you can also pay by cash or PayID on the spot. We can't hold stock for in-person payments, so items are available on a first-come, first-served basis."
               }
             },
+            "cancel-order": {
+              "type": "faq-item",
+              "settings": {
+                "question": "Can I cancel my order?",
+                "answer": "Contact us as soon as possible. Before dispatch we can cancel it, keeping 5% to cover payment-processing and handling costs. Once dispatched or collected, it can't be cancelled, but you can return it under our change-of-mind policy."
+              }
+            },
+            "wholesale": {
+              "type": "faq-item",
+              "settings": {
+                "question": "Do you sell wholesale or to retailers?",
+                "answer": "Yes. For bulk orders or if you'd like to stock our products, contact us via our Contact Us page or at hello@supershelving.com.au and we can offer competitive pricing."
+              }
+            }
+          },
+          "block_order": [
+            "payment-methods",
+            "cancel-order",
+            "wholesale"
+          ],
+          "settings": {
+            "heading": "Orders & Payment"
+          }
+        },
+        "support": {
+          "type": "faq-category",
+          "blocks": {
             "assembly": {
               "type": "faq-item",
               "settings": {
@@ -207,49 +237,30 @@
                 "answer": "Yes. All Super Shelving products have a 2-year warranty from the date of purchase, covering defects in materials and workmanship when assembled as instructed and used within the stated load ratings. It doesn't cover overloading, incorrect assembly, modifications, normal wear and tear, cosmetic marks, or rust from damp or outdoor use. To claim, contact us with your proof of purchase and photos of the problem. See our Warranty Policy for full details.\n\nOur warranty is in addition to your rights under the Australian Consumer Law."
               }
             },
-            "showroom": {
+            "contact": {
               "type": "faq-item",
               "settings": {
-                "question": "Do you have a showroom?",
-                "answer": "Yes, you can view our products on display at our Melbourne pickup location in Moonee Ponds. Viewings are by appointment, so please contact us to arrange a day/time."
+                "question": "How can I contact you?",
+                "answer": "Through our Contact Us page, by email at hello@supershelving.com.au, or by phone on +61 431 533 520."
               }
             }
           },
           "block_order": [
-            "contact",
-            "payment-methods",
             "assembly",
             "warranty",
-            "showroom"
+            "contact"
           ],
           "settings": {
-            "heading": "General"
-          }
-        },
-        "other": {
-          "type": "faq-category",
-          "blocks": {
-            "wholesale": {
-              "type": "faq-item",
-              "settings": {
-                "question": "Do you sell wholesale or to retailers?",
-                "answer": "Yes. For bulk orders or if you'd like to stock our products, contact us via our Contact Us page or at hello@supershelving.com.au and we can offer competitive pricing."
-              }
-            }
-          },
-          "block_order": [
-            "wholesale"
-          ],
-          "settings": {
-            "heading": "Other"
+            "heading": "Products & Support"
           }
         }
       },
       "block_order": [
-        "shipping",
+        "delivery",
+        "pickup",
         "returns",
-        "general",
-        "other"
+        "orders",
+        "support"
       ],
       "settings": {}
     }
