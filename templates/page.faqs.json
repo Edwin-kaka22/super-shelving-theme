@@ -14,7 +14,7 @@
       "settings": {
         "eyebrow": "FAQ",
         "heading": "Frequently Asked Questions",
-        "description": "Everything you need to know about shipping, returns, and our stores."
+        "description": "Everything you need to know about delivery, pickup, returns and more."
       }
     },
     "categories": {
@@ -27,46 +27,93 @@
               "type": "faq-item",
               "settings": {
                 "question": "Do you offer click and collect?",
-                "answer": "Yes we do! Just select the \"Pickup\" option at checkout when paying, and have your order number ready once you arrive at the warehouse to collect."
+                "answer": "Yes. Choose Pickup at checkout. Your order is ready to collect once you receive your order confirmation email. We'll text you to confirm a pickup day/time that suits you. Bring the email or your order number when you arrive."
               }
             },
-            "pickup-locations": {
+            "pickup-location": {
               "type": "faq-item",
               "settings": {
-                "question": "What pick up locations do you have?",
-                "answer": "Pickup is available from our Melbourne based warehouse located at 4 Ardmillan Road, Moonee Ponds."
+                "question": "Where do I collect from?",
+                "answer": "Our Melbourne pickup location at 4 Ardmillan Road, Moonee Ponds, VIC 3039. Pickups are by arrangement, and we'll text you to confirm a day/time."
+              }
+            },
+            "fit-in-car": {
+              "type": "faq-item",
+              "settings": {
+                "question": "Will my order fit in my car?",
+                "answer": "Our shelving comes flat-packed in boxes. Check our How To Collect In Your Vehicle guide for box sizes and weights before you come. You're also welcome to send your own courier. Just let us know in advance."
+              }
+            },
+            "pickup-hold": {
+              "type": "faq-item",
+              "settings": {
+                "question": "How long will you hold my pickup order?",
+                "answer": "We hold pickup orders for 14 days from your order confirmation and will send you a reminder. If it isn't collected within 14 days, we'll cancel the order and refund the purchase price less a 20% storage and handling fee. If you can't collect in time, contact us before the 14 days are up and we'll work something out."
+              }
+            },
+            "where-deliver": {
+              "type": "faq-item",
+              "settings": {
+                "question": "Where do you deliver?",
+                "answer": "We currently deliver within Victoria only. If you're outside Victoria, you're welcome to arrange your own transport to collect your order. Please contact us before you buy so we can help set it up."
               }
             },
             "delivery-time": {
               "type": "faq-item",
               "settings": {
-                "question": "How long will it take to receive my order?",
-                "answer": "We aim to dispatch all orders from our warehouse ASAP. Usually once an order is placed on our website, it is sent out for delivery the following day. Delivery time varies based on location, but you can expect to receive your order between 1-2 business days after its been dispatched."
-              }
-            },
-            "ships-where": {
-              "type": "faq-item",
-              "settings": {
-                "question": "Do you ship Australia Wide?",
-                "answer": "Currently we only ship within the state of Victoria, but we are however, more than happy for you to arrange your own transport to pick up and deliver your order if you live outside of VIC. Please contact us prior to purchasing so that we can facilitate this."
+                "question": "How long will delivery take?",
+                "answer": "Orders are usually dispatched the next business day, and delivery usually takes 1–2 business days after dispatch, depending on your location. Orders placed on weekends or public holidays are processed the next business day. These are estimates, and busy periods can take longer."
               }
             },
             "delivery-method": {
               "type": "faq-item",
               "settings": {
-                "question": "How will my order get delivered?",
-                "answer": "Your order will be delivered by one of two ways (whichever is cheaper).\n\n1. Aramex Couriers - Your items will be picked up from our warehouse and delivered to your address by renowned Australian courier service Aramex.\n\n2. In-house Delivery - Your items will be delivered straight from the warehouse in our company vans/trucks to your address."
+                "question": "How will my order be delivered?",
+                "answer": "We use whichever of these is cheaper for your order:\n\n1. Aramex courier: picked up from our warehouse and delivered to you by Aramex.\n\n2. In-house delivery: delivered from our warehouse in our own vans or trucks.\n\nWe choose the delivery method automatically, so you always get the lower price."
               }
             },
-            "shipping-cost": {
+            "delivery-cost": {
               "type": "faq-item",
               "settings": {
-                "question": "How much is shipping?",
-                "answer": "Shipping rates will vary depending on location and items/quantity ordered. We ship some items out for as low as $9.99 although most orders will fall between the $50-$100 range on average."
+                "question": "How much is delivery?",
+                "answer": "Delivery is calculated at checkout based on your postcode and the items you order, and you'll see the cost before you pay. For large or bulk orders, contact us before ordering for a freight quote."
+              }
+            },
+            "delivery-day": {
+              "type": "faq-item",
+              "settings": {
+                "question": "Can I choose a delivery day or time?",
+                "answer": "Unfortunately not. Delivery times are set by the courier or our delivery team. Please make sure someone can receive the order, or tell us a safe place to leave it."
+              }
+            },
+            "inside-upstairs": {
+              "type": "faq-item",
+              "settings": {
+                "question": "Will you bring it inside or upstairs?",
+                "answer": "Delivery is to your front door, garage, ground floor or kerbside. Carrying items inside or up and down stairs isn't included, but you can arrange this with the courier on the day (they may charge a fee)."
+              }
+            },
+            "not-home": {
+              "type": "faq-item",
+              "settings": {
+                "question": "What if I'm not home or the address is wrong?",
+                "answer": "If a delivery can't be completed because of an incorrect address, nobody being available or restricted access, a redelivery fee applies (the same as the original delivery cost). Please give us a complete address and a phone number we can reach on delivery day."
               }
             }
           },
-          "block_order": ["click-and-collect", "pickup-locations", "delivery-time", "ships-where", "delivery-method", "shipping-cost"],
+          "block_order": [
+            "click-and-collect",
+            "pickup-location",
+            "fit-in-car",
+            "pickup-hold",
+            "where-deliver",
+            "delivery-time",
+            "delivery-method",
+            "delivery-cost",
+            "delivery-day",
+            "inside-upstairs",
+            "not-home"
+          ],
           "settings": {
             "heading": "Shipping"
           }
@@ -74,29 +121,57 @@
         "returns": {
           "type": "faq-category",
           "blocks": {
-            "returns-policy": {
+            "change-of-mind": {
               "type": "faq-item",
               "settings": {
-                "question": "What is your returns policy?",
-                "answer": "Super Shelving will accept the return of a product if you change your mind or you are not satisfied within 14 days of purchase.\n\nPlease make contact with us within 14 calendar days from your purchase date if you would like to organise a return or exchange.\n\nYour order must be in its original condition. Any wear or damage to your order will not qualify for a return. For a change of mind (return) you will need to send your order back to us. We will refund your money in full and we will only deduct the initial postage and handling cost we incurred when we sent your order to you. For an exchange of size or style you will need to pay for postage both ways and any price difference (if any)."
+                "question": "Can I return something if I change my mind?",
+                "answer": "Yes, within 14 days of receiving or collecting your order, as long as it's unassembled, unused and in its original unopened boxes. Contact us first and wait for our return instructions before sending anything back."
               }
             },
-            "initiate-return": {
+            "refund-amount": {
               "type": "faq-item",
               "settings": {
-                "question": "How do I initiate a return?",
-                "answer": "You can initiate a return by heading to our Contact Us page and sending us a message. Alternatively you can email us directly at hello@supershelving.com.au"
+                "question": "How much will I get back?",
+                "answer": "We keep a 20% restocking and handling fee (e.g. on a $100 product we refund $80), and original delivery charges aren't refunded. You can send the goods back at your own cost or return them in person to our Melbourne pickup location. Refunds go to your original payment method within 7 days of approving the return."
               }
             },
-            "faulty-damaged": {
+            "exchange": {
               "type": "faq-item",
               "settings": {
-                "question": "What if my order arrives faulty/damaged?",
-                "answer": "Whilst we hope this never happens, if you do receive a damaged item or there is a manufacturing fault, please send us a message via our Contact Us page or email us directly at hello@supershelving.com.au along with any descriptions and photos of the item/s damaged."
+                "question": "Can I exchange for a different size or style?",
+                "answer": "Yes. The quickest way is to return the original and place a new order. For a straight exchange, contact us within 14 days. You pay freight both ways and any price difference, but no restocking fee applies."
+              }
+            },
+            "damaged-faulty": {
+              "type": "faq-item",
+              "settings": {
+                "question": "My order arrived damaged, faulty or incorrect. What do I do?",
+                "answer": "Contact us as soon as possible, ideally within 7 days, at hello@supershelving.com.au or +61 431 533 520 with your order number, a description of the problem, and photos of the product, the damage, the packaging and the shipping label. Keep the packaging, and don't send anything back until we reply. We'll arrange a replacement part, replacement, repair or refund, and we cover the return costs for faulty, damaged or incorrect items."
+              }
+            },
+            "cancel-order": {
+              "type": "faq-item",
+              "settings": {
+                "question": "Can I cancel my order?",
+                "answer": "Contact us as soon as possible. Before dispatch we can cancel it, keeping 5% to cover payment-processing and handling costs. Once dispatched or collected, it can't be cancelled, but you can return it under our change-of-mind policy."
+              }
+            },
+            "start-return": {
+              "type": "faq-item",
+              "settings": {
+                "question": "How do I start a return?",
+                "answer": "Message us through our Contact Us page or email hello@supershelving.com.au with your order number and the reason for the return."
               }
             }
           },
-          "block_order": ["returns-policy", "initiate-return", "faulty-damaged"],
+          "block_order": [
+            "change-of-mind",
+            "refund-amount",
+            "exchange",
+            "damaged-faulty",
+            "cancel-order",
+            "start-return"
+          ],
           "settings": {
             "heading": "Returns & Refunds"
           }
@@ -104,50 +179,49 @@
         "general": {
           "type": "faq-category",
           "blocks": {
-            "opening-hours": {
-              "type": "faq-item",
-              "settings": {
-                "question": "What are your opening hours?",
-                "answer": "Moonee Ponds\n4 Ardmillan Road, Moonee Ponds, 3039\nMonday to Friday 9am - 6pm\nSaturday & Sunday 10am - 5pm\n\nDoveton\n24b Princess Highway, Doveton, 3177\nMonday to Friday 8am - 2pm\nSaturday & Sunday Closed"
-              }
-            },
-            "how-to-contact": {
+            "contact": {
               "type": "faq-item",
               "settings": {
                 "question": "How can I contact you?",
-                "answer": "You can message us through our Contact Us page.\n\nAlternatively you can reach us directly by phone or email:\nPhone: +61 431 533 520\nEmail: hello@supershelving.com.au"
+                "answer": "Through our Contact Us page, by email at hello@supershelving.com.au, or by phone on +61 431 533 520."
               }
             },
             "payment-methods": {
               "type": "faq-item",
               "settings": {
                 "question": "What payment methods do you accept?",
-                "answer": "We accept various payment methods. You can pay using a Credit card, PayPal, Apple Pay, Union Pay, Google Pay and Shop Pay.\n\nIf you would like to pay with a Bank Transfer, PayID or Cash please contact us via email to arrange this."
+                "answer": "Credit and debit cards, PayPal, Apple Pay, Google Pay and Shop Pay. You can also choose Bank Deposit at checkout. If you buy in person at our Melbourne pickup location, you can also pay by cash or PayID on the spot. We can't hold stock for in-person payments, so items are available on a first-come, first-served basis."
               }
             },
-            "assembly-installation": {
+            "assembly": {
               "type": "faq-item",
               "settings": {
-                "question": "Do you offer assembly/installation?",
-                "answer": "We do not currently offer installation, but it is very simple and easy to do yourself. All items will come with a clear instructions manual, and you can also view our assembly videos on our Assembly Instructions page."
+                "question": "Do you offer assembly or installation?",
+                "answer": "We don't currently offer installation, but assembly is simple. Every product comes with easy-to-follow instructions, and you can find assembly guides on our Assembly Instructions page."
               }
             },
             "warranty": {
               "type": "faq-item",
               "settings": {
-                "question": "Is there warranty on your products?",
-                "answer": "All Super Shelving products come with a 2-year standard warranty from the date of purchase. This warranty covers defects in materials and workmanship under normal usage conditions.\n\nWhat the warranty covers:\n- Manufacturing defects: faults in materials or workmanship.\n- Structural integrity: issues affecting the performance of shelves, beams, and uprights under recommended loading conditions.\n- Parts replacement: repair or replacement of defective components at no additional cost.\n\nThe warranty does not cover:\n- Damage caused by misuse, improper assembly, or overloading.\n- General wear and tear, scratches, or cosmetic damages.\n- Modifications or repairs performed by unauthorized personnel.\n- Environmental factors such as moisture, rust, or corrosion resulting from improper storage or use.\n\nTo make a warranty claim:\n1. Contact us via email at hello@supershelving.com.au or call our customer service team at +61 431 533 520.\n2. Provide proof of purchase (invoice or receipt) and details of the issue, including photos or videos if possible.\n3. Our team will assess your claim and determine whether the issue is covered under warranty.\n\nIf approved, Super Shelving will repair or replace the defective product or component at no cost."
+                "question": "Is there a warranty on your products?",
+                "answer": "Yes. All Super Shelving products have a 2-year warranty from the date of purchase, covering defects in materials and workmanship when assembled as instructed and used within the stated load ratings. It doesn't cover overloading, incorrect assembly, modifications, normal wear and tear, cosmetic marks, or rust from damp or outdoor use. To claim, contact us with your proof of purchase and photos of the problem. See our Warranty Policy for full details.\n\nOur warranty is in addition to your rights under the Australian Consumer Law."
               }
             },
             "showroom": {
               "type": "faq-item",
               "settings": {
                 "question": "Do you have a showroom?",
-                "answer": "Yes, you can view all of our products on display at our Moonee Ponds warehouse."
+                "answer": "Yes, you can view our products on display at our Melbourne pickup location in Moonee Ponds. Viewings are by appointment, so please contact us to arrange a day/time."
               }
             }
           },
-          "block_order": ["opening-hours", "how-to-contact", "payment-methods", "assembly-installation", "warranty", "showroom"],
+          "block_order": [
+            "contact",
+            "payment-methods",
+            "assembly",
+            "warranty",
+            "showroom"
+          ],
           "settings": {
             "heading": "General"
           }
@@ -155,28 +229,28 @@
         "other": {
           "type": "faq-category",
           "blocks": {
-            "stockists": {
-              "type": "faq-item",
-              "settings": {
-                "question": "We own a store and would like to stock your products. Is this possible?",
-                "answer": "If you are interested in stocking our products, please get in touch via our Contact Us page or email us at hello@supershelving.com.au"
-              }
-            },
             "wholesale": {
               "type": "faq-item",
               "settings": {
-                "question": "Do you offer wholesale for large bulk orders?",
-                "answer": "Yes, for large orders we can offer even more competitive pricing. Please get in touch via our Contact Us page or email us directly at hello@supershelving.com.au"
+                "question": "Do you sell wholesale or to retailers?",
+                "answer": "Yes. For bulk orders or if you'd like to stock our products, contact us via our Contact Us page or at hello@supershelving.com.au and we can offer competitive pricing."
               }
             }
           },
-          "block_order": ["stockists", "wholesale"],
+          "block_order": [
+            "wholesale"
+          ],
           "settings": {
             "heading": "Other"
           }
         }
       },
-      "block_order": ["shipping", "returns", "general", "other"],
+      "block_order": [
+        "shipping",
+        "returns",
+        "general",
+        "other"
+      ],
       "settings": {}
     }
   },
