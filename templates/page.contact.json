@@ -19,17 +19,9 @@
             "address": "4 Ardmillan Road, Moonee Ponds, 3039",
             "hours": "Monday to Friday 9am - 6pm\nSaturday & Sunday 10am - 5pm"
           }
-        },
-        "doveton": {
-          "type": "warehouse-location",
-          "settings": {
-            "name": "Doveton",
-            "address": "24b Princess Highway, Doveton, 3177",
-            "hours": "Monday to Friday 8am - 2pm\nSaturday & Sunday Closed"
-          }
         }
       },
-      "block_order": ["moonee-ponds", "doveton"],
+      "block_order": ["moonee-ponds"],
       "settings": {}
     }
   },
