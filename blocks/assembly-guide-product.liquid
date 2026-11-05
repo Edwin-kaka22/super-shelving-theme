@@ -231,11 +231,13 @@
   /* Logo shown on the cover frame only, for videos without it built in. */
   .assembly-product__logo-badge {
     position: absolute;
-    top: 4%;
-    left: 1.6%;
-    width: 21%;
-    padding: 0.55rem 0.5rem;
-    border-radius: 0.35rem;
+    /* Proportions measured from the logo built into the other videos
+       (1280x720 frame: badge 240px wide at 18px left / 20px top). */
+    top: 2.78%;
+    left: 1.41%;
+    width: 18.75%;
+    padding: 1.56% 1.41%;
+    border-radius: 0.4rem;
     background-color: #1f2120;
     pointer-events: none;
   }
