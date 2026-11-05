@@ -50,8 +50,9 @@
         <div class="assembly-product__player" data-assembly-player>
           {{ block.settings.video_file | video_tag: controls: true, preload: 'metadata', image_size: '1100x', title: block.settings.heading }}
           <button type="button" class="assembly-product__play-button" data-assembly-play aria-label="{{ 'assembly_guide.play_video' | t }}">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" fill="currentColor" aria-hidden="true">
-              <path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"></path>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M10 8.5v7l6-3.5-6-3.5z" fill="currentColor" stroke="none"></path>
             </svg>
           </button>
         </div>
@@ -186,22 +187,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 3.25rem;
-    height: 3.25rem;
-    padding: 0 0 0 0.15rem;
+    padding: 0;
     border: 0;
-    border-radius: 50%;
-    background-color: #1f2120;
-    color: #f8ba26;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
+    background: none;
+    color: #9a9a9d;
+    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.3));
     cursor: pointer;
     transform: translate(-50%, -50%);
     transition: transform 0.2s ease, opacity 0.2s ease;
   }
 
   .assembly-product__play-button svg {
-    width: 1.5rem;
-    height: 1.5rem;
+    display: block;
+    width: 3.25rem;
+    height: 3.25rem;
   }
 
   .assembly-product__play-button:hover {
@@ -315,23 +314,28 @@
 
 {% javascript %}
   // The big play button sits over an uploaded video and hides while it plays.
+  // The video's own control bar is only shown while it is playing.
   document.querySelectorAll('[data-assembly-player]').forEach(function (player) {
     var video = player.querySelector('video');
     var button = player.querySelector('[data-assembly-play]');
     if (!video || !button) return;
 
+    var showPlaying = function () {
+      button.hidden = true;
+      video.controls = true;
+    };
+    var showStopped = function () {
+      button.hidden = false;
+      video.controls = false;
+    };
+
+    video.controls = false;
     button.addEventListener('click', function () {
       video.play();
     });
-    video.addEventListener('play', function () {
-      button.hidden = true;
-    });
-    video.addEventListener('pause', function () {
-      button.hidden = false;
-    });
-    video.addEventListener('ended', function () {
-      button.hidden = false;
-    });
+    video.addEventListener('play', showPlaying);
+    video.addEventListener('pause', showStopped);
+    video.addEventListener('ended', showStopped);
   });
 {% endjavascript %}
 
