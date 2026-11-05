@@ -329,13 +329,43 @@
       video.controls = false;
     };
 
+    // Browsers briefly pause the video while the seek bar is dragged or
+    // clicked. Wait a moment before treating a pause as a real stop, so the
+    // controls aren't removed mid-skip.
+    var stopTimer;
+    var pointerDown = false;
+    var onPause = function () {
+      clearTimeout(stopTimer);
+      stopTimer = setTimeout(function () {
+        if (!video.paused) return;
+        if (pointerDown || video.seeking) return onPause();
+        showStopped();
+      }, 400);
+    };
+
+    player.addEventListener('pointerdown', function () {
+      pointerDown = true;
+    });
+    document.addEventListener('pointerup', function () {
+      pointerDown = false;
+    });
+    document.addEventListener('pointercancel', function () {
+      pointerDown = false;
+    });
+
     video.controls = false;
     button.addEventListener('click', function () {
       video.play();
     });
-    video.addEventListener('play', showPlaying);
-    video.addEventListener('pause', showStopped);
-    video.addEventListener('ended', showStopped);
+    video.addEventListener('play', function () {
+      clearTimeout(stopTimer);
+      showPlaying();
+    });
+    video.addEventListener('pause', onPause);
+    video.addEventListener('ended', function () {
+      clearTimeout(stopTimer);
+      showStopped();
+    });
   });
 {% endjavascript %}
 
