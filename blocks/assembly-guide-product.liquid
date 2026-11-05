@@ -47,7 +47,14 @@
   <div class="assembly-product__grid">
     <div class="assembly-product__video">
       {% if block.settings.video_file != blank %}
-        {{ block.settings.video_file | video_tag: controls: true, preload: 'metadata', image_size: '1100x', title: block.settings.heading }}
+        <div class="assembly-product__player" data-assembly-player>
+          {{ block.settings.video_file | video_tag: controls: true, preload: 'metadata', image_size: '1100x', title: block.settings.heading }}
+          <button type="button" class="assembly-product__play-button" data-assembly-play aria-label="{{ 'assembly_guide.play_video' | t }}">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" fill="currentColor" aria-hidden="true">
+              <path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"></path>
+            </svg>
+          </button>
+        </div>
       {% elsif block.settings.video != blank %}
         {% if block.settings.video.type == 'youtube' %}
           {% assign video_embed_url = 'https://www.youtube-nocookie.com/embed/' | append: block.settings.video.id %}
@@ -166,6 +173,45 @@
     border: 0;
   }
 
+  .assembly-product__player {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .assembly-product__play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6.5rem;
+    height: 6.5rem;
+    padding: 0 0 0 0.3rem;
+    border: 0;
+    border-radius: 50%;
+    background-color: #f8ba26;
+    color: #1f2120;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .assembly-product__play-button svg {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .assembly-product__play-button:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+
+  .assembly-product__play-button[hidden] {
+    display: none;
+  }
+
   .assembly-product__video-empty {
     display: flex;
     flex-direction: column;
@@ -266,6 +312,28 @@
     }
   }
 {% endstylesheet %}
+
+{% javascript %}
+  // The big play button sits over an uploaded video and hides while it plays.
+  document.querySelectorAll('[data-assembly-player]').forEach(function (player) {
+    var video = player.querySelector('video');
+    var button = player.querySelector('[data-assembly-play]');
+    if (!video || !button) return;
+
+    button.addEventListener('click', function () {
+      video.play();
+    });
+    video.addEventListener('play', function () {
+      button.hidden = true;
+    });
+    video.addEventListener('pause', function () {
+      button.hidden = false;
+    });
+    video.addEventListener('ended', function () {
+      button.hidden = false;
+    });
+  });
+{% endjavascript %}
 
 {% schema %}
 {
