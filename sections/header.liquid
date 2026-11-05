@@ -32,16 +32,22 @@
         {% if section.settings.logo %}
           {{ section.settings.logo | image_url: width: 300 | image_tag: loading: 'eager', alt: shop.name }}
         {% else %}
-          <img src="{{ logo_url }}" alt="{{ shop.name }}" loading="eager">
+          <img src="{{ logo_url }}" alt="{{ shop.name }}" width="1331" height="148" loading="eager">
         {% endif %}
-        <span class="header__logo-shine" style="--logo-mask: url('{{ logo_url }}');"></span>
+        <span class="header__logo-shine" data-logo-shine="{{ logo_url }}" style="--logo-mask: url('{{ logo_url }}');"></span>
       </span>
     </a>
 
     <nav class="header__nav">
       {% if section.settings.menu.links.size > 0 %}
         {% for link in section.settings.menu.links %}
-          <a href="{{ link.url }}">{{ link.title }}</a>
+          {%- liquid
+            assign link_url = link.url
+            if link.title == 'Assembly Instructions' and link.url == routes.root_url
+              assign link_url = routes.root_url | append: 'pages/assembly-instructions'
+            endif
+          -%}
+          <a href="{{ link_url }}">{{ link.title }}</a>
         {% endfor %}
       {% else %}
         {% for title in fallback_titles %}
@@ -117,9 +123,9 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: linear-gradient(100deg, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0.55) 50%, rgba(255, 255, 255, 0) 65%);
+    background: linear-gradient(100deg, rgba(255, 255, 255, 0) 37%, rgba(255, 255, 255, 1) 49%, rgba(255, 255, 255, 1) 51%, rgba(255, 255, 255, 0) 63%);
     background-size: 300% 100%;
-    background-position: 100% 0;
+    background-position: 85% 0;
     background-repeat: no-repeat;
     -webkit-mask-image: var(--logo-mask);
     mask-image: var(--logo-mask);
@@ -129,20 +135,27 @@
     mask-repeat: no-repeat;
     -webkit-mask-position: center;
     mask-position: center;
-    animation: header-logo-shine 1.4s ease-in-out 0.6s 1 both;
+    /* Hidden until the logo mask has loaded; without it the shine is a plain
+       white rectangle over the logo. */
+    visibility: hidden;
+  }
+
+  .header__logo-shine.is-ready {
+    visibility: visible;
+    animation: header-logo-shine 0.7s linear 0.3s 2 forwards;
   }
 
   @keyframes header-logo-shine {
     from {
-      background-position: 100% 0;
+      background-position: 85% 0;
     }
     to {
-      background-position: 0% 0;
+      background-position: 15% 0;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .header__logo-shine {
+    .header__logo-shine.is-ready {
       animation: none;
     }
   }
@@ -215,6 +228,20 @@
     font-size: 0.65rem;
   }
 {% endstylesheet %}
+
+{% javascript %}
+  // Start the shine only once the logo file is loaded, so the mask is ready
+  // and the effect never shows as a plain rectangle.
+  document.querySelectorAll('[data-logo-shine]').forEach(function (shine) {
+    var logo = new Image();
+    var start = function () {
+      shine.classList.add('is-ready');
+    };
+    logo.onload = start;
+    logo.src = shine.getAttribute('data-logo-shine');
+    if (logo.complete && logo.naturalWidth) start();
+  });
+{% endjavascript %}
 
 {% schema %}
 {
