@@ -51,6 +51,13 @@
           {% if block.settings.video_poster != blank %}
             {% assign poster_url = block.settings.video_poster | image_url: width: 1100 %}
             {{ block.settings.video_file | video_tag: controls: true, preload: 'metadata', poster: poster_url, title: block.settings.heading }}
+          {% elsif block.settings.video_cover_second > 0 %}
+            {%- comment -%} No poster attribute, so the browser shows the frame the script seeks to. {%- endcomment -%}
+            <video playsinline preload="metadata" title="{{ block.settings.heading | escape }}" data-cover-second="{{ block.settings.video_cover_second }}">
+              {%- for source in block.settings.video_file.sources -%}
+                <source src="{{ source.url }}" type="{{ source.mime_type }}">
+              {%- endfor -%}
+            </video>
           {% else %}
             {{ block.settings.video_file | video_tag: controls: true, preload: 'metadata', image_size: '1100x', title: block.settings.heading }}
           {% endif %}
@@ -358,11 +365,29 @@
       pointerDown = false;
     });
 
+    // Optional cover frame: seek to the chosen second so the browser shows
+    // that frame, then start from the beginning on the first play.
+    var coverSecond = parseFloat(video.getAttribute('data-cover-second')) || 0;
+    var coverActive = false;
+    if (coverSecond > 0) {
+      var seekToCover = function () {
+        var target = Math.min(coverSecond, Math.max(video.duration - 0.1, 0));
+        coverActive = true;
+        video.currentTime = target;
+      };
+      if (video.readyState >= 1) seekToCover();
+      else video.addEventListener('loadedmetadata', seekToCover, { once: true });
+    }
+
     video.controls = false;
     button.addEventListener('click', function () {
       video.play();
     });
     video.addEventListener('play', function () {
+      if (coverActive) {
+        coverActive = false;
+        video.currentTime = 0;
+      }
       clearTimeout(stopTimer);
       showPlaying();
     });
@@ -418,6 +443,12 @@
       "id": "video_poster",
       "label": "t:labels.assembly_video_poster",
       "info": "t:labels.assembly_video_poster_info"
+    },
+    {
+      "type": "number",
+      "id": "video_cover_second",
+      "label": "t:labels.assembly_video_cover_second",
+      "info": "t:labels.assembly_video_cover_second_info"
     },
     {
       "type": "video_url",
