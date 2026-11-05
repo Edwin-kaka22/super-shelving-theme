@@ -46,7 +46,9 @@
 
   <div class="assembly-product__grid">
     <div class="assembly-product__video">
-      {% if block.settings.video != blank %}
+      {% if block.settings.video_file != blank %}
+        {{ block.settings.video_file | video_tag: controls: true, preload: 'metadata', image_size: '1100x', title: block.settings.heading }}
+      {% elsif block.settings.video != blank %}
         {% if block.settings.video.type == 'youtube' %}
           {% assign video_embed_url = 'https://www.youtube-nocookie.com/embed/' | append: block.settings.video.id %}
         {% else %}
@@ -156,6 +158,7 @@
     background-color: #f4f4f5;
   }
 
+  .assembly-product__video video,
   .assembly-product__video iframe {
     display: block;
     width: 100%;
@@ -296,6 +299,12 @@
       "type": "textarea",
       "id": "description",
       "label": "t:labels.description"
+    },
+    {
+      "type": "video",
+      "id": "video_file",
+      "label": "t:labels.assembly_video_file",
+      "info": "t:labels.assembly_video_file_info"
     },
     {
       "type": "video_url",
