@@ -48,7 +48,12 @@
     <div class="assembly-product__video">
       {% if block.settings.video_file != blank %}
         <div class="assembly-product__player" data-assembly-player>
-          {{ block.settings.video_file | video_tag: controls: true, preload: 'metadata', image_size: '1100x', title: block.settings.heading }}
+          {% if block.settings.video_poster != blank %}
+            {% assign poster_url = block.settings.video_poster | image_url: width: 1100 %}
+            {{ block.settings.video_file | video_tag: controls: true, preload: 'metadata', poster: poster_url, title: block.settings.heading }}
+          {% else %}
+            {{ block.settings.video_file | video_tag: controls: true, preload: 'metadata', image_size: '1100x', title: block.settings.heading }}
+          {% endif %}
           <button type="button" class="assembly-product__play-button" data-assembly-play aria-label="{{ 'assembly_guide.play_video' | t }}">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
               <circle cx="12" cy="12" r="10"></circle>
@@ -407,6 +412,12 @@
       "id": "video_file",
       "label": "t:labels.assembly_video_file",
       "info": "t:labels.assembly_video_file_info"
+    },
+    {
+      "type": "image_picker",
+      "id": "video_poster",
+      "label": "t:labels.assembly_video_poster",
+      "info": "t:labels.assembly_video_poster_info"
     },
     {
       "type": "video_url",
