@@ -8,15 +8,41 @@
   {% content_for 'block', type: 'assembly-guide-product', id: 'assembly-guide-product-1' %}
 {% enddoc %}
 
-{% assign assembly_steps = block.settings.steps | newline_to_br | split: '<br />' %}
+{% liquid
+  assign assembly_steps = block.settings.steps | newline_to_br | split: '<br />'
+  assign image_choice = block.settings.product_image
+  assign fallback_image = blank
+  case image_choice
+    when 'steel_shelving'
+      assign fallback_image = 'category-steel-shelving.png' | asset_url
+    when 'mdf_shelving'
+      assign fallback_image = 'category-mdf-shelving.png' | asset_url
+    when 'steel_workbenches'
+      assign fallback_image = 'category-steel-workbenches.png' | asset_url
+  endcase
+%}
 <div class="assembly-product" {{ block.shopify_attributes }}>
-  {% if block.settings.heading != blank %}
-    <h2 class="assembly-product__heading">{{ block.settings.heading }}</h2>
-  {% endif %}
+  <div class="assembly-product__intro">
+    {% if block.settings.image != blank %}
+      <div class="assembly-product__image">
+        {{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', alt: block.settings.heading }}
+      </div>
+    {% elsif fallback_image != blank %}
+      <div class="assembly-product__image">
+        <img src="{{ fallback_image }}" alt="{{ block.settings.heading | escape }}" width="1254" height="1254" loading="lazy">
+      </div>
+    {% endif %}
 
-  {% if block.settings.description != blank %}
-    <p class="assembly-product__description">{{ block.settings.description }}</p>
-  {% endif %}
+    <div class="assembly-product__intro-text">
+      {% if block.settings.heading != blank %}
+        <h2 class="assembly-product__heading">{{ block.settings.heading }}</h2>
+      {% endif %}
+
+      {% if block.settings.description != blank %}
+        <p class="assembly-product__description">{{ block.settings.description }}</p>
+      {% endif %}
+    </div>
+  </div>
 
   <div class="assembly-product__grid">
     <div class="assembly-product__video">
@@ -75,6 +101,28 @@
     border: 1px solid #e5e5e7;
     border-radius: 1rem;
     background-color: #ffffff;
+  }
+
+  .assembly-product__intro {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .assembly-product__image {
+    flex: none;
+    width: 6.5rem;
+    height: 6.5rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background-color: #f4f4f5;
+  }
+
+  .assembly-product__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .assembly-product__heading {
@@ -225,6 +273,24 @@
       "id": "heading",
       "label": "t:labels.heading",
       "default": "Product type"
+    },
+    {
+      "type": "select",
+      "id": "product_image",
+      "label": "t:labels.assembly_image",
+      "options": [
+        { "value": "none", "label": "t:options.assembly_image.none" },
+        { "value": "steel_shelving", "label": "t:options.assembly_image.steel_shelving" },
+        { "value": "mdf_shelving", "label": "t:options.assembly_image.mdf_shelving" },
+        { "value": "steel_workbenches", "label": "t:options.assembly_image.steel_workbenches" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:labels.assembly_image_upload",
+      "info": "t:labels.assembly_image_upload_info"
     },
     {
       "type": "textarea",

@@ -194,6 +194,9 @@
     "guide_best_for": "Best for",
     "guide_specs": "Quick specs",
     "guide_specs_info": "One per line, written as Label: value.",
+    "assembly_image": "Product image",
+    "assembly_image_upload": "Custom product image",
+    "assembly_image_upload_info": "Optional. Replaces the product image chosen above.",
     "assembly_video": "Assembly video",
     "assembly_steps": "Assembly steps",
     "assembly_steps_info": "One step per line. Numbers are added automatically.",
@@ -214,6 +217,12 @@
     "weight": "Weight"
   },
   "options": {
+    "assembly_image": {
+      "none": "None",
+      "steel_shelving": "Steel shelving",
+      "mdf_shelving": "MDF shelving",
+      "steel_workbenches": "Steel workbenches"
+    },
     "alignment": {
       "left": "Left",
       "center": "Center",
