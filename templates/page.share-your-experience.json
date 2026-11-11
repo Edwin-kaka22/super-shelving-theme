@@ -41,7 +41,10 @@
         }
       },
       "block_order": ["review-1", "review-2", "review-4", "review-5"],
-      "settings": {}
+      "settings": {
+        "google_link": "https://g.page/r/CcH0HYpTwpa5EAI/review",
+        "photo_form_link": "https://form.jotform.com/263138521901048"
+      }
     }
   },
   "order": [
